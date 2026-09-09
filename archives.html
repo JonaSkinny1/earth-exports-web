@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -40,105 +47,140 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/archives<span class="dim">$</span> psql afc_public</p>
         <p class="section-label">AFC-SB-01 · Public teaser</p>
         <h1>Archives — AFC Index (Public)<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">Sixteen filings. One embargo. The rest are for sale on cardstock.<br>Public index only: Archive ID, common designation, diplomatic status. Full biology stays in the paid dossiers.</p>
+        <div class="stamp-row">
+          <span class="stamp">AFC*</span>
+          <span class="stamp inspected">PUBLIC INDEX</span>
+          <span class="stamp embargoed">1 EMBARGO</span>
+        </div>
+        <p class="dossier-marginalia">* Archive of First Contact is house fiction — speculative worldbuilding, not a real archive.</p>
       </div>
     </div>
 
     <div class="wrap">
-      <div class="table-wrap">
-        <table class="data">
-          <thead>
-            <tr>
-              <th>Archive ID</th>
-              <th>Designation</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="mono">AFC-01.00</td>
-              <td>Vel-Keth</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-02.00</td>
-              <td>Orrin</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-03.00</td>
-              <td>Mirenth</td>
-              <td><span class="status status-observer">Observer</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-04.00</td>
-              <td>Kael Drax</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-05.00</td>
-              <td>Sylvaxi</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-06.00</td>
-              <td>Husk Consortium</td>
-              <td><span class="status status-observer">Observer</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-07.00</td>
-              <td>Rhell</td>
-              <td><span class="status status-observer">Observer</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-08.00</td>
-              <td>Torvann</td>
-              <td><span class="status status-restricted">Restricted</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-09.00</td>
-              <td>Pelagra</td>
-              <td><span class="status status-observer">Observer</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-10.00</td>
-              <td>Ixen</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-11.00</td>
-              <td>Bracken-Moot</td>
-              <td><span class="status status-observer">Observer</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-12.00</td>
-              <td>Nul-Sera</td>
-              <td><span class="status status-restricted">Restricted</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-13.00</td>
-              <td>Gorruth</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-14.00</td>
-              <td>Vesper Ring</td>
-              <td><span class="status status-treaty">Treaty</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-15.00</td>
-              <td>Kethra Void-Clans</td>
-              <td><span class="status status-restricted">Restricted</span></td>
-            </tr>
-            <tr>
-              <td class="mono">AFC-16.00</td>
-              <td>Object 9 / “The Invoice”</td>
-              <td><span class="status status-embargoed">Embargoed (direct)</span></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="query-console">
+        <div class="query-header">
+          <span>AFC_PUBLIC · INDEX QUERY</span>
+          <span class="qh-ok">16 rows · OK</span>
+        </div>
+        <div class="query-sql"><span class="kw">SELECT</span> archive_id, designation, status
+<span class="kw">FROM</span> afc_index
+<span class="kw">WHERE</span> release = <span class="str">'PUBLIC'</span>
+<span class="kw">ORDER BY</span> archive_id;</div>
+        <div class="query-meta">afc_public@yng · read-only · house fiction ledger · biology redacted <span aria-hidden="true">████</span></div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th class="row-num">#</th>
+                <th>Archive ID</th>
+                <th>Designation</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-num">01</td>
+                <td class="mono">AFC-01.00</td>
+                <td>Vel-Keth</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">02</td>
+                <td class="mono">AFC-02.00</td>
+                <td>Orrin</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">03</td>
+                <td class="mono">AFC-03.00</td>
+                <td>Mirenth</td>
+                <td><span class="status status-observer">Observer</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">04</td>
+                <td class="mono">AFC-04.00</td>
+                <td>Kael Drax</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">05</td>
+                <td class="mono">AFC-05.00</td>
+                <td>Sylvaxi</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">06</td>
+                <td class="mono">AFC-06.00</td>
+                <td>Husk Consortium</td>
+                <td><span class="status status-observer">Observer</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">07</td>
+                <td class="mono">AFC-07.00</td>
+                <td>Rhell</td>
+                <td><span class="status status-observer">Observer</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">08</td>
+                <td class="mono">AFC-08.00</td>
+                <td>Torvann</td>
+                <td><span class="status status-restricted">Restricted</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">09</td>
+                <td class="mono">AFC-09.00</td>
+                <td>Pelagra</td>
+                <td><span class="status status-observer">Observer</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">10</td>
+                <td class="mono">AFC-10.00</td>
+                <td>Ixen</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">11</td>
+                <td class="mono">AFC-11.00</td>
+                <td>Bracken-Moot</td>
+                <td><span class="status status-observer">Observer</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">12</td>
+                <td class="mono">AFC-12.00</td>
+                <td>Nul-Sera</td>
+                <td><span class="status status-restricted">Restricted</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">13</td>
+                <td class="mono">AFC-13.00</td>
+                <td>Gorruth</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">14</td>
+                <td class="mono">AFC-14.00</td>
+                <td>Vesper Ring</td>
+                <td><span class="status status-treaty">Treaty</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">15</td>
+                <td class="mono">AFC-15.00</td>
+                <td>Kethra Void-Clans</td>
+                <td><span class="status status-restricted">Restricted</span></td>
+              </tr>
+              <tr>
+                <td class="row-num">16</td>
+                <td class="mono">AFC-16.00</td>
+                <td>Object 9 / “The Invoice”</td>
+                <td><span class="status status-embargoed">Embargoed (direct)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="cta-row">
@@ -160,7 +202,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>

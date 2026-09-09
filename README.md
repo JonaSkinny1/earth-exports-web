@@ -59,8 +59,10 @@ Any static file server works (`npx serve`, Caddy, nginx, etc.).
 ## Design locks
 
 - Palette: `#0B0E14` / `#0D1117` · `#1C2331` · `#00A896` / `#028090` · `#F77F00` · `#E0E6ED`
+- Accents (CRT): phosphor green `#39FF14` · amber `#FFB000` — CTAs stay orange/teal
 - Primary CTA: hazard orange · Secondary: peacock teal
-- Lived-in industrial / invoice-ledger-stamp vibe — not conspiracy or UFO stock
+- Aesthetic: merchant clearance console / AFC public terminal (classified-adjacent chrome, house fiction)
+- Not conspiracy, not fake FOIA, not lookalike real gov credentials presented as authentic
 
 ## Disclaimer (sitewide)
 

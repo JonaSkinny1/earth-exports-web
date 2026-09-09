@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Send a Filing · Earth Exports</title>
+  <title>File a Query · Earth Exports</title>
   <meta name="description" content="We stamp replies in Earth time. Usually within a few days. Inquire for Sector 01, relic waitlist, schematics, or commissions.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -40,9 +47,14 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/comms<span class="dim">$</span> open QUERY_DESK<span class="cursor-blink" aria-hidden="true"></span></p>
         <p class="section-label">Communications desk</p>
-        <h1>Send a Filing<span class="rule" aria-hidden="true"></span></h1>
+        <h1>File a Query<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">We stamp replies in Earth time. Usually within a few days.</p>
+        <div class="stamp-row">
+          <span class="stamp inspected">INSPECTED</span>
+          <span class="stamp yng">YNG-OH</span>
+        </div>
       </div>
     </div>
 
@@ -52,31 +64,37 @@
         Replace action / wire to a form backend before production checkout.
       -->
       <form class="filing-form" action="mailto:filings@earthexports.example" method="post" enctype="text/plain">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="Name" required autocomplete="name">
+        <div class="form-chrome">
+          <span class="fc-title">FILE A QUERY · EE-COMMS</span>
+          <span>channel: public · encryption: none (mailto)</span>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="Email" required autocomplete="email">
+        <div class="form-body">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" required autocomplete="name" placeholder="operator callsign / legal name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" required autocomplete="email" placeholder="reply-to@earth.local">
+          </div>
+          <div class="field">
+            <label for="intent">Intent</label>
+            <select id="intent" name="Intent" required>
+              <option value="">Select lane…</option>
+              <option value="Sector 01">Sector 01</option>
+              <option value="Relic waitlist">Relic waitlist</option>
+              <option value="Schematic">Schematic</option>
+              <option value="Commission">Commission</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" required placeholder="&gt; enter query body…"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Transmit query</button>
+          <p class="form-note">&gt; Static build: this form uses <code>mailto:</code> (or set <code>action="#"</code> and wire a backend later). Real replies only — no classified uplink cosplay.</p>
         </div>
-        <div class="field">
-          <label for="intent">Intent</label>
-          <select id="intent" name="Intent" required>
-            <option value="">Select lane…</option>
-            <option value="Sector 01">Sector 01</option>
-            <option value="Relic waitlist">Relic waitlist</option>
-            <option value="Schematic">Schematic</option>
-            <option value="Commission">Commission</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="Message" required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Send filing</button>
-        <p class="form-note">Static build: this form uses <code>mailto:</code> (or set <code>action="#"</code> and wire a backend later). No “classified uplink” cosplay — real replies only.</p>
       </form>
     </div>
   </main>
@@ -93,7 +111,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>

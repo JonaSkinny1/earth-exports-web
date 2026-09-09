@@ -12,3 +12,5 @@ dist/
 .cache/
 .netlify/
 .wrangler/
+
+preview-*.png

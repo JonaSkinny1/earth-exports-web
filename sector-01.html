@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -40,9 +47,14 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/sector-01<span class="dim">$</span> ls dossiers/</p>
         <p class="section-label">Flagship lane</p>
         <h1>Sector 01 — Dossiers &amp; Games<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">Card-scale filings from the Archive of First Contact. Poker decks styled as declassified-style dossier files — linen stock, black core, tuck boxes like archive folders. The entry product for the house.</p>
+        <div class="stamp-row">
+          <span class="stamp inspected">INSPECTED</span>
+          <span class="stamp hazard">FLAGSHIP</span>
+        </div>
       </div>
     </div>
 
@@ -54,28 +66,39 @@
 
       <h2>On the shelf<span class="rule" aria-hidden="true"></span></h2>
       <p class="sub">Tiers — prices locked to year-one posture; SKU Manifest/Batch IDs assigned at art lock.</p>
-      <div class="table-wrap">
-        <table class="data">
-          <thead>
-            <tr>
-              <th>Tier</th>
-              <th>Role</th>
-              <th>Price posture</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Door deck</td>
-              <td>Index / Primer — always the public door</td>
-              <td class="mono">USD $28–32</td>
-            </tr>
-            <tr>
-              <td>Limited run</td>
-              <td>Restricted File or MANIFEST game SKU — numbered short run</td>
-              <td class="mono">USD $48–65</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="query-console">
+        <div class="query-header">
+          <span>RESULT SET · SECTOR_01_TIERS</span>
+          <span class="qh-ok">2 rows · OK</span>
+        </div>
+        <div class="query-sql"><span class="kw">SELECT</span> tier, role, price_posture <span class="kw">FROM</span> sector_01_shelf <span class="kw">WHERE</span> clearance = <span class="str">'PUBLIC'</span>;</div>
+        <div class="query-meta">query time 0.00s · house ledger · not a live bank feed</div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th class="row-num">#</th>
+                <th>Tier</th>
+                <th>Role</th>
+                <th>Price posture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-num">01</td>
+                <td>Door deck</td>
+                <td>Index / Primer — always the public door</td>
+                <td class="mono">USD $28–32</td>
+              </tr>
+              <tr>
+                <td class="row-num">02</td>
+                <td>Limited run</td>
+                <td>Restricted File or MANIFEST game SKU — numbered short run</td>
+                <td class="mono">USD $48–65</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <h2>Featured hooks<span class="rule" aria-hidden="true"></span></h2>
@@ -112,7 +135,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>

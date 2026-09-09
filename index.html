@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -37,16 +44,27 @@
     </div>
   </header>
 
+  <div class="boot-sequence" id="boot-sequence" aria-live="polite">
+    <p class="boot-line boot-dim">&gt; establishing uplink…</p>
+    <p class="boot-line">&gt; routing through Youngstown Outpost // Sol-3</p>
+    <p class="boot-line">&gt; handshake: merchant clearance console · AFC public terminal</p>
+    <p class="boot-line boot-ok">&gt; clearance: PUBLIC DECLASSIFIED · house mark EE-YNG-0001</p>
+    <p class="boot-line boot-dim">&gt; fiction frame locked · ready<span class="cursor-blink" aria-hidden="true"></span></p>
+  </div>
+
   <main>
     <section class="hero">
       <div class="hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/public<span class="dim">$</span> cat WELCOME.txt</p>
         <div class="stamp-row">
           <span class="stamp">House Mark</span>
           <span class="stamp hazard">Trade Year 2076</span>
+          <span class="stamp inspected">INSPECTED</span>
+          <span class="stamp yng amber">YNG-OH</span>
         </div>
         <h1>The galaxy opened with an invoice.<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">Artifacts &amp; Blueprints for the Deep Frontier.</p>
-        <p class="meta-line">Youngstown Outpost // Sol-3 · House EE-YNG-0001 · Trade year 2076.</p>
+        <p class="meta-line">Youngstown Outpost // Sol-3 · House EE-YNG-0001 · Trade year 2076 · <span class="redact-inline" aria-hidden="true">████</span> lane open</p>
         <div class="body-copy">
           <p>Trade lanes don’t open with speeches. They open when someone stamps a ledger and ships the crate. Earth Exports is an independent Sol-3 merchant house. We manufacture dossier decks, field relics, and licensed fabrication schematics — culture you can hold, filed under a house mark, built in a gravity well.</p>
         </div>
@@ -58,7 +76,7 @@
     </section>
 
     <div class="wrap">
-      <p class="section-label">Lane map</p>
+      <p class="section-label">Lane map · query lanes</p>
       <div class="tile-grid">
         <article class="tile">
           <a class="tile-link" href="sector-01.html">
@@ -87,7 +105,7 @@
       </div>
     </div>
 
-    <div class="proof-bar">Printed &amp; filed in Youngstown, Ohio · Speculative fiction artifacts</div>
+    <div class="proof-bar">Printed &amp; filed in Youngstown, Ohio <span class="sep" aria-hidden="true">·</span> Speculative fiction artifacts <span class="sep" aria-hidden="true">·</span> Not authentic gov docs</div>
   </main>
 
   <footer class="site-footer">
@@ -102,7 +120,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>

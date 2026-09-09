@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -40,9 +47,14 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/sector-04<span class="dim">$</span> cat LICENSE.md</p>
         <p class="section-label">Licensed fabrication</p>
         <h1>Sector 04 — Schematics<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">Artifacts &amp; Blueprints for the Deep Frontier.<br>Licensed fabrication files for makers. Clearance level, build volume, material, supported/unsupported, versioned filename. Not a junk zip.</p>
+        <div class="stamp-row">
+          <span class="stamp inspected">INSPECTED</span>
+          <span class="stamp">VERSIONED</span>
+        </div>
       </div>
     </div>
 
@@ -87,7 +99,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>

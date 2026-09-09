@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="transit-bar" role="note">
-    <span>Local Transit: Youngstown Outpost // Sol-3</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Clearance Level: Public Declassified</span>
-    <span class="sep" aria-hidden="true">·</span>
-    <span>Currency Accepted: USD / Terran Credits</span>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <div class="status-bar" role="status" aria-label="Terminal status">
+    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
+    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
+    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">YNG // SOL-3</span></div>
+    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  </div>
+
+  <div class="access-banner" role="note">
+    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
+    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-YNG-0001</span>
+    <span class="access-tag">house fiction · not a gov node</span>
   </div>
 
   <header class="site-header">
@@ -40,15 +47,22 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
+        <p class="sys-line"><span class="prompt">ee@yng</span><span class="dim">:</span>~/sector-02<span class="dim">$</span> inventory --crates=4</p>
         <p class="section-label">Scarcity shelf · Cap four</p>
         <h1>Sector 02 — Relics<span class="rule" aria-hidden="true"></span></h1>
         <p class="lead">Physical artifacts finished for display. First wave shares one weather language: oxide primer, hazard stencil, inspection stamp, EE serial plate. When a crate clears, the lane closes.</p>
+        <div class="stamp-row">
+          <span class="stamp yng">YNG-OH</span>
+          <span class="stamp hazard">SCARCITY</span>
+          <span class="stamp embargoed" title="Decorative house stamp">EMBARGOED*</span>
+        </div>
+        <p class="dossier-marginalia">* Decorative house stamp on closed crates — not a real trade embargo.</p>
       </div>
     </div>
 
     <div class="wrap">
       <h2>First-wave object designations<span class="rule" aria-hidden="true"></span></h2>
-      <p class="sub">Names from year-one product law — Manifest No. / Batch assigned at SKU lock.</p>
+      <p class="sub">Names from year-one product law — Manifest No. / Batch assigned at SKU lock. <span class="redact-inline" aria-hidden="true">████████</span> serial pending.</p>
 
       <div class="relic-grid">
         <article class="relic-card">
@@ -98,7 +112,10 @@
         <li><a href="archives.html">Archives</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-disclaimer">Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.</p>
+      <p class="footer-disclaimer">
+        <span class="fd-label">Public filing · Disclaimer</span>
+        Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
+      </p>
     </div>
   </footer>
   <script src="js/nav.js"></script>
