@@ -59,45 +59,67 @@
     </div>
 
     <div class="wrap">
+      <div class="hazard-rail" aria-hidden="true"></div>
       <h2>How the file works<span class="rule" aria-hidden="true"></span></h2>
       <div class="body-copy">
         <p>Each card carries an Archive ID, a designation, a diplomatic status (Treaty / Observer / Restricted / Embargoed), and one sensory hook short enough to live under a stamp. Source bible: AFC-SB-01. Sixteen species. No borrowed conspiracies.</p>
       </div>
 
       <h2>On the shelf<span class="rule" aria-hidden="true"></span></h2>
-      <p class="sub">Tiers — prices locked to year-one posture; SKU Manifest/Batch IDs assigned at art lock.</p>
-      <div class="query-console">
-        <div class="query-header">
-          <span>RESULT SET · SECTOR_01_TIERS</span>
-          <span class="qh-ok">2 rows · OK</span>
-        </div>
-        <div class="query-sql"><span class="kw">SELECT</span> tier, role, price_posture <span class="kw">FROM</span> sector_01_shelf <span class="kw">WHERE</span> clearance = <span class="str">'PUBLIC'</span>;</div>
-        <div class="query-meta">query time 0.00s · house ledger · not a live bank feed</div>
-        <div class="table-wrap">
-          <table class="data">
-            <thead>
-              <tr>
-                <th class="row-num">#</th>
-                <th>Tier</th>
-                <th>Role</th>
-                <th>Price posture</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="row-num">01</td>
-                <td>Door deck</td>
-                <td>Index / Primer — always the public door</td>
-                <td class="mono">USD $28–32</td>
-              </tr>
-              <tr>
-                <td class="row-num">02</td>
-                <td>Limited run</td>
-                <td>Restricted File or MANIFEST game SKU — numbered short run</td>
-                <td class="mono">USD $48–65</td>
-              </tr>
-            </tbody>
-          </table>
+      <p class="sub">Tiers — prices locked to year-one posture; SKU Manifest/Batch IDs assigned at art lock. Tariff stamps provisional until art lock.</p>
+
+      <div class="cargo-rack" aria-label="Sector 01 shelf crates">
+        <article class="cargo-crate">
+          <span class="slot">Shelf 01</span>
+          <h3>Door deck</h3>
+          <p>Index / Primer — always the public door. Linen stock, black core, tuck like an archive folder.</p>
+          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $28–32</span></div>
+        </article>
+        <article class="cargo-crate">
+          <span class="slot">Shelf 02</span>
+          <h3>Limited run</h3>
+          <p>Restricted File or MANIFEST game SKU — numbered short run. When the batch clears, the lane closes.</p>
+          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $48–65</span></div>
+        </article>
+      </div>
+
+      <div class="bulkhead holo-edge">
+        <span class="rivet-bl" aria-hidden="true"></span>
+        <span class="rivet-br" aria-hidden="true"></span>
+        <p class="bulkhead-label">Ledger echo · <span>SECTOR_01_TIERS</span></p>
+        <div class="query-console">
+          <div class="query-header">
+            <span>RESULT SET · SECTOR_01_TIERS</span>
+            <span class="qh-ok">2 rows · OK</span>
+          </div>
+          <div class="query-sql"><span class="kw">SELECT</span> tier, role, price_posture <span class="kw">FROM</span> sector_01_shelf <span class="kw">WHERE</span> clearance = <span class="str">'PUBLIC'</span>;</div>
+          <div class="query-meta">query time 0.00s · house ledger · not a live bank feed</div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th class="row-num">#</th>
+                  <th>Tier</th>
+                  <th>Role</th>
+                  <th>Price posture</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="row-num">01</td>
+                  <td>Door deck</td>
+                  <td>Index / Primer — always the public door</td>
+                  <td class="mono">USD $28–32</td>
+                </tr>
+                <tr>
+                  <td class="row-num">02</td>
+                  <td>Limited run</td>
+                  <td>Restricted File or MANIFEST game SKU — numbered short run</td>
+                  <td class="mono">USD $48–65</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -112,6 +134,8 @@
       </ul>
 
       <div class="panel">
+        <span class="rivet-bl" aria-hidden="true"></span>
+        <span class="rivet-br" aria-hidden="true"></span>
         <h3>MANIFEST</h3>
         <p>A playable 2–4 player game (~20 minutes). Rules live in an 8-page Field Circular inside the tuck. Still Sector 01 — not a separate shop silo.</p>
       </div>
