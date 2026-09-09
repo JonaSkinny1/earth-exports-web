@@ -1,4 +1,4 @@
-/* Earth Exports · EE-YNG-0001 — Merchant clearance console / AFC public terminal */
+/* Earth Exports · EE-OH-0001 — Merchant clearance console / AFC public terminal */
 :root {
   --slate-deep: #0B0E14;
   --slate: #0D1117;
@@ -193,6 +193,28 @@ code {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+.brand:hover { text-decoration: none; }
+.brand:hover .wordmark { color: var(--teal); }
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+  image-rendering: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 168, 150, 0.25));
+}
+@media (min-width: 720px) {
+  .brand-logo { width: 64px; height: 64px; }
 }
 
 .wordmark {

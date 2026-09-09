@@ -1,7 +1,7 @@
 # Earth Exports — Year-One Website
 
-**House Mark:** Earth Exports · EE-YNG-0001  
-**Outpost:** Youngstown Outpost // Sol-3  
+**House Mark:** Earth Exports · EE-OH-0001  
+**Outpost:** Ohio Outpost // Sol-3  
 **Stack:** Pure static HTML/CSS (+ tiny nav JS). No React, no bundler.
 
 Copy source: `EE-WEB-COPY-v0.1` · Species index: `AFC-SPECIES-BIBLE-v1.0` (public Archive ID / designation / status only).
@@ -15,7 +15,7 @@ Copy source: `EE-WEB-COPY-v0.1` · Species index: `AFC-SPECIES-BIBLE-v1.0` (publ
 | `sector-01.html` | Sector 01 — Dossiers & Games |
 | `sector-02.html` | Sector 02 — Relics (≤4, Filing…) |
 | `sector-04.html` | Sector 04 — Schematics |
-| `outpost.html` | Youngstown Outpost |
+| `outpost.html` | Ohio Outpost |
 | `archives.html` | AFC Index (public) |
 | `contact.html` | Send a Filing |
 
