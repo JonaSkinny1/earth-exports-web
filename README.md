@@ -67,3 +67,7 @@ Any static file server works (`npx serve`, Caddy, nginx, etc.).
 ## Disclaimer (sitewide)
 
 Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency.
+
+
+## Brand mark
+Primary header logo: `assets/logos/ee-logo-sol3-mark.svg` (vector). Raster reference: `ee-logo-sol3-final.png`.
