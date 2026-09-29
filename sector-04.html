@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-face="public">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sector 04 — Schematics · Earth Exports</title>
-  <meta name="description" content="Licensed fabrication files for makers. Clearance level, build volume, material, supported/unsupported, versioned filename.">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>STL Files · Earth Exports</title>
+  <meta name="description" content="3D-print files of our props and parts, with print notes and plain-English license terms.">
+  <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=20260927-tabs">
 </head>
-<body>
-  <div class="crt-overlay" aria-hidden="true"></div>
+<body class="mode-public">
+  <div class="starfield" aria-hidden="true"></div>
+  <div class="crt-overlay" aria-hidden="true" hidden></div>
 
-  <div class="status-bar" role="status" aria-label="Terminal status">
-    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
-    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
-    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">OHIO // SOL-3</span></div>
-    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  <div class="cargo-feed" role="region" aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" tabindex="0">
+    <span class="cf-live" aria-hidden="true"><span class="cf-dot"></span>LIVE</span>
+    <span class="cf-label">Ship’s log <span class="cf-label-x">· in-world feed</span></span>
+    <div class="cf-viewport">
+      <ul class="cf-track">
+        <li class="cf-item"><span class="cf-tag hz">ALERT</span><span class="cf-text">Incoming blueprints from Sector 4592 (Bla-bla Galaxy). Routing to the STL files bay.</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="access-banner" role="note">
-    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
-    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-OH-0001</span>
-    <span class="access-tag">house fiction · not a gov node</span>
+
+  <div class="lounge-note" id="lounge-note" role="note">
+    <span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>
+    made in Ohio · original fiction, real goods · local flea
   </div>
 
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Earth Exports home">
         <img class="brand-logo" src="assets/logos/ee-logo-sol3-mark.svg" width="72" height="72" alt="Earth Exports Sol-3 mark">
+        <span class="side-emblem" aria-hidden="true">
+          <svg class="em-earth" viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="#028090" stroke="#00A896" stroke-width="2"/><path d="M11 16c4-3 7 1 10-1s4-5 8-2M12 25c3 1 5-2 9 0s6 3 8 1" fill="none" stroke="#E0E6ED" stroke-width="1.6" stroke-linecap="round" opacity=".8"/></svg>
+          <svg class="em-ufo" viewBox="0 0 40 40"><ellipse cx="20" cy="16" rx="7" ry="6" fill="#A78BFF" opacity=".85"/><ellipse cx="20" cy="22" rx="16" ry="5" fill="#1C2331" stroke="#F77F00" stroke-width="2"/><circle cx="11" cy="22" r="1.4" fill="#FFB000"/><circle cx="20" cy="23.5" r="1.4" fill="#FFB000"/><circle cx="29" cy="22" r="1.4" fill="#FFB000"/><path d="M14 28l-3 7M26 28l3 7" stroke="#7B5CFF" stroke-width="1.5" opacity=".6"/></svg>
+        </span>
         <span class="wordmark">
           EARTH EXPORTS
-          <span class="mark">Ohio Outpost // Sol-3</span>
+          <span class="mark">Ohio Outpost // Sol-3 <span class="side-tag" id="side-tag">· From Earth</span></span>
         </span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav>
         <ul class="site-nav" id="site-nav">
-          <li><a href="manifest.html">Manifest</a></li>
-          <li><a href="sector-01.html">Sector 01</a></li>
-          <li><a href="sector-02.html">Sector 02</a></li>
-          <li><a href="sector-04.html" aria-current="page">Sector 04</a></li>
-          <li><a href="outpost.html">Outpost</a></li>
-          <li><a href="archives.html">Archives</a></li>
+          <li><a href="sector-01.html">Cards &amp; Games</a></li>
+          <li><a href="sector-02.html">Props &amp; Relics</a></li>
+          <li><a href="sector-04.html" aria-current="page">STL Files</a></li>
+          <li><a href="archives.html">Alien Index</a></li>
+          <li><a href="outpost.html">Find Us</a></li>
+          <li><a href="captains-log.html">News</a></li>
+          <li><a href="manifest.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -50,78 +60,112 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
-        <p class="sys-line"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/sector-04<span class="dim">$</span> cat LICENSE.md</p>
-        <p class="section-label">Licensed fabrication</p>
-        <h1>Sector 04 — Schematics<span class="rule" aria-hidden="true"></span></h1>
-        <p class="lead">Artifacts &amp; Blueprints for the Deep Frontier.<br>Licensed fabrication files for makers. Clearance level, build volume, material, supported/unsupported, versioned filename. Not a junk zip.</p>
-        <div class="stamp-row">
-          <span class="stamp inspected">INSPECTED</span>
-          <span class="stamp">VERSIONED</span>
+        <p class="eyebrow face-public-only">STL files for makers</p>
+        <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/sector-04$ open license-terms<span class="cursor-blink" aria-hidden="true"></span></p>
+        <h1>STL Files<span class="rule" aria-hidden="true"></span></h1>
+        <p class="lead page-what">3D-print files (STLs) of our props and parts, so you can print them at home. Each file is tested, versioned and comes with print notes.</p>
+        <div class="cta-row hero-cta">
+          <a class="btn btn-primary" href="contact.html">Ask about STL files</a>
         </div>
       </div>
     </div>
-
     <div class="wrap">
-      <div class="hazard-rail" aria-hidden="true"></div>
-      <h2>Price posture<span class="rule" aria-hidden="true"></span></h2>
-      <div class="cargo-rack" aria-label="Schematic license crates">
-        <article class="cargo-crate">
-          <span class="slot">File pack</span>
-          <h3>Personal license</h3>
-          <p>Licensed fabrication files for makers. Clearance, build volume, material, supports, versioned filename.</p>
-          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $8–18</span></div>
+      <p class="grid-note">Files are being prepared. Prices are planned ranges, not final.</p>
+      <div class="product-grid" aria-label="STL file licenses">
+        <article class="product-card">
+          <figure class="ph"><img src="images/products/stl-personal.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of a 3D-printed part on a print bed. Real photo coming soon."></figure>
+          <div class="pc-body">
+            <p class="pc-lore">Print it for yourself</p>
+            <h3>Personal license</h3>
+            <p class="pc-line">Files for your own printer and your own shelf.</p>
+            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $8–18</span></p>
+            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> the ship’s schematic vault.</p><p><b>Came aboard:</b> by data-burst, checked on the Ohio printers.</p></details>
+          </div>
         </article>
-        <article class="cargo-crate">
-          <span class="slot">File pack</span>
-          <h3>Commercial reprint</h3>
-          <p>Sold separately when offered. Same measured files — different stamp on the license sheet.</p>
-          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $40–80</span></div>
+        <article class="product-card">
+          <figure class="ph"><img src="images/products/stl-commercial.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of three identical 3D-printed parts. Real photo coming soon."></figure>
+          <div class="pc-body">
+            <p class="pc-lore">Print to sell</p>
+            <h3>Commercial reprint license</h3>
+            <p class="pc-line">Permission to sell the prints you make. Offered separately, when available.</p>
+            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $40–80</span></p>
+            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> the same vault, under a reprint seal.</p><p><b>Came aboard:</b> with a license filed on the Manifest.</p></details>
+          </div>
         </article>
       </div>
-
-      <h2>Promise<span class="rule" aria-hidden="true"></span></h2>
-      <div class="body-copy">
-        <p>Designed from the print bed up. Alignment pegs, magnet cavities, heat-set inserts, LED provisions where the relic needs them. Print notes written for Ender-class beds and honest tolerances.</p>
-      </div>
-
-      <div class="panel">
-        <span class="rivet-bl" aria-hidden="true"></span>
-        <span class="rivet-br" aria-hidden="true"></span>
-        <p class="section-label" style="margin-bottom:0.5rem">File ledger fields</p>
-        <ul class="hook-list">
-          <li>Clearance level</li>
-          <li>Build volume</li>
-          <li>Material</li>
-          <li>Supported / unsupported</li>
-          <li>Versioned filename</li>
-        </ul>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="contact.html">Shop files / request a custom schematic</a>
-        <a class="btn btn-secondary" href="sector-02.html">Relics lane</a>
-      </div>
+      <h2 class="simple-h">Every file comes with</h2>
+      <ul class="check-list">
+        <li>The print-bed size it needs and a suggested material</li>
+        <li>Whether it needs supports</li>
+        <li>A version number in the file name</li>
+        <li>Print notes for common home printers</li>
+      </ul>
+      <h2 class="simple-h">License terms, in plain words</h2>
+      <ul class="check-list">
+        <li><b>Personal license:</b> print as many copies as you like for yourself or to give as gifts.</li>
+        <li><b>Selling your prints:</b> needs the commercial license. Ask us by email.</li>
+        <li><b>The files themselves:</b> please don’t share, upload or resell them, under any license.</li>
+      </ul>
+      <p class="more-link"><a href="policies.html#stl-license">Read the full STL license terms</a></p>
+      <details class="story" id="story">
+        <summary><span class="story-k">The story</span> <span class="story-hint">for lore fans · tap to open</span></summary>
+        <div class="story-body">
+          <h3 class="story-h">Words you’ll see</h3>
+          <dl class="terms"><div><dt>STL</dt><dd>The standard 3D-print file format. Most slicer programs open it.</dd></div><div><dt>Schematic</dt><dd>Our story word for a build file.</dd></div><div><dt>License</dt><dd>What you’re allowed to do with your prints: keep them, or sell them.</dd></div></dl>
+          <div class="body-copy">
+            <p>In the story, schematics are licensed build files from the ship’s vault, designed from the print bed up: alignment pegs, magnet slots, heat-set insert holes and room for LEDs where a prop needs them.</p>
+          </div>
+          <div class="pin-note">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="pn-where">Pinned to the wall in the repair dock</p>
+            <p class="pn-title">Quick Start Guide to Fixing Ships (the dock mechanic’s version)</p>
+            <ol class="pn-rules">
+              <li><b>Listen first.</b> Every ship hums at its own frequency. Ears before scanners.</li>
+              <li><b>Check the triad.</b> Power grid, coolant flow, atmosphere seals.</li>
+              <li><b>Never trust auto-diagnostics.</b> Trust the flicker.</li>
+              <li><b>Patch first, then think.</b></li>
+              <li><b>Carry:</b> flux resonator, phase spanner, polyspectrum visor, nanite patch gel (smells like burnt ozone), portable harmonic stabilizer.</li>
+              <li><b>Respect the machine.</b></li>
+              <li><b>Walk away when you’re angry.</b></li>
+              <li><b>Know when to say it’s dead.</b></li>
+            </ol>
+            <p class="pn-sig">— the dock mechanic</p>
+          </div>
+        </div>
+      </details>
     </div>
   </main>
+
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <strong>Earth Exports · EE-OH-0001</strong>
-        Ohio Outpost // Sol-3
+        <strong>Earth Exports</strong>
+        Ohio Outpost // Sol-3 · Docked: Cosmic Voyager CV-OH-01 <button type="button" class="helion-crystal" aria-label="Helion crystal (ship's cargo)" title="Helion crystal · look, don't touch"><svg viewBox="0 0 24 32" aria-hidden="true" focusable="false"><path class="hc-a" d="M12 1 L20 11 L12 31 L4 11 Z"/><path class="hc-b" d="M12 1 L20 11 L12 13 Z"/><path class="hc-c" d="M4 11 L12 13 L12 31 Z"/></svg><span class="hc-label">Helion vault</span></button> <button type="button" class="vex-chat-open" aria-label="Open Vex’s early-access chat (shop newsletter)" title="Early access with Vex"><svg class="vc-avatar" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="6" y="6" width="108" height="108" rx="54" class="vf-bg"/><path class="vf-coat" d="M22 110 C26 88 42 80 60 80 C78 80 94 88 98 110 Z"/><ellipse class="vf-head" cx="60" cy="52" rx="23" ry="25"/><path class="vf-hat" d="M35 36 C41 21 79 21 85 36 Z M29 38 h62 v5 h-62 Z"/><circle class="vf-eye" cx="51" cy="55" r="3"/><circle class="vf-eye" cx="69" cy="55" r="3"/><path class="vf-mouth" d="M50 65 q10 7 20 0"/></svg><span>Early access</span></button>
       </div>
       <ul class="footer-nav">
-        <li><a href="manifest.html">Manifest</a></li>
-        <li><a href="sector-01.html">Sector 01</a></li>
-        <li><a href="archives.html">Archives</a></li>
+        <li><a href="manifest.html">About</a></li>
+        <li><a href="sector-01.html">Cards &amp; Games</a></li>
+        <li><a href="archives.html">Alien Index</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="captains-log.html">News</a></li>
       </ul>
       <p class="footer-disclaimer">
-        <span class="fd-label">Public filing · Disclaimer</span>
+        <span class="fd-label">Disclaimer</span>
         Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
       </p>
+      <div class="face-toggle-wrap">
+        <span id="face-label">CV lounge</span>
+        <button type="button" id="face-toggle" aria-pressed="false" title="Peek at the trade console">EE · ◌</button>
+      </div>
     </div>
   </footer>
-  <script src="js/nav.js"></script>
+  <script src="js/site.js?v=20260927-tabs"></script>
+  <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
+  <script src="js/vex.js?v=20260927-tabs" defer></script>
+  <script src="js/forms-config.js?v=20260927-tabs"></script>
+  <script src="js/contact-form.js?v=20260927-tabs" defer></script>
+  <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
 </body>
 </html>
