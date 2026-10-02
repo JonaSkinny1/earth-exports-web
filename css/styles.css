@@ -2963,3 +2963,139 @@ body:has(.nav-toggle[aria-expanded="true"]) .vex-chat { visibility: hidden; }
 #shop.goods-flash { box-shadow: 0 0 0 2px rgba(247,127,0,.8), 0 0 28px rgba(123,92,255,.3); background-color: rgba(247,127,0,.05); }
 .scene-tabs .side-tab { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) { #shop, #shelf-earth { transition: none; } }
+
+/* Homepage tractor-beam gag. Decorative only: it sits in its own strip and does not take clicks. */
+.beam-gag {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+  background:
+    radial-gradient(ellipse 55% 80% at 50% 120%, rgba(0, 168, 150, .16), transparent 60%),
+    linear-gradient(180deg, #0B0E14 0%, #0D1117 78%, #121820 100%);
+  border-bottom: 1px solid rgba(0, 168, 150, .22);
+}
+html[data-face="outpost"] .beam-gag {
+  background: linear-gradient(180deg, #0A0804 0%, #100c06 100%);
+  border-bottom-color: rgba(255, 176, 0, .28);
+}
+.bg-ground {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 8px;
+  z-index: 1;
+  background: #1C2331;
+  border-top: 2px solid #F77F00;
+}
+.bg-ship, .bg-crate, .bg-cow {
+  position: absolute;
+  z-index: 3;
+  left: 20%;
+  transform: translateX(-50%);
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.bg-ship { bottom: 86px; width: 96px; height: 36px; z-index: 4; animation-name: gag-ship; }
+.bg-crate { bottom: 8px; z-index: 3; animation-name: gag-crate; }
+.bg-cow { bottom: 8px; z-index: 2; animation-name: gag-cow; }
+.bg-shadow {
+  position: absolute;
+  z-index: 1;
+  left: 46%;
+  bottom: 6px;
+  width: 46px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .45);
+}
+.bg-saucer { display: block; }
+.bg-beam {
+  position: absolute;
+  left: 50%;
+  top: 26px;
+  width: 36px;
+  height: 78px;
+  margin-left: -18px;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  background: linear-gradient(180deg, rgba(0, 168, 150, .35), rgba(27, 196, 176, .95));
+  clip-path: polygon(36% 0, 64% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 0 8px rgba(0, 168, 150, .9));
+  animation: gag-beam 20s linear infinite;
+}
+.bg-beam-hot {
+  background: linear-gradient(180deg, rgba(247, 127, 0, .4), rgba(247, 127, 0, .95));
+  filter: drop-shadow(0 0 8px rgba(247, 127, 0, .9));
+  animation: gag-beam 20s linear infinite, gag-hot 20s linear infinite;
+}
+.bg-huh {
+  position: absolute;
+  left: 78%;
+  top: -2px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: #F77F00;
+  opacity: 0;
+  animation: gag-huh 20s linear infinite;
+}
+@keyframes gag-ship {
+  0% { left: -16%; transform: translateX(-50%); }
+  8%, 22% { left: 20%; transform: translateX(-50%); }
+  38%, 48% { left: 74%; transform: translateX(-50%); }
+  58%, 66% { left: 46%; transform: translateX(-50%); }
+  69% { left: 46%; transform: translateX(-50%) rotate(-8deg); }
+  72% { left: 46%; transform: translateX(-50%) rotate(7deg); }
+  76%, 84% { left: 46%; transform: translateX(-50%); }
+  100% { left: 116%; transform: translateX(-50%); }
+}
+@keyframes gag-crate {
+  0% { left: 20%; bottom: 8px; opacity: 0; }
+  4%, 12% { left: 20%; bottom: 8px; opacity: 1; }
+  22% { left: 20%; bottom: 62px; opacity: 1; }
+  38%, 42% { left: 74%; bottom: 62px; opacity: 1; }
+  50%, 88% { left: 74%; bottom: 8px; opacity: 1; }
+  /* Fade out where it was set down, then move back while invisible so it is not drawn through the cow. */
+  92% { left: 74%; bottom: 8px; opacity: 0; }
+  93%, 100% { left: 20%; bottom: 8px; opacity: 0; }
+}
+@keyframes gag-cow {
+  0%, 60% { left: 46%; bottom: 8px; }
+  68%, 74% { left: 46%; bottom: 36px; }
+  82%, 100% { left: 46%; bottom: 8px; }
+}
+@keyframes gag-beam {
+  0%, 8% { transform: scaleY(0); }
+  12%, 20% { transform: scaleY(1); }
+  24%, 38% { transform: scaleY(.4); }
+  44%, 50% { transform: scaleY(1); }
+  54%, 58% { transform: scaleY(0); }
+  63% { transform: scaleY(1); }
+  68%, 74% { transform: scaleY(.58); }
+  80% { transform: scaleY(1); }
+  86%, 100% { transform: scaleY(0); }
+}
+@keyframes gag-hot {
+  0%, 67%, 78%, 100% { opacity: 0; }
+  69%, 75% { opacity: 1; }
+}
+@keyframes gag-huh {
+  0%, 67%, 80%, 100% { opacity: 0; transform: translateY(3px); }
+  70%, 76% { opacity: 1; transform: none; }
+}
+@media (max-width: 640px) {
+  .bg-saucer { width: 84px; height: 32px; }
+  .bg-crate svg { width: 28px; height: 24px; }
+  .bg-cow svg { width: 52px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-ship, .bg-crate, .bg-cow, .bg-beam, .bg-huh { animation: none; }
+  .bg-ship { left: 22%; bottom: 8px; transform: translateX(-50%); }
+  .bg-crate { left: 48%; bottom: 8px; opacity: 1; }
+  .bg-cow { left: 72%; bottom: 8px; }
+  .bg-beam { transform: scaleY(0); opacity: 0; }
+  .bg-huh { opacity: 0; }
+}
