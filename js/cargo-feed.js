@@ -66,7 +66,12 @@
   }
 
   var rotTimer = null, rotIdx = 0;
+  var MARQUEE_SPEED = 32; // px/s — quieter pass; build and resize share this rate
   function paused() { return feed.matches(":hover") || feed.matches(":focus-within"); }
+  function setMarqueeDuration() {
+    var half = track.scrollWidth / 2;
+    track.style.setProperty("--cf-dur", Math.max(60, Math.round(half / MARQUEE_SPEED)) + "s");
+  }
 
   function buildMarquee() {
     clearInterval(rotTimer); feed.classList.remove("cf-static");
@@ -74,8 +79,7 @@
     list.forEach(function (e) { track.appendChild(item(e, false)); });
     list.forEach(function (e) { track.appendChild(item(e, true)); });   // seamless loop copy
     requestAnimationFrame(function () {
-      var half = track.scrollWidth / 2;
-      track.style.setProperty("--cf-dur", Math.max(60, Math.round(half / 32)) + "s"); // ~32 px/s (quieter pass)
+      setMarqueeDuration();
       feed.classList.add("cf-running");
     });
   }
@@ -99,8 +103,7 @@
   build();
   if (reduce.addEventListener) reduce.addEventListener("change", build);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!reduce.matches) buildMarquee(); });
-  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (!reduce.matches) {
-    var half = track.scrollWidth / 2; track.style.setProperty("--cf-dur", Math.max(60, Math.round(half / 55)) + "s"); } }, 150); });
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (!reduce.matches) setMarqueeDuration(); }, 150); });
   /* push(entry): prepend a live line (e.g. after the Vex transmission) and rebuild */
   function push(e) {
     ENTRIES.push(e); list.unshift(e);
