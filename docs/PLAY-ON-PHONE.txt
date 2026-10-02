@@ -1,0 +1,13 @@
+﻿Earth Exports — PHONE (use Holotable port; more reliable on Wi‑Fi)
+
+  http://192.168.1.196:8766/earth-exports/
+
+Outpost face:
+  http://192.168.1.196:8766/earth-exports/#outpost
+
+PC:
+  http://127.0.0.1:8766/earth-exports/
+  (or still http://127.0.0.1:8768/ )
+
+Same Wi‑Fi as the PC, not cellular. Hard-refresh once.
+If 8768 fails on phone but this works, keep using :8766/earth-exports/

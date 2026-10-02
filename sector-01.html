@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-face="public">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sector 01 — Dossiers &amp; Games · Earth Exports</title>
-  <meta name="description" content="Card-scale filings from the Archive of First Contact. Poker decks styled as declassified-style dossier files.">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Cards &amp; Games · Earth Exports</title>
+  <meta name="description" content="Alien card decks and MANIFEST, a quick tabletop trading game, from a small Ohio maker shop.">
+  <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=20260927-tabs">
 </head>
-<body>
-  <div class="crt-overlay" aria-hidden="true"></div>
+<body class="mode-public">
+  <div class="starfield" aria-hidden="true"></div>
+  <div class="crt-overlay" aria-hidden="true" hidden></div>
 
-  <div class="status-bar" role="status" aria-label="Terminal status">
-    <div class="sb-item"><span class="sb-key">SESSION</span><span class="sb-val live">PUBLIC-READ</span></div>
-    <div class="sb-item"><span class="sb-key">CLEARANCE</span><span class="sb-val">DECLASSIFIED</span></div>
-    <div class="sb-item"><span class="sb-key">OUTPOST</span><span class="sb-val">OHIO // SOL-3</span></div>
-    <div class="sb-item"><span class="sb-key">CLOCK</span><span class="sb-val live" id="sb-clock">--:--:-- UTC</span></div>
+  <div class="cargo-feed" role="region" aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" tabindex="0">
+    <span class="cf-live" aria-hidden="true"><span class="cf-dot"></span>LIVE</span>
+    <span class="cf-label">Ship’s log <span class="cf-label-x">· in-world feed</span></span>
+    <div class="cf-viewport">
+      <ul class="cf-track">
+        <li class="cf-item"><span class="cf-tag hz">ALERT</span><span class="cf-text">Incoming blueprints from Sector 4592 (Bla-bla Galaxy). Routing to the STL files bay.</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="access-banner" role="note">
-    <span class="access-warn">UNAUTHORIZED ACCESS DETECTED</span>
-    <span class="access-ok">PUBLIC DECLASSIFIED — HOUSE MARK EE-OH-0001</span>
-    <span class="access-tag">house fiction · not a gov node</span>
+
+  <div class="lounge-note" id="lounge-note" role="note">
+    <span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>
+    made in Ohio · original fiction, real goods · local flea
   </div>
 
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Earth Exports home">
         <img class="brand-logo" src="assets/logos/ee-logo-sol3-mark.svg" width="72" height="72" alt="Earth Exports Sol-3 mark">
+        <span class="side-emblem" aria-hidden="true">
+          <svg class="em-earth" viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="#028090" stroke="#00A896" stroke-width="2"/><path d="M11 16c4-3 7 1 10-1s4-5 8-2M12 25c3 1 5-2 9 0s6 3 8 1" fill="none" stroke="#E0E6ED" stroke-width="1.6" stroke-linecap="round" opacity=".8"/></svg>
+          <svg class="em-ufo" viewBox="0 0 40 40"><ellipse cx="20" cy="16" rx="7" ry="6" fill="#A78BFF" opacity=".85"/><ellipse cx="20" cy="22" rx="16" ry="5" fill="#1C2331" stroke="#F77F00" stroke-width="2"/><circle cx="11" cy="22" r="1.4" fill="#FFB000"/><circle cx="20" cy="23.5" r="1.4" fill="#FFB000"/><circle cx="29" cy="22" r="1.4" fill="#FFB000"/><path d="M14 28l-3 7M26 28l3 7" stroke="#7B5CFF" stroke-width="1.5" opacity=".6"/></svg>
+        </span>
         <span class="wordmark">
           EARTH EXPORTS
-          <span class="mark">Ohio Outpost // Sol-3</span>
+          <span class="mark">Ohio Outpost // Sol-3 <span class="side-tag" id="side-tag">· From Earth</span></span>
         </span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav>
         <ul class="site-nav" id="site-nav">
-          <li><a href="manifest.html">Manifest</a></li>
-          <li><a href="sector-01.html" aria-current="page">Sector 01</a></li>
-          <li><a href="sector-02.html">Sector 02</a></li>
-          <li><a href="sector-04.html">Sector 04</a></li>
-          <li><a href="outpost.html">Outpost</a></li>
-          <li><a href="archives.html">Archives</a></li>
+          <li><a href="sector-01.html" aria-current="page">Cards &amp; Games</a></li>
+          <li><a href="sector-02.html">Props &amp; Relics</a></li>
+          <li><a href="sector-04.html">STL Files</a></li>
+          <li><a href="archives.html">Alien Index</a></li>
+          <li><a href="outpost.html">Find Us</a></li>
+          <li><a href="captains-log.html">News</a></li>
+          <li><a href="manifest.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -50,124 +60,92 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
-        <p class="sys-line"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/sector-01<span class="dim">$</span> ls dossiers/</p>
-        <p class="section-label">Flagship lane</p>
-        <h1>Sector 01 — Dossiers &amp; Games<span class="rule" aria-hidden="true"></span></h1>
-        <p class="lead">Card-scale filings from the Archive of First Contact. Poker decks styled as declassified-style dossier files — linen stock, black core, tuck boxes like archive folders. The entry product for the house.</p>
-        <div class="stamp-row">
-          <span class="stamp inspected">INSPECTED</span>
-          <span class="stamp hazard">FLAGSHIP</span>
+        <p class="eyebrow face-public-only">Cards &amp; games</p>
+        <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/sector-01$ ls decks/<span class="cursor-blink" aria-hidden="true"></span></p>
+        <h1>Cards &amp; Games<span class="rule" aria-hidden="true"></span></h1>
+        <p class="lead page-what">Poker-size alien card decks and MANIFEST, a quick tabletop trading game. Designed in Ohio. The aliens are fiction.</p>
+        <div class="cta-row hero-cta">
+          <a class="btn btn-primary" href="contact.html">Ask about a preorder</a>
         </div>
       </div>
     </div>
-
     <div class="wrap">
-      <div class="hazard-rail" aria-hidden="true"></div>
-      <h2>How the file works<span class="rule" aria-hidden="true"></span></h2>
-      <div class="body-copy">
-        <p>Each card carries an Archive ID, a designation, a diplomatic status (Treaty / Observer / Restricted / Embargoed), and one sensory hook short enough to live under a stamp. Source bible: AFC-SB-01. Sixteen species. No borrowed conspiracies.</p>
-      </div>
-
-      <h2>On the shelf<span class="rule" aria-hidden="true"></span></h2>
-      <p class="sub">Tiers — prices locked to year-one posture; SKU Manifest/Batch IDs assigned at art lock. Tariff stamps provisional until art lock.</p>
-
-      <div class="cargo-rack" aria-label="Sector 01 shelf crates">
-        <article class="cargo-crate">
-          <span class="slot">Shelf 01</span>
-          <h3>Door deck</h3>
-          <p>Index / Primer — always the public door. Linen stock, black core, tuck like an archive folder.</p>
-          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $28–32</span></div>
-        </article>
-        <article class="cargo-crate">
-          <span class="slot">Shelf 02</span>
-          <h3>Limited run</h3>
-          <p>Restricted File or MANIFEST game SKU — numbered short run. When the batch clears, the lane closes.</p>
-          <div class="tariff-stamp"><span class="tariff-key">Tariff stamp</span><span class="tariff-val">USD $48–65</span></div>
-        </article>
-      </div>
-
-      <div class="bulkhead holo-edge">
-        <span class="rivet-bl" aria-hidden="true"></span>
-        <span class="rivet-br" aria-hidden="true"></span>
-        <p class="bulkhead-label">Ledger echo · <span>SECTOR_01_TIERS</span></p>
-        <div class="query-console">
-          <div class="query-header">
-            <span>RESULT SET · SECTOR_01_TIERS</span>
-            <span class="qh-ok">2 rows · OK</span>
+      <p class="grid-note">Art is still being finished, so prices are planned ranges, not final.</p>
+      <div class="product-grid" aria-label="Cards and games">
+        <article class="product-card">
+          <figure class="ph"><img src="images/products/starter-deck.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of the starter card deck. Real photo coming soon."></figure>
+          <div class="pc-body">
+            <p class="pc-lore">Card deck</p>
+            <h3>Starter card deck</h3>
+            <p class="pc-line">A full poker deck that introduces all sixteen aliens. The easiest place to start.</p>
+            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $28–32</span></p>
+            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> the public shelf of the Alien Index.</p><p><b>Came aboard:</b> as sixteen filings, reprinted poker-size.</p></details>
           </div>
-          <div class="query-sql"><span class="kw">SELECT</span> tier, role, price_posture <span class="kw">FROM</span> sector_01_shelf <span class="kw">WHERE</span> clearance = <span class="str">'PUBLIC'</span>;</div>
-          <div class="query-meta">query time 0.00s · house ledger · not a live bank feed</div>
-          <div class="table-wrap">
-            <table class="data">
-              <thead>
-                <tr>
-                  <th class="row-num">#</th>
-                  <th>Tier</th>
-                  <th>Role</th>
-                  <th>Price posture</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="row-num">01</td>
-                  <td>Door deck</td>
-                  <td>Index / Primer — always the public door</td>
-                  <td class="mono">USD $28–32</td>
-                </tr>
-                <tr>
-                  <td class="row-num">02</td>
-                  <td>Limited run</td>
-                  <td>Restricted File or MANIFEST game SKU — numbered short run</td>
-                  <td class="mono">USD $48–65</td>
-                </tr>
-              </tbody>
-            </table>
+        </article>
+        <article class="product-card">
+          <figure class="ph"><img src="images/products/special-deck.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of the numbered special deck. Real photo coming soon."></figure>
+          <div class="pc-body">
+            <p class="pc-lore">Limited edition</p>
+            <h3>Numbered special deck</h3>
+            <p class="pc-line">A short, numbered print run. When it’s gone, it’s gone.</p>
+            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $48–65</span></p>
+            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> sealed filings from the Vesper Ring’s evening archive, Duskhold.</p><p><b>Came aboard:</b> under stamp, then numbered by hand in the lounge.</p></details>
+          </div>
+        </article>
+        <article class="product-card">
+          <figure class="ph"><img src="images/products/manifest-game.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of the manifest tabletop game. Real photo coming soon."></figure>
+          <div class="pc-body">
+            <p class="pc-lore">Tabletop game</p>
+            <h3>MANIFEST tabletop game</h3>
+            <p class="pc-line">A trading game for 2–4 players, about 20 minutes. Rules folded inside the box.</p>
+            <p class="pc-meta"><span class="placeholder-badge">In the works</span></p>
+            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> a cargo game Tarn Vessik haulers play on long runs.</p><p><b>Came aboard:</b> the rules were traded for one crate of welding gas.</p></details>
+          </div>
+        </article>
+      </div>
+      <details class="story" id="story">
+        <summary><span class="story-k">The story</span> <span class="story-hint">for lore fans · tap to open</span></summary>
+        <div class="story-body">
+          <h3 class="story-h">Words you’ll see</h3>
+          <dl class="terms"><div><dt>Dossier</dt><dd>A card styled like a secret case file about one alien species.</dd></div><div><dt>AFC</dt><dd>The Archive of First Contact: our made-up library of alien species.</dd></div><div><dt>Treaty · Observer · Restricted · Embargoed</dt><dd>How each species gets along with Earth in the story.</dd></div></dl>
+          <div class="body-copy">
+            <p>In the story, every card is a filing from the Archive of First Contact: an Archive ID, a name, a diplomatic status and one short sensory detail. Linen stock, black core, tuck boxes styled like archive folders.</p>
           </div>
         </div>
-      </div>
-
-      <h2>Featured hooks<span class="rule" aria-hidden="true"></span></h2>
-      <p class="sub">Tease only. Full biology stays in the paid dossiers.</p>
-      <ul class="hook-list">
-        <li>Vel-Keth</li>
-        <li>Orrin</li>
-        <li>Mirenth</li>
-        <li>Gorruth</li>
-        <li class="mystery">Object 9 / “The Invoice”</li>
-      </ul>
-
-      <div class="panel">
-        <span class="rivet-bl" aria-hidden="true"></span>
-        <span class="rivet-br" aria-hidden="true"></span>
-        <h3>MANIFEST</h3>
-        <p>A playable 2–4 player game (~20 minutes). Rules live in an 8-page Field Circular inside the tuck. Still Sector 01 — not a separate shop silo.</p>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="contact.html">Inquire / preorder</a>
-        <a class="btn btn-secondary" href="archives.html">Public AFC index</a>
-      </div>
+      </details>
     </div>
   </main>
+
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <strong>Earth Exports · EE-OH-0001</strong>
-        Ohio Outpost // Sol-3
+        <strong>Earth Exports</strong>
+        Ohio Outpost // Sol-3 · Docked: Cosmic Voyager CV-OH-01 <button type="button" class="helion-crystal" aria-label="Helion crystal (ship's cargo)" title="Helion crystal · look, don't touch"><svg viewBox="0 0 24 32" aria-hidden="true" focusable="false"><path class="hc-a" d="M12 1 L20 11 L12 31 L4 11 Z"/><path class="hc-b" d="M12 1 L20 11 L12 13 Z"/><path class="hc-c" d="M4 11 L12 13 L12 31 Z"/></svg><span class="hc-label">Helion vault</span></button> <button type="button" class="vex-chat-open" aria-label="Open Vex’s early-access chat (shop newsletter)" title="Early access with Vex"><svg class="vc-avatar" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="6" y="6" width="108" height="108" rx="54" class="vf-bg"/><path class="vf-coat" d="M22 110 C26 88 42 80 60 80 C78 80 94 88 98 110 Z"/><ellipse class="vf-head" cx="60" cy="52" rx="23" ry="25"/><path class="vf-hat" d="M35 36 C41 21 79 21 85 36 Z M29 38 h62 v5 h-62 Z"/><circle class="vf-eye" cx="51" cy="55" r="3"/><circle class="vf-eye" cx="69" cy="55" r="3"/><path class="vf-mouth" d="M50 65 q10 7 20 0"/></svg><span>Early access</span></button>
       </div>
       <ul class="footer-nav">
-        <li><a href="manifest.html">Manifest</a></li>
-        <li><a href="sector-01.html">Sector 01</a></li>
-        <li><a href="archives.html">Archives</a></li>
+        <li><a href="manifest.html">About</a></li>
+        <li><a href="sector-01.html">Cards &amp; Games</a></li>
+        <li><a href="archives.html">Alien Index</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="captains-log.html">News</a></li>
       </ul>
       <p class="footer-disclaimer">
-        <span class="fd-label">Public filing · Disclaimer</span>
+        <span class="fd-label">Disclaimer</span>
         Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
       </p>
+      <div class="face-toggle-wrap">
+        <span id="face-label">CV lounge</span>
+        <button type="button" id="face-toggle" aria-pressed="false" title="Peek at the trade console">EE · ◌</button>
+      </div>
     </div>
   </footer>
-  <script src="js/nav.js"></script>
+  <script src="js/site.js?v=20260927-tabs"></script>
+  <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
+  <script src="js/vex.js?v=20260927-tabs" defer></script>
+  <script src="js/forms-config.js?v=20260927-tabs"></script>
+  <script src="js/contact-form.js?v=20260927-tabs" defer></script>
+  <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
 </body>
 </html>
