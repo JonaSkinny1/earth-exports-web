@@ -3053,11 +3053,14 @@ html[data-face="outpost"] .beam-gag {
   100% { left: 116%; transform: translateX(-50%); }
 }
 @keyframes gag-crate {
-  0%, 12% { left: 20%; bottom: 8px; opacity: 1; }
+  0% { left: 20%; bottom: 8px; opacity: 0; }
+  4%, 12% { left: 20%; bottom: 8px; opacity: 1; }
   22% { left: 20%; bottom: 62px; opacity: 1; }
   38%, 42% { left: 74%; bottom: 62px; opacity: 1; }
   50%, 88% { left: 74%; bottom: 8px; opacity: 1; }
-  96%, 100% { left: 20%; bottom: 8px; opacity: 0; }
+  /* Fade out where it was set down, then move back while invisible so it is not drawn through the cow. */
+  92% { left: 74%; bottom: 8px; opacity: 0; }
+  93%, 100% { left: 20%; bottom: 8px; opacity: 0; }
 }
 @keyframes gag-cow {
   0%, 60% { left: 46%; bottom: 8px; }
@@ -3090,7 +3093,7 @@ html[data-face="outpost"] .beam-gag {
 }
 @media (prefers-reduced-motion: reduce) {
   .bg-ship, .bg-crate, .bg-cow, .bg-beam, .bg-huh { animation: none; }
-  .bg-ship { left: 22%; bottom: 86px; transform: translateX(-50%); }
+  .bg-ship { left: 22%; bottom: 8px; transform: translateX(-50%); }
   .bg-crate { left: 48%; bottom: 8px; opacity: 1; }
   .bg-cow { left: 72%; bottom: 8px; }
   .bg-beam { transform: scaleY(0); opacity: 0; }
