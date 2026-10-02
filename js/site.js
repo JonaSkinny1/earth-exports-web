@@ -137,11 +137,12 @@
     el.addEventListener("click", exitOutpost);
   });
 
+  /* #outpost enters the trade console. Other in-page hashes (#shop, #query,
+     policy anchors) must not leave Outpost or rewrite the session: the face
+     can be restored on load without that hash on the URL. */
   window.addEventListener("hashchange", function () {
     if (location.hash === "#outpost") {
       applyFace(FACE_OUTPOST, { hash: false });
-    } else if (document.documentElement.getAttribute("data-face") === FACE_OUTPOST) {
-      applyFace(FACE_PUBLIC, { hash: false });
     }
   });
 
