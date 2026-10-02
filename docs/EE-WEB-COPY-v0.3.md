@@ -3,9 +3,11 @@
 **Supersedes:** EE-WEB-COPY-v0.2 (Ohio house + outpost unlock 2026-09-09)
 **Also supersedes:** EE-WEB-COPY-v0.1 (primary founding line retired 2026-09-09)  
 **Supersedes briefs in:** EE-WEB-IA-v0.1 (IA retained; this is the voice pass)  
-**House Mark:** Earth Exports · EE-OH-0001  
+**House Mark:** Earth Exports  
 **Outpost:** Ohio Outpost // Sol-3  
-**Status:** CANON-READY · Sector 01 spine · primary founding line RETIRED / pending  
+**Home heading:** Earth Exports. Allowed secondary lead: Artifacts & Blueprints for the Deep Frontier.  
+**Package stamp only:** EE-OH-0001 is not the public wordmark or house line.  
+**Status:** CANON-READY · Sector 01 spine · primary founding line RETIRED · home heading Earth Exports  
 **Species source:** AFC-SB-01 only
 
 **Website names (2026-09-29):** the species table below still says Kael Drax and Sylvaxi. On the live site those are **Tarn Vessik** and **Viridane**. Do not copy the old names, or the retired invoice tagline, back onto website pages. The repo-root HTML is the live site.
@@ -16,10 +18,10 @@
 
 | Lock | Value |
 |------|--------|
-| Primary founding line | **RETIRED** (2026-09-09) — do not use “The galaxy opened with an invoice.” Replacement pending. |
-| Secondary | Artifacts & Blueprints for the Deep Frontier. *(SOFT / unlocked — expect change; do not lock)* |
+| Primary founding line | **RETIRED** (2026-09-09) — do not use “The galaxy opened with an invoice.” Live home heading is **Earth Exports**. |
+| Secondary | Artifacts & Blueprints for the Deep Frontier. Allowed secondary lead. It does not replace the home heading. |
 | Logo lockup | EARTH EXPORTS + **Ohio Outpost // Sol-3** (horizontal preferred). prior local city is retired from public fiction and chrome. Stamp = packages only. |
-| Place (body) | **Ohio Outpost // Sol-3** · House EE-OH-0001. Local flea / pickup geography only — do not name prior local city in public copy. |
+| Place (body) | **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not this public line. Local flea / pickup geography only — do not name prior local city in public copy. |
 | Palette | Deep Space Slate `#0B0E14` / `#0D1117` · Sub-Deck Gray `#1C2331` · Peacock Teal `#00A896` / `#028090` · Hazard Orange `#F77F00` · Off-White `#E0E6ED` |
 | Species | AFC-SB-01 original fiction only |
 | House organs (fiction) | PTC · AFC · TCRD · Sol-3 Consular Authority · Earth Exports House Mark |
@@ -41,7 +43,7 @@
 ```
 
 **Global chrome (CANON)**  
-- Wordmark / lockup: EARTH EXPORTS · **Ohio Outpost // Sol-3** · EE-OH-0001 (house number; not in logo subtitle)  
+- Wordmark / lockup: EARTH EXPORTS · **Ohio Outpost // Sol-3**. Do not put EE-OH-0001 on the wordmark; it stays on the package stamp.  
 - Top bar flavor: `LOCAL TRANSIT: OHIO OUTPOST // SOL-3` · `CLEARANCE LEVEL: PUBLIC DECLASSIFIED` · `CURRENCY ACCEPTED: USD / TERRAN CREDITS` *(Credits = flavor; checkout = USD)*  
 - Nav: Manifest · Sector 01 · Sector 02 · Sector 04 · Outpost · Archives  
 - Primary CTA: Hazard Orange · Secondary CTA: Peacock Teal · Surfaces: Slate / Sub-Deck Gray · Type: Off-White  
@@ -62,7 +64,7 @@ Earth Exports
 
 **Sub**  
 Artifacts & Blueprints for the Deep Frontier.  
-Ohio Outpost // Sol-3 · House EE-OH-0001 · Trade year 2076.
+Ohio Outpost // Sol-3 · Trade year 2076.
 
 **Body (hero)**  
 Trade lanes don’t open with speeches. They open when someone stamps a ledger and ships the crate. Earth Exports is an independent Sol-3 merchant house. We manufacture dossier decks, field relics, and licensed fabrication schematics — culture you can hold, filed under a house mark, built in a gravity well.
@@ -278,7 +280,7 @@ Name · Email · Intent (Sector 01 / Relic waitlist / Schematic / Commission / O
 
 ## PRODUCTION NOTES — House IDs (2026-09-09)
 
-- Public: **EE-OH-0001** · Ohio Outpost // Sol-3 · batch `EE-OH` / `OH-###` · schematic `EE-SCH-####-OH`
+- Public place: **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not public house branding. Batch `EE-OH` / `OH-###` · schematic `EE-SCH-####-OH`
 - Package stamp: `site-art/logos/ee-package-stamp-ohio-v4.png` (MERCHANT EE-OH-0001 · OUTPOST · SOL-3; lockup hex, no house)
 - Retire from all public work: prior-EE-YNG-*, prior-EE-OH, prior local-city Outpost, prior city flea-by-name, any prior local city place chrome (2026-09-10)
 - PNG plates still printing YNG remain style refs until regen — see EE-SITE-ART-RECONCILE-v0.3

@@ -1,6 +1,6 @@
 # Earth Exports — UI Design (Cosmic Voyager / Deck 01 · WILD)
 
-**House:** EE-OH-0001 · Ohio Outpost // Sol-3  
+**Place:** Ohio Outpost // Sol-3 (EE-OH-0001 is package-stamp only, not the public house line)  
 **Ship chrome:** Cosmic Voyager CV-OH-01 · Deck 01 (family with Holotable — separate app)  
 **Stack:** Static HTML / CSS / JS  
 **Doc:** DESIGN-UI.md · 2026-09-24 (WILD restyle)
@@ -159,7 +159,7 @@ Flavor sits collapsed or off the main path, so first-time clarity is unchanged. 
 - **QA:** `/workspace/ee_tabtest.py` adds: News link on every page (desktop + mobile menu), banned terms, 17 closed cargo tags, canisters + badges, pinned note, dossiers (16, keyboard Enter/Space/Esc, focus return, fit on mobile), Vex (3 clicks no, 4th yes, RINGHEART, Esc, no trigger inside form fields, auto-end, ticker CUSTOMS line, reduced-motion calm, mobile fit), 404 (real 404 status via dev-server, styled at nested paths, no errors). New pages are in the ticker and every-page checks.
 
 ## Species rename (2026-09-26)
-IP clearance, approved by Jonathan: **Sylvaxi → Viridane** (AFC-05.00) and **Kael Drax → Tarn Vessik** (AFC-04.00) across pages, dossiers, ticker, provenance tags and the AFC-SB-01 bible. Traits, IDs and status unchanged. Kael Brask was rejected ("Brask" is Destiny's Andal Brask; "Kael" echoes Kael'thas). Both old names are in the ee_tabtest banned-term scan. Backups: `*.rename-bak`.
+IP clearance, approved by Jonathan: **Sylvaxi → Viridane** (AFC-05.00) and **Kael Drax → Tarn Vessik** (AFC-04.00) across pages, dossiers, ticker, provenance tags and the AFC-SB-01 bible. Do not copy those old names back onto website pages. Traits, IDs and status unchanged. Kael Brask was rejected because both halves match existing characters from other games, so the name is not original. Do not use it. The retired species names are in the ee_tabtest banned-term scan. Backups: `*.rename-bak`.
 
 ## Declutter + images (2026-09-26)
 Jonathan's phone feedback: "everything feels scattered… you click on one thing and it has a link to another thing." Goal: calm, clear, shop-like.
@@ -256,7 +256,9 @@ Markup uses `.face-public-only` / `.face-outpost-only`. CRT overlay + `.status-b
 | `js/cargo-feed.js` | Ship's log cargo-feed ticker (in-world fiction) |
 | `js/dossiers.js` | Alien Index fact-file dialog (binds to `.species-card`) |
 | `images/` | All product/category/about/species pictures (placeholders; swap guide in README) |
-| `js/vendor/three.*` | three.js r186 (MIT), vendored |
+| `js/vendor/three.module.min.js` | three.js r186 addons build. The hero imports this file. MIT. |
+| `js/vendor/three.core.min.js` | three.js r186 core. Loaded by `three.module.min.js`. |
+| `js/vendor/three.LICENSE` | MIT license for that vendored build. |
 | `assets/earth/` | NASA textures + static fallback renders |
 | `*.stylized-bak` | Previous stylized SVG scene (index/styles/site.js) |
 | `index.html` | Viewport hero + deck map |

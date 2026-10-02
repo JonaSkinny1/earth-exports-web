@@ -6,8 +6,8 @@
 **Applies to:** house serial, public outpost lore, stamps, web copy, Species Bible headers, year-one gate
 
 ## Locks
-1. **House merchant number:** `EE-OH-0001` → **`EE-OH-0001`**
-2. **Public outpost title:** Ohio Outpost → **Ohio Outpost // Sol-3**
+1. **Merchant number EE-OH-0001** is package-stamp only. It is not the public wordmark or house line.
+2. **Public place:** **Ohio Outpost // Sol-3**
 3. **Batch / inspection codes:** retire `EE-OH` / `YNG-*` → prefer **`OH`** / **`EE-OH`** patterns
 4. **Stamp asset:** `site-art/logos/ee-package-stamp-ohio-v3.png` (HOUSE EE-OH-0001 · OHIO · SOL-3)
 5. Lockup subtitle already Ohio Outpost — keep; refresh any EE-YNG on stamp/lockup chrome

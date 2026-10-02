@@ -1,7 +1,10 @@
 # Earth Exports — Year-One Website
 
-**House Mark:** Earth Exports · EE-OH-0001  
-**Outpost:** Ohio Outpost // Sol-3  
+**House:** Earth Exports  
+**Place:** Ohio Outpost // Sol-3  
+**Home heading:** Earth Exports. Allowed secondary lead: Artifacts & Blueprints for the Deep Frontier.  
+**Retired, do not use:** “The galaxy opened with an invoice.”  
+**Package stamp only:** EE-OH-0001 is not public house branding.  
 **Stack:** Pure static HTML/CSS/JS. No React, no bundler.  
 **UI:** Two faces — PUBLIC Cosmic Voyager / Deck 01 collector-traveler lounge (WILD viewport chrome) + soft OUTPOST amber trade console (`#outpost`). See `DESIGN-UI.md` · preview help in `PREVIEW.md`.
 

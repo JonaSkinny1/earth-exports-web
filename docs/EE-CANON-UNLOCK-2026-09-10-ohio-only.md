@@ -8,8 +8,8 @@ Prior local city branding / YNG codes retired from public fiction and chrome:
 - Earth Exports public copy, booth chrome, and place branding
 
 ## Use instead
-- **Ohio Outpost // Sol-3**
-- House **EE-OH-0001**
+- **Ohio Outpost // Sol-3** (public place branding)
+- EE-OH-0001 on the package stamp only, not as the public house line or wordmark
 - Registry flavor: **Ohio outbound** / `CV-OH-01` style
 - Booth ops in public copy: “local flea” / “Ohio flea booth” — not the city name
 

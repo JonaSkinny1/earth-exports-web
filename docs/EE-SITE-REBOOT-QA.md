@@ -109,7 +109,8 @@ Notes / must-have products: _________________________________
 | Item | Status | Your call |
 |------|--------|-----------|
 | Name: Earth Exports | LOCKED | KEEP / REOPEN: ___ |
-| EE-OH-0001 · Ohio Outpost // Sol-3 | LOCKED | KEEP / REOPEN: ___ |
+| Public place: Ohio Outpost // Sol-3 | LOCKED | KEEP / REOPEN: ___ |
+| EE-OH-0001 | Package stamp only, not the public wordmark | KEEP / REOPEN: ___ |
 | Local flea only (booth language) | LOCKED | KEEP / REOPEN: ___ |
 | Sol-3 E/Ǝ logo | LOCKED | KEEP / REOPEN: ___ |
 | Palette (slate / teal / orange / off-white) | LOCKED soft | KEEP / TWEAK: ___ |

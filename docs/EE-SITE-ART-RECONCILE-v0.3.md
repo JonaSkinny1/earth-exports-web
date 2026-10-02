@@ -10,7 +10,7 @@
 
 | Old (retired public) | New (locked) |
 |----------------------|--------------|
-| EE-OH-0001 | **EE-OH-0001** |
+| Public house serial on the wordmark | **Retired.** EE-OH-0001 is package-stamp only, not the public house line. |
 | Ohio Outpost | **Ohio Outpost // Sol-3** |
 | EE-OH | **EE-OH** / **OH-###** |
 | EE-SCH-####-YNG | **EE-SCH-####-OH** |
@@ -24,7 +24,7 @@ Package stamp locked for intake: `site-art/logos/ee-package-stamp-ohio-v4.png` �
 
 | Plate | File | Status | ID note |
 |-------|------|--------|---------|
-| 01 Cargo cradle | `ee-schematic-01-cargo-cradle-v3.png` | **PASS** | EE-SCH-0001-OH · House EE-OH-0001 · Ohio Outpost |
+| 01 Cargo cradle | `ee-schematic-01-cargo-cradle-v3.png` | **PASS** | EE-SCH-0001-OH · stamp serial EE-OH-0001 (not the public wordmark) · Ohio Outpost |
 | 02 Mirenth | `ee-schematic-02-mirenth-v3.png` | **PASS** | AFC-03.00 OK; Ohio Outpost house mark |
 | 03 Route | `ee-schematic-03-route-plate.png` | **PASS texture** | No house-serial chrome; unchanged |
 | 04 Scanner explode | `ee-schematic-04-scanner-explode-v3.png` | **PASS** | EE-OH / RELIC-01 · S02-EEOH-HSG-01 · serial EE-OH-02-00017-A1 |

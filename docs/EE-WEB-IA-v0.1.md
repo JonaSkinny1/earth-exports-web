@@ -1,8 +1,8 @@
-> **HISTORICAL** — superseded for place branding. Live: EE-WEB-COPY-v0.3 + EE-CANON-UNLOCK-2026-09-10-ohio-only (no prior city-name branding in public fiction).
+> **HISTORICAL structure brief.** Do not treat the old hero line in earlier drafts of this file as live canon. Live home heading is **Earth Exports**. Allowed secondary lead: **Artifacts & Blueprints for the Deep Frontier.** Public place is **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only.
 
 # EARTH EXPORTS — Year-One Website
 **IA + page-by-page copy briefs · v0.1**  
-**House Mark:** Earth Exports · EE-OH-0001  
+**House Mark:** Earth Exports  
 **Outpost:** Ohio Outpost // Sol-3  
 **Status:** BRIEF (structure + tone targets — not final polished copy)  
 **Gate:** Passes Earth Exports year-one gate (Sector 01 spine; ≤4 relics; no Sector 03 toys; fiction disclaimer required)
@@ -13,7 +13,7 @@
 
 | Lock | Value |
 |------|--------|
-| Primary | The galaxy opened with an invoice. |
+| Primary founding line | **RETIRED** — do not use “The galaxy opened with an invoice.” Live home heading is **Earth Exports**. |
 | Secondary | Artifacts & Blueprints for the Deep Frontier. |
 | Palette | Deep Space Slate `#0B0E14` / `#0D1117` · Sub-Deck Gray `#1C2331` · Peacock Teal `#00A896` / `#028090` · Hazard Orange `#F77F00` · Off-White `#E0E6ED` |
 | Species | Original fiction only (AFC-SB-01). No Greys / Pleiadian / real alleged NHI names. |
@@ -35,7 +35,7 @@
 ```
 
 **Global chrome**
-- Wordmark: EARTH EXPORTS · small EE-OH-0001 under or beside
+- Wordmark: EARTH EXPORTS · Ohio Outpost // Sol-3. EE-OH-0001 stays on the package stamp, not under the wordmark.
 - Nav: Manifest · Sector 01 · Sector 02 · Sector 04 · Outpost · Archives
 - Footer: fiction disclaimer one-liner + secondary tagline + contact
 - CTA style: Hazard Orange primary; Peacock Teal secondary; slate surfaces
@@ -56,8 +56,8 @@
 
 | Block | Brief |
 |-------|--------|
-| Hero H1 | Primary line only: *The galaxy opened with an invoice.* |
-| Sub | Secondary line. One breath of place: Ohio Outpost // Sol-3 · House EE-OH-0001 · Est. trade year 2076 (fiction frame). |
+| Hero H1 | **Earth Exports.** Do not use the retired line “The galaxy opened with an invoice.” |
+| Sub | Allowed secondary lead: Artifacts & Blueprints for the Deep Frontier. Place: Ohio Outpost // Sol-3 · Est. trade year 2076 (fiction frame). No house number on this line. |
 | Primary CTA | “Open Sector 01” → `/sector-01` |
 | Secondary CTA | “Read the Manifest” → `/manifest` |
 | Strip (3 tiles) | Sector 01 Dossiers · Sector 02 Relics · Sector 04 Schematics — one line each, link deep. |

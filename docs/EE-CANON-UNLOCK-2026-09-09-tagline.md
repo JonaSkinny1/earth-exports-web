@@ -8,10 +8,10 @@
 1. **RETIRED** everywhere (site, logos, new copy, bible marketing notes):  
    “The galaxy opened with an invoice.”
 2. **Brand name stays:** Earth Exports.
-3. **Secondary still in play** (pending confirmation):  
+3. **Allowed secondary lead** (does not replace the home heading Earth Exports):  
    “Artifacts & Blueprints for the Deep Frontier.”
 4. **Logo:** Prefer horizontal lockup (#2). Subtitle **Ohio Outpost // Sol-3** — not prior city-name branding in the lockup. Circular stamp for packages only. Wordmark lettering needs redesign.
-5. ~~Prior city / EE-YNG grounding~~ — **SUPERSEDED** same day by [Ohio house unlock](EE-CANON-UNLOCK-2026-09-09-ohio-house.md): public place = Ohio Outpost; house = **EE-OH-0001**.
+5. ~~Prior city / EE-YNG grounding~~ — **SUPERSEDED** same day by [Ohio house unlock](EE-CANON-UNLOCK-2026-09-09-ohio-house.md): public place = **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not the public house line.
 6. **AFC-16.00 Object 9 / “The Invoice”** is species-file vernacular, **not** the retired marketing line. Keep in AFC-SB-01.
 
 ## Status: PENNED (Jonathan 2026-09-09)

@@ -1,10 +1,10 @@
 # ARCHIVE OF FIRST CONTACT — SPECIES BIBLE v1.0
-**House Mark:** Earth Exports · EE-OH-0001  
+**House Mark:** Earth Exports  
 **Document:** AFC-SB-01 · Manifest No. EE-M-2076-001  
 **Batch / Inspection:** EE-OH / INSPECTED  
 **Clearance:** PUBLIC DECLASSIFIED (Deck 00 Index source)  
 **Outpost:** Ohio Outpost // Sol-3  
-**Note:** Public house branding **EE-OH-0001** / **Ohio Outpost // Sol-3**. Former EE-YNG / city-named outpost language is retired from all public fiction (2026-09-10).
+**Note:** Public place branding is **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not public house branding. Former EE-YNG / city-named outpost language is retired from all public fiction (2026-09-10).
 
 **Website names (2026-09-29):** this bible still prints two retired designations. On the live site, Sylvaxi is **Viridane** and Kael Drax is **Tarn Vessik**. Do not copy the old names back onto website pages.
 

@@ -17,8 +17,11 @@ Names still printed below that are retired on the website:
 WHAT IT IS
 Sci-fi merchant brand: speculative fiction props, dossiers, STLs.
 Locked public chrome:
-  House EE-OH-0001
+  House name: Earth Exports
   Place: Ohio Outpost // Sol-3
+  Home heading: Earth Exports
+  Allowed secondary lead: Artifacts & Blueprints for the Deep Frontier.
+  EE-OH-0001 is package-stamp only, not the public wordmark
   Booth in public copy: "local flea" / Ohio flea (no old city name)
   Palette: Deep Space Slate, Sub-Deck Gray, Peacock Teal, Hazard Orange, Off-White
   Primary founding invoice tagline: RETIRED
