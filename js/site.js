@@ -3,8 +3,7 @@
 
   var STORAGE_KEY = "ee-face";
   var FACE_PUBLIC = "public";
-  var FACE_OUTPOST = "outpost";
-  var FACE_CLASSIC = "classic";
+  var FACE_CV = "cv";
 
   function getStoredFace() {
     try {
@@ -20,91 +19,64 @@
     } catch (e) { /* private mode */ }
   }
 
-  function knownFace(face) {
-    if (face === FACE_PUBLIC || face === FACE_OUTPOST || face === FACE_CLASSIC) return face;
-    return FACE_OUTPOST;
-  }
-
   function applyFace(face, opts) {
     opts = opts || {};
-    face = knownFace(face);
-    var isPublic = face === FACE_PUBLIC;
-    var isOutpost = face === FACE_OUTPOST;
-    var isClassic = face === FACE_CLASSIC;
-    document.documentElement.setAttribute("data-face", face);
-    document.body.classList.toggle("mode-public", isPublic);
-    document.body.classList.toggle("mode-outpost", isOutpost);
-    document.body.classList.toggle("mode-classic", isClassic);
+    /* Anything other than CV, including old outpost/classic values, is EE. */
+    var isCv = face === FACE_CV;
+    document.documentElement.setAttribute("data-face", isCv ? FACE_CV : FACE_PUBLIC);
+    document.body.classList.toggle("mode-public", !isCv);
+    document.body.classList.remove("mode-outpost");
+    document.body.classList.remove("mode-classic");
 
     var sessionVal = document.getElementById("sb-session");
     if (sessionVal) {
-      sessionVal.textContent = isClassic ? "TRADE-CONSOLE" : "DECK-OPEN";
+      sessionVal.textContent = "DECK-OPEN";
     }
     var clearanceVal = document.getElementById("sb-clearance");
     if (clearanceVal) {
-      clearanceVal.textContent = isClassic ? "MERCHANT DESK" : "PUBLIC WELCOME";
+      clearanceVal.textContent = isCv ? "CREW ONLY" : "PUBLIC WELCOME";
     }
     var faceLabel = document.getElementById("face-label");
     if (faceLabel) {
-      faceLabel.textContent = isClassic ? "Classic" : (isPublic ? "CV lounge" : "EE");
+      faceLabel.textContent = isCv ? "CV" : "EE";
     }
 
     var crt = document.querySelector(".crt-overlay");
     if (crt) {
-      crt.setAttribute("aria-hidden", isClassic ? "false" : "true");
-      crt.hidden = !isClassic;
+      crt.setAttribute("aria-hidden", "true");
+      crt.hidden = true;
     }
 
     var toggle = document.getElementById("face-toggle");
     if (toggle) {
-      toggle.textContent = isOutpost ? "CV · ◌" : "EE · ◌";
-      toggle.setAttribute("aria-pressed", isOutpost ? "true" : "false");
-      toggle.title = isOutpost ? "Open the CV lounge" : "Open EE";
-    }
-    var classicBtn = document.getElementById("face-classic");
-    if (classicBtn) {
-      classicBtn.setAttribute("aria-pressed", isClassic ? "true" : "false");
+      toggle.textContent = isCv ? "EE · ◌" : "CV · ◌";
+      toggle.setAttribute("aria-pressed", isCv ? "true" : "false");
+      toggle.title = isCv ? "Return to EE" : "Open the CV lounge";
     }
 
-    /* Ship-console aboard label flips with face. Amber wording stays on Classic only. */
+    /* Amber wording stays off both faces. EE keeps the passenger-lounge line. */
     var aboard = document.querySelector(".console-aboard");
     if (aboard) {
-      aboard.innerHTML = isClassic
-        ? 'Trade console · <span>amber phosphor</span> · Ohio Outpost // Sol-3'
-        : (isOutpost
-          ? 'EE · <span>Ohio Outpost // Sol-3</span>'
-          : 'Aboard <span>Cosmic Voyager</span> · Passenger Trade Lounge');
+      aboard.innerHTML = isCv
+        ? 'Crew deck · <span>restricted</span> · Ohio Outpost // Sol-3'
+        : 'Aboard <span>Cosmic Voyager</span> · Passenger Trade Lounge';
     }
 
     if (opts.persist !== false) {
-      setStoredFace(face);
+      setStoredFace(isCv ? FACE_CV : FACE_PUBLIC);
     }
 
-    if (opts.hash !== false) {
-      var base = location.pathname + location.search;
-      var next = isClassic ? "#classic" : (isOutpost ? "#outpost" : "");
-      var cur = location.hash;
-      var managed = cur === "#outpost" || cur === "#classic";
-      if (next) {
-        if (cur !== next) history.replaceState(null, "", base + next);
-      } else if (managed) {
-        history.replaceState(null, "", base);
-      }
-    }
-
-    document.dispatchEvent(new CustomEvent("ee:face", { detail: { face: face } }));
+    document.dispatchEvent(new CustomEvent("ee:face", { detail: { face: isCv ? FACE_CV : FACE_PUBLIC } }));
   }
 
   function resolveInitialFace() {
-    if (location.hash === "#classic") return FACE_CLASSIC;
-    if (location.hash === "#outpost") return FACE_OUTPOST;
-    var stored = getStoredFace();
-    if (stored === FACE_OUTPOST || stored === FACE_PUBLIC || stored === FACE_CLASSIC) return stored;
-    return FACE_OUTPOST;
+    /* New visitors, and anyone who stored the removed amber/classic face, land on EE.
+       #outpost, #classic, #shop, and other hashes do not choose a face. */
+    return getStoredFace() === FACE_CV ? FACE_CV : FACE_PUBLIC;
   }
 
-  /* Apply ASAP to avoid flash of wrong face */
-  applyFace(resolveInitialFace(), { persist: true, hash: location.hash === "#outpost" });
+  /* Apply ASAP to avoid flash of the wrong face. Do not rewrite the URL hash. */
+  applyFace(resolveInitialFace(), { persist: true });
 
   /* Mobile nav */
   var btn = document.querySelector(".nav-toggle");
@@ -129,56 +101,35 @@
   tickClock();
   setInterval(tickClock, 1000);
 
-  /* Soft reveal controls */
-  function enterOutpost(ev) {
+  function enterCv(ev) {
     if (ev) ev.preventDefault();
-    applyFace(FACE_OUTPOST);
+    applyFace(FACE_CV);
   }
-  function exitOutpost(ev) {
+  function exitCv(ev) {
     if (ev) ev.preventDefault();
     applyFace(FACE_PUBLIC);
   }
   function toggleFace(ev) {
     if (ev) ev.preventDefault();
     var current = document.documentElement.getAttribute("data-face");
-    if (current === FACE_PUBLIC) applyFace(FACE_OUTPOST);
-    else if (current === FACE_OUTPOST) applyFace(FACE_PUBLIC);
-    else applyFace(FACE_OUTPOST);
-  }
-  function toggleClassic(ev) {
-    if (ev) ev.preventDefault();
-    var current = document.documentElement.getAttribute("data-face");
-    applyFace(current === FACE_CLASSIC ? FACE_OUTPOST : FACE_CLASSIC);
+    applyFace(current === FACE_CV ? FACE_PUBLIC : FACE_CV);
   }
 
   var faceToggle = document.getElementById("face-toggle");
   if (faceToggle) {
     faceToggle.addEventListener("click", toggleFace);
   }
-  var faceClassic = document.getElementById("face-classic");
-  if (faceClassic) {
-    faceClassic.addEventListener("click", toggleClassic);
-  }
 
   document.querySelectorAll("[data-face-enter]").forEach(function (el) {
-    el.addEventListener("click", enterOutpost);
+    el.addEventListener("click", enterCv);
   });
   document.querySelectorAll("[data-face-exit]").forEach(function (el) {
-    el.addEventListener("click", exitOutpost);
+    el.addEventListener("click", exitCv);
   });
 
-  /* #outpost opens EE. #classic opens the original amber console.
-     Other in-page hashes (#shop, #query, policy anchors) must not change
-     the face or rewrite the session. */
-  window.addEventListener("hashchange", function () {
-    if (location.hash === "#outpost") {
-      applyFace(FACE_OUTPOST, { hash: false });
-    } else if (location.hash === "#classic") {
-      applyFace(FACE_CLASSIC, { hash: false });
-    }
-  });
+  /* In-page hashes never change the face or the stored choice. */
 
-  /* Keyboard: Alt+O toggles outpost */
+  /* Keyboard: Alt+O toggles EE and CV */
   document.addEventListener("keydown", function (ev) {
     if (ev.altKey && !ev.ctrlKey && !ev.metaKey && (ev.key === "o" || ev.key === "O")) {
       ev.preventDefault();

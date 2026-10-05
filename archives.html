@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-face="outpost">
+<html lang="en" data-face="public">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alien Index · Earth Exports</title>
   <meta name="description" content="The sixteen made-up alien species from our card decks. Tap one for a short fact file.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261005-cv3">
+  <link rel="stylesheet" href="css/styles.css?v=20261005-cv4">
 </head>
-<body class="mode-outpost">
+<body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
   <div class="crt-overlay" aria-hidden="true" hidden></div>
+
+  <div class="cv-plate" aria-hidden="true">
+    <span class="cv-tick cv-tick-tl"></span>
+    <span class="cv-tick cv-tick-tr"></span>
+    <span class="cv-tick cv-tick-bl"></span>
+    <span class="cv-tick cv-tick-br"></span>
+  </div>
 
   <div class="cargo-feed" role="region" aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" tabindex="0">
     <span class="cf-live" aria-hidden="true"><span class="cf-dot"></span>LIVE</span>
@@ -27,6 +34,8 @@
     <span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>
     made in Ohio · original fiction, real goods · local flea
   </div>
+
+  <p class="cv-strip" aria-hidden="true"><span>Crew deck</span> Restricted · N 40.00 · W 82.90 · SOL-3</p>
 
   <header class="site-header">
     <div class="header-inner">
@@ -207,12 +216,11 @@
       </p>
       <div class="face-toggle-wrap">
         <span id="face-label">EE</span>
-        <button type="button" id="face-toggle" aria-pressed="true" title="Open the CV lounge">CV · ◌</button>
-        <button type="button" id="face-classic" aria-pressed="false" title="Original amber console">Classic</button>
+        <button type="button" id="face-toggle" aria-pressed="false" title="Open the CV lounge">CV · ◌</button>
       </div>
     </div>
   </footer>
-  <script src="js/site.js?v=20261005-cv3"></script>
+  <script src="js/site.js?v=20261005-cv4"></script>
   <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
   <script src="js/vex.js?v=20260927-tabs" defer></script>
   <script src="js/dossiers.js?v=20260927-tabs" defer></script>
