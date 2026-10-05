@@ -3717,7 +3717,7 @@ html[data-face="public"] .filed-doc-meta .fdm-ok { color: #d7e9f8; }
   html[data-face="public"] .brand {
     flex: 1 1 auto;
     min-width: 0;
-    max-width: calc(100% - 5.5rem);
+    max-width: calc(100% - 7.25rem);
   }
   html[data-face="public"] .nav-toggle { margin-left: auto; align-self: center; }
   html[data-face="public"] .wordmark .mark { letter-spacing: 0.04em; }
