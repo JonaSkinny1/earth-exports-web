@@ -3833,18 +3833,16 @@ html[data-face="cv"] .scene-title::before {
   background:
     linear-gradient(#7ec8ff, #7ec8ff) left center / 0.95rem 1px no-repeat;
 }
-html[data-face="cv"] .page-hero-inner::after {
+html[data-face="cv"] .page-hero .eyebrow::after {
   content: "REF 02  ·  crew only  ·  N 40.00  W 82.90";
   display: block;
-  margin-top: 0.9rem;
-  padding-left: 1.35rem;
+  margin-top: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
+  font-weight: 400;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #9eb6cc;
-  background:
-    linear-gradient(#7ec8ff, #7ec8ff) left center / 0.95rem 1px no-repeat;
 }
 
 html[data-face="cv"] .product-card,
@@ -3900,7 +3898,7 @@ html[data-face="cv"] .notify-lead::before {
   }
   html[data-face="cv"] .cv-tick { width: 10px; height: 10px; }
   html[data-face="cv"] .scene-title::before,
-  html[data-face="cv"] .page-hero-inner::after { letter-spacing: 0.1em; }
+  html[data-face="cv"] .page-hero .eyebrow::after { letter-spacing: 0.08em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html[data-face="cv"] .starfield::before,
