@@ -103,14 +103,46 @@
 
   function enterCv(ev) {
     if (ev) ev.preventDefault();
+    playTick();
     applyFace(FACE_CV);
   }
   function exitCv(ev) {
     if (ev) ev.preventDefault();
+    playTick();
     applyFace(FACE_PUBLIC);
   }
+  function reduceMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  /* Soft mechanical tick. User toggles only. Reduced motion stays silent. */
+  var tickCtx = null;
+  function playTick() {
+    if (reduceMotion()) return;
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!tickCtx) tickCtx = new AC();
+      if (tickCtx.state === "suspended") tickCtx.resume();
+      var t = tickCtx.currentTime;
+      var osc = tickCtx.createOscillator();
+      var gain = tickCtx.createGain();
+      osc.type = "square";
+      osc.frequency.setValueAtTime(740, t);
+      osc.frequency.exponentialRampToValueAtTime(360, t + 0.045);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.03, t + 0.008);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.055);
+      osc.connect(gain);
+      gain.connect(tickCtx.destination);
+      osc.start(t);
+      osc.stop(t + 0.06);
+    } catch (e) { /* no audio output */ }
+  }
+
   function toggleFace(ev) {
     if (ev) ev.preventDefault();
+    playTick();
     var current = document.documentElement.getAttribute("data-face");
     applyFace(current === FACE_CV ? FACE_PUBLIC : FACE_CV);
   }
@@ -134,6 +166,105 @@
     if (ev.altKey && !ev.ctrlKey && !ev.metaKey && (ev.key === "o" || ev.key === "O")) {
       ev.preventDefault();
       toggleFace();
+    }
+  });
+
+  /* One-line ship log. CV only. Original lines, no clock. */
+  var LOG_LINES = [
+    "Voyager holding station · Ohio Outpost",
+    "Flea table packed · lamps on",
+    "This batch stays under stamp",
+    "Sol-3 in the window · deck quiet",
+    "Helion vault shut · answer is no"
+  ];
+  var logIndex = 0;
+  function paintLog() {
+    var el = document.getElementById("cv-log");
+    if (!el) return;
+    var on = document.documentElement.getAttribute("data-face") === FACE_CV;
+    el.setAttribute("aria-hidden", on ? "false" : "true");
+    if (!on) return;
+    el.textContent = LOG_LINES[logIndex];
+  }
+  function armLog() {
+    paintLog();
+    if (reduceMotion()) return;
+    setInterval(function () {
+      if (document.documentElement.getAttribute("data-face") !== FACE_CV) return;
+      var el = document.getElementById("cv-log");
+      if (!el) return;
+      el.classList.add("is-dim");
+      window.setTimeout(function () {
+        logIndex = (logIndex + 1) % LOG_LINES.length;
+        paintLog();
+        el.classList.remove("is-dim");
+      }, 280);
+    }, 6800);
+  }
+  document.addEventListener("ee:face", paintLog);
+  armLog();
+
+  /* Decorative batch serials. Not inventory. Hidden unless CV. */
+  document.querySelectorAll(".product-card").forEach(function (card, i) {
+    if (card.querySelector(".cv-serial")) return;
+    var heading = card.querySelector("h3");
+    var name = heading ? heading.textContent : String(i);
+    var n = 0;
+    for (var c = 0; c < name.length; c++) n = (n + name.charCodeAt(c) * (c + 3)) % 900;
+    var serial = document.createElement("span");
+    serial.className = "cv-serial";
+    serial.textContent = "OH-" + String(100 + n);
+    serial.setAttribute("aria-hidden", "true");
+    card.appendChild(serial);
+    card.addEventListener("pointerup", function (ev) {
+      if (document.documentElement.getAttribute("data-face") !== FACE_CV) return;
+      if (ev.target.closest("a, button, summary, input, textarea, select")) return;
+      card.classList.toggle("is-serial");
+    });
+  });
+
+  /* Short key sequence. CV only. Shows a reticle flash and a toast, then clears. */
+  var SEQUENCE = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+  var seqAt = 0;
+  var toastTimer = null;
+  var toast = document.createElement("div");
+  toast.className = "cv-toast";
+  toast.id = "cv-toast";
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-hidden", "true");
+  document.body.appendChild(toast);
+  function clearPayload() {
+    toast.classList.remove("is-on");
+    toast.textContent = "";
+    toast.setAttribute("aria-hidden", "true");
+    var ret = document.querySelector(".cv-reticle");
+    if (ret) ret.classList.remove("is-flash");
+  }
+  function showPayload() {
+    if (document.documentElement.getAttribute("data-face") !== FACE_CV) return;
+    var ret = document.querySelector(".cv-reticle");
+    if (ret) ret.classList.add("is-flash");
+    toast.textContent = "Payload secured";
+    toast.classList.add("is-on");
+    toast.setAttribute("aria-hidden", "false");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(clearPayload, 1600);
+  }
+  document.addEventListener("keydown", function (ev) {
+    var tag = ev.target && ev.target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (ev.target && ev.target.isContentEditable)) {
+      seqAt = 0;
+      return;
+    }
+    var key = ev.key.length === 1 ? ev.key.toLowerCase() : ev.key;
+    if (key === SEQUENCE[seqAt]) {
+      seqAt += 1;
+      if (seqAt === SEQUENCE.length) {
+        seqAt = 0;
+        showPayload();
+      }
+    } else {
+      seqAt = key === SEQUENCE[0] ? 1 : 0;
     }
   });
 

@@ -4002,3 +4002,92 @@ html[data-face="cv"] .cargo-feed {
   html[data-face="cv"] .cv-reticle::before { height: 34px; top: -4px; }
   html[data-face="cv"] .cv-reticle::after { width: 34px; left: -4px; }
 }
+
+/* Light CV extras. Hidden on the colorful EE face. */
+.cv-log,
+.cv-toast,
+.cv-serial { display: none; }
+
+html[data-face="cv"] .cv-log {
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9eb6cc;
+  overflow-wrap: anywhere;
+  transition: opacity 0.35s ease;
+}
+html[data-face="cv"] .cv-log.is-dim { opacity: 0.28; }
+
+html[data-face="cv"] .cv-serial {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  margin: 0;
+  padding: 0.08rem 0.32rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: #d7e9ff;
+  background: rgba(6, 10, 14, 0.78);
+  border: 1px solid rgba(94, 182, 255, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+html[data-face="cv"] .product-card:hover .cv-serial,
+html[data-face="cv"] .product-card:focus-within .cv-serial,
+html[data-face="cv"] .product-card:active .cv-serial,
+html[data-face="cv"] .product-card.is-serial .cv-serial {
+  opacity: 1;
+}
+
+html[data-face="cv"] .cv-toast.is-on {
+  display: block;
+  position: fixed;
+  left: 50%;
+  bottom: 1.15rem;
+  z-index: 30;
+  transform: translateX(-50%);
+  max-width: calc(100% - 2rem);
+  padding: 0.4rem 0.7rem;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e7f3ff;
+  background: rgba(7, 10, 16, 0.94);
+  border: 1px solid rgba(94, 182, 255, 0.75);
+  box-shadow: inset 2px 0 0 #5eb6ff;
+}
+html[data-face="cv"] .cv-reticle.is-flash {
+  border-color: #f4f9ff;
+  box-shadow: 0 0 0 1px rgba(94, 182, 255, 0.85), 0 0 16px rgba(94, 182, 255, 0.7);
+  animation: cv-reticle-flash 0.7s ease;
+}
+@keyframes cv-reticle-flash {
+  0% { opacity: 0.35; }
+  35% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+@media (max-width: 640px) {
+  html[data-face="cv"] .cv-log {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-face="cv"] .cv-log,
+  html[data-face="cv"] .cv-serial,
+  html[data-face="cv"] .cv-reticle.is-flash {
+    transition: none;
+    animation: none;
+  }
+}
