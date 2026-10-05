@@ -3217,9 +3217,9 @@ html[data-face="public"] h1,
 html[data-face="public"] .scene-title h1 {
   font-family: var(--font-sans);
   font-weight: 400;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: clamp(1.15rem, 2.6vw, 1.65rem);
+  font-size: clamp(1.2rem, 2.8vw, 1.75rem);
   line-height: 1.35;
   color: #f4f6f8;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.88);
@@ -3289,8 +3289,8 @@ html[data-face="public"] .eyebrow {
   padding: 0 0 0 2.6rem;
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #e8edf3;
   background: none;
@@ -3322,6 +3322,7 @@ html[data-face="public"] .footer-disclaimer .fd-label,
 html[data-face="public"] .bulkhead-label {
   font-family: var(--font-sans);
   font-weight: 400;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #e4e8ee;
@@ -3370,8 +3371,8 @@ html[data-face="public"] .btn,
 html[data-face="public"] .vex-chat .btn {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   border-radius: 0;
   clip-path: none;
   border: 1px solid rgba(186, 196, 208, 0.4);
@@ -3465,8 +3466,12 @@ html[data-face="public"] .side-tab[aria-selected="true"] .st-led {
   box-shadow: 0 0 8px rgba(126, 200, 255, 0.55);
   animation-duration: 4.8s;
 }
-html[data-face="public"] .scene-tabs .side-tab-earth::after,
-html[data-face="public"] .scene-tabs .side-tab-ufo::after { color: rgba(186, 196, 208, 0.7); }
+html[data-face="public"] .scene-tabs .side-tab::after { content: none; }
+html[data-face="public"] .st-led,
+html[data-face="public"] .cf-dot,
+html[data-face="public"] .console-chip .led {
+  border-radius: 1px;
+}
 html[data-face="public"] .side-rail {
   height: 1px;
   border-radius: 0;
@@ -3512,6 +3517,7 @@ html[data-face="public"] .footer-brand strong {
   color: #eef1f5;
 }
 html[data-face="public"] .footer-nav a { letter-spacing: 0.14em; font-weight: 400; }
+html[data-face="public"] #face-label { color: #c5ced8; }
 html[data-face="public"] #face-toggle {
   border-radius: 0;
   background: transparent;
@@ -3712,7 +3718,8 @@ html[data-face="public"] .filed-doc-meta .fdm-ok { color: #d7e9f8; }
   html[data-face="public"] h1,
   html[data-face="public"] .scene-title h1 { letter-spacing: 0.14em; }
   html[data-face="public"] .simple-h,
-  html[data-face="public"] .section-label { letter-spacing: 0.16em; }
+  html[data-face="public"] .section-label { letter-spacing: 0.14em; }
+  html[data-face="public"] .cat-name { letter-spacing: 0.12em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html[data-face="public"] .st-led,
