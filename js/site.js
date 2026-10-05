@@ -4,6 +4,7 @@
   var STORAGE_KEY = "ee-face";
   var FACE_PUBLIC = "public";
   var FACE_OUTPOST = "outpost";
+  var FACE_CLASSIC = "classic";
 
   function getStoredFace() {
     try {
@@ -19,69 +20,87 @@
     } catch (e) { /* private mode */ }
   }
 
+  function knownFace(face) {
+    if (face === FACE_PUBLIC || face === FACE_OUTPOST || face === FACE_CLASSIC) return face;
+    return FACE_OUTPOST;
+  }
+
   function applyFace(face, opts) {
     opts = opts || {};
+    face = knownFace(face);
+    var isPublic = face === FACE_PUBLIC;
     var isOutpost = face === FACE_OUTPOST;
-    document.documentElement.setAttribute("data-face", isOutpost ? FACE_OUTPOST : FACE_PUBLIC);
+    var isClassic = face === FACE_CLASSIC;
+    document.documentElement.setAttribute("data-face", face);
+    document.body.classList.toggle("mode-public", isPublic);
     document.body.classList.toggle("mode-outpost", isOutpost);
-    document.body.classList.toggle("mode-public", !isOutpost);
+    document.body.classList.toggle("mode-classic", isClassic);
 
     var sessionVal = document.getElementById("sb-session");
     if (sessionVal) {
-      sessionVal.textContent = isOutpost ? "TRADE-CONSOLE" : "DECK-OPEN";
+      sessionVal.textContent = isClassic ? "TRADE-CONSOLE" : "DECK-OPEN";
     }
     var clearanceVal = document.getElementById("sb-clearance");
     if (clearanceVal) {
-      clearanceVal.textContent = isOutpost ? "MERCHANT DESK" : "PUBLIC WELCOME";
+      clearanceVal.textContent = isClassic ? "MERCHANT DESK" : "PUBLIC WELCOME";
     }
     var faceLabel = document.getElementById("face-label");
     if (faceLabel) {
-      faceLabel.textContent = isOutpost ? "Outpost console" : "CV lounge";
+      faceLabel.textContent = isClassic ? "Classic" : (isPublic ? "CV lounge" : "EE");
     }
 
     var crt = document.querySelector(".crt-overlay");
     if (crt) {
-      crt.setAttribute("aria-hidden", isOutpost ? "false" : "true");
-      crt.hidden = !isOutpost;
+      crt.setAttribute("aria-hidden", isClassic ? "false" : "true");
+      crt.hidden = !isClassic;
     }
 
     var toggle = document.getElementById("face-toggle");
     if (toggle) {
+      toggle.textContent = isOutpost ? "CV · ◌" : "EE · ◌";
       toggle.setAttribute("aria-pressed", isOutpost ? "true" : "false");
-      toggle.title = isOutpost ? "Return to CV lounge face" : "Peek at the trade console";
+      toggle.title = isOutpost ? "Open the CV lounge" : "Open EE";
+    }
+    var classicBtn = document.getElementById("face-classic");
+    if (classicBtn) {
+      classicBtn.setAttribute("aria-pressed", isClassic ? "true" : "false");
     }
 
-    /* Ship-console aboard label flips with face */
+    /* Ship-console aboard label flips with face. Amber wording stays on Classic only. */
     var aboard = document.querySelector(".console-aboard");
     if (aboard) {
-      aboard.innerHTML = isOutpost
+      aboard.innerHTML = isClassic
         ? 'Trade console · <span>amber phosphor</span> · Ohio Outpost // Sol-3'
-        : 'Aboard <span>Cosmic Voyager</span> · Passenger Trade Lounge';
+        : (isOutpost
+          ? 'EE · <span>Ohio Outpost // Sol-3</span>'
+          : 'Aboard <span>Cosmic Voyager</span> · Passenger Trade Lounge');
     }
 
     if (opts.persist !== false) {
-      setStoredFace(isOutpost ? FACE_OUTPOST : FACE_PUBLIC);
+      setStoredFace(face);
     }
 
     if (opts.hash !== false) {
       var base = location.pathname + location.search;
-      if (isOutpost) {
-        if (location.hash !== "#outpost") {
-          history.replaceState(null, "", base + "#outpost");
-        }
-      } else if (location.hash === "#outpost") {
+      var next = isClassic ? "#classic" : (isOutpost ? "#outpost" : "");
+      var cur = location.hash;
+      var managed = cur === "#outpost" || cur === "#classic";
+      if (next) {
+        if (cur !== next) history.replaceState(null, "", base + next);
+      } else if (managed) {
         history.replaceState(null, "", base);
       }
     }
 
-    document.dispatchEvent(new CustomEvent("ee:face", { detail: { face: isOutpost ? FACE_OUTPOST : FACE_PUBLIC } }));
+    document.dispatchEvent(new CustomEvent("ee:face", { detail: { face: face } }));
   }
 
   function resolveInitialFace() {
+    if (location.hash === "#classic") return FACE_CLASSIC;
     if (location.hash === "#outpost") return FACE_OUTPOST;
     var stored = getStoredFace();
-    if (stored === FACE_OUTPOST || stored === FACE_PUBLIC) return stored;
-    return FACE_PUBLIC;
+    if (stored === FACE_OUTPOST || stored === FACE_PUBLIC || stored === FACE_CLASSIC) return stored;
+    return FACE_OUTPOST;
   }
 
   /* Apply ASAP to avoid flash of wrong face */
@@ -122,12 +141,23 @@
   function toggleFace(ev) {
     if (ev) ev.preventDefault();
     var current = document.documentElement.getAttribute("data-face");
-    applyFace(current === FACE_OUTPOST ? FACE_PUBLIC : FACE_OUTPOST);
+    if (current === FACE_PUBLIC) applyFace(FACE_OUTPOST);
+    else if (current === FACE_OUTPOST) applyFace(FACE_PUBLIC);
+    else applyFace(FACE_OUTPOST);
+  }
+  function toggleClassic(ev) {
+    if (ev) ev.preventDefault();
+    var current = document.documentElement.getAttribute("data-face");
+    applyFace(current === FACE_CLASSIC ? FACE_OUTPOST : FACE_CLASSIC);
   }
 
   var faceToggle = document.getElementById("face-toggle");
   if (faceToggle) {
     faceToggle.addEventListener("click", toggleFace);
+  }
+  var faceClassic = document.getElementById("face-classic");
+  if (faceClassic) {
+    faceClassic.addEventListener("click", toggleClassic);
   }
 
   document.querySelectorAll("[data-face-enter]").forEach(function (el) {
@@ -137,12 +167,14 @@
     el.addEventListener("click", exitOutpost);
   });
 
-  /* #outpost enters the trade console. Other in-page hashes (#shop, #query,
-     policy anchors) must not leave Outpost or rewrite the session: the face
-     can be restored on load without that hash on the URL. */
+  /* #outpost opens EE. #classic opens the original amber console.
+     Other in-page hashes (#shop, #query, policy anchors) must not change
+     the face or rewrite the session. */
   window.addEventListener("hashchange", function () {
     if (location.hash === "#outpost") {
       applyFace(FACE_OUTPOST, { hash: false });
+    } else if (location.hash === "#classic") {
+      applyFace(FACE_CLASSIC, { hash: false });
     }
   });
 
