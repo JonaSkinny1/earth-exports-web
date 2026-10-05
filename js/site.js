@@ -103,11 +103,11 @@
 
   function enterCv(ev) {
     if (ev) ev.preventDefault();
-    playTick();
-    applyFace(FACE_CV);
+    openCv();
   }
   function exitCv(ev) {
     if (ev) ev.preventDefault();
+    if (lockBusy) return;
     playTick();
     applyFace(FACE_PUBLIC);
   }
@@ -140,11 +140,23 @@
     } catch (e) { /* no audio output */ }
   }
 
+  var lockBusy = false;
+  var vexFlip = 0;
+  function openCv() {
+    if (lockBusy) return;
+    playTick();
+    if (document.documentElement.getAttribute("data-face") !== FACE_CV) applyFace(FACE_CV);
+    runLock();
+  }
   function toggleFace(ev) {
     if (ev) ev.preventDefault();
-    playTick();
-    var current = document.documentElement.getAttribute("data-face");
-    applyFace(current === FACE_CV ? FACE_PUBLIC : FACE_CV);
+    if (lockBusy) return;
+    if (document.documentElement.getAttribute("data-face") === FACE_CV) {
+      playTick();
+      applyFace(FACE_PUBLIC);
+    } else {
+      openCv();
+    }
   }
 
   var faceToggle = document.getElementById("face-toggle");
@@ -223,50 +235,110 @@
     });
   });
 
-  /* Short key sequence. CV only. Shows a reticle flash and a toast, then clears. */
-  var SEQUENCE = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
-  var seqAt = 0;
-  var toastTimer = null;
-  var toast = document.createElement("div");
-  toast.className = "cv-toast";
-  toast.id = "cv-toast";
-  toast.setAttribute("role", "status");
-  toast.setAttribute("aria-hidden", "true");
-  document.body.appendChild(toast);
-  function clearPayload() {
-    toast.classList.remove("is-on");
-    toast.textContent = "";
-    toast.setAttribute("aria-hidden", "true");
-    var ret = document.querySelector(".cv-reticle");
-    if (ret) ret.classList.remove("is-flash");
+  /* Crew-lock theater when entering CV. Everyone gets through. */
+  var LOCK_PIN = "7142";
+  var lockEl = null;
+  var lockTimers = [];
+  function lockLater(ms, fn) {
+    var id = window.setTimeout(fn, ms);
+    lockTimers.push(id);
   }
-  function showPayload() {
-    if (document.documentElement.getAttribute("data-face") !== FACE_CV) return;
-    var ret = document.querySelector(".cv-reticle");
-    if (ret) ret.classList.add("is-flash");
-    toast.textContent = "Payload secured";
-    toast.classList.add("is-on");
-    toast.setAttribute("aria-hidden", "false");
-    window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(clearPayload, 1600);
+  function clearLockTimers() {
+    lockTimers.forEach(function (id) { window.clearTimeout(id); });
+    lockTimers = [];
   }
-  document.addEventListener("keydown", function (ev) {
-    var tag = ev.target && ev.target.tagName;
-    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (ev.target && ev.target.isContentEditable)) {
-      seqAt = 0;
+  function buildLock() {
+    if (lockEl) return lockEl;
+    lockEl = document.createElement("div");
+    lockEl.className = "cv-lock";
+    lockEl.setAttribute("role", "dialog");
+    lockEl.setAttribute("aria-modal", "true");
+    lockEl.setAttribute("aria-hidden", "true");
+    lockEl.setAttribute("aria-label", "Crew lock. This opens on its own.");
+    var keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", ""];
+    var pad = keys.map(function (k) {
+      if (!k) return '<span class="cv-lock-key is-blank"></span>';
+      return '<span class="cv-lock-key" data-key="' + k + '">' + k + '</span>';
+    }).join("");
+    lockEl.innerHTML =
+      '<div class="cv-lock-panel">' +
+        '<p class="cv-lock-kicker">Crew deck · Ohio Outpost</p>' +
+        '<p class="cv-lock-title">Authentication required</p>' +
+        '<p class="cv-lock-status" aria-live="polite">Awaiting crew code</p>' +
+        '<p class="cv-lock-field" aria-hidden="true"><span class="cv-lock-pin"></span><span class="cv-lock-caret" aria-hidden="true"></span></p>' +
+        '<div class="cv-lock-pad" aria-hidden="true">' + pad + '</div>' +
+        '<div class="cv-lock-vex">' +
+          '<svg class="cv-lock-face" viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
+            '<path d="M18 8 h28 l6 8 v30 l-8 10 H20 l-8 -10 V16 Z" fill="none" stroke="#5eb6ff" stroke-width="1.4"/>' +
+            '<path d="M14 22 H50" stroke="#5eb6ff" stroke-width="1"/>' +
+            '<circle cx="26" cy="34" r="3.2" fill="none" stroke="#d7e9ff" stroke-width="1.2"/>' +
+            '<circle cx="38" cy="34" r="3.2" fill="none" stroke="#d7e9ff" stroke-width="1.2"/>' +
+            '<path d="M27 46 h10" stroke="#9fd0ff" stroke-width="1.2"/>' +
+          '</svg>' +
+          '<p class="cv-lock-who"><span>Vex</span> <span class="cv-lock-say"></span></p>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(lockEl);
+    return lockEl;
+  }
+  function finishLock() {
+    clearLockTimers();
+    if (lockEl) {
+      lockEl.classList.remove("is-on", "is-vex", "is-glitch");
+      lockEl.setAttribute("aria-hidden", "true");
+    }
+    document.documentElement.classList.remove("cv-lock-open");
+    lockBusy = false;
+    if (document.documentElement.getAttribute("data-face") !== FACE_CV) applyFace(FACE_CV);
+  }
+  function runLock() {
+    if (lockBusy) return;
+    lockBusy = true;
+    var root = buildLock();
+    var status = root.querySelector(".cv-lock-status");
+    var pin = root.querySelector(".cv-lock-pin");
+    var say = root.querySelector(".cv-lock-say");
+    var line = (vexFlip++ % 2 === 0) ? "i got you" : "no worries";
+    root.classList.remove("is-vex", "is-glitch");
+    root.querySelectorAll(".cv-lock-key.is-lit").forEach(function (k) { k.classList.remove("is-lit"); });
+    root.classList.add("is-on");
+    root.setAttribute("aria-hidden", "false");
+    document.documentElement.classList.add("cv-lock-open");
+    if (reduceMotion()) {
+      pin.textContent = LOCK_PIN;
+      say.textContent = line;
+      status.textContent = "Code accepted";
+      root.classList.add("is-vex");
+      lockLater(800, finishLock);
+      lockLater(4000, finishLock);
       return;
     }
-    var key = ev.key.length === 1 ? ev.key.toLowerCase() : ev.key;
-    if (key === SEQUENCE[seqAt]) {
-      seqAt += 1;
-      if (seqAt === SEQUENCE.length) {
-        seqAt = 0;
-        showPayload();
-      }
-    } else {
-      seqAt = key === SEQUENCE[0] ? 1 : 0;
+    pin.textContent = "";
+    status.textContent = "Awaiting crew code";
+    lockLater(2000, function () {
+      say.textContent = line;
+      status.textContent = "Override in progress";
+      root.classList.add("is-vex");
+    });
+    for (var i = 0; i < LOCK_PIN.length; i++) {
+      (function (n) {
+        lockLater(2480 + n * 170, function () {
+          pin.textContent = LOCK_PIN.slice(0, n + 1);
+          var key = root.querySelector('.cv-lock-key[data-key="' + LOCK_PIN.charAt(n) + '"]');
+          if (key) {
+            key.classList.add("is-lit");
+            lockLater(150, function () { key.classList.remove("is-lit"); });
+          }
+          if (n === LOCK_PIN.length - 1) status.textContent = "Code accepted";
+        });
+      })(i);
     }
-  });
+    lockLater(2480 + LOCK_PIN.length * 170 + 180, function () {
+      root.classList.add("is-glitch");
+    });
+    lockLater(2480 + LOCK_PIN.length * 170 + 620, finishLock);
+    lockLater(8000, finishLock);
+  }
 
 
   /* ===== Earth goods / Space goods tabs (2026-09-27; supersedes launch fix #5 and the phone follow-up's scroll jump).
