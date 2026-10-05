@@ -2977,13 +2977,13 @@ html[data-face="cv"] {
   --face-card: linear-gradient(100deg, #1e242c 0%, #12161c 46%, #0c0e12 100%);
   --face-ink: #e6e9ee;
   --face-muted: #aeb6c0;
-  --face-accent: #7ec8ff;
+  --face-accent: #5eb6ff;
   --face-accent-2: #c5ccd6;
   --face-radius: 0px;
   --face-font: var(--font-sans);
   --face-heading: var(--font-sans);
   --face-glow: 0 0 18px rgba(126, 200, 255, 0.18);
-  --cv-ice: #7ec8ff;
+  --cv-ice: #5eb6ff;
   --cv-silver: #d5dbe3;
   --cv-line: rgba(186, 196, 208, 0.28);
 }
@@ -3302,12 +3302,12 @@ html[data-face="cv"] .eyebrow {
   display: block;
   margin: 2.2rem 0 0.45rem;
   padding: 0 0 0 2.6rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e8edf3;
+  color: #d7e9ff;
   background: none;
   border: 0;
   border-radius: 0;
@@ -3384,16 +3384,17 @@ html[data-face="cv"] .how-n::before {
 
 html[data-face="cv"] .btn,
 html[data-face="cv"] .vex-chat .btn {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   border-radius: 0;
   clip-path: none;
-  border: 1px solid rgba(186, 196, 208, 0.4);
-  background: linear-gradient(102deg, #2a313a, #15191f 42%);
+  border: 1px solid rgba(186, 210, 230, 0.55);
+  background: transparent;
   color: #eef2f6;
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.18);
+  box-shadow: none;
 }
 html[data-face="cv"] .btn:hover,
 html[data-face="cv"] .cat-tile:hover,
@@ -3403,15 +3404,15 @@ html[data-face="cv"] .tile:hover {
   transform: none;
 }
 html[data-face="cv"] .btn-primary {
-  border-color: rgba(126, 200, 255, 0.7);
-  color: #f7fbff;
-  background: linear-gradient(102deg, #243038, #14181e 48%);
-  box-shadow: inset 1px 0 0 rgba(126, 200, 255, 0.85), 0 0 14px rgba(126, 200, 255, 0.1);
+  border-color: rgba(94, 182, 255, 0.9);
+  color: #f3f8ff;
+  background: transparent;
+  box-shadow: inset 0 -2px 0 #5eb6ff;
 }
 html[data-face="cv"] .btn-primary:hover {
-  background: #10141a;
-  color: var(--cv-ice);
-  box-shadow: inset 1px 0 0 var(--cv-ice);
+  background: rgba(94, 182, 255, 0.08);
+  color: #d7ecff;
+  box-shadow: inset 0 -2px 0 #9fd0ff;
 }
 html[data-face="cv"] .btn-secondary,
 html[data-face="cv"] .btn-secondary:hover {
@@ -3461,9 +3462,9 @@ html[data-face="cv"] .side-tab-ufo {
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.16);
 }
 html[data-face="cv"] .st-name {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 }
 html[data-face="cv"] .scene-tabs .st-name { font-size: 0.72rem; }
 html[data-face="cv"] .scene-tabs .st-sub { letter-spacing: 0.12em; text-transform: uppercase; }
@@ -3472,9 +3473,11 @@ html[data-face="cv"] .side-tab-ufo[aria-selected="true"],
 html[data-face="cv"] .scene-tabs .side-tab-earth[aria-selected="true"],
 html[data-face="cv"] .scene-tabs .side-tab-ufo[aria-selected="true"] {
   color: #f4f7fb;
-  border-color: rgba(126, 200, 255, 0.55);
-  background: linear-gradient(102deg, #24303a, #14181e 55%);
-  box-shadow: inset 1px 0 0 var(--cv-ice), 0 0 16px rgba(126, 200, 255, 0.1);
+  border-color: rgba(94, 182, 255, 0.7);
+  background:
+    repeating-linear-gradient(90deg, #5eb6ff 0 8px, transparent 8px 12px) left bottom / 100% 2px no-repeat,
+    linear-gradient(102deg, rgba(30, 58, 88, 0.55), #121820 58%);
+  box-shadow: inset 0 0 0 1px rgba(94, 182, 255, 0.18);
 }
 html[data-face="cv"] .side-tab[aria-selected="true"] .st-led {
   background: var(--cv-ice);
@@ -3768,9 +3771,11 @@ html[data-face="cv"] .cv-plate {
   z-index: 3;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(126, 200, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(126, 200, 255, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(rgba(94, 182, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 182, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(rgba(94, 182, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 182, 255, 0.045) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
   background-position: center;
   -webkit-mask-image: radial-gradient(ellipse 92% 78% at 50% 42%, #000 18%, transparent 78%);
   mask-image: radial-gradient(ellipse 92% 78% at 50% 42%, #000 18%, transparent 78%);
@@ -3810,11 +3815,15 @@ html[data-face="cv"] .cv-strip {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #b7c6d6;
-  background:
-    linear-gradient(90deg, rgba(126, 200, 255, 0.08), transparent 28%),
-    #090b10;
-  border-bottom: 1px solid rgba(126, 200, 255, 0.22);
-  box-shadow: inset 3px 0 0 #7ec8ff;
+  background-color: #090b10;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(94, 182, 255, 0.85) 0 8px, transparent 8px 12px),
+    linear-gradient(90deg, rgba(94, 182, 255, 0.1), transparent 28%);
+  background-size: 100% 2px, auto;
+  background-repeat: repeat-x, no-repeat;
+  background-position: left bottom, 0 0;
+  border-bottom: 1px solid rgba(94, 182, 255, 0.28);
+  box-shadow: inset 3px 0 0 #5eb6ff;
 }
 html[data-face="cv"] .cv-strip span { color: #9fd0ff; }
 
@@ -3906,4 +3915,90 @@ html[data-face="cv"] .notify-lead::before {
   html[data-face="cv"] .cv-plate {
     animation: none !important;
   }
+}
+
+/* HUD wireframe. Decorative only, and only on CV. */
+html[data-face="cv"] .cv-reticle {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  right: 36px;
+  top: 42%;
+  border: 1px solid rgba(94, 182, 255, 0.6);
+  border-radius: 50%;
+}
+html[data-face="cv"] .cv-reticle::before,
+html[data-face="cv"] .cv-reticle::after {
+  content: "";
+  position: absolute;
+  background: rgba(94, 182, 255, 0.8);
+}
+html[data-face="cv"] .cv-reticle::before {
+  width: 1px;
+  height: 54px;
+  left: 50%;
+  top: -6px;
+}
+html[data-face="cv"] .cv-reticle::after {
+  height: 1px;
+  width: 54px;
+  top: 50%;
+  left: -6px;
+}
+html[data-face="cv"] .cat-name,
+html[data-face="cv"] .pc-lore,
+html[data-face="cv"] .how-n,
+html[data-face="cv"] .footer-disclaimer .fd-label,
+html[data-face="cv"] .scene-title::before,
+html[data-face="cv"] .page-hero .eyebrow::after {
+  font-family: var(--font-mono);
+}
+html[data-face="cv"] .page-hero-inner,
+html[data-face="cv"] .notify,
+html[data-face="cv"] .story {
+  background:
+    linear-gradient(#5eb6ff, #5eb6ff) left 8px top 8px / 16px 1px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) left 8px top 8px / 1px 16px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) right 8px top 8px / 16px 1px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) right 8px top 8px / 1px 16px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) left 8px bottom 8px / 16px 1px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) left 8px bottom 8px / 1px 16px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) right 8px bottom 8px / 16px 1px no-repeat,
+    linear-gradient(#5eb6ff, #5eb6ff) right 8px bottom 8px / 1px 16px no-repeat,
+    linear-gradient(102deg, rgba(255,255,255,0.06), transparent 22%),
+    linear-gradient(180deg, #1a212b 0%, #10141a 100%);
+}
+html[data-face="cv"] .product-card::before,
+html[data-face="cv"] .cat-tile::before,
+html[data-face="cv"] .info-card::before {
+  width: 12px;
+  height: 12px;
+  border-top-color: #5eb6ff;
+  border-left-color: #5eb6ff;
+}
+html[data-face="cv"] .product-card::after,
+html[data-face="cv"] .cat-tile::after,
+html[data-face="cv"] .info-card::after {
+  width: 12px;
+  height: 12px;
+  border-right-color: rgba(94, 182, 255, 0.75);
+  border-bottom-color: rgba(94, 182, 255, 0.75);
+}
+html[data-face="cv"] .cargo-feed {
+  background-color: #0c0e12;
+  background-image: repeating-linear-gradient(90deg, rgba(94, 182, 255, 0.85) 0 6px, transparent 6px 10px);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+@media (max-width: 720px) {
+  html[data-face="cv"] .cv-reticle {
+    width: 26px;
+    height: 26px;
+    right: 10px;
+    top: auto;
+    bottom: 18%;
+  }
+  html[data-face="cv"] .cv-reticle::before { height: 34px; top: -4px; }
+  html[data-face="cv"] .cv-reticle::after { width: 34px; left: -4px; }
 }
