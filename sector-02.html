@@ -6,11 +6,19 @@
   <title>Props &amp; Relics · Earth Exports</title>
   <meta name="description" content="Weathered sci-fi display props, hand-finished in Ohio. First run of four pieces.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20260927-tabs">
+  <link rel="stylesheet" href="css/styles.css?v=20261005-cv7">
 </head>
 <body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
   <div class="crt-overlay" aria-hidden="true" hidden></div>
+
+  <div class="cv-plate" aria-hidden="true">
+    <span class="cv-tick cv-tick-tl"></span>
+    <span class="cv-tick cv-tick-tr"></span>
+    <span class="cv-tick cv-tick-bl"></span>
+    <span class="cv-tick cv-tick-br"></span>
+    <span class="cv-reticle"></span>
+  </div>
 
   <div class="cargo-feed" role="region" aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" tabindex="0">
     <span class="cf-live" aria-hidden="true"><span class="cf-dot"></span>LIVE</span>
@@ -27,6 +35,8 @@
     <span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>
     made in Ohio · original fiction, real goods · local flea
   </div>
+
+  <p class="cv-strip" aria-hidden="true"><span>Crew deck</span> Restricted · N 40.00 · W 82.90 · SOL-3</p>
 
   <header class="site-header">
     <div class="header-inner">
@@ -145,13 +155,14 @@
         <span class="fd-label">Disclaimer</span>
         Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
       </p>
+      <p class="cv-log" id="cv-log" aria-hidden="true"></p>
       <div class="face-toggle-wrap">
-        <span id="face-label">CV lounge</span>
-        <button type="button" id="face-toggle" aria-pressed="false" title="Peek at the trade console">EE · ◌</button>
+        <span id="face-label">EE</span>
+        <button type="button" id="face-toggle" aria-pressed="false" title="Open the CV lounge">CV · ◌</button>
       </div>
     </div>
   </footer>
-  <script src="js/site.js?v=20260927-tabs"></script>
+  <script src="js/site.js?v=20261005-cv7"></script>
   <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
   <script src="js/vex.js?v=20260927-tabs" defer></script>
   <script src="js/forms-config.js?v=20260927-tabs"></script>
