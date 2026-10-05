@@ -3713,6 +3713,15 @@ html[data-face="public"] .tile-meta span.warn {
 }
 html[data-face="public"] .filed-doc-meta .fdm-ok { color: #d7e9f8; }
 
+@media (max-width: 1023px) {
+  html[data-face="public"] .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 5.5rem);
+  }
+  html[data-face="public"] .nav-toggle { margin-left: auto; align-self: center; }
+  html[data-face="public"] .wordmark .mark { letter-spacing: 0.04em; }
+}
 @media (max-width: 640px) {
   html[data-face="public"] .scene-tabs .st-name { letter-spacing: 0.08em; font-size: 0.68rem; }
   html[data-face="public"] h1,
