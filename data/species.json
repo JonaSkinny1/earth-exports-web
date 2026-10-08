@@ -3,7 +3,7 @@
   "_distances": "Beyond Sol distances are rounded from Gaia-based figures (Wikipedia, checked October 2026). The chart uses right ascension for direction and a log scale for distance.",
   "_scan": "Scan ratings are drafts Jonathan can change. disposition: friendly, neutral, wary, or hostile-to-trade (none of them are villains). resource: rich, fair, or poor. difficulty: easy, tricky, or hard. danger: low, medium, or high. Edit the four fields on a species. Leave id alone.",
   "_routes": "Routes and rivalries are drafts Jonathan can change. routes use from, to, strength 1 (occasional or low value) to 3 (frequent, very valuable, or an alliance), type trade or alliance, and a short note. Use earth for the Earth Exports outpost on Sol-3. Rivalries are not trade lines. They only draw when the Rivalries toggle is on.",
-  "_summary": "Picker summary lines are drafts Jonathan can change. tradeStanding is good, fair, or poor (from disposition, and whether they trade). tradesWith is the strongest route partner. valuableCargo is one short cargo phrase from that species, except Helion crystals for the one or two who deal in the rarest cargo. wontTradeWith is the rival.",
+  "_summary": "Picker summary lines are drafts Jonathan can change. tradeStanding is good, fair, or poor (from disposition, and whether they trade). tradesWith names every partner tied for the strongest route. valuableCargo is one short cargo phrase from that species, except Helion crystals for the one or two who deal in the rarest cargo. shop_url is optional and empty for now; when a product address is filled in, the cargo line on the summary becomes a link. wontTradeWith is the rival.",
   "routes": [
     {
       "from": "brine-court",
@@ -172,6 +172,97 @@
       "strength": 2,
       "type": "trade",
       "note": "Odds and ends at a fair price, whenever the rock passes."
+    },
+    {
+      "from": "plume-kin",
+      "to": "haze-wick",
+      "strength": 2,
+      "type": "trade",
+      "note": "Saturn neighbors swap geyser frost for bottled haze."
+    },
+    {
+      "from": "haze-wick",
+      "to": "cold-wake",
+      "strength": 3,
+      "type": "trade",
+      "note": "Nitrogen ice keeps the haze pigment from going warm."
+    },
+    {
+      "from": "ganymede-yard",
+      "to": "brine-court",
+      "strength": 2,
+      "type": "alliance",
+      "note": "Yard escorts shield one brine canister through the ice."
+    },
+    {
+      "from": "charon-scale",
+      "to": "cold-wake",
+      "strength": 3,
+      "type": "trade",
+      "note": "Outer-edge toll, paid in nitrogen ice and a weigh-stone."
+    },
+    {
+      "from": "glass-lung",
+      "to": "wellhold",
+      "strength": 2,
+      "type": "trade",
+      "note": "Acid-proof glass barrels for belt water."
+    },
+    {
+      "from": "tumble-fair",
+      "to": "plume-kin",
+      "strength": 1,
+      "type": "trade",
+      "note": "The wandering market buys cheap frost when it passes."
+    },
+    {
+      "from": "tumble-fair",
+      "to": "glass-lung",
+      "strength": 1,
+      "type": "trade",
+      "note": "A Venus flyby: odds and ends for one light glass piece."
+    },
+    {
+      "from": "ash-court",
+      "to": "keel-scale",
+      "strength": 3,
+      "type": "alliance",
+      "note": "Counters and seal inspectors share one paperwork standard."
+    },
+    {
+      "from": "reed-tally",
+      "to": "ash-court",
+      "strength": 2,
+      "type": "trade",
+      "note": "Counting rods for tally slips, only in sets of 3, 6, or 9."
+    },
+    {
+      "from": "bright-holt",
+      "to": "pip-moss",
+      "strength": 3,
+      "type": "trade",
+      "note": "Pale cloth wraps the seedling jars. Paid late, and in full."
+    },
+    {
+      "from": "split-kin",
+      "to": "bright-holt",
+      "strength": 1,
+      "type": "trade",
+      "note": "Two-color cords braided in, once in a while."
+    },
+    {
+      "from": "lamp-drift",
+      "to": "waxwright-hive",
+      "strength": 1,
+      "type": "trade",
+      "note": "A living light pressed into a wax tile, now and then."
+    },
+    {
+      "from": "quiet-margin",
+      "to": "echo-fold",
+      "strength": 2,
+      "type": "trade",
+      "note": "A route tip for a copy close enough to pass. Nothing is written down."
     }
   ],
   "rivalries": [
@@ -287,7 +378,8 @@
       "tradeStanding": "good",
       "tradesWith": "Red Ledger and Wellhold",
       "valuableCargo": "Sealed brine",
-      "wontTradeWith": "Plume Kin"
+      "wontTradeWith": "Plume Kin",
+      "shop_url": ""
     },
     {
       "id": "plume-kin",
@@ -311,9 +403,10 @@
       "difficulty": "tricky",
       "danger": "high",
       "tradeStanding": "good",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Haze Wick",
       "valuableCargo": "Geyser frost",
-      "wontTradeWith": "Brine Court"
+      "wontTradeWith": "Brine Court",
+      "shop_url": ""
     },
     {
       "id": "haze-wick",
@@ -337,9 +430,10 @@
       "difficulty": "hard",
       "danger": "medium",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Cold Wake",
       "valuableCargo": "Haze pigment",
-      "wontTradeWith": "Cinder Mote"
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
     },
     {
       "id": "glass-lung",
@@ -365,7 +459,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Helion crystals",
-      "wontTradeWith": "Red Ledger"
+      "wontTradeWith": "Red Ledger",
+      "shop_url": ""
     },
     {
       "id": "red-ledger",
@@ -389,9 +484,10 @@
       "difficulty": "tricky",
       "danger": "medium",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Brine Court",
       "valuableCargo": "Red dust",
-      "wontTradeWith": "Wellhold"
+      "wontTradeWith": "Wellhold",
+      "shop_url": ""
     },
     {
       "id": "cinder-mote",
@@ -417,7 +513,8 @@
       "tradeStanding": "poor",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Sulfur cakes",
-      "wontTradeWith": "Cold Wake"
+      "wontTradeWith": "Cold Wake",
+      "shop_url": ""
     },
     {
       "id": "wellhold",
@@ -441,9 +538,10 @@
       "difficulty": "tricky",
       "danger": "low",
       "tradeStanding": "good",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Brine Court and Earth / Sol-3",
       "valuableCargo": "Drinking water",
-      "wontTradeWith": "Tumble Fair"
+      "wontTradeWith": "Tumble Fair",
+      "shop_url": ""
     },
     {
       "id": "cold-wake",
@@ -467,9 +565,10 @@
       "difficulty": "hard",
       "danger": "high",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Charon Scale and Haze Wick",
       "valuableCargo": "Nitrogen ice",
-      "wontTradeWith": "Cinder Mote"
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
     },
     {
       "id": "ganymede-yard",
@@ -494,7 +593,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Helion crystals",
-      "wontTradeWith": "Cinder Mote"
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
     },
     {
       "id": "charon-scale",
@@ -517,9 +617,10 @@
       "difficulty": "tricky",
       "danger": "low",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Cold Wake",
       "valuableCargo": "Weigh-stones",
-      "wontTradeWith": "Tumble Fair"
+      "wontTradeWith": "Tumble Fair",
+      "shop_url": ""
     },
     {
       "id": "ash-court",
@@ -548,9 +649,10 @@
       "difficulty": "tricky",
       "danger": "low",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Keel Scale",
       "valuableCargo": "Tally slips",
-      "wontTradeWith": "Bright Holt"
+      "wontTradeWith": "Bright Holt",
+      "shop_url": ""
     },
     {
       "id": "keel-scale",
@@ -579,9 +681,10 @@
       "difficulty": "hard",
       "danger": "low",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Ash Court",
       "valuableCargo": "Seal wax",
-      "wontTradeWith": "Echo Fold"
+      "wontTradeWith": "Echo Fold",
+      "shop_url": ""
     },
     {
       "id": "bright-holt",
@@ -610,9 +713,10 @@
       "difficulty": "easy",
       "danger": "low",
       "tradeStanding": "good",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Pip Moss",
       "valuableCargo": "Pale cloth",
-      "wontTradeWith": "Ash Court"
+      "wontTradeWith": "Ash Court",
+      "shop_url": ""
     },
     {
       "id": "reed-tally",
@@ -641,9 +745,10 @@
       "difficulty": "tricky",
       "danger": "low",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Ash Court",
       "valuableCargo": "Counting rods",
-      "wontTradeWith": "Waxwright Hive"
+      "wontTradeWith": "Waxwright Hive",
+      "shop_url": ""
     },
     {
       "id": "lamp-drift",
@@ -674,7 +779,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Living light",
-      "wontTradeWith": "Quiet Margin"
+      "wontTradeWith": "Quiet Margin",
+      "shop_url": ""
     },
     {
       "id": "waxwright-hive",
@@ -705,7 +811,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Wax tiles",
-      "wontTradeWith": "Pip Moss"
+      "wontTradeWith": "Pip Moss",
+      "shop_url": ""
     },
     {
       "id": "pip-moss",
@@ -734,9 +841,10 @@
       "difficulty": "easy",
       "danger": "medium",
       "tradeStanding": "good",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Bright Holt and Earth / Sol-3",
       "valuableCargo": "Seedlings",
-      "wontTradeWith": "Lamp Drift"
+      "wontTradeWith": "Lamp Drift",
+      "shop_url": ""
     },
     {
       "id": "plain-coat",
@@ -767,7 +875,8 @@
       "tradeStanding": "poor",
       "tradesWith": "Nobody",
       "valuableCargo": "Manifest copy",
-      "wontTradeWith": "Scrap Wake"
+      "wontTradeWith": "Scrap Wake",
+      "shop_url": ""
     },
     {
       "id": "scrap-wake",
@@ -798,7 +907,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Nickel-iron offcuts",
-      "wontTradeWith": "Ganymede Yard"
+      "wontTradeWith": "Ganymede Yard",
+      "shop_url": ""
     },
     {
       "id": "split-kin",
@@ -829,7 +939,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Two-color cords",
-      "wontTradeWith": "Echo Fold"
+      "wontTradeWith": "Echo Fold",
+      "shop_url": ""
     },
     {
       "id": "quiet-margin",
@@ -858,9 +969,10 @@
       "difficulty": "hard",
       "danger": "high",
       "tradeStanding": "poor",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Echo Fold and Earth / Sol-3",
       "valuableCargo": "Route tips",
-      "wontTradeWith": "Plain Coat"
+      "wontTradeWith": "Plain Coat",
+      "shop_url": ""
     },
     {
       "id": "echo-fold",
@@ -889,9 +1001,10 @@
       "difficulty": "hard",
       "danger": "medium",
       "tradeStanding": "fair",
-      "tradesWith": "Earth / Sol-3",
+      "tradesWith": "Quiet Margin",
       "valuableCargo": "Copies",
-      "wontTradeWith": "Keel Scale"
+      "wontTradeWith": "Keel Scale",
+      "shop_url": ""
     },
     {
       "id": "tumble-fair",
@@ -920,7 +1033,8 @@
       "tradeStanding": "good",
       "tradesWith": "Earth / Sol-3",
       "valuableCargo": "Mystery crate",
-      "wontTradeWith": "Charon Scale"
+      "wontTradeWith": "Charon Scale",
+      "shop_url": ""
     }
   ]
 }

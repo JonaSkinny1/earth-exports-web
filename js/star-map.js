@@ -1066,8 +1066,22 @@
     els.summaryOpen.textContent = species.name;
     els.sumStanding.textContent = species.tradeStanding || "Unrated";
     els.sumWith.textContent = species.tradesWith || "Earth / Sol-3";
-    els.sumCargo.textContent = species.valuableCargo || "Unlisted";
+    paintCargo(species);
     els.sumRival.textContent = species.wontTradeWith || "None";
+  }
+
+  function paintCargo(species) {
+    var phrase = species.valuableCargo || "Unlisted";
+    var url = String(species.shop_url || "").trim();
+    els.sumCargo.replaceChildren();
+    if (!url) {
+      els.sumCargo.textContent = phrase;
+      return;
+    }
+    var link = document.createElement("a");
+    link.href = url;
+    link.textContent = phrase;
+    els.sumCargo.appendChild(link);
   }
 
   function revealSpecies(id) {

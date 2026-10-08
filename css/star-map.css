@@ -840,6 +840,12 @@ html[data-face="cv"] .sd-facts dt { color: #5eb6ff; }
 
 .species-summary strong::before { content: " · "; color: var(--muted); }
 
+.species-summary a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 html[data-face="cv"] #species-pick-btn,
 html[data-face="cv"] .species-menu,
 html[data-face="cv"] .species-summary {
