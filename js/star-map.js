@@ -42,19 +42,70 @@
   ];
 
   var ORBIT_R = [48, 78, 110, 144, 178, 218, 268, 312, 344];
-  var LABEL_SIDE = {
-    "trappist-1": -1,
-    "fomalhaut": 1,
-    "kepler-186": -1,
-    "kepler-62": 1,
-    "kepler-452": 1,
-    "kepler-47": -1,
-    "tau-ceti": -1,
-    "epsilon-eridani": 1,
-    "luyten": 1,
-    "55-cancri": -1,
-    "proxima": -1,
-    "barnard": 1
+
+  /* Sideways slide along the sky tangent, in viewBox pixels. Distance from Sol stays put. */
+  var TANGENT_NUDGE = {
+    "trappist-1": -34,
+    "fomalhaut": 34,
+    "kepler-47": -68,
+    "kepler-452": -8,
+    "kepler-186": 46,
+    "kepler-62": 30
+  };
+
+  /* Label anchor in viewBox space. "start" grows right, "end" grows left. */
+  var STAR_LABEL = {
+    "trappist-1": { x: 448, y: 148, anchor: "end" },
+    "fomalhaut": { x: 720, y: 168, anchor: "start" },
+    "tau-ceti": { x: 392, y: 276, anchor: "end" },
+    "epsilon-eridani": { x: 328, y: 366, anchor: "end" },
+    "luyten": { x: 292, y: 498, anchor: "end" },
+    "55-cancri": { x: 278, y: 578, anchor: "end" },
+    "barnard": { x: 760, y: 348, anchor: "end" },
+    "proxima": { x: 748, y: 528, anchor: "start" },
+    "kepler-47": { x: 952, y: 214, anchor: "start" },
+    "kepler-452": { x: 952, y: 276, anchor: "start" },
+    "kepler-186": { x: 952, y: 338, anchor: "start" },
+    "kepler-62": { x: 952, y: 400, anchor: "start" }
+  };
+
+  var LENSES = [
+    { id: "disposition", label: "Disposition", field: "disposition" },
+    { id: "resource", label: "Resource value", field: "resource" },
+    { id: "difficulty", label: "Trade difficulty", field: "difficulty" },
+    { id: "danger", label: "Danger to cargo", field: "danger" }
+  ];
+
+  var RANK_LABEL = {
+    friendly: "Friendly",
+    neutral: "Neutral",
+    wary: "Wary",
+    "hostile-to-trade": "Hostile to trade",
+    rich: "Rich",
+    fair: "Fair",
+    poor: "Poor",
+    easy: "Easy",
+    tricky: "Tricky",
+    hard: "Hard",
+    low: "Low",
+    medium: "Medium",
+    high: "High"
+  };
+
+  var RANK_SHAPE = {
+    friendly: "circle",
+    neutral: "square",
+    wary: "triangle",
+    "hostile-to-trade": "diamond",
+    rich: "circle",
+    fair: "square",
+    poor: "triangle",
+    easy: "circle",
+    tricky: "square",
+    hard: "diamond",
+    low: "circle",
+    medium: "square",
+    high: "triangle"
   };
 
   var CANISTERS = [
@@ -68,9 +119,15 @@
   var state = {
     species: [],
     byId: {},
+    routes: [],
+    rivalries: [],
     zone: "sol",
+    lens: "disposition",
+    routesOn: true,
+    rivalsOn: false,
     lastFocus: null,
-    flipBack: false
+    flipBack: false,
+    openId: ""
   };
 
   var els = {};
@@ -88,7 +145,11 @@
     els.note = document.getElementById("map-note");
     els.indexTitle = document.getElementById("map-index-title");
     els.index = document.getElementById("map-index");
-    els.legend = document.getElementById("canister-legend");
+    els.scanLegend = document.getElementById("scan-legend");
+    els.routeLegend = document.getElementById("route-legend");
+    els.scanButtons = Array.prototype.slice.call(document.querySelectorAll("[data-lens]"));
+    els.routesToggle = document.getElementById("toggle-routes");
+    els.rivalsToggle = document.getElementById("toggle-rivals");
     els.dialog = document.getElementById("species-dialog");
     els.kicker = document.getElementById("sd-kicker");
     els.title = document.getElementById("species-dialog-title");
@@ -109,11 +170,16 @@
       })
       .then(function (data) {
         state.species = data.species || [];
+        state.routes = data.routes || [];
+        state.rivalries = data.rivalries || [];
         state.species.forEach(function (s) { state.byId[s.id] = s; });
         drawSol();
         drawBeyond();
-        renderLegend();
+        applyScan();
         showZone(initialZone(), false);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function () { fitStarLabels(); });
+        }
         if (els.status) els.status.hidden = true;
         var hashId = hashSpecies();
         if (hashId) openSpecies(state.byId[hashId], false);
@@ -139,7 +205,30 @@
         if (p !== pin) p.classList.remove("is-armed");
       });
     });
-    document.addEventListener("ee:face", renderLegend);
+    document.addEventListener("ee:face", function () {
+      applyScan();
+      fitStarLabels();
+    });
+    els.scanButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () { setLens(btn.getAttribute("data-lens")); });
+      btn.addEventListener("keydown", onLensKey);
+    });
+    if (els.routesToggle) {
+      els.routesToggle.addEventListener("click", function () {
+        state.routesOn = !state.routesOn;
+        els.routesToggle.setAttribute("aria-pressed", state.routesOn ? "true" : "false");
+        syncRouteGroups();
+        renderRouteLegend();
+      });
+    }
+    if (els.rivalsToggle) {
+      els.rivalsToggle.addEventListener("click", function () {
+        state.rivalsOn = !state.rivalsOn;
+        els.rivalsToggle.setAttribute("aria-pressed", state.rivalsOn ? "true" : "false");
+        syncRouteGroups();
+        renderRouteLegend();
+      });
+    }
     if (els.close) els.close.addEventListener("click", function () { els.dialog.close(); });
     if (els.flip) {
       els.flip.addEventListener("click", function () {
@@ -154,6 +243,7 @@
         if (e.target === els.dialog) els.dialog.close();
       });
       els.dialog.addEventListener("close", function () {
+        state.openId = "";
         if (state.lastFocus && state.lastFocus.focus) state.lastFocus.focus();
         var zoneHash = state.zone === "beyond" ? "#beyond" : "#sol";
         if (location.hash && location.hash !== zoneHash && state.byId[location.hash.slice(1)]) {
@@ -171,6 +261,33 @@
         showZone(location.hash.slice(1), false);
       }
     });
+  }
+
+  function setLens(id) {
+    if (!id || id === state.lens) return;
+    state.lens = id;
+    els.scanButtons.forEach(function (btn) {
+      var on = btn.getAttribute("data-lens") === id;
+      btn.setAttribute("aria-checked", on ? "true" : "false");
+      btn.tabIndex = on ? 0 : -1;
+    });
+    applyScan();
+    if (state.openId && state.byId[state.openId] && els.dialog && els.dialog.open) {
+      paintScan(state.byId[state.openId]);
+    }
+  }
+
+  function onLensKey(e) {
+    var i = els.scanButtons.indexOf(e.currentTarget);
+    var next = null;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") next = els.scanButtons[(i + 1) % els.scanButtons.length];
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = els.scanButtons[(i - 1 + els.scanButtons.length) % els.scanButtons.length];
+    else if (e.key === "Home") next = els.scanButtons[0];
+    else if (e.key === "End") next = els.scanButtons[els.scanButtons.length - 1];
+    if (!next) return;
+    e.preventDefault();
+    setLens(next.getAttribute("data-lens"));
+    next.focus();
   }
 
   function onTabKey(e) {
@@ -234,7 +351,10 @@
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "index-species";
-      btn.innerHTML = "<span class=\"index-name\"></span><span class=\"index-world\"></span>";
+      btn.innerHTML = "<i class=\"key-shape\" aria-hidden=\"true\"></i><span class=\"index-copy\"><span class=\"index-name\"></span><span class=\"index-world\"></span></span>";
+      var shape = btn.querySelector(".key-shape");
+      var rank = rankOf(s);
+      shape.className = "key-shape shape-" + rank.shape + " rank-" + rank.value;
       btn.querySelector(".index-name").textContent = s.name;
       btn.querySelector(".index-world").textContent = s.wander ? "No homeworld · wandering" : (s.bodyLabel || s.mapLabel || s.homeworld);
       btn.addEventListener("click", function () { openSpecies(s, true); });
@@ -243,23 +363,103 @@
     });
   }
 
-  function renderLegend() {
-    if (!els.legend) return;
-    var cv = document.documentElement.getAttribute("data-face") === "cv";
-    els.legend.replaceChildren();
+  function lensDef() {
+    for (var i = 0; i < LENSES.length; i++) {
+      if (LENSES[i].id === state.lens) return LENSES[i];
+    }
+    return LENSES[0];
+  }
+
+  function rankOf(species) {
+    var lens = lensDef();
+    var value = species && species[lens.field] ? species[lens.field] : "";
+    return {
+      value: value || "neutral",
+      label: RANK_LABEL[value] || value || "Unrated",
+      shape: RANK_SHAPE[value] || "circle"
+    };
+  }
+
+  function applyScan() {
+    var lens = lensDef();
+    document.querySelectorAll(".map-pin").forEach(function (pin) {
+      var species = state.byId[pin.dataset.id];
+      if (!species) return;
+      var rank = rankOf(species);
+      pin.classList.remove("shape-circle", "shape-square", "shape-triangle", "shape-diamond");
+      Array.prototype.slice.call(pin.classList).forEach(function (c) {
+        if (c.indexOf("rank-") === 0) pin.classList.remove(c);
+      });
+      pin.classList.add("shape-" + rank.shape, "rank-" + rank.value);
+      pin.setAttribute("aria-label", pinLabel(species) + ". " + lens.label + ": " + rank.label + ". Open dossier.");
+    });
+    renderScanLegend();
+    renderRouteLegend();
+    if (els.index && state.species.length) renderIndex();
+  }
+
+  function renderScanLegend() {
+    if (!els.scanLegend) return;
+    var lens = lensDef();
+    var seen = [];
+    var order = Object.keys(RANK_LABEL);
+    state.species.forEach(function (s) {
+      var value = s[lens.field];
+      if (value && seen.indexOf(value) === -1) seen.push(value);
+    });
+    seen.sort(function (a, b) { return order.indexOf(a) - order.indexOf(b); });
+    els.scanLegend.replaceChildren();
     var lead = document.createElement("li");
     lead.className = "legend-lead";
-    lead.textContent = cv
-      ? "Each glow is a species. On this deck the marker is icy blue."
-      : "Marker color is the canister that species ships in.";
-    els.legend.appendChild(lead);
-    if (cv) return;
-    CANISTERS.forEach(function (pair) {
+    lead.textContent = "Scan mode · " + lens.label;
+    els.scanLegend.appendChild(lead);
+    seen.forEach(function (value) {
       var li = document.createElement("li");
-      li.innerHTML = "<span class=\"swatch swatch-" + pair[1] + "\" aria-hidden=\"true\"></span><span></span>";
-      li.querySelector("span:last-child").textContent = pair[0];
-      els.legend.appendChild(li);
+      var mark = document.createElement("i");
+      mark.className = "key-shape shape-" + (RANK_SHAPE[value] || "circle") + " rank-" + value;
+      mark.setAttribute("aria-hidden", "true");
+      var name = document.createElement("span");
+      name.textContent = RANK_LABEL[value] || value;
+      li.appendChild(mark);
+      li.appendChild(name);
+      els.scanLegend.appendChild(li);
     });
+  }
+
+  function renderRouteLegend() {
+    if (!els.routeLegend) return;
+    els.routeLegend.replaceChildren();
+    var lead = document.createElement("li");
+    lead.className = "legend-lead";
+    lead.textContent = state.routesOn ? "Routes" : "Routes off";
+    els.routeLegend.appendChild(lead);
+    [
+      ["route-key route-key-s3", "Frequent or valuable"],
+      ["route-key route-key-s2", "Steady"],
+      ["route-key route-key-s1", "Occasional"],
+      ["route-key route-key-alliance", "Alliance"]
+    ].forEach(function (row) {
+      var li = document.createElement("li");
+      var mark = document.createElement("i");
+      mark.className = row[0];
+      mark.setAttribute("aria-hidden", "true");
+      var name = document.createElement("span");
+      name.textContent = row[1];
+      li.appendChild(mark);
+      li.appendChild(name);
+      els.routeLegend.appendChild(li);
+    });
+    if (state.rivalsOn) {
+      var li = document.createElement("li");
+      var mark = document.createElement("i");
+      mark.className = "route-key route-key-rival";
+      mark.setAttribute("aria-hidden", "true");
+      var name = document.createElement("span");
+      name.textContent = "Rivalry · no trade";
+      li.appendChild(mark);
+      li.appendChild(name);
+      els.routeLegend.appendChild(li);
+    }
   }
 
   function drawSol() {
@@ -281,6 +481,9 @@
       var g = SOL_GEOM[id];
       points[id] = at(g.r, g.deg);
     });
+    var solPath = patrol(150, 980, 755, -36, 28);
+    points["tumble-fair"] = solPath[Math.floor(solPath.length * 0.28)];
+    drawRouteLayer(svg, points, "sol");
     MOON_LINKS.forEach(function (pair) {
       var a = points[pair[0]];
       var b = points[pair[1]];
@@ -305,7 +508,7 @@
       placeLabel(svg, pt, g.ldx, g.ldy, g.anchor, s.bodyLabel || s.name, "");
       addPin(els.solBoard, s, pt);
     });
-    addWander(els.solBoard, svg, patrol(150, 980, 755, -36, 28), wanderSpecies());
+    addWander(els.solBoard, svg, solPath, wanderSpecies());
   }
 
   function drawBeyond() {
@@ -324,11 +527,11 @@
       svg.appendChild(svgEl("circle", { class: "dist-ring", cx: VB.cx, cy: VB.cy, r: round(r) }));
       var label = svgEl("text", {
         class: "ring-label",
-        x: round(VB.cx + r * 0.98),
-        y: round(VB.cy - r * 0.08)
+        x: VB.cx,
+        y: round(VB.cy + r + 16),
+        "text-anchor": "middle"
       });
-      label.textContent = ly >= 1000 ? (ly / 1000) + ",000 ly" : ly + " ly";
-      if (ly === 2000) label.textContent = "2,000 ly";
+      label.textContent = ly === 2000 ? "2,000 ly" : ly + " ly";
       svg.appendChild(label);
     });
 
@@ -337,90 +540,49 @@
     sunLabel.textContent = "Sol";
     svg.appendChild(sunLabel);
 
+    var points = { earth: { x: VB.cx, y: VB.cy } };
     var stars = state.species.filter(function (s) { return s.star && s.ra != null; }).map(function (s) {
       var ra = s.ra * Math.PI / 180;
       var r = logR(s.distanceLy);
       var radial = { x: -Math.sin(ra), y: -Math.cos(ra) };
       var tangent = { x: Math.cos(ra), y: -Math.sin(ra) };
-      var nudge = (s.dec / 90) * 34;
-      return {
-        species: s,
-        r: r,
-        tx: tangent.x,
-        ty: tangent.y,
-        rx: radial.x,
-        ry: radial.y,
-        trueX: VB.cx + radial.x * r,
-        trueY: VB.cy + radial.y * r,
-        x: VB.cx + radial.x * r + tangent.x * nudge,
-        y: VB.cy + radial.y * r + tangent.y * nudge
-      };
+      var slide = (s.dec / 90) * 34 + (TANGENT_NUDGE[s.star] || 0);
+      var x = VB.cx + radial.x * r + tangent.x * slide;
+      var y = VB.cy + radial.y * r + tangent.y * slide;
+      return { species: s, x: x, y: y };
     });
-    separateTangent(stars, 54);
+    stars.forEach(function (star) { points[star.species.id] = { x: star.x, y: star.y }; });
+    var beyondPath = patrol(130, 340, 718, -16, 22);
+    points["tumble-fair"] = beyondPath[Math.floor(beyondPath.length * 0.28)];
+    drawRouteLayer(svg, points, "beyond");
+
     stars.forEach(function (star) {
-      star.x = clamp(star.x, 70, VB.w - 70);
-      star.y = clamp(star.y, 64, VB.h - 56);
-      var shifted = Math.hypot(star.x - star.trueX, star.y - star.trueY) > 10;
-      if (shifted) {
-        svg.appendChild(svgEl("line", {
-          class: "moon-link",
-          x1: round(star.trueX), y1: round(star.trueY),
-          x2: round(star.x), y2: round(star.y)
-        }));
-        svg.appendChild(svgEl("circle", {
-          class: "true-tick",
-          cx: round(star.trueX), cy: round(star.trueY), r: 2.2
-        }));
-      }
-      var side = LABEL_SIDE[star.species.star] || 1;
-      var lx = star.x + star.tx * side * 92 + star.rx * 18;
-      var ly = star.y + star.ty * side * 92 + star.ry * 18;
-      lx = clamp(lx, 86, VB.w - 120);
-      ly = clamp(ly, 78, VB.h - 40);
+      var place = STAR_LABEL[star.species.star] || { x: star.x + 36, y: star.y - 28, anchor: "start" };
       var leader = svgEl("line", {
         class: "map-leader label-leader",
         x1: round(star.x), y1: round(star.y),
-        x2: round(lx), y2: round(ly - 6)
+        x2: round(place.x), y2: round(place.y)
       });
       svg.appendChild(leader);
-      var anchor = lx < star.x - 6 ? "end" : "start";
       var text = svgEl("text", {
         class: "map-label star-label",
-        x: round(lx),
-        y: round(ly),
-        "text-anchor": anchor
+        x: round(place.x),
+        y: round(place.y),
+        "text-anchor": place.anchor,
+        "data-x": round(place.x),
+        "data-sx": round(star.x),
+        "data-sy": round(star.y)
       });
-      var name = svgEl("tspan", { x: round(lx), dy: "0" });
+      var name = svgEl("tspan", { x: round(place.x), dy: "0" });
       name.textContent = star.species.mapLabel || star.species.homeworld;
-      var dist = svgEl("tspan", { class: "star-dist", x: round(lx), dy: "14" });
+      var dist = svgEl("tspan", { class: "star-dist", x: round(place.x), dy: "14" });
       dist.textContent = star.species.distanceLabel || "";
       text.appendChild(name);
       text.appendChild(dist);
       svg.appendChild(text);
       addPin(els.beyondBoard, star.species, { x: star.x, y: star.y });
     });
-    addWander(els.beyondBoard, svg, patrol(160, 960, 800, -28, 28), wanderSpecies());
-  }
-
-  function separateTangent(stars, minDist) {
-    var n, i, j, dx, dy, dist, push, sign;
-    for (n = 0; n < 14; n++) {
-      for (i = 0; i < stars.length; i++) {
-        for (j = i + 1; j < stars.length; j++) {
-          dx = stars[j].x - stars[i].x;
-          dy = stars[j].y - stars[i].y;
-          dist = Math.hypot(dx, dy) || 0.01;
-          if (dist >= minDist) continue;
-          push = (minDist - dist) / 2 + 0.4;
-          sign = (dx * stars[i].tx + dy * stars[i].ty) >= 0 ? -1 : 1;
-          stars[i].x += stars[i].tx * sign * push;
-          stars[i].y += stars[i].ty * sign * push;
-          sign = (dx * stars[j].tx + dy * stars[j].ty) >= 0 ? 1 : -1;
-          stars[j].x += stars[j].tx * sign * push;
-          stars[j].y += stars[j].ty * sign * push;
-        }
-      }
-    }
+    addWander(els.beyondBoard, svg, beyondPath, wanderSpecies());
   }
 
   function addWander(board, svg, path, species) {
@@ -440,6 +602,16 @@
       var p = pointOnLoop(path, t);
       pin.style.left = (p.x / VB.w * 100) + "%";
       pin.style.top = (p.y / VB.h * 100) + "%";
+      board.querySelectorAll(".route-line").forEach(function (line) {
+        if (line.dataset.from === species.id) {
+          line.setAttribute("x1", round(p.x));
+          line.setAttribute("y1", round(p.y));
+        }
+        if (line.dataset.to === species.id) {
+          line.setAttribute("x2", round(p.x));
+          line.setAttribute("y2", round(p.y));
+        }
+      });
       pin._raf = requestAnimationFrame(frame);
     }
     pin._raf = requestAnimationFrame(frame);
@@ -448,10 +620,15 @@
   function addPin(board, species, pt) {
     var pin = document.createElement("button");
     pin.type = "button";
-    pin.className = "map-pin " + pinClass(species.canister);
+    pin.className = "map-pin";
+    pin.dataset.id = species.id;
     pin.style.left = (pt.x / VB.w * 100) + "%";
     pin.style.top = (pt.y / VB.h * 100) + "%";
     pin.setAttribute("aria-label", pinLabel(species) + ". Open dossier.");
+    pin.addEventListener("pointerenter", function () { setHover(species.id); });
+    pin.addEventListener("pointerleave", function () { setHover(""); });
+    pin.addEventListener("focus", function () { setHover(species.id); });
+    pin.addEventListener("blur", function () { setHover(""); });
     if (pt.y < 150) pin.classList.add("tip-below");
     var dot = document.createElement("span");
     dot.className = "pin-dot";
@@ -480,6 +657,7 @@
 
   function openSpecies(species, fromUser) {
     if (!species || !els.dialog) return;
+    state.openId = species.id;
     state.flipBack = false;
     els.faces.classList.remove("is-back");
     var where = species.zones.indexOf("beyond") !== -1 && species.zones.indexOf("sol") === -1 ? "Beyond Sol" : (species.wander ? "Wandering" : "Sol system");
@@ -510,6 +688,8 @@
       els.facts.appendChild(dt);
       els.facts.appendChild(dd);
     });
+    paintScan(species);
+    paintRoutes(species);
     var paper = els.faces.querySelector(".sd-front.sd-paper");
     var dark = els.faces.querySelector(".sd-front.sd-dark");
     var backPaper = els.faces.querySelector(".sd-back.sd-paper");
@@ -546,6 +726,225 @@
       history.replaceState(null, "", "#" + species.id);
     }
     if (!els.dialog.open) els.dialog.showModal();
+  }
+
+  function paintScan(species) {
+    var old = document.getElementById("sd-scan");
+    if (old) old.remove();
+    var lens = lensDef();
+    var wrap = document.createElement("div");
+    wrap.id = "sd-scan";
+    wrap.className = "sd-scan";
+    var kicker = document.createElement("p");
+    kicker.className = "sd-scan-kicker";
+    kicker.textContent = "Scan · draft";
+    wrap.appendChild(kicker);
+    var list = document.createElement("ul");
+    LENSES.forEach(function (item) {
+      var value = species[item.field] || "";
+      var li = document.createElement("li");
+      if (item.id === lens.id) li.className = "is-on";
+      var mark = document.createElement("i");
+      mark.className = "key-shape shape-" + (RANK_SHAPE[value] || "circle") + " rank-" + (value || "neutral");
+      mark.setAttribute("aria-hidden", "true");
+      var text = document.createElement("span");
+      text.textContent = item.label + " · " + (RANK_LABEL[value] || "Unrated");
+      li.appendChild(mark);
+      li.appendChild(text);
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    els.facts.insertAdjacentElement("afterend", wrap);
+  }
+
+  function paintRoutes(species) {
+    var old = document.getElementById("sd-routes");
+    if (old) old.remove();
+    var wrap = document.createElement("div");
+    wrap.id = "sd-routes";
+    wrap.className = "sd-scan";
+    var kicker = document.createElement("p");
+    kicker.className = "sd-scan-kicker";
+    kicker.textContent = "Routes · draft";
+    wrap.appendChild(kicker);
+    var list = document.createElement("ul");
+    var found = false;
+    state.routes.forEach(function (route) {
+      if (route.from !== species.id && route.to !== species.id) return;
+      found = true;
+      var other = route.from === species.id ? route.to : route.from;
+      var li = document.createElement("li");
+      var word = route.type === "alliance" ? "Alliance" : (route.strength >= 3 ? "Frequent" : (route.strength === 2 ? "Steady" : "Occasional"));
+      li.textContent = partnerName(other) + " · " + word + ". " + (route.note || "");
+      list.appendChild(li);
+    });
+    state.rivalries.forEach(function (route) {
+      if (route.from !== species.id && route.to !== species.id) return;
+      var other = route.from === species.id ? route.to : route.from;
+      var li = document.createElement("li");
+      li.className = "is-rival";
+      li.textContent = "No trade with " + partnerName(other) + ". " + (route.note || "");
+      list.appendChild(li);
+    });
+    if (!found) {
+      var li = document.createElement("li");
+      li.textContent = "No trade route. They don't buy or sell cargo.";
+      list.appendChild(li);
+    }
+    wrap.appendChild(list);
+    var scan = document.getElementById("sd-scan");
+    (scan || els.facts).insertAdjacentElement("afterend", wrap);
+  }
+
+  function partnerName(id) {
+    if (id === "earth") return "Earth (Sol-3 outpost)";
+    return state.byId[id] ? state.byId[id].name : id;
+  }
+
+  function drawRouteLayer(svg, points, zone) {
+    var trade = svgEl("g", { class: "route-trade" });
+    var rival = svgEl("g", { class: "route-rival" });
+    state.routes.slice().sort(function (a, b) { return a.strength - b.strength; }).forEach(function (route) {
+      addRouteLine(trade, route, points, zone, false);
+    });
+    state.rivalries.forEach(function (route) {
+      addRouteLine(rival, route, points, zone, true);
+    });
+    paintBay(rival, zone);
+    svg.appendChild(trade);
+    svg.appendChild(rival);
+    syncRouteGroups();
+  }
+
+  function addRouteLine(group, route, points, zone, isRival) {
+    var a = locate(route.from, points, zone);
+    var b = locate(route.to, points, zone);
+    if (!a || !b || (!a.pt && !b.pt)) return;
+    if (!a.onChart && !b.onChart) return;
+    if (!a.onChart || !b.onChart) {
+      if (!isRival) return;
+      var home = a.onChart ? a.pt : b.pt;
+      if (!home) return;
+      if (!group._bay) group._bay = [];
+      group._bay.push({
+        home: home,
+        missingId: a.onChart ? route.to : route.from,
+        from: route.from,
+        to: route.to
+      });
+      return;
+    }
+    var endA = a.pt;
+    var endB = b.pt;
+    var cls = "route-line";
+    if (isRival) cls += " route-rival-line";
+    else cls += " route-s" + clamp(route.strength || 1, 1, 3) + (route.type === "alliance" ? " route-alliance" : "");
+    var line = svgEl("line", {
+      class: cls,
+      x1: round(endA.x), y1: round(endA.y),
+      x2: round(endB.x), y2: round(endB.y),
+      "data-from": route.from,
+      "data-to": route.to
+    });
+    group.appendChild(line);
+    if (!isRival && route.strength >= 3 && !reduced) {
+      var flow = svgEl("line", {
+        class: cls + " route-flow",
+        x1: line.getAttribute("x1"), y1: line.getAttribute("y1"),
+        x2: line.getAttribute("x2"), y2: line.getAttribute("y2"),
+        "data-from": route.from,
+        "data-to": route.to
+      });
+      group.appendChild(flow);
+    }
+  }
+
+  function paintBay(group, zone) {
+    var items = group._bay || [];
+    var x = 44;
+    var y0 = zone === "sol" ? 812 : 818;
+    items.forEach(function (item, i) {
+      var y = y0 - i * 22;
+      group.appendChild(svgEl("line", {
+        class: "route-line route-rival-line",
+        x1: round(item.home.x), y1: round(item.home.y),
+        x2: x + 4, y2: round(y - 4),
+        "data-from": item.from,
+        "data-to": item.to
+      }));
+      var tag = svgEl("text", {
+        class: "map-label edge-tag",
+        x: x,
+        y: round(y),
+        "text-anchor": "start"
+      });
+      tag.textContent = partnerName(item.missingId);
+      group.appendChild(tag);
+    });
+  }
+
+  function locate(id, points, zone) {
+    if (id === "earth") {
+      return points.earth ? { pt: points.earth, onChart: true } : null;
+    }
+    var species = state.byId[id];
+    if (!species) return null;
+    if (species.zones.indexOf(zone) === -1) return { pt: null, onChart: false };
+    if (!points[id]) return null;
+    return { pt: points[id], onChart: true };
+  }
+
+  function syncRouteGroups() {
+    document.querySelectorAll(".route-trade").forEach(function (g) {
+      if (state.routesOn) g.removeAttribute("display");
+      else g.setAttribute("display", "none");
+    });
+    document.querySelectorAll(".route-rival").forEach(function (g) {
+      if (state.rivalsOn) g.removeAttribute("display");
+      else g.setAttribute("display", "none");
+    });
+  }
+
+  function setHover(id) {
+    document.querySelectorAll(".route-line").forEach(function (line) {
+      var hot = !!id && (line.dataset.from === id || line.dataset.to === id);
+      line.classList.toggle("is-hot", hot);
+      line.classList.toggle("is-dim", !!id && !hot);
+    });
+  }
+
+  function fitStarLabels() {
+    document.querySelectorAll(".map-board").forEach(function (board) {
+      var panel = board.closest("[role='tabpanel']");
+      var wasHidden = panel && panel.hidden;
+      if (wasHidden) panel.hidden = false;
+      board.querySelectorAll(".star-label").forEach(function (text) {
+        var base = parseFloat(text.getAttribute("data-x"));
+        if (!isNaN(base)) {
+          text.setAttribute("x", base);
+          text.querySelectorAll("tspan").forEach(function (t) { t.setAttribute("x", base); });
+        }
+        var box = text.getBBox();
+        if (!box.width) return;
+        var shift = 0;
+        if (box.x < 12) shift = 12 - box.x;
+        if (box.x + box.width > VB.w - 12) shift = (VB.w - 12) - (box.x + box.width);
+        if (shift) {
+          var x = (isNaN(base) ? box.x : base) + shift;
+          text.setAttribute("x", round(x));
+          text.querySelectorAll("tspan").forEach(function (t) { t.setAttribute("x", round(x)); });
+          box = text.getBBox();
+        }
+        var leader = text.previousElementSibling;
+        if (!leader || leader.tagName.toLowerCase() !== "line") return;
+        var sx = parseFloat(text.getAttribute("data-sx"));
+        var meetX = sx < box.x + box.width / 2 ? box.x - 8 : box.x + box.width + 8;
+        var meetY = box.y + Math.min(18, box.height * 0.42);
+        leader.setAttribute("x2", round(meetX));
+        leader.setAttribute("y2", round(meetY));
+      });
+      if (wasHidden) panel.hidden = true;
+    });
   }
 
   function pinLabel(species) {
@@ -669,6 +1068,7 @@ function pointOnLoop(pts, t) {
     var i = Math.floor(f) % n;
     var j = (i + 1) % n;
     var u = f - Math.floor(f);
+    if (!pts[i] || !pts[j]) return pts[0];
     return {
       x: pts[i].x + (pts[j].x - pts[i].x) * u,
       y: pts[i].y + (pts[j].y - pts[i].y) * u

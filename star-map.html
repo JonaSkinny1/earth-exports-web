@@ -7,7 +7,7 @@
   <meta name="description" content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css?v=20261008-map">
-  <link rel="stylesheet" href="css/star-map.css?v=20261008-map">
+  <link rel="stylesheet" href="css/star-map.css?v=20261008-routes">
 </head>
 <body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
@@ -83,7 +83,23 @@
         <button type="button" role="tab" id="tab-sol" aria-controls="panel-sol" aria-selected="true">Sol system</button>
         <button type="button" role="tab" id="tab-beyond" aria-controls="panel-beyond" aria-selected="false" tabindex="-1">Beyond Sol</button>
       </div>
-      <p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away.</p>
+      <p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away. Scan mode recolors each species. Route lines are the trades. Hover a marker to fade every route but its own.</p>
+      <div class="map-tools">
+        <div class="scan-bar" role="radiogroup" aria-label="Scan mode">
+          <span class="tool-kicker">Scan mode</span>
+          <button type="button" role="radio" data-lens="disposition" aria-checked="true">Disposition</button>
+          <button type="button" role="radio" data-lens="resource" aria-checked="false" tabindex="-1">Resource value</button>
+          <button type="button" role="radio" data-lens="difficulty" aria-checked="false" tabindex="-1">Trade difficulty</button>
+          <button type="button" role="radio" data-lens="danger" aria-checked="false" tabindex="-1">Danger to cargo</button>
+        </div>
+        <div class="route-bar">
+          <span class="tool-kicker">Lines</span>
+          <button type="button" id="toggle-routes" aria-pressed="true">Routes</button>
+          <button type="button" id="toggle-rivals" aria-pressed="false">Rivalries</button>
+        </div>
+      </div>
+      <ul class="scan-legend" id="scan-legend" aria-label="Scan legend"></ul>
+      <ul class="route-legend" id="route-legend" aria-label="Route lines"></ul>
       <p id="map-status" role="status">Plotting the chart…</p>
 
       <div id="panel-sol" role="tabpanel" aria-labelledby="tab-sol">
@@ -100,7 +116,6 @@
       </div>
 
       <p class="map-note" id="map-note"></p>
-      <ul class="canister-legend" id="canister-legend" aria-label="Marker colors"></ul>
 
       <h2 class="map-index-head" id="map-index-title">Sol system</h2>
       <ul class="map-index" id="map-index" aria-labelledby="map-index-title"></ul>
@@ -168,6 +183,6 @@
   <script src="js/forms-config.js?v=20260927-tabs"></script>
   <script src="js/contact-form.js?v=20260927-tabs" defer></script>
   <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
-  <script src="js/star-map.js?v=20261008-map" defer></script>
+  <script src="js/star-map.js?v=20261008-routes" defer></script>
 </body>
 </html>

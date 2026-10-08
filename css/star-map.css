@@ -3,19 +3,22 @@
    CV (html[data-face="cv"]) is the near-black schematic with one icy blue. */
 
 .star-map {
-  --map-bg: #e7dcc6;
-  --map-bg-2: #efe6d2;
-  --map-ink: #2a261f;
-  --map-muted: #5c5348;
-  --map-line: rgba(42, 38, 31, 0.45);
-  --map-faint: rgba(42, 38, 31, 0.22);
-  --map-frame: rgba(42, 38, 31, 0.45);
-  --map-accent: #028090;
-  --map-accent-2: #e06a00;
-  --map-halo: rgba(244, 162, 58, 0.35);
-  --tip-bg: #f7f1e4;
-  --tip-ink: #241f18;
-  --sheet: #f4efe4;
+  --map-bg: #0c1218;
+  --map-bg-2: #121a24;
+  --map-ink: #e7eef6;
+  --map-muted: #b7c3d1;
+  --map-line: rgba(0, 168, 150, 0.42);
+  --map-faint: rgba(123, 92, 255, 0.28);
+  --map-frame: rgba(0, 168, 150, 0.4);
+  --map-accent: #00a896;
+  --map-accent-2: #f77f00;
+  --map-halo: rgba(247, 127, 0, 0.28);
+  --tip-bg: #141c28;
+  --tip-ink: #ede8de;
+  --sheet: #121820;
+  --route: #1bc4b0;
+  --route-alliance: #a78bff;
+  --route-rival: #f0a050;
 }
 
 html[data-face="cv"] .star-map {
@@ -32,6 +35,9 @@ html[data-face="cv"] .star-map {
   --tip-bg: #10161c;
   --tip-ink: #e7eef6;
   --sheet: #101418;
+  --route: #8ec8ff;
+  --route-alliance: #d5dde6;
+  --route-rival: #e2b043;
 }
 
 .zone-switch {
@@ -96,9 +102,17 @@ html[data-face="cv"] .zone-switch button[aria-selected="true"] {
 .map-scroll {
   overflow: auto;
   max-width: 100%;
-  border: 1px solid var(--map-frame);
-  border-radius: 4px;
-  background: var(--map-bg);
+  border: 1px solid rgba(0, 168, 150, 0.28);
+  border-radius: 6px;
+  background: #0b1016;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+html[data-face="cv"] .map-scroll {
+  border-radius: 0;
+  border-color: rgba(94, 182, 255, 0.45);
+  box-shadow: none;
+  background: #0c1014;
 }
 
 .map-board {
@@ -106,27 +120,62 @@ html[data-face="cv"] .zone-switch button[aria-selected="true"] {
   width: 100%;
   min-width: 880px;
   aspect-ratio: 1100 / 860;
-  background-color: var(--map-bg);
+  background-color: #0b1016;
   background-image:
-    linear-gradient(var(--map-faint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--map-faint) 1px, transparent 1px);
+    radial-gradient(1.2px 1.2px at 8% 14%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 18% 42%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1.4px 1.4px at 28% 22%, rgba(224, 230, 237, 0.8), transparent),
+    radial-gradient(1px 1px at 42% 68%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1.6px 1.6px at 63% 18%, rgba(91, 190, 255, 0.85), transparent),
+    radial-gradient(1px 1px at 76% 48%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 88% 28%, rgba(167, 139, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 12% 78%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1.4px 1.4px at 34% 86%, rgba(0, 168, 150, 0.75), transparent),
+    radial-gradient(1px 1px at 55% 38%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 92% 74%, rgba(247, 127, 0, 0.5), transparent),
+    radial-gradient(ellipse 55% 45% at 50% 48%, rgba(0, 168, 150, 0.16), transparent 62%),
+    radial-gradient(ellipse 40% 36% at 78% 16%, rgba(123, 92, 255, 0.18), transparent 58%),
+    radial-gradient(ellipse 36% 30% at 16% 82%, rgba(247, 127, 0, 0.12), transparent 55%),
+    linear-gradient(180deg, #121a24 0%, #0c1218 100%);
+}
+
+.map-board::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(90deg, #00a896, #7b5cff 46%, transparent 62%, #f77f00);
+}
+
+.map-board::after { content: none; }
+
+html[data-face="cv"] .map-board {
+  background-color: #0c1014;
+  background-image:
+    linear-gradient(rgba(186, 198, 210, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(186, 198, 210, 0.16) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
-.map-board::before,
-.map-board::after {
+html[data-face="cv"] .map-board::before,
+html[data-face="cv"] .map-board::after {
   content: "";
   position: absolute;
   width: 18px;
   height: 18px;
   pointer-events: none;
   z-index: 2;
+  background: none;
   border-color: var(--map-accent);
   border-style: solid;
 }
 
-.map-board::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
-.map-board::after { right: 8px; bottom: 8px; border-width: 0 1px 1px 0; }
+html[data-face="cv"] .map-board::before { top: 8px; left: 8px; right: auto; border-width: 1px 0 0 1px; }
+html[data-face="cv"] .map-board::after { right: 8px; bottom: 8px; border-width: 0 1px 1px 0; }
 
 .map-svg {
   position: absolute;
@@ -152,7 +201,9 @@ html[data-face="cv"] .zone-switch button[aria-selected="true"] {
 
 .orbit-ring { stroke-dasharray: 1.5 8; stroke: var(--map-faint); }
 .belt-ring { stroke-dasharray: 1 5; stroke-width: 3; opacity: 0.55; }
-.dist-ring { stroke-dasharray: 1 10; opacity: 0.8; }
+.dist-ring { stroke: rgba(167, 139, 255, 0.42); stroke-dasharray: 1 10; opacity: 0.8; }
+html[data-face="cv"] .orbit-ring,
+html[data-face="cv"] .dist-ring { stroke: var(--map-line); }
 .moon-link { stroke-dasharray: 2 4; opacity: 0.7; }
 .wander-path { stroke: var(--map-accent-2); stroke-dasharray: 3 7; stroke-width: 1.4; }
 .saturn-ring { stroke-width: 1.25; }
@@ -199,6 +250,7 @@ html[data-face="cv"] .zone-switch button[aria-selected="true"] {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.14em;
+  fill: #1bc4b0;
 }
 .chart-sub { letter-spacing: 0.08em; }
 .sun-word { font-size: 13px; letter-spacing: 0.16em; }
@@ -247,13 +299,37 @@ html[data-face="cv"] .saturn-ring { stroke: #5eb6ff; }
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
   transform: translate(-50%, -50%);
   background: var(--pin, #00a896);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--pin) 28%, transparent), 0 0 14px var(--pin);
+  clip-path: circle(50%);
+  filter: drop-shadow(0 0 5px var(--pin, #00a896));
 }
+
+.shape-square .pin-dot { clip-path: inset(6% round 1px); }
+.shape-triangle .pin-dot { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.shape-diamond .pin-dot { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+
+.rank-friendly, .rank-rich, .rank-easy, .rank-low { --pin: #00a896; }
+.rank-neutral, .rank-fair, .rank-tricky, .rank-medium { --pin: #f77f00; }
+.rank-wary, .rank-poor { --pin: #7b5cff; }
+.rank-hostile-to-trade, .rank-hard, .rank-high { --pin: #d45d8c; }
+
+html[data-face="cv"] .rank-friendly,
+html[data-face="cv"] .rank-rich,
+html[data-face="cv"] .rank-easy,
+html[data-face="cv"] .rank-low { --pin: #5eb6ff; }
+html[data-face="cv"] .rank-neutral,
+html[data-face="cv"] .rank-poor { --pin: #8ea0b3; }
+html[data-face="cv"] .rank-fair,
+html[data-face="cv"] .rank-tricky,
+html[data-face="cv"] .rank-medium,
+html[data-face="cv"] .rank-wary { --pin: #e2b043; }
+html[data-face="cv"] .rank-hostile-to-trade,
+html[data-face="cv"] .rank-hard,
+html[data-face="cv"] .rank-high { --pin: #e07070; }
 
 .pin-wander .pin-dot {
   border-radius: 2px;
@@ -269,8 +345,7 @@ html[data-face="cv"] .saturn-ring { stroke: #5eb6ff; }
 .pin-gold { --pin: #e2b043; }
 
 html[data-face="cv"] .pin-dot {
-  background: #5eb6ff;
-  box-shadow: 0 0 0 5px rgba(94, 182, 255, 0.18), 0 0 14px rgba(94, 182, 255, 0.9);
+  filter: drop-shadow(0 0 5px var(--pin, #5eb6ff));
 }
 
 .pin-tip {
@@ -336,20 +411,40 @@ html[data-face="cv"] .pin-tip strong { color: #5eb6ff; }
 }
 
 .canister-legend,
+.scan-legend,
+.route-legend,
 .map-index {
   list-style: none;
   margin: 0.8rem 0 0;
   padding: 0;
 }
 
+.scan-legend,
+.route-legend,
 .canister-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem 1rem;
   align-items: center;
+  margin-top: 0.45rem;
 }
 
-.canister-legend li {
+.scan-legend,
+.route-legend,
+.scan-legend li span,
+.route-legend li span,
+.tool-kicker,
+.scan-bar button,
+.route-bar button {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.canister-legend li,
+.scan-legend li,
+.route-legend li {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -387,6 +482,9 @@ html[data-face="cv"] .pin-tip strong { color: #5eb6ff; }
 .index-species {
   width: 100%;
   min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   text-align: left;
   padding: 0.45rem 0.65rem;
   border: 1px solid rgba(0, 168, 150, 0.35);
@@ -395,6 +493,8 @@ html[data-face="cv"] .pin-tip strong { color: #5eb6ff; }
   cursor: pointer;
   border-radius: 3px;
 }
+
+.index-copy { min-width: 0; }
 
 .index-name,
 .index-world { display: block; }
@@ -589,6 +689,140 @@ html[data-face="cv"] .species-dialog h2 {
 html[data-face="cv"] .sd-facts dt { color: #5eb6ff; }
 .sd-facts dd { margin: 0 0 0.7rem; line-height: 1.45; }
 
+.map-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+  align-items: center;
+  margin: 0.2rem 0 0.35rem;
+}
+
+.scan-bar,
+.route-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.tool-kicker {
+  color: var(--teal-bright, #1bc4b0);
+  margin-right: 0.2rem;
+}
+
+html[data-face="cv"] .tool-kicker { color: #5eb6ff; }
+
+.scan-bar button,
+.route-bar button {
+  min-height: 44px;
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  color: var(--offwhite);
+  border: 1px solid rgba(0, 168, 150, 0.4);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.scan-bar button[aria-checked="true"],
+.route-bar button[aria-pressed="true"] {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(0, 168, 150, 0.9), rgba(123, 92, 255, 0.75));
+}
+
+html[data-face="cv"] .scan-bar button,
+html[data-face="cv"] .route-bar button {
+  border-radius: 0;
+  color: #d5dde6;
+  border-color: rgba(94, 182, 255, 0.45);
+  background: transparent;
+}
+
+html[data-face="cv"] .scan-bar button[aria-checked="true"],
+html[data-face="cv"] .route-bar button[aria-pressed="true"] {
+  background: transparent;
+  color: #5eb6ff;
+  box-shadow: inset 0 -2px 0 #5eb6ff;
+}
+
+.key-shape {
+  width: 0.72rem;
+  height: 0.72rem;
+  display: inline-block;
+  flex: none;
+  background: var(--pin, #00a896);
+  clip-path: circle(50%);
+}
+
+.key-shape.shape-square { clip-path: inset(0 round 1px); }
+.key-shape.shape-triangle { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.key-shape.shape-diamond { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+
+.route-line {
+  fill: none;
+  stroke: var(--route);
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.route-s1 { stroke-width: 1.15; opacity: 0.22; }
+.route-s2 { stroke-width: 1.75; opacity: 0.48; }
+.route-s3 { stroke-width: 2.7; opacity: 0.8; }
+.route-alliance { stroke: var(--route-alliance); }
+.route-rival-line {
+  stroke: var(--route-rival);
+  stroke-width: 1.35;
+  stroke-dasharray: 2 6;
+  opacity: 0.72;
+}
+.route-line.is-dim { opacity: 0.05; }
+.route-line.is-hot { opacity: 1; }
+.route-flow {
+  stroke-width: 1.35;
+  stroke-dasharray: 4 14;
+  opacity: 0.95;
+  animation: route-flow 9s linear infinite;
+}
+
+.route-key {
+  width: 1.6rem;
+  height: 0;
+  border-top: 2px solid var(--route);
+  display: inline-block;
+}
+.route-key-s1 { border-top-width: 1px; opacity: 0.45; }
+.route-key-s3 { border-top-width: 3px; }
+.route-key-alliance { border-top-color: var(--route-alliance); border-top-width: 3px; }
+.route-key-rival { border-top-color: var(--route-rival); border-top-style: dashed; }
+
+.edge-tag { font-size: 11px; }
+
+.sd-scan { margin: 0.2rem 0 0.8rem; }
+.sd-scan-kicker {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+html[data-face="cv"] .sd-scan-kicker { color: #5eb6ff; }
+.sd-scan ul { list-style: none; margin: 0; padding: 0; }
+.sd-scan li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.22rem 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.sd-scan li.is-on { color: var(--offwhite); }
+.sd-scan li.is-rival { color: var(--muted); }
+
+@keyframes route-flow {
+  to { stroke-dashoffset: -72; }
+}
+
 .map-scroll.is-on { }
 
 #panel-sol.is-entering .map-scroll,
@@ -635,4 +869,5 @@ html[data-face="cv"] .sd-facts dt { color: #5eb6ff; }
   #panel-sol.is-entering .map-scroll,
   #panel-beyond.is-entering .map-scroll { animation: none; }
   .orbit-ring { stroke-dasharray: none; }
+  .route-flow { animation: none; stroke-dasharray: none; }
 }
