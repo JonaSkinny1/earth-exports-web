@@ -7,7 +7,7 @@
   <meta name="description" content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css?v=20261008-map">
-  <link rel="stylesheet" href="css/star-map.css?v=20261008-routes">
+  <link rel="stylesheet" href="css/star-map.css?v=20261008-pick">
 </head>
 <body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
@@ -100,6 +100,20 @@
       </div>
       <ul class="scan-legend" id="scan-legend" aria-label="Scan legend"></ul>
       <ul class="route-legend" id="route-legend" aria-label="Route lines"></ul>
+      <div class="species-bar">
+        <div class="species-pick">
+          <span class="tool-kicker" id="species-pick-label">Species</span>
+          <button type="button" id="species-pick-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="species-menu">All species</button>
+          <div class="species-menu" id="species-menu" role="listbox" aria-labelledby="species-pick-label" hidden></div>
+        </div>
+        <div class="species-summary" id="species-summary" hidden>
+          <button type="button" class="species-summary-name" id="species-summary-open"></button>
+          <p><span>Trade standing</span> <strong id="sum-standing"></strong></p>
+          <p><span>Most trades with</span> <strong id="sum-with"></strong></p>
+          <p><span>Most valuable cargo</span> <strong id="sum-cargo"></strong></p>
+          <p><span>Won't trade with</span> <strong id="sum-rival"></strong></p>
+        </div>
+      </div>
       <p id="map-status" role="status">Plotting the chart…</p>
 
       <div id="panel-sol" role="tabpanel" aria-labelledby="tab-sol">
@@ -183,6 +197,6 @@
   <script src="js/forms-config.js?v=20260927-tabs"></script>
   <script src="js/contact-form.js?v=20260927-tabs" defer></script>
   <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
-  <script src="js/star-map.js?v=20261008-routes" defer></script>
+  <script src="js/star-map.js?v=20261008-pick" defer></script>
 </body>
 </html>

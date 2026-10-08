@@ -697,6 +697,190 @@ html[data-face="cv"] .sd-facts dt { color: #5eb6ff; }
   margin: 0.2rem 0 0.35rem;
 }
 
+.species-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.4rem;
+  align-items: flex-start;
+  margin: 0.85rem 0 0.7rem;
+}
+
+.species-pick { position: relative; min-width: min(100%, 16rem); }
+
+#species-pick-btn,
+.species-menu button {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#species-pick-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.3rem;
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  color: var(--offwhite);
+  background: rgba(14, 18, 28, 0.72);
+  border: 1px solid rgba(0, 168, 150, 0.45);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#species-pick-btn::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+#species-pick-btn[aria-expanded="true"]::after { transform: translateY(2px) rotate(225deg); }
+
+.species-menu {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  max-height: min(70vh, 22rem);
+  overflow: auto;
+  padding: 0.35rem 0;
+  background: #141c28;
+  border: 1px solid rgba(0, 168, 150, 0.45);
+  border-radius: 4px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.species-menu[hidden] { display: none; }
+
+.species-menu-label,
+.species-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.species-menu-label {
+  margin: 0.35rem 0 0.1rem;
+  padding: 0.25rem 0.75rem 0.1rem;
+  color: var(--teal-bright, #1bc4b0);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.species-menu button {
+  min-height: 40px;
+  padding: 0.35rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--offwhite);
+  cursor: pointer;
+}
+
+.species-menu button[aria-selected="true"],
+.species-menu button:hover,
+.species-menu button:focus-visible {
+  background: rgba(0, 168, 150, 0.22);
+  color: #fff;
+}
+
+.species-summary {
+  flex: 1 1 18rem;
+  min-width: min(100%, 16rem);
+  margin: 0;
+  padding: 0.55rem 0.75rem 0.65rem;
+  border: 1px solid rgba(0, 168, 150, 0.35);
+  border-radius: 4px;
+  background: rgba(14, 18, 28, 0.55);
+}
+
+.species-summary-name,
+.species-summary p,
+.species-summary span,
+.species-summary strong {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.species-summary-name {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1bc4b0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.species-summary p {
+  margin: 0.12rem 0;
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+.species-summary strong {
+  color: var(--offwhite);
+  font-weight: 500;
+}
+
+.species-summary strong::before { content: " · "; color: var(--muted); }
+
+html[data-face="cv"] #species-pick-btn,
+html[data-face="cv"] .species-menu,
+html[data-face="cv"] .species-summary {
+  border-radius: 0;
+  border-color: rgba(94, 182, 255, 0.45);
+  background: #10161c;
+}
+
+html[data-face="cv"] .species-menu-label,
+html[data-face="cv"] .species-summary-name { color: #5eb6ff; }
+
+html[data-face="cv"] .species-menu button[aria-selected="true"],
+html[data-face="cv"] .species-menu button:hover,
+html[data-face="cv"] .species-menu button:focus-visible {
+  background: rgba(94, 182, 255, 0.14);
+  color: #5eb6ff;
+}
+
+.map-board.is-picked .map-pin,
+.map-board.is-picked .body-disc,
+.map-board.is-picked .saturn-ring,
+.map-board.is-picked .map-label[data-body],
+.map-board.is-picked .map-leader[data-body],
+.map-board.is-picked .moon-link,
+.map-board.is-picked .wander-path {
+  opacity: 0.16;
+}
+
+.map-board.is-picked .is-hot,
+.map-board.is-picked .map-pin.is-hot,
+.map-board.is-picked .map-pin.is-hot .pin-dot {
+  opacity: 1;
+}
+
+.map-board.is-picked .map-pin.is-hot { z-index: 6; }
+.map-board.is-picked .map-pin.is-hot .pin-tip { opacity: 1; }
+
+@media (max-width: 720px) {
+  .species-summary { flex-basis: 100%; }
+}
+
 .scan-bar,
 .route-bar {
   display: flex;

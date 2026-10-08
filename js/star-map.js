@@ -125,6 +125,7 @@
     lens: "disposition",
     routesOn: true,
     rivalsOn: false,
+    focusId: "",
     lastFocus: null,
     flipBack: false,
     openId: ""
@@ -150,6 +151,14 @@
     els.scanButtons = Array.prototype.slice.call(document.querySelectorAll("[data-lens]"));
     els.routesToggle = document.getElementById("toggle-routes");
     els.rivalsToggle = document.getElementById("toggle-rivals");
+    els.pickBtn = document.getElementById("species-pick-btn");
+    els.pickMenu = document.getElementById("species-menu");
+    els.summary = document.getElementById("species-summary");
+    els.summaryOpen = document.getElementById("species-summary-open");
+    els.sumStanding = document.getElementById("sum-standing");
+    els.sumWith = document.getElementById("sum-with");
+    els.sumCargo = document.getElementById("sum-cargo");
+    els.sumRival = document.getElementById("sum-rival");
     els.dialog = document.getElementById("species-dialog");
     els.kicker = document.getElementById("sd-kicker");
     els.title = document.getElementById("species-dialog-title");
@@ -175,6 +184,7 @@
         state.species.forEach(function (s) { state.byId[s.id] = s; });
         drawSol();
         drawBeyond();
+        fillSpeciesMenu();
         applyScan();
         showZone(initialZone(), false);
         if (document.fonts && document.fonts.ready) {
@@ -229,6 +239,24 @@
         renderRouteLegend();
       });
     }
+    if (els.pickBtn) {
+      els.pickBtn.addEventListener("click", function () { toggleSpeciesMenu(); });
+      els.pickBtn.addEventListener("keydown", onPickKey);
+    }
+    if (els.pickMenu) els.pickMenu.addEventListener("keydown", onMenuKey);
+    if (els.summaryOpen) {
+      els.summaryOpen.addEventListener("click", function () {
+        if (state.focusId && state.byId[state.focusId]) openSpecies(state.byId[state.focusId], true);
+      });
+    }
+    document.addEventListener("pointerdown", function (e) {
+      if (!els.pickMenu || els.pickMenu.hidden) return;
+      var pick = e.target.closest ? e.target.closest(".species-pick") : null;
+      if (!pick) toggleSpeciesMenu(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && els.pickMenu && !els.pickMenu.hidden) toggleSpeciesMenu(false);
+    });
     if (els.close) els.close.addEventListener("click", function () { els.dialog.close(); });
     if (els.flip) {
       els.flip.addEventListener("click", function () {
@@ -490,22 +518,24 @@
       if (!a || !b) return;
       svg.appendChild(svgEl("line", {
         class: "moon-link",
-        x1: a.x, y1: a.y, x2: b.x, y2: b.y
+        x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+        "data-a": pair[0],
+        "data-b": pair[1]
       }));
     });
     haloAndSun(svg);
     PLANETS.forEach(function (p) {
       var pt = points[p.id];
-      bodyDisc(svg, pt, p.disc, p.fill, p.ring);
-      placeLabel(svg, pt, p.ldx, p.ldy, p.anchor, p.name, p.sub || "");
+      bodyDisc(svg, pt, p.disc, p.fill, p.ring, p.id);
+      placeLabel(svg, pt, p.ldx, p.ldy, p.anchor, p.name, p.sub || "", p.id);
     });
     state.species.filter(inSol).forEach(function (s) {
       if (s.wander) return;
       var g = SOL_GEOM[s.id];
       if (!g) return;
       var pt = points[s.id];
-      bodyDisc(svg, pt, g.disc, g.fill, false);
-      placeLabel(svg, pt, g.ldx, g.ldy, g.anchor, s.bodyLabel || s.name, "");
+      bodyDisc(svg, pt, g.disc, g.fill, false, s.id);
+      placeLabel(svg, pt, g.ldx, g.ldy, g.anchor, s.bodyLabel || s.name, "", s.id);
       addPin(els.solBoard, s, pt);
     });
     addWander(els.solBoard, svg, solPath, wanderSpecies());
@@ -561,7 +591,8 @@
       var leader = svgEl("line", {
         class: "map-leader label-leader",
         x1: round(star.x), y1: round(star.y),
-        x2: round(place.x), y2: round(place.y)
+        x2: round(place.x), y2: round(place.y),
+        "data-body": star.species.id
       });
       svg.appendChild(leader);
       var text = svgEl("text", {
@@ -571,7 +602,8 @@
         "text-anchor": place.anchor,
         "data-x": round(place.x),
         "data-sx": round(star.x),
-        "data-sy": round(star.y)
+        "data-sy": round(star.y),
+        "data-body": star.species.id
       });
       var name = svgEl("tspan", { x: round(place.x), dy: "0" });
       name.textContent = star.species.mapLabel || star.species.homeworld;
@@ -589,7 +621,8 @@
     if (!species) return;
     var poly = svgEl("polyline", {
       class: "wander-path",
-      points: path.map(function (p) { return round(p.x) + "," + round(p.y); }).join(" ")
+      points: path.map(function (p) { return round(p.x) + "," + round(p.y); }).join(" "),
+      "data-body": species.id
     });
     svg.appendChild(poly);
     var pin = addPin(board, species, path[Math.floor(path.length * 0.28)]);
@@ -906,11 +939,154 @@
   }
 
   function setHover(id) {
-    document.querySelectorAll(".route-line").forEach(function (line) {
-      var hot = !!id && (line.dataset.from === id || line.dataset.to === id);
-      line.classList.toggle("is-hot", hot);
-      line.classList.toggle("is-dim", !!id && !hot);
+    applyHighlight(id || state.focusId || "");
+  }
+
+  function applyHighlight(id) {
+    var on = !!id;
+    document.querySelectorAll(".map-board").forEach(function (board) {
+      board.classList.toggle("is-picked", on);
     });
+    document.querySelectorAll(".route-line").forEach(function (line) {
+      var hot = on && (line.dataset.from === id || line.dataset.to === id);
+      line.classList.toggle("is-hot", hot);
+      line.classList.toggle("is-dim", on && !hot);
+    });
+    document.querySelectorAll(".map-pin, [data-body], .moon-link").forEach(function (el) {
+      var key = el.dataset.body || el.dataset.id || "";
+      var hot = on && (key === id || el.dataset.a === id || el.dataset.b === id);
+      el.classList.toggle("is-hot", hot);
+    });
+  }
+
+  function fillSpeciesMenu() {
+    if (!els.pickMenu) return;
+    els.pickMenu.replaceChildren();
+    addPickOption("", "All species");
+    addPickGroup("Sol system", state.species.filter(function (s) {
+      return s.zones.indexOf("sol") !== -1;
+    }));
+    addPickGroup("Beyond Sol", state.species.filter(function (s) {
+      return s.zones.indexOf("beyond") !== -1 && s.zones.indexOf("sol") === -1;
+    }));
+  }
+
+  function addPickGroup(label, list) {
+    var group = document.createElement("div");
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", label);
+    var head = document.createElement("p");
+    head.className = "species-menu-label";
+    head.textContent = label;
+    group.appendChild(head);
+    list.sort(function (a, b) { return a.order - b.order; }).forEach(function (s) {
+      group.appendChild(pickOption(s.id, s.name));
+    });
+    els.pickMenu.appendChild(group);
+  }
+
+  function addPickOption(id, name) {
+    els.pickMenu.appendChild(pickOption(id, name));
+  }
+
+  function pickOption(id, name) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("role", "option");
+    btn.dataset.id = id;
+    btn.textContent = name;
+    btn.setAttribute("aria-selected", id === state.focusId ? "true" : "false");
+    btn.addEventListener("click", function () {
+      chooseSpecies(id);
+    });
+    return btn;
+  }
+
+  function toggleSpeciesMenu(force) {
+    if (!els.pickMenu || !els.pickBtn) return;
+    var open = typeof force === "boolean" ? force : els.pickMenu.hidden;
+    els.pickMenu.hidden = !open;
+    els.pickBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) {
+      var current = els.pickMenu.querySelector("[aria-selected='true']") || els.pickMenu.querySelector("button");
+      if (current) current.focus();
+    }
+  }
+
+  function onPickKey(e) {
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleSpeciesMenu(true);
+    }
+  }
+
+  function onMenuKey(e) {
+    var buttons = els.pickMenu.querySelectorAll("button");
+    var list = Array.prototype.slice.call(buttons);
+    var i = list.indexOf(document.activeElement);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      list[Math.min(list.length - 1, i + 1)] && list[Math.min(list.length - 1, i + 1)].focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      list[Math.max(0, i - 1)] && list[Math.max(0, i - 1)].focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      list[0].focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      list[list.length - 1].focus();
+    } else if (e.key === "Escape") {
+      toggleSpeciesMenu(false);
+      if (els.pickBtn) els.pickBtn.focus();
+    }
+  }
+
+  function chooseSpecies(id) {
+    state.focusId = id || "";
+    if (els.pickBtn) els.pickBtn.textContent = id && state.byId[id] ? state.byId[id].name : "All species";
+    if (els.pickMenu) {
+      els.pickMenu.querySelectorAll("[role='option']").forEach(function (btn) {
+        btn.setAttribute("aria-selected", btn.dataset.id === state.focusId ? "true" : "false");
+      });
+    }
+    toggleSpeciesMenu(false);
+    paintSummary(id ? state.byId[id] : null);
+    applyHighlight(state.focusId);
+    if (id) revealSpecies(id);
+  }
+
+  function paintSummary(species) {
+    if (!els.summary) return;
+    if (!species) {
+      els.summary.hidden = true;
+      return;
+    }
+    els.summary.hidden = false;
+    els.summaryOpen.textContent = species.name;
+    els.sumStanding.textContent = species.tradeStanding || "Unrated";
+    els.sumWith.textContent = species.tradesWith || "Earth / Sol-3";
+    els.sumCargo.textContent = species.valuableCargo || "Unlisted";
+    els.sumRival.textContent = species.wontTradeWith || "None";
+  }
+
+  function revealSpecies(id) {
+    var species = state.byId[id];
+    if (!species) return;
+    if (species.zones.indexOf(state.zone) === -1) showZone(species.zones[0], true);
+    var board = state.zone === "beyond" ? els.beyondBoard : els.solBoard;
+    var pin = board.querySelector('.map-pin[data-id="' + id + '"]');
+    if (!pin) return;
+    var scroller = pin.closest(".map-scroll");
+    if (scroller) {
+      var pinRect = pin.getBoundingClientRect();
+      var scRect = scroller.getBoundingClientRect();
+      scroller.scrollLeft += (pinRect.left + pinRect.width / 2) - (scRect.left + scRect.width / 2);
+      scroller.scrollTop += (pinRect.top + pinRect.height / 2) - (scRect.top + scRect.height / 2);
+    }
+    var panel = state.zone === "beyond" ? els.beyondPanel : els.solPanel;
+    if (panel && panel.scrollIntoView) panel.scrollIntoView({ block: "nearest", inline: "nearest" });
+    pin.focus({ preventScroll: true });
   }
 
   function fitStarLabels() {
@@ -997,30 +1173,36 @@
     svg.appendChild(svgEl("circle", { class: "sol-sun", cx: VB.cx, cy: VB.cy, r: 14 }));
   }
 
-  function bodyDisc(svg, pt, disc, fill, ring) {
-    svg.appendChild(svgEl("circle", {
+  function bodyDisc(svg, pt, disc, fill, ring, id) {
+    var discEl = svgEl("circle", {
       class: "body-disc fill-" + fill,
       cx: round(pt.x), cy: round(pt.y), r: disc
-    }));
+    });
+    if (id) discEl.setAttribute("data-body", id);
+    svg.appendChild(discEl);
     if (ring) {
-      svg.appendChild(svgEl("ellipse", {
+      var ringEl = svgEl("ellipse", {
         class: "saturn-ring",
         cx: round(pt.x), cy: round(pt.y),
         rx: disc + 8, ry: 3.4,
         transform: "rotate(-22 " + round(pt.x) + " " + round(pt.y) + ")"
-      }));
+      });
+      if (id) ringEl.setAttribute("data-body", id);
+      svg.appendChild(ringEl);
     }
   }
 
-  function placeLabel(svg, pt, ldx, ldy, anchor, name, sub) {
+  function placeLabel(svg, pt, ldx, ldy, anchor, name, sub, id) {
     var x = pt.x + ldx;
     var y = pt.y + ldy;
     if (Math.hypot(ldx, ldy) > 8) {
-      svg.appendChild(svgEl("line", {
+      var leader = svgEl("line", {
         class: "map-leader",
         x1: round(pt.x), y1: round(pt.y),
         x2: round(x), y2: round(y - 4)
-      }));
+      });
+      if (id) leader.setAttribute("data-body", id);
+      svg.appendChild(leader);
     }
     var text = svgEl("text", {
       class: "map-label",
@@ -1028,6 +1210,7 @@
       y: round(y),
       "text-anchor": anchor || "middle"
     });
+    if (id) text.setAttribute("data-body", id);
     text.textContent = name;
     svg.appendChild(text);
     if (sub) {
@@ -1037,6 +1220,7 @@
         y: round(y + 16),
         "text-anchor": anchor || "middle"
       });
+      if (id) small.setAttribute("data-body", id);
       small.textContent = sub;
       svg.appendChild(small);
     }
