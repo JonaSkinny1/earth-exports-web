@@ -2765,13 +2765,15 @@ html body > div.vex-ov.vex-ov { position: fixed; z-index: 9000; }
 .pn-rules li::marker { font-weight: 700; color: #9A3B00; }
 .pn-rules b { color: #1B1712; }
 .pn-sig { margin: .4rem 0 0; text-align: right; font-style: italic; color: #5A4A33; }
-/* 8 nav items: keep the wordmark on one line on desktop */
+/* Nine nav items share the 1120px header, so the links stay on one line. */
 @media (min-width: 901px) {
   .site-nav a { padding: .4rem .38rem; letter-spacing: .02em; }
   .wordmark .mark { white-space: nowrap; }
 }
+@media (min-width: 1024px) {
+  .site-nav a { font-size: .62rem; padding: .35rem .22rem; letter-spacing: .015em; }
+}
 @media (min-width: 1024px) and (max-width: 1180px) {
-  .site-nav a { font-size: .66rem; padding: .35rem .3rem; }
   .nav-code { margin-right: .2rem; }
   .brand-logo { width: 56px; height: 56px; }
 }

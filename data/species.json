@@ -1,0 +1,1040 @@
+{
+  "_edit": "Names can change. Edit name, and any rival sentence that still uses the old name. Leave id, zones, body, and star alone so the map still finds each species. Card art is wired by id for the eight Sol species that have dossiers.",
+  "_distances": "Beyond Sol distances are rounded from Gaia-based figures (Wikipedia, checked October 2026). The chart uses right ascension for direction and a log scale for distance.",
+  "_scan": "Scan ratings are drafts Jonathan can change. disposition: friendly, neutral, wary, or hostile-to-trade (none of them are villains). resource: rich, fair, or poor. difficulty: easy, tricky, or hard. danger: low, medium, or high. Edit the four fields on a species. Leave id alone.",
+  "_routes": "Routes and rivalries are drafts Jonathan can change. routes use from, to, strength 1 (occasional or low value) to 3 (frequent, very valuable, or an alliance), type trade or alliance, and a short note. Use earth for the Earth Exports outpost on Sol-3. Rivalries are not trade lines. They only draw when the Rivalries toggle is on.",
+  "_summary": "Picker summary lines are drafts Jonathan can change. tradeStanding is good, fair, or poor (from disposition, and whether they trade). tradesWith names every partner tied for the strongest route. valuableCargo is one short cargo phrase from that species, except Helion crystals for the one or two who deal in the rarest cargo. shop_url is optional and empty for now; when a product address is filled in, the cargo line on the summary becomes a link. wontTradeWith is the rival.",
+  "routes": [
+    {
+      "from": "brine-court",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Sealed brine for creek stones."
+    },
+    {
+      "from": "brine-court",
+      "to": "red-ledger",
+      "strength": 3,
+      "type": "trade",
+      "note": "Brine jars are worth double on dry Mars."
+    },
+    {
+      "from": "brine-court",
+      "to": "wellhold",
+      "strength": 3,
+      "type": "trade",
+      "note": "Brine jars are worth double at the dry wells."
+    },
+    {
+      "from": "plume-kin",
+      "to": "earth",
+      "strength": 1,
+      "type": "trade",
+      "note": "Cheap geyser frost, and only when the geysers fire."
+    },
+    {
+      "from": "haze-wick",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Haze pigment and lake tar, if the cargo stays cold."
+    },
+    {
+      "from": "glass-lung",
+      "to": "earth",
+      "strength": 3,
+      "type": "trade",
+      "note": "Pays top price for anything light enough to float."
+    },
+    {
+      "from": "red-ledger",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Dust and pebbles for tally books, at a price that never changes."
+    },
+    {
+      "from": "cinder-mote",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Pays double for heat-proof goods."
+    },
+    {
+      "from": "wellhold",
+      "to": "earth",
+      "strength": 3,
+      "type": "trade",
+      "note": "Drinking water, the rarest good in the belt."
+    },
+    {
+      "from": "cold-wake",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Nitrogen ice is worth a lot, and it shrinks if you wait."
+    },
+    {
+      "from": "ganymede-yard",
+      "to": "earth",
+      "strength": 3,
+      "type": "alliance",
+      "note": "Escort contract. They shield one canister for the whole trip."
+    },
+    {
+      "from": "charon-scale",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "A toll at the edge, paid with a weigh-stone."
+    },
+    {
+      "from": "ash-court",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Tally slips and empty jars, for pencils by the box."
+    },
+    {
+      "from": "keel-scale",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Seal wax and lid rings, after they inspect the hold."
+    },
+    {
+      "from": "bright-holt",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Cloth and cords. They pay late, and they pay extra."
+    },
+    {
+      "from": "reed-tally",
+      "to": "earth",
+      "strength": 1,
+      "type": "trade",
+      "note": "Baskets and counting rods, only in sets of 3, 6, or 9."
+    },
+    {
+      "from": "lamp-drift",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "A living light, plus one free answer a visit."
+    },
+    {
+      "from": "waxwright-hive",
+      "to": "earth",
+      "strength": 3,
+      "type": "alliance",
+      "note": "Loyalty. The price rises every visit in a row."
+    },
+    {
+      "from": "pip-moss",
+      "to": "earth",
+      "strength": 3,
+      "type": "trade",
+      "note": "Seedlings that grow into a full crop."
+    },
+    {
+      "from": "scrap-wake",
+      "to": "earth",
+      "strength": 1,
+      "type": "trade",
+      "note": "Broken or spoiled cargo, at half price."
+    },
+    {
+      "from": "split-kin",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Two-color cords. Every bill is two different goods."
+    },
+    {
+      "from": "quiet-margin",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "A secret for a route tip. Nothing is written down."
+    },
+    {
+      "from": "echo-fold",
+      "to": "earth",
+      "strength": 1,
+      "type": "trade",
+      "note": "Copies of anything, close enough to pass."
+    },
+    {
+      "from": "tumble-fair",
+      "to": "earth",
+      "strength": 2,
+      "type": "trade",
+      "note": "Odds and ends at a fair price, whenever the rock passes."
+    },
+    {
+      "from": "plume-kin",
+      "to": "haze-wick",
+      "strength": 2,
+      "type": "trade",
+      "note": "Saturn neighbors swap geyser frost for bottled haze."
+    },
+    {
+      "from": "haze-wick",
+      "to": "cold-wake",
+      "strength": 3,
+      "type": "trade",
+      "note": "Nitrogen ice keeps the haze pigment from going warm."
+    },
+    {
+      "from": "ganymede-yard",
+      "to": "brine-court",
+      "strength": 2,
+      "type": "alliance",
+      "note": "Yard escorts shield one brine canister through the ice."
+    },
+    {
+      "from": "charon-scale",
+      "to": "cold-wake",
+      "strength": 3,
+      "type": "trade",
+      "note": "Outer-edge toll, paid in nitrogen ice and a weigh-stone."
+    },
+    {
+      "from": "glass-lung",
+      "to": "wellhold",
+      "strength": 2,
+      "type": "trade",
+      "note": "Acid-proof glass barrels for belt water."
+    },
+    {
+      "from": "tumble-fair",
+      "to": "plume-kin",
+      "strength": 1,
+      "type": "trade",
+      "note": "The wandering market buys cheap frost when it passes."
+    },
+    {
+      "from": "tumble-fair",
+      "to": "glass-lung",
+      "strength": 1,
+      "type": "trade",
+      "note": "A Venus flyby: odds and ends for one light glass piece."
+    },
+    {
+      "from": "ash-court",
+      "to": "keel-scale",
+      "strength": 3,
+      "type": "alliance",
+      "note": "Counters and seal inspectors share one paperwork standard."
+    },
+    {
+      "from": "reed-tally",
+      "to": "ash-court",
+      "strength": 2,
+      "type": "trade",
+      "note": "Counting rods for tally slips, only in sets of 3, 6, or 9."
+    },
+    {
+      "from": "bright-holt",
+      "to": "pip-moss",
+      "strength": 3,
+      "type": "trade",
+      "note": "Pale cloth wraps the seedling jars. Paid late, and in full."
+    },
+    {
+      "from": "split-kin",
+      "to": "bright-holt",
+      "strength": 1,
+      "type": "trade",
+      "note": "Two-color cords braided in, once in a while."
+    },
+    {
+      "from": "lamp-drift",
+      "to": "waxwright-hive",
+      "strength": 1,
+      "type": "trade",
+      "note": "A living light pressed into a wax tile, now and then."
+    },
+    {
+      "from": "quiet-margin",
+      "to": "echo-fold",
+      "strength": 2,
+      "type": "trade",
+      "note": "A route tip for a copy close enough to pass. Nothing is written down."
+    }
+  ],
+  "rivalries": [
+    {
+      "from": "brine-court",
+      "to": "plume-kin",
+      "note": "Both sell ocean water, and each says theirs is fresher."
+    },
+    {
+      "from": "haze-wick",
+      "to": "cinder-mote",
+      "note": "Anything Cinder Mote handles comes back warm."
+    },
+    {
+      "from": "glass-lung",
+      "to": "red-ledger",
+      "note": "Mars dust scratches their glass."
+    },
+    {
+      "from": "red-ledger",
+      "to": "wellhold",
+      "note": "They both count water and never get the same number."
+    },
+    {
+      "from": "cinder-mote",
+      "to": "cold-wake",
+      "note": "Fire and frost can't share a cargo hold."
+    },
+    {
+      "from": "wellhold",
+      "to": "tumble-fair",
+      "note": "The fair sells water cheap, then leaves."
+    },
+    {
+      "from": "ganymede-yard",
+      "to": "cinder-mote",
+      "note": "Io's volcanic dust clogs their shields."
+    },
+    {
+      "from": "charon-scale",
+      "to": "tumble-fair",
+      "note": "The fair skips the edge toll."
+    },
+    {
+      "from": "ash-court",
+      "to": "bright-holt",
+      "note": "Ash Court says Bright Holt's counts are suspiciously round."
+    },
+    {
+      "from": "keel-scale",
+      "to": "echo-fold",
+      "note": "Inspectors hate a face that doesn't match its papers."
+    },
+    {
+      "from": "reed-tally",
+      "to": "waxwright-hive",
+      "note": "Two crafter peoples fighting over the same stalls."
+    },
+    {
+      "from": "lamp-drift",
+      "to": "quiet-margin",
+      "note": "Free answers ruin Quiet Margin's business."
+    },
+    {
+      "from": "waxwright-hive",
+      "to": "pip-moss",
+      "note": "Pip Moss eats the flower seeds before the hive gets them."
+    },
+    {
+      "from": "plain-coat",
+      "to": "scrap-wake",
+      "note": "Plain Coat audits every scrap pile."
+    },
+    {
+      "from": "scrap-wake",
+      "to": "ganymede-yard",
+      "note": "Scrap Wake keeps salvaging Ganymede Yard's magnets."
+    },
+    {
+      "from": "split-kin",
+      "to": "echo-fold",
+      "note": "Echo Fold copies their cords and sells them cheaper."
+    },
+    {
+      "from": "quiet-margin",
+      "to": "plain-coat",
+      "note": "Plain Coat wants it written down. Quiet Margin wants nothing written."
+    }
+  ],
+  "species": [
+    {
+      "id": "brine-court",
+      "name": "Brine Court",
+      "zones": [
+        "sol"
+      ],
+      "order": 1,
+      "homeworld": "Europa, a moon of Jupiter",
+      "bodyLabel": "Europa",
+      "realFact": "Under Europa's ice shell is a salty liquid-water ocean that may hold about twice as much water as all of Earth's oceans.",
+      "look": "Clear, jelly-soft filter feeders with fringed arms that glow faintly in the dark water.",
+      "trade": "They send sealed brine and shell ice. We send smooth Ohio creek stones, which they collect.",
+      "tradeRule": "Buys only goods that can get wet. Pays in brine jars, worth double at the dry worlds (Red Ledger, Wellhold).",
+      "weakness": "Can't leave water. Every trip needs a sealed Lab quarantine jar.",
+      "rival": "Plume Kin. Both sell ocean water from under the ice, and both say theirs is fresher.",
+      "canister": "Lab quarantine",
+      "card": "brine-court",
+      "cardBack": true,
+      "disposition": "friendly",
+      "resource": "rich",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Red Ledger and Wellhold",
+      "valuableCargo": "Sealed brine",
+      "wontTradeWith": "Plume Kin",
+      "shop_url": ""
+    },
+    {
+      "id": "plume-kin",
+      "name": "Plume Kin",
+      "zones": [
+        "sol"
+      ],
+      "order": 2,
+      "homeworld": "Enceladus, a moon of Saturn",
+      "bodyLabel": "Enceladus",
+      "realFact": "Geysers at Enceladus's south pole spray water ice, salt, and organic molecules from an ocean under the ice. That spray helps feed one of Saturn's rings.",
+      "look": "Feathery, paper-light gliders that ride the geyser jets up into space and drift back down.",
+      "trade": "Geyser frost caught in mid-air, never mined. We pay in kite string.",
+      "tradeRule": "Only trades when the geysers fire (every other turn). Frost is cheap, but it has to be delivered fast.",
+      "weakness": "Geyser frost only keeps for one trip. A slow hauler delivers an empty jar.",
+      "rival": "Brine Court. Europa calls geyser water leaked brine.",
+      "canister": "Lab quarantine",
+      "card": "plume-kin",
+      "disposition": "friendly",
+      "resource": "poor",
+      "difficulty": "tricky",
+      "danger": "high",
+      "tradeStanding": "good",
+      "tradesWith": "Haze Wick",
+      "valuableCargo": "Geyser frost",
+      "wontTradeWith": "Brine Court",
+      "shop_url": ""
+    },
+    {
+      "id": "haze-wick",
+      "name": "Haze Wick",
+      "zones": [
+        "sol"
+      ],
+      "order": 3,
+      "homeworld": "Titan, a moon of Saturn",
+      "bodyLabel": "Titan",
+      "realFact": "Titan is the only world besides Earth known to have lakes and seas on its surface, but they are liquid methane and ethane under a thick orange haze.",
+      "look": "Slow, waxy, many-legged waders that take a whole day to cross a puddle.",
+      "trade": "Bottled haze pigment and lake tar. They want anything warm-colored.",
+      "tradeRule": "Only takes cold cargo. Anything warm gets turned away at the dock.",
+      "weakness": "Titan's lakes are methane, which boils away at Earth temperatures. They ride in a sealed pod to stay Titan-cold.",
+      "rival": "Cinder Mote. Anything Cinder Mote handles comes back warm.",
+      "canister": "Alien recover",
+      "card": "haze-wick",
+      "disposition": "wary",
+      "resource": "fair",
+      "difficulty": "hard",
+      "danger": "medium",
+      "tradeStanding": "fair",
+      "tradesWith": "Cold Wake",
+      "valuableCargo": "Haze pigment",
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
+    },
+    {
+      "id": "glass-lung",
+      "name": "Glass Lung",
+      "zones": [
+        "sol"
+      ],
+      "order": 4,
+      "homeworld": "Venus",
+      "bodyLabel": "Venus",
+      "realFact": "About 50 to 60 km above Venus's ground, which is hot enough to melt lead, the air pressure and temperature are close to Earth's. The clouds there are sulfuric acid.",
+      "look": "Floating bladder-creatures with glassy, acid-proof skin that drift in the cloud deck and never touch the ground.",
+      "trade": "Hand-blown acid-proof glass. We send Ohio maple syrup, which they consider a fuel.",
+      "tradeRule": "Pays top price for anything light enough to float. Won't buy heavy goods, since they can't lift them.",
+      "weakness": "Can't drop below the cloud layer, where the heat and pressure would crush them. Meet them in the clouds or carry them in a sealed Lantern.",
+      "rival": "Red Ledger. Mars dust scratches their glass.",
+      "canister": "Wayfinder Lantern",
+      "card": "glass-lung",
+      "disposition": "friendly",
+      "resource": "rich",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Helion crystals",
+      "wontTradeWith": "Red Ledger",
+      "shop_url": ""
+    },
+    {
+      "id": "red-ledger",
+      "name": "Red Ledger",
+      "zones": [
+        "sol"
+      ],
+      "order": 5,
+      "homeworld": "Mars",
+      "bodyLabel": "Mars",
+      "realFact": "Mars is red because its dust is rusty iron. It has dried riverbeds, ice just under the ground, and dust storms that can wrap the whole planet.",
+      "look": "Low, armored burrowers with shovel hands who dig toward old ice and wait out storms underground.",
+      "trade": "Jars of red dust and riverbed pebbles. They buy tally books, because they count everything.",
+      "tradeRule": "Writes every price down and never changes it. Same price all game, boom or bust.",
+      "weakness": "Dust storms can cover the whole planet. During a storm nobody lands, and their cargo waits in a sealed crate.",
+      "rival": "Wellhold. They both count water and never get the same number.",
+      "canister": "Cargo",
+      "card": "red-ledger",
+      "disposition": "neutral",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "medium",
+      "tradeStanding": "fair",
+      "tradesWith": "Brine Court",
+      "valuableCargo": "Red dust",
+      "wontTradeWith": "Wellhold",
+      "shop_url": ""
+    },
+    {
+      "id": "cinder-mote",
+      "name": "Cinder Mote",
+      "zones": [
+        "sol"
+      ],
+      "order": 6,
+      "homeworld": "Io, a moon of Jupiter",
+      "bodyLabel": "Io",
+      "realFact": "Io is the most volcanic world in the solar system, with about 400 active volcanoes, kept hot by Jupiter's gravity squeezing it.",
+      "look": "Small ember-colored crawlers with stone shells that hop between lava vents.",
+      "trade": "Sulfur cakes and cooled lava stone that still smells burnt. We send oven mitts.",
+      "tradeRule": "Pays double for heat-proof goods. Everything else catches fire on the dock.",
+      "weakness": "Away from the lava vents, Io's ground is about -130°C. They travel in a dented, heat-holding canister.",
+      "rival": "Cold Wake. Fire and frost can't share a cargo hold.",
+      "canister": "Salvage worn",
+      "card": "cinder-mote",
+      "disposition": "hostile-to-trade",
+      "resource": "fair",
+      "difficulty": "hard",
+      "danger": "high",
+      "tradeStanding": "poor",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Sulfur cakes",
+      "wontTradeWith": "Cold Wake",
+      "shop_url": ""
+    },
+    {
+      "id": "wellhold",
+      "name": "Wellhold",
+      "zones": [
+        "sol"
+      ],
+      "order": 7,
+      "homeworld": "Ceres, the dwarf planet in the asteroid belt",
+      "bodyLabel": "Ceres",
+      "realFact": "Ceres's famous bright spots are salt left behind when salty water from deep underground seeped up to the surface and dried.",
+      "look": "Pale, round-backed well-diggers with long tube mouths for sipping brine.",
+      "trade": "Drinking water, the rarest thing in the belt, plus crushed salt crust. We send buckets.",
+      "tradeRule": "Sells water, the rarest thing in the belt, by barter only: one bucket for one good, no money.",
+      "weakness": "Their water is buried deep. They can't dig and haul at the same time, so someone has to fly it out.",
+      "rival": "Tumble Fair. The fair sells water cheap, then leaves before anyone can complain.",
+      "canister": "Salvage worn",
+      "card": "wellhold",
+      "disposition": "friendly",
+      "resource": "rich",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Brine Court and Earth / Sol-3",
+      "valuableCargo": "Drinking water",
+      "wontTradeWith": "Tumble Fair",
+      "shop_url": ""
+    },
+    {
+      "id": "cold-wake",
+      "name": "Cold Wake",
+      "zones": [
+        "sol"
+      ],
+      "order": 8,
+      "homeworld": "Triton, a moon of Neptune",
+      "bodyLabel": "Triton",
+      "realFact": "Triton orbits Neptune backwards, and Voyager 2 saw geyser plumes there shooting dark dust about 8 km high. The surface is around -235°C.",
+      "look": "Tall, thin, frost-white stilt-walkers that only move when the geysers go off.",
+      "trade": "Nitrogen ice, packed cold. If the crate warms up, the cargo is gone. They think that is funny.",
+      "tradeRule": "Nitrogen ice is worth a lot, but it shrinks every turn it sits in your hold. Sell fast.",
+      "weakness": "They're part nitrogen ice, which melts at about -210°C. They travel only in insulated Cargo crates.",
+      "rival": "Cinder Mote. Fire and frost, again.",
+      "canister": "Cargo",
+      "card": "cold-wake",
+      "disposition": "neutral",
+      "resource": "rich",
+      "difficulty": "hard",
+      "danger": "high",
+      "tradeStanding": "fair",
+      "tradesWith": "Charon Scale and Haze Wick",
+      "valuableCargo": "Nitrogen ice",
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
+    },
+    {
+      "id": "ganymede-yard",
+      "name": "Ganymede Yard",
+      "zones": [
+        "sol"
+      ],
+      "order": 9,
+      "homeworld": "Ganymede, a moon of Jupiter",
+      "bodyLabel": "Ganymede",
+      "realFact": "Ganymede is the biggest moon in the solar system, larger than Mercury, and the only moon known to have its own magnetic field.",
+      "look": "Heavy, blocky dockworkers with iron plates and a faint aurora glow around their heads.",
+      "trade": "Escort duty, dock hardware, and magnets.",
+      "tradeRule": "Hire them as an escort to shield one canister from spoilage or theft for a whole trip. They take metal only.",
+      "weakness": "Their shield borrows Ganymede's magnetic field. Too far from Jupiter, they're just big dockworkers.",
+      "rival": "Cinder Mote. Io's volcanic dust clogs their shields.",
+      "canister": "Salvage worn",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Helion crystals",
+      "wontTradeWith": "Cinder Mote",
+      "shop_url": ""
+    },
+    {
+      "id": "charon-scale",
+      "name": "Charon Scale",
+      "zones": [
+        "sol"
+      ],
+      "order": 10,
+      "homeworld": "Charon, Pluto's moon",
+      "bodyLabel": "Charon",
+      "realFact": "Charon is about half as wide as Pluto, so big that the two circle a point between them like a double world. New Horizons flew past both in 2015.",
+      "look": "Gray, broad-footed surveyors with measuring rods and lamps on their heads.",
+      "trade": "Weigh-stones and survey marks, the official measure of things.",
+      "tradeRule": "Charges a toll to cross the edge of the map. Paying gets you a weigh-stone that sets one good's price for everyone.",
+      "weakness": "Sunlight out there is over a thousand times dimmer than on Earth. Without a lantern they lose the route.",
+      "rival": "Tumble Fair. It skips the toll every single time.",
+      "canister": "Wayfinder Lantern",
+      "disposition": "wary",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "fair",
+      "tradesWith": "Cold Wake",
+      "valuableCargo": "Weigh-stones",
+      "wontTradeWith": "Tumble Fair",
+      "shop_url": ""
+    },
+    {
+      "id": "ash-court",
+      "name": "Ash Court",
+      "zones": [
+        "beyond"
+      ],
+      "order": 1,
+      "homeworld": "TRAPPIST-1e",
+      "mapLabel": "TRAPPIST-1",
+      "star": "trappist-1",
+      "constellation": "Aquarius",
+      "ra": 346.62,
+      "dec": -5.04,
+      "distanceLy": 40.66,
+      "distanceLabel": "40.7 ly",
+      "folklore": "The short, big-eyed \"grey\" visitors from UFO stories, minus the abductions.",
+      "look": "Short, ash-pale counters with wide dark eyes and long, careful fingers.",
+      "trade": "They send tally slips and sealed empty jars. They buy pencils by the box.",
+      "tradeRule": "Counts every crate. If you're one short, the whole deal waits a turn.",
+      "weakness": "Their home star is a dim red dwarf, so Earth daylight blinds them. They travel shaded.",
+      "rival": "Bright Holt. Ash Court says Bright Holt's counts are always suspiciously round.",
+      "canister": "Lab quarantine",
+      "disposition": "wary",
+      "resource": "poor",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "fair",
+      "tradesWith": "Keel Scale",
+      "valuableCargo": "Tally slips",
+      "wontTradeWith": "Bright Holt",
+      "shop_url": ""
+    },
+    {
+      "id": "keel-scale",
+      "name": "Keel Scale",
+      "zones": [
+        "beyond"
+      ],
+      "order": 2,
+      "homeworld": "Kepler-452b",
+      "mapLabel": "Kepler-452",
+      "star": "kepler-452",
+      "constellation": "Cygnus",
+      "ra": 296,
+      "dec": 44.28,
+      "distanceLy": 1810,
+      "distanceLabel": "1,810 ly",
+      "folklore": "The reptile-people idea, turned into dock inspectors who rule nobody.",
+      "look": "Tall, bronze-green scaled officers with a ridge down the back and very patient eyes.",
+      "trade": "Seal wax and lid rings. Every crate we send gets inspected, twice, politely.",
+      "tradeRule": "Inspects your hold before any deal and fines you for missing paperwork.",
+      "weakness": "Cold-blooded. In a cold hold they slow to a stop, so they need a warm crate.",
+      "rival": "Echo Fold. Its paperwork never matches its face.",
+      "canister": "Cargo",
+      "disposition": "wary",
+      "resource": "fair",
+      "difficulty": "hard",
+      "danger": "low",
+      "tradeStanding": "fair",
+      "tradesWith": "Ash Court",
+      "valuableCargo": "Seal wax",
+      "wontTradeWith": "Echo Fold",
+      "shop_url": ""
+    },
+    {
+      "id": "bright-holt",
+      "name": "Bright Holt",
+      "zones": [
+        "beyond"
+      ],
+      "order": 3,
+      "homeworld": "Tau Ceti",
+      "mapLabel": "Tau Ceti",
+      "star": "tau-ceti",
+      "constellation": "Cetus",
+      "ra": 26.02,
+      "dec": -15.94,
+      "distanceLy": 11.9,
+      "distanceLabel": "11.9 ly",
+      "folklore": "The tall, fair \"space brother\" visitors from 1950s contact stories.",
+      "look": "Very tall, pale, silver-haired brokers in long weatherproof coats.",
+      "trade": "Pale cloth and braided broker's cords. They bargain slowly and pay late, but always in full.",
+      "tradeRule": "Pays late but pays extra. Every deal pays out one turn later, with a bonus.",
+      "weakness": "Too tall for most cargo holds. They ride in a big hold or their own Lantern.",
+      "rival": "Ash Court. The Court keeps recounting their deals.",
+      "canister": "Wayfinder Lantern",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "easy",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Pip Moss",
+      "valuableCargo": "Pale cloth",
+      "wontTradeWith": "Ash Court",
+      "shop_url": ""
+    },
+    {
+      "id": "reed-tally",
+      "name": "Reed Tally",
+      "zones": [
+        "beyond"
+      ],
+      "order": 4,
+      "homeworld": "Kepler-186f",
+      "mapLabel": "Kepler-186",
+      "star": "kepler-186",
+      "constellation": "Cygnus",
+      "ra": 298.65,
+      "dec": 43.96,
+      "distanceLy": 579,
+      "distanceLabel": "579 ly",
+      "folklore": "The tall mantis-like beings from abduction stories, turned into clerks.",
+      "look": "Long, gray-green, stick-limbed, with folded forearms and a narrow triangle head.",
+      "trade": "Counting rods and woven reed baskets. They want rubber bands. Nobody knows why.",
+      "tradeRule": "Buys only in sets of 3, 6, or 9. Leftovers are refused.",
+      "weakness": "They molt once a season and go soft. Until the new shell hardens, they ride in a pod.",
+      "rival": "Waxwright Hive. Two crafter peoples fighting over the same market stalls.",
+      "canister": "Alien recover",
+      "disposition": "neutral",
+      "resource": "poor",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "fair",
+      "tradesWith": "Ash Court",
+      "valuableCargo": "Counting rods",
+      "wontTradeWith": "Waxwright Hive",
+      "shop_url": ""
+    },
+    {
+      "id": "lamp-drift",
+      "name": "Lamp Drift",
+      "zones": [
+        "beyond"
+      ],
+      "order": 5,
+      "homeworld": "55 Cancri e, a lava world that circles its star in about 18 hours",
+      "mapLabel": "55 Cancri",
+      "star": "55-cancri",
+      "constellation": "Cancer",
+      "ra": 133.15,
+      "dec": 28.33,
+      "distanceLy": 41,
+      "distanceLabel": "41 ly",
+      "folklore": "Glowing orb lights and plasma beings.",
+      "look": "A small floating glow with no body that brightens when you ask it a question.",
+      "trade": "A sealed jar holding a living light, sold as a display, not a pet.",
+      "tradeRule": "Answers one question free each visit, like peeking at one face-down card or the next event.",
+      "weakness": "Away from their lava world's glow, they fade. They need a Lantern to carry their light.",
+      "rival": "Quiet Margin. Free answers ruin Quiet Margin's whole business.",
+      "canister": "Wayfinder Lantern",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "easy",
+      "danger": "medium",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Living light",
+      "wontTradeWith": "Quiet Margin",
+      "shop_url": ""
+    },
+    {
+      "id": "waxwright-hive",
+      "name": "Waxwright Hive",
+      "zones": [
+        "beyond"
+      ],
+      "order": 6,
+      "homeworld": "Kepler-62f",
+      "mapLabel": "Kepler-62",
+      "star": "kepler-62",
+      "constellation": "Lyra",
+      "ra": 283.21,
+      "dec": 45.35,
+      "distanceLy": 982,
+      "distanceLabel": "982 ly",
+      "folklore": "The insect hive-mind aliens of old pulp sci-fi, but friendly and into crafts.",
+      "look": "Thousands of thumb-sized amber workers that cluster into one big shape when they want to talk.",
+      "trade": "Six-sided wax tiles and amber resin. We send packets of flower seeds.",
+      "tradeRule": "The price goes up every time you trade with them in a row. Loyalty pays.",
+      "weakness": "Split up for long, a swarm forgets how to trade. They must travel together in one pod.",
+      "rival": "Pip Moss. Pip Moss eats the flower seeds before the hive gets them.",
+      "canister": "Alien recover",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "medium",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Wax tiles",
+      "wontTradeWith": "Pip Moss",
+      "shop_url": ""
+    },
+    {
+      "id": "pip-moss",
+      "name": "Pip Moss",
+      "zones": [
+        "beyond"
+      ],
+      "order": 7,
+      "homeworld": "Proxima Centauri b, the closest known planet outside our solar system",
+      "mapLabel": "Proxima Centauri",
+      "star": "proxima",
+      "constellation": "Centaurus",
+      "ra": 217.43,
+      "dec": -62.68,
+      "distanceLy": 4.24,
+      "distanceLabel": "4.24 ly",
+      "folklore": "The old \"little green men\" joke.",
+      "look": "Knee-high, moss-green, round-headed, with two bobbing feelers.",
+      "trade": "Tiny sprouted seedlings in jars. They want garden gnomes, which they believe are distant cousins.",
+      "tradeRule": "Pays in seedlings. Hold a seedling three turns and it becomes a full crop worth much more.",
+      "weakness": "Their star throws powerful flares. Sprouts survive only in sealed Lab quarantine jars.",
+      "rival": "Lamp Drift. Its glow keeps their seedlings up all night.",
+      "canister": "Lab quarantine",
+      "disposition": "friendly",
+      "resource": "rich",
+      "difficulty": "easy",
+      "danger": "medium",
+      "tradeStanding": "good",
+      "tradesWith": "Bright Holt and Earth / Sol-3",
+      "valuableCargo": "Seedlings",
+      "wontTradeWith": "Lamp Drift",
+      "shop_url": ""
+    },
+    {
+      "id": "plain-coat",
+      "name": "Plain Coat",
+      "zones": [
+        "beyond"
+      ],
+      "order": 8,
+      "homeworld": "Barnard's Star (they say; the paperwork is unclear)",
+      "mapLabel": "Barnard's Star",
+      "star": "barnard",
+      "constellation": "Ophiuchus",
+      "ra": 269.45,
+      "dec": 4.69,
+      "distanceLy": 5.96,
+      "distanceLabel": "5.96 ly",
+      "folklore": "The \"men in black\" story, turned into dull paperwork auditors.",
+      "look": "Faces you forget right away, ordinary coats, very neat shoes.",
+      "trade": "They only take a copy of the manifest. They leave a receipt and a mint.",
+      "tradeRule": "Never buys or sells. They ask for a copy of your manifest. Show it for a small reward. Refuse, and they follow you for a turn.",
+      "weakness": "Helpless without paperwork. Lose their copy and they're stuck at port.",
+      "rival": "Scrap Wake. They audit every scrap pile Scrap Wake ever touched.",
+      "canister": "Salvage worn",
+      "disposition": "hostile-to-trade",
+      "resource": "poor",
+      "difficulty": "hard",
+      "danger": "low",
+      "tradeStanding": "poor",
+      "tradesWith": "Nobody",
+      "valuableCargo": "Manifest copy",
+      "wontTradeWith": "Scrap Wake",
+      "shop_url": ""
+    },
+    {
+      "id": "scrap-wake",
+      "name": "Scrap Wake",
+      "zones": [
+        "beyond"
+      ],
+      "order": 9,
+      "homeworld": "The dust ring around Fomalhaut",
+      "mapLabel": "Fomalhaut",
+      "star": "fomalhaut",
+      "constellation": "Piscis Austrinus",
+      "ra": 344.41,
+      "dec": -29.62,
+      "distanceLy": 25.13,
+      "distanceLabel": "25.1 ly",
+      "folklore": "Crashed-saucer wreck stories, turned into an honest junkyard.",
+      "look": "Squat, four-armed salvagers in patched suits covered with tool loops.",
+      "trade": "Nickel-iron offcuts and salvaged pins. We send them used hardware by the pound.",
+      "tradeRule": "Buys broken or spoiled cargo at half price. Anyone's failed delivery is their profit.",
+      "weakness": "Their patched suits leak. Long trips need a salvaged canister to ride in.",
+      "rival": "Ganymede Yard. Scrap Wake keeps salvaging Ganymede Yard's magnets.",
+      "canister": "Salvage worn",
+      "disposition": "friendly",
+      "resource": "poor",
+      "difficulty": "easy",
+      "danger": "medium",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Nickel-iron offcuts",
+      "wontTradeWith": "Ganymede Yard",
+      "shop_url": ""
+    },
+    {
+      "id": "split-kin",
+      "name": "Split Kin",
+      "zones": [
+        "beyond"
+      ],
+      "order": 10,
+      "homeworld": "Kepler-47, a planet system with two suns",
+      "mapLabel": "Kepler-47",
+      "star": "kepler-47",
+      "constellation": "Cygnus",
+      "ra": 295.3,
+      "dec": 46.92,
+      "distanceLy": 3420,
+      "distanceLabel": "3,420 ly",
+      "folklore": "Human-alien \"hybrid\" stories, retold as ordinary families with two home ports.",
+      "look": "Almost human, with one side of the face freckled pale blue and the other plain.",
+      "trade": "Two-color cords and twin tags. We send matching keychains.",
+      "tradeRule": "Every deal must be paid in two different goods, never two of the same.",
+      "weakness": "Half the family lives under each sun. Someone has to carry goods between the two ports.",
+      "rival": "Echo Fold. It copies their two-color cords and sells them cheaper.",
+      "canister": "Cargo",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "low",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Two-color cords",
+      "wontTradeWith": "Echo Fold",
+      "shop_url": ""
+    },
+    {
+      "id": "quiet-margin",
+      "name": "Quiet Margin",
+      "zones": [
+        "beyond"
+      ],
+      "order": 11,
+      "homeworld": "Epsilon Eridani, a young star",
+      "mapLabel": "Epsilon Eridani",
+      "star": "epsilon-eridani",
+      "constellation": "Eridanus",
+      "ra": 53.23,
+      "dec": -9.46,
+      "distanceLy": 10.5,
+      "distanceLabel": "10.5 ly",
+      "folklore": "The stranger at the fair who somehow knows everyone's business.",
+      "look": "Slim and hooded, with ear-fans that fold like paper and no visible mouth.",
+      "trade": "Rumors, route tips, and who-owes-who.",
+      "tradeRule": "Information only. Pay them a secret (a card you've seen) and they show you another player's hold or the next event.",
+      "weakness": "A secret told twice is worthless. If a jar opens on the way, the cargo is spoiled.",
+      "rival": "Plain Coat. Plain Coat wants everything written down; Quiet Margin wants nothing written.",
+      "canister": "Lab quarantine",
+      "disposition": "hostile-to-trade",
+      "resource": "rich",
+      "difficulty": "hard",
+      "danger": "high",
+      "tradeStanding": "poor",
+      "tradesWith": "Echo Fold and Earth / Sol-3",
+      "valuableCargo": "Route tips",
+      "wontTradeWith": "Plain Coat",
+      "shop_url": ""
+    },
+    {
+      "id": "echo-fold",
+      "name": "Echo Fold",
+      "zones": [
+        "beyond"
+      ],
+      "order": 12,
+      "homeworld": "Luyten's Star",
+      "mapLabel": "Luyten's Star",
+      "star": "luyten",
+      "constellation": "Canis Minor",
+      "ra": 111.85,
+      "dec": 5.23,
+      "distanceLy": 12.36,
+      "distanceLabel": "12.4 ly",
+      "folklore": "Old changeling and shapeshifter tales.",
+      "look": "Smooth, putty-gray, never quite the same shape twice. Usually looks like whoever they met last.",
+      "trade": "Copies of anything, close enough to pass.",
+      "tradeRule": "Copies the trade rule of the last species you traded with.",
+      "weakness": "With nobody to copy, they slump into a puddle and ride in a pod until they meet someone.",
+      "rival": "Keel Scale. Inspectors hate a face that doesn't match its papers.",
+      "canister": "Alien recover",
+      "disposition": "wary",
+      "resource": "poor",
+      "difficulty": "hard",
+      "danger": "medium",
+      "tradeStanding": "fair",
+      "tradesWith": "Quiet Margin",
+      "valuableCargo": "Copies",
+      "wontTradeWith": "Keel Scale",
+      "shop_url": ""
+    },
+    {
+      "id": "tumble-fair",
+      "name": "Tumble Fair",
+      "zones": [
+        "sol",
+        "beyond"
+      ],
+      "order": 90,
+      "wander": true,
+      "homeworld": "None. They ride visitors from other stars through our solar system.",
+      "bodyLabel": "No homeworld",
+      "mapLabel": "No homeworld",
+      "realFact": "'Oumuamua, spotted in 2017, was the first object ever seen passing through our solar system from another star. 3I/ATLAS, found in 2025, was the third.",
+      "folklore": "The traveling carnival that shows up overnight and is gone by morning.",
+      "look": "A loud crowd of every shape, under patchwork awnings bolted to a tumbling rock.",
+      "trade": "Odds and ends from other stars, plus one mystery crate at a time.",
+      "tradeRule": "Shows up at random (draw or roll each round). Buys anything at a fair price. Sells one face-down mystery crate.",
+      "weakness": "It can't stop. The rock is just passing through, so if you miss it, it's gone for the round.",
+      "rival": "Charon Scale. The fair comes in from outside and never pays the edge toll.",
+      "canister": "Cargo",
+      "disposition": "friendly",
+      "resource": "fair",
+      "difficulty": "tricky",
+      "danger": "medium",
+      "tradeStanding": "good",
+      "tradesWith": "Earth / Sol-3",
+      "valuableCargo": "Mystery crate",
+      "wontTradeWith": "Charon Scale",
+      "shop_url": ""
+    }
+  ]
+}

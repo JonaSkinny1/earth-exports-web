@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STL Files · Earth Exports</title>
-  <meta name="description" content="3D-print files of our props and parts, with print notes and plain-English license terms.">
+  <title>Species star map · Earth Exports</title>
+  <meta name="description" content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css?v=20261008-map">
+  <link rel="stylesheet" href="css/star-map.css?v=20261008-net">
 </head>
 <body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
@@ -56,9 +57,9 @@
         <ul class="site-nav" id="site-nav">
           <li><a href="sector-01.html">Cards &amp; Games</a></li>
           <li><a href="sector-02.html">Props &amp; Relics</a></li>
-          <li><a href="sector-04.html" aria-current="page">STL Files</a></li>
+          <li><a href="sector-04.html">STL Files</a></li>
           <li><a href="archives.html">Alien Index</a></li>
-          <li><a href="star-map.html">Star Map</a></li>
+          <li><a href="star-map.html" aria-current="page">Star Map</a></li>
           <li><a href="outpost.html">Find Us</a></li>
           <li><a href="captains-log.html">News</a></li>
           <li><a href="manifest.html">About</a></li>
@@ -71,82 +72,98 @@
   <main>
     <div class="page-hero">
       <div class="page-hero-inner">
-        <p class="eyebrow face-public-only">STL files for makers</p>
-        <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/sector-04$ open license-terms<span class="cursor-blink" aria-hidden="true"></span></p>
-        <h1>STL Files<span class="rule" aria-hidden="true"></span></h1>
-        <p class="lead page-what">3D-print files (STLs) of our props and parts, so you can print them at home. Each file is tested, versioned and comes with print notes.</p>
-        <div class="cta-row hero-cta">
-          <a class="btn btn-primary" href="contact.html">Ask about STL files</a>
-        </div>
+        <p class="eyebrow face-public-only">Species star map · where they live</p>
+        <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/chart$ plot SPECIES<span class="cursor-blink" aria-hidden="true"></span></p>
+        <h1>Species star map<span class="rule" aria-hidden="true"></span></h1>
+        <p class="lead page-what">Two charts. Sol is stylized, not to scale. Beyond Sol uses real directions and distances. Hover or tap a marker for the name, then open the dossier.</p>
       </div>
     </div>
-    <div class="wrap">
-      <p class="grid-note">Files are being prepared. Prices are planned ranges, not final.</p>
-      <div class="product-grid" aria-label="STL file licenses">
-        <article class="product-card">
-          <figure class="ph"><img src="images/products/stl-personal.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of a 3D-printed part on a print bed. Real photo coming soon."></figure>
-          <div class="pc-body">
-            <p class="pc-lore">Print it for yourself</p>
-            <h3>Personal license</h3>
-            <p class="pc-line">Files for your own printer and your own shelf.</p>
-            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $8–18</span></p>
-            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> the ship’s schematic vault.</p><p><b>Came aboard:</b> by data-burst, checked on the Ohio printers.</p></details>
-          </div>
-        </article>
-        <article class="product-card">
-          <figure class="ph"><img src="images/products/stl-commercial.webp" width="800" height="600" loading="lazy" decoding="async" alt="Placeholder art of three identical 3D-printed parts. Real photo coming soon."></figure>
-          <div class="pc-body">
-            <p class="pc-lore">Print to sell</p>
-            <h3>Commercial reprint license</h3>
-            <p class="pc-line">Permission to sell the prints you make. Offered separately, when available.</p>
-            <p class="pc-meta"><span class="placeholder-badge">In the works</span><span class="pc-price">Planned price $40–80</span></p>
-            <details class="prov-tag"><summary><span class="pt-hole" aria-hidden="true"></span>Cargo tag</summary><p><b>Recovered:</b> the same vault, under a reprint seal.</p><p><b>Came aboard:</b> with a license filed on the Manifest.</p></details>
-          </div>
-        </article>
+    <div class="wrap star-map">
+      <div class="zone-switch" role="tablist" aria-label="Chart">
+        <button type="button" role="tab" id="tab-sol" aria-controls="panel-sol" aria-selected="true">Sol system</button>
+        <button type="button" role="tab" id="tab-beyond" aria-controls="panel-beyond" aria-selected="false" tabindex="-1">Beyond Sol</button>
       </div>
-      <h2 class="simple-h">Every file comes with</h2>
-      <ul class="check-list">
-        <li>The print-bed size it needs and a suggested material</li>
-        <li>Whether it needs supports</li>
-        <li>A version number in the file name</li>
-        <li>Print notes for common home printers</li>
-      </ul>
-      <h2 class="simple-h">License terms, in plain words</h2>
-      <ul class="check-list">
-        <li><b>Personal license:</b> print as many copies as you like for yourself or to give as gifts.</li>
-        <li><b>Selling your prints:</b> needs the commercial license. Ask us by email.</li>
-        <li><b>The files themselves:</b> please don’t share, upload or resell them, under any license.</li>
-      </ul>
-      <p class="more-link"><a href="policies.html#stl-license">Read the full STL license terms</a></p>
-      <details class="story" id="story">
-        <summary><span class="story-k">The story</span> <span class="story-hint">for lore fans · tap to open</span></summary>
-        <div class="story-body">
-          <h3 class="story-h">Words you’ll see</h3>
-          <dl class="terms"><div><dt>STL</dt><dd>The standard 3D-print file format. Most slicer programs open it.</dd></div><div><dt>Schematic</dt><dd>Our story word for a build file.</dd></div><div><dt>License</dt><dd>What you’re allowed to do with your prints: keep them, or sell them.</dd></div></dl>
-          <div class="body-copy">
-            <p>In the story, schematics are licensed build files from the ship’s vault, designed from the print bed up: alignment pegs, magnet slots, heat-set insert holes and room for LEDs where a prop needs them.</p>
-          </div>
-          <div class="pin-note">
-            <span class="pin" aria-hidden="true"></span>
-            <p class="pn-where">Pinned to the wall in the repair dock</p>
-            <p class="pn-title">Quick Start Guide to Fixing Ships (the dock mechanic’s version)</p>
-            <ol class="pn-rules">
-              <li><b>Listen first.</b> Every ship hums at its own frequency. Ears before scanners.</li>
-              <li><b>Check the triad.</b> Power grid, coolant flow, atmosphere seals.</li>
-              <li><b>Never trust auto-diagnostics.</b> Trust the flicker.</li>
-              <li><b>Patch first, then think.</b></li>
-              <li><b>Carry:</b> flux resonator, phase spanner, polyspectrum visor, nanite patch gel (smells like burnt ozone), portable harmonic stabilizer.</li>
-              <li><b>Respect the machine.</b></li>
-              <li><b>Walk away when you’re angry.</b></li>
-              <li><b>Know when to say it’s dead.</b></li>
-            </ol>
-            <p class="pn-sig">— the dock mechanic</p>
-          </div>
+      <p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away. Scan mode recolors each species. Route lines are the trades. Hover a marker to fade every route but its own.</p>
+      <div class="map-tools">
+        <div class="scan-bar" role="radiogroup" aria-label="Scan mode">
+          <span class="tool-kicker">Scan mode</span>
+          <button type="button" role="radio" data-lens="disposition" aria-checked="true">Disposition</button>
+          <button type="button" role="radio" data-lens="resource" aria-checked="false" tabindex="-1">Resource value</button>
+          <button type="button" role="radio" data-lens="difficulty" aria-checked="false" tabindex="-1">Trade difficulty</button>
+          <button type="button" role="radio" data-lens="danger" aria-checked="false" tabindex="-1">Danger to cargo</button>
         </div>
-      </details>
+        <div class="route-bar">
+          <span class="tool-kicker">Lines</span>
+          <button type="button" id="toggle-routes" aria-pressed="true">Routes</button>
+          <button type="button" id="toggle-rivals" aria-pressed="false">Rivalries</button>
+        </div>
+      </div>
+      <ul class="scan-legend" id="scan-legend" aria-label="Scan legend"></ul>
+      <ul class="route-legend" id="route-legend" aria-label="Route lines"></ul>
+      <div class="species-bar">
+        <div class="species-pick">
+          <span class="tool-kicker" id="species-pick-label">Species</span>
+          <button type="button" id="species-pick-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="species-menu">All species</button>
+          <div class="species-menu" id="species-menu" role="listbox" aria-labelledby="species-pick-label" hidden></div>
+        </div>
+        <div class="species-summary" id="species-summary" hidden>
+          <button type="button" class="species-summary-name" id="species-summary-open"></button>
+          <p><span>Trade standing</span> <strong id="sum-standing"></strong></p>
+          <p><span>Most trades with</span> <strong id="sum-with"></strong></p>
+          <p><span>Most valuable cargo</span> <strong id="sum-cargo"></strong></p>
+          <p><span>Won't trade with</span> <strong id="sum-rival"></strong></p>
+        </div>
+      </div>
+      <p id="map-status" role="status">Plotting the chart…</p>
+
+      <div id="panel-sol" role="tabpanel" aria-labelledby="tab-sol">
+        <p class="map-pan-note">Swipe to pan the chart.</p>
+        <div class="map-scroll">
+          <div class="map-board" id="sol-board"></div>
+        </div>
+      </div>
+      <div id="panel-beyond" role="tabpanel" aria-labelledby="tab-beyond" hidden>
+        <p class="map-pan-note">Swipe to pan the chart.</p>
+        <div class="map-scroll">
+          <div class="map-board" id="beyond-board"></div>
+        </div>
+      </div>
+
+      <p class="map-note" id="map-note"></p>
+
+      <h2 class="map-index-head" id="map-index-title">Sol system</h2>
+      <ul class="map-index" id="map-index" aria-labelledby="map-index-title"></ul>
+
+      <p class="map-fiction">Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
     </div>
   </main>
 
+  <dialog id="species-dialog" class="species-dialog" aria-labelledby="species-dialog-title">
+    <button type="button" class="sd-close" id="sd-close">Close</button>
+    <div class="sd-layout">
+      <div class="sd-card-col">
+        <div class="sd-faces" id="sd-faces">
+          <img class="sd-front sd-paper" alt="" width="750" height="1050">
+          <img class="sd-front sd-dark" alt="" width="750" height="1050">
+          <img class="sd-back sd-paper" alt="" width="750" height="1050">
+          <img class="sd-back sd-dark" alt="" width="750" height="1050">
+        </div>
+        <div class="sd-pending" id="sd-pending" hidden>
+          <span class="sd-pending-kicker">Earth Exports · species file</span>
+          <span class="sd-pending-rule" aria-hidden="true"></span>
+          <strong class="sd-pending-name" id="sd-pending-name"></strong>
+          <span class="sd-pending-file">DOSSIER PENDING</span>
+        </div>
+        <button type="button" class="sd-flip" id="sd-flip" hidden aria-pressed="false">See card back</button>
+      </div>
+      <div class="sd-copy">
+        <p class="sd-kicker" id="sd-kicker"></p>
+        <h2 id="species-dialog-title"></h2>
+        <p class="sd-home" id="sd-home"></p>
+        <dl class="sd-facts" id="sd-facts"></dl>
+      </div>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -158,7 +175,7 @@
         <li><a href="manifest.html">About</a></li>
         <li><a href="sector-01.html">Cards &amp; Games</a></li>
         <li><a href="archives.html">Alien Index</a></li>
-          <li><a href="star-map.html">Star Map</a></li>
+        <li><a href="star-map.html">Star Map</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="policies.html">Policies</a></li>
         <li><a href="captains-log.html">News</a></li>
@@ -180,5 +197,6 @@
   <script src="js/forms-config.js?v=20260927-tabs"></script>
   <script src="js/contact-form.js?v=20260927-tabs" defer></script>
   <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
+  <script src="js/star-map.js?v=20261008-net" defer></script>
 </body>
 </html>
