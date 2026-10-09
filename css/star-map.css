@@ -675,7 +675,18 @@ html[data-face="cv"] .species-dialog h2 {
   font-weight: 500;
 }
 
-.sd-home { margin: 0 0 0.8rem; color: var(--muted); }
+.sd-home { margin: 0 0 0.35rem; color: var(--muted); }
+.sd-science {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.sd-science em { font-style: italic; }
+html[data-face="cv"] .sd-science {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
 
 .sd-facts { margin: 0; }
 .sd-facts dt {

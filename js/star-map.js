@@ -163,6 +163,7 @@
     els.kicker = document.getElementById("sd-kicker");
     els.title = document.getElementById("species-dialog-title");
     els.home = document.getElementById("sd-home");
+    els.science = document.getElementById("sd-science");
     els.facts = document.getElementById("sd-facts");
     els.faces = document.getElementById("sd-faces");
     els.pending = document.getElementById("sd-pending");
@@ -360,8 +361,8 @@
       panel.classList.add("is-entering");
     }
     els.note.textContent = beyond
-      ? "Direction is right ascension, counterclockwise from the 0h mark at the top, with a small sideways shift so stacked stars stay tappable. Rings are logarithmic distances in light-years. The moving marker is Tumble Fair. It has no homeworld."
-      : "Stylized, not to scale, so the moons we trade with can be tapped. The moving marker is Tumble Fair, riding a visitor through the system. It has no homeworld.";
+      ? "Direction is right ascension, counterclockwise from the 0h mark at the top, with a small sideways shift so stacked stars stay tappable. Rings are logarithmic distances in light-years. The moving marker is Starwake Comet. It has no homeworld."
+      : "Stylized, not to scale, so the moons we trade with can be tapped. The moving marker is Starwake Comet, riding a visitor through the system. It has no homeworld.";
     renderIndex();
     if (updateHash && !els.dialog.open) {
       history.replaceState(null, "", beyond ? "#beyond" : "#sol");
@@ -702,6 +703,7 @@
       if (species.constellation) home += " · " + species.constellation;
     }
     els.home.textContent = home;
+    paintScience(species);
     els.facts.replaceChildren();
     [
       ["realFact", "Real fact"],
@@ -729,15 +731,15 @@
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
     if (species.card) {
       var base = "images/dossiers/" + species.card;
-      paper.src = base + "-card.webp";
-      dark.src = base + "-card-dark.webp";
+      paper.src = base + "-card.webp?v=20261009-cards";
+      dark.src = base + "-card-dark.webp?v=20261009-cards";
       paper.alt = species.name + " dossier card";
       dark.alt = species.name + " dossier card, dark schematic";
       els.faces.hidden = false;
       els.pending.hidden = true;
       if (species.cardBack) {
-        backPaper.src = base + "-back.webp";
-        backDark.src = base + "-back-dark.webp";
+        backPaper.src = base + "-back.webp?v=20261009-cards";
+        backDark.src = base + "-back-dark.webp?v=20261009-cards";
         backPaper.alt = "Back of the " + species.name + " card";
         backDark.alt = "Back of the " + species.name + " card, dark schematic";
         els.flip.hidden = false;
@@ -759,6 +761,20 @@
       history.replaceState(null, "", "#" + species.id);
     }
     if (!els.dialog.open) els.dialog.showModal();
+  }
+
+  function paintScience(species) {
+    if (!els.science) return;
+    els.science.replaceChildren();
+    if (!species.science) {
+      els.science.hidden = true;
+      return;
+    }
+    var em = document.createElement("em");
+    em.textContent = species.science;
+    els.science.appendChild(em);
+    els.science.appendChild(document.createTextNode(" (" + (species.scienceStatus || "proposed") + ")"));
+    els.science.hidden = false;
   }
 
   function paintScan(species) {

@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alien Index · Earth Exports</title>
-  <meta name="description" content="The sixteen made-up alien species from our card decks. Tap one for a short fact file.">
+  <meta name="description" content="Twenty-three made-up species, each with a field guide. Real facts about planets are real; the aliens are not.">
   <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261008-map">
+  <link rel="stylesheet" href="css/styles.css?v=20261009-index">
 </head>
 <body class="mode-public">
   <div class="starfield" aria-hidden="true"></div>
@@ -74,130 +74,424 @@
         <p class="eyebrow face-public-only">Alien Index · the species behind the cards</p>
         <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/archives$ psql afc_public<span class="cursor-blink" aria-hidden="true"></span></p>
         <h1>Alien Index<span class="rule" aria-hidden="true"></span></h1>
-        <p class="lead page-what">The sixteen made-up alien species on our cards. Tap one to open its short fact file.</p>
+        <p class="lead page-what">Twenty-three made-up species, grouped by where they live. Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
         <div class="cta-row hero-cta">
-          <a class="btn btn-primary" href="sector-01.html">See the card decks</a>
-          <a class="btn btn-secondary" href="star-map.html">Species star map</a>
+          <a class="btn btn-primary" href="#sol">Sol System</a>
+          <a class="btn btn-secondary" href="#beyond">Beyond Sol</a>
         </div>
       </div>
     </div>
-    <div class="wrap">
-      <ul class="status-legend" aria-label="What the status means">
-        <li><span class="status status-treaty">Treaty</span> Friendly trade partner</li>
-        <li><span class="status status-observer">Observer</span> Watching, not trading yet</li>
-        <li><span class="status status-restricted">Restricted</span> Limited trade</li>
-        <li><span class="status status-embargoed">Embargoed</span> No trade (one mystery file)</li>
-      </ul>
-      <ul class="species-grid" aria-label="The sixteen species">
-        <li><button type="button" class="species-card dossier-btn" data-idx="0" data-img="images/species/vel-keth.webp" aria-haspopup="dialog" aria-label="Vel-Keth, Treaty. Open fact file.">
-          <img src="images/species/vel-keth.webp" width="600" height="600" loading="lazy" decoding="async" alt="Vel-Keth emblem (placeholder art)">
-          <span class="sc-name">Vel-Keth</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="1" data-img="images/species/orrin.webp" aria-haspopup="dialog" aria-label="Orrin, Treaty. Open fact file.">
-          <img src="images/species/orrin.webp" width="600" height="600" loading="lazy" decoding="async" alt="Orrin emblem (placeholder art)">
-          <span class="sc-name">Orrin</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="2" data-img="images/species/mirenth.webp" aria-haspopup="dialog" aria-label="Mirenth, Observer. Open fact file.">
-          <img src="images/species/mirenth.webp" width="600" height="600" loading="lazy" decoding="async" alt="Mirenth emblem (placeholder art)">
-          <span class="sc-name">Mirenth</span>
-          <span class="status status-observer">Observer</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="3" data-img="images/species/tarn-vessik.webp" aria-haspopup="dialog" aria-label="Tarn Vessik, Treaty. Open fact file.">
-          <img src="images/species/tarn-vessik.webp" width="600" height="600" loading="lazy" decoding="async" alt="Tarn Vessik emblem (placeholder art)">
-          <span class="sc-name">Tarn Vessik</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="4" data-img="images/species/viridane.webp" aria-haspopup="dialog" aria-label="Viridane, Treaty. Open fact file.">
-          <img src="images/species/viridane.webp" width="600" height="600" loading="lazy" decoding="async" alt="Viridane emblem (placeholder art)">
-          <span class="sc-name">Viridane</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="5" data-img="images/species/husk-consortium.webp" aria-haspopup="dialog" aria-label="Husk Consortium, Observer. Open fact file.">
-          <img src="images/species/husk-consortium.webp" width="600" height="600" loading="lazy" decoding="async" alt="Husk Consortium emblem (placeholder art)">
-          <span class="sc-name">Husk Consortium</span>
-          <span class="status status-observer">Observer</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="6" data-img="images/species/rhell.webp" aria-haspopup="dialog" aria-label="Rhell, Observer. Open fact file.">
-          <img src="images/species/rhell.webp" width="600" height="600" loading="lazy" decoding="async" alt="Rhell emblem (placeholder art)">
-          <span class="sc-name">Rhell</span>
-          <span class="status status-observer">Observer</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="7" data-img="images/species/torvann.webp" aria-haspopup="dialog" aria-label="Torvann, Restricted. Open fact file.">
-          <img src="images/species/torvann.webp" width="600" height="600" loading="lazy" decoding="async" alt="Torvann emblem (placeholder art)">
-          <span class="sc-name">Torvann</span>
-          <span class="status status-restricted">Restricted</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="8" data-img="images/species/pelagra.webp" aria-haspopup="dialog" aria-label="Pelagra, Observer. Open fact file.">
-          <img src="images/species/pelagra.webp" width="600" height="600" loading="lazy" decoding="async" alt="Pelagra emblem (placeholder art)">
-          <span class="sc-name">Pelagra</span>
-          <span class="status status-observer">Observer</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="9" data-img="images/species/ixen.webp" aria-haspopup="dialog" aria-label="Ixen, Treaty. Open fact file.">
-          <img src="images/species/ixen.webp" width="600" height="600" loading="lazy" decoding="async" alt="Ixen emblem (placeholder art)">
-          <span class="sc-name">Ixen</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="10" data-img="images/species/bracken-moot.webp" aria-haspopup="dialog" aria-label="Bracken-Moot, Observer. Open fact file.">
-          <img src="images/species/bracken-moot.webp" width="600" height="600" loading="lazy" decoding="async" alt="Bracken-Moot emblem (placeholder art)">
-          <span class="sc-name">Bracken-Moot</span>
-          <span class="status status-observer">Observer</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="11" data-img="images/species/nul-sera.webp" aria-haspopup="dialog" aria-label="Nul-Sera, Restricted. Open fact file.">
-          <img src="images/species/nul-sera.webp" width="600" height="600" loading="lazy" decoding="async" alt="Nul-Sera emblem (placeholder art)">
-          <span class="sc-name">Nul-Sera</span>
-          <span class="status status-restricted">Restricted</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="12" data-img="images/species/gorruth.webp" aria-haspopup="dialog" aria-label="Gorruth, Treaty. Open fact file.">
-          <img src="images/species/gorruth.webp" width="600" height="600" loading="lazy" decoding="async" alt="Gorruth emblem (placeholder art)">
-          <span class="sc-name">Gorruth</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="13" data-img="images/species/vesper-ring.webp" aria-haspopup="dialog" aria-label="Vesper Ring, Treaty. Open fact file.">
-          <img src="images/species/vesper-ring.webp" width="600" height="600" loading="lazy" decoding="async" alt="Vesper Ring emblem (placeholder art)">
-          <span class="sc-name">Vesper Ring</span>
-          <span class="status status-treaty">Treaty</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="14" data-img="images/species/kethra-void-clans.webp" aria-haspopup="dialog" aria-label="Kethra Void-Clans, Restricted. Open fact file.">
-          <img src="images/species/kethra-void-clans.webp" width="600" height="600" loading="lazy" decoding="async" alt="Kethra Void-Clans emblem (placeholder art)">
-          <span class="sc-name">Kethra Void-Clans</span>
-          <span class="status status-restricted">Restricted</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-        <li><button type="button" class="species-card dossier-btn" data-idx="15" data-img="images/species/object-9.webp" aria-haspopup="dialog" aria-label="Object 9 / “The Invoice”, Embargoed. Open fact file.">
-          <img src="images/species/object-9.webp" width="600" height="600" loading="lazy" decoding="async" alt="Object 9 / “The Invoice” emblem (placeholder art)">
-          <span class="sc-name">Object 9 / “The Invoice”</span>
-          <span class="status status-embargoed">Embargoed</span>
-          <span class="sr-only"> (open dossier)</span>
-        </button></li>
-      </ul>
-      <p class="grid-note">Species art is placeholder. The full stories are printed on the cards.</p>
-      <details class="story" id="story">
-        <summary><span class="story-k">The story</span> <span class="story-hint">for lore fans · tap to open</span></summary>
-        <div class="story-body">
-          <div class="body-copy">
-            <p>Sixteen filings, one embargo. In the story, the Archive of First Contact (AFC) is the house library of every species Earth has met. This page is the public teaser: name, status and a short fact file. Full biology stays on the cards.</p>
+    <div class="wrap fg-index">
+      <section class="ix-zone" id="sol" aria-labelledby="sol-heading">
+        <h2 id="sol-heading">Sol System<span class="rule" aria-hidden="true"></span></h2>
+        <div class="fg-switch" role="group" aria-label="Which field-guide page to show">
+        <button type="button" class="btn btn-secondary" id="fg-pick-guide" aria-pressed="true">Field guide</button>
+        <button type="button" class="btn btn-secondary" id="fg-pick-poster" aria-pressed="false">Science poster</button>
+      </div>
+      <p class="ix-lead fg-switch-note">The parchment field guide is the shop default. The dark science poster is the crew-deck default. Tap a page to open it larger.</p>
+      <figure class="fg-feature">
+        <button type="button" class="fg-open" data-kind="scene" data-name="Farfallen on Triton" data-scene="images/field-guides/farfallen-scene.webp?v=20261009-guides" data-guide="images/field-guides/farfallen-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/farfallen-poster.webp?v=20261009-guides" data-alt-scene="Farfallen, called the Drifters, on the ice of Triton beneath Neptune. Cryoexul retrogradus (proposed)." data-alt-guide="Farfallen field guide, parchment page. Called the Drifters. Home world: Triton, a moon of Neptune. Scientific name Cryoexul retrogradus (proposed)." data-alt-poster="Farfallen science poster, dark field. Called the Drifters. Home world: Triton, a moon of Neptune. Scientific name Cryoexul retrogradus (proposed).">
+          <img class="fg-scene" src="images/field-guides/farfallen-scene.webp?v=20261009-guides" width="1280" height="720" loading="lazy" decoding="async" alt="Farfallen, called the Drifters, on the ice of Triton beneath Neptune. Cryoexul retrogradus (proposed).">
+          <span class="fg-zoom">View larger</span>
+        </button>
+        <figcaption>Farfallen, the Drifters, on Triton. <a href="#cold-wake">Read their file</a>.</figcaption>
+      </figure>
+      <p class="ix-lead">Moons and planets in our own system. Each species has a field guide.</p>
+        <div class="ix-grid">
+        <article class="ix-card" id="brine-court">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Ventkin" data-guide="images/field-guides/ventkin-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/ventkin-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/ventkin-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Ventkin field guide, parchment page. Home world: Europa, a moon of Jupiter. Scientific name Benthomnemon europae (proposed).">
+              <img class="fg-poster" src="images/field-guides/ventkin-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Ventkin science poster, dark field. Home world: Europa, a moon of Jupiter. Scientific name Benthomnemon europae (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
           </div>
+          <div class="ix-copy">
+            <h3>Ventkin</h3>
+            <p class="ix-home"><span>Home world</span> Europa, a moon of Jupiter</p>
+            <p class="ix-science"><em>Benthomnemon europae</em> (proposed)</p>
+            <p>Under Europa’s ice is a salty ocean that may hold about twice as much water as all of Earth’s oceans. The Ventkin are clear, jelly-soft beings who remember where the warm vents open, and they trade sealed brine because they cannot leave the water.</p>
+            <a class="btn btn-secondary" href="star-map.html#brine-court">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="plume-kin">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Icecutters" data-guide="images/field-guides/icecutters-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/icecutters-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/icecutters-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Icecutters field guide, parchment page. Home world: Enceladus, a moon of Saturn. Scientific name Rimafossor enceladi (proposed).">
+              <img class="fg-poster" src="images/field-guides/icecutters-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Icecutters science poster, dark field. Home world: Enceladus, a moon of Saturn. Scientific name Rimafossor enceladi (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Icecutters</h3>
+            <p class="ix-home"><span>Home world</span> Enceladus, a moon of Saturn</p>
+            <p class="ix-science"><em>Rimafossor enceladi</em> (proposed)</p>
+            <p>Geysers at Enceladus’s south pole spray salt and organic molecules from an ocean under the ice, and that spray helps feed one of Saturn’s rings. The Icecutters are stocky engineers in the tiger-stripe cracks. They cut mineral-rich ice from the walls and trade only when the geysers fire.</p>
+            <a class="btn btn-secondary" href="star-map.html#plume-kin">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="haze-wick">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Hazedrift" data-guide="images/field-guides/hazedrift-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/hazedrift-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/hazedrift-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Hazedrift field guide, parchment page. Home world: Titan, a moon of Saturn. Scientific name Nebulambulus titanius (proposed).">
+              <img class="fg-poster" src="images/field-guides/hazedrift-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Hazedrift science poster, dark field. Home world: Titan, a moon of Saturn. Scientific name Nebulambulus titanius (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Hazedrift</h3>
+            <p class="ix-home"><span>Home world</span> Titan, a moon of Saturn</p>
+            <p class="ix-science"><em>Nebulambulus titanius</em> (proposed)</p>
+            <p>Titan is the only world besides Earth known to have lakes and seas, and those lakes are liquid methane and ethane under a thick orange haze. Hazedrift are slow, waxy waders who bottle that haze as pigment and can take a whole day to cross a puddle.</p>
+            <a class="btn btn-secondary" href="star-map.html#haze-wick">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="glass-lung">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Veilborn" data-guide="images/field-guides/veilborn-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/veilborn-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/veilborn-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Veilborn field guide, parchment page. Capital city Featherfall. Home world: Venus. Scientific name Nubivagus veneris (proposed).">
+              <img class="fg-poster" src="images/field-guides/veilborn-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Veilborn science poster, dark field. Capital city Featherfall. Home world: Venus. Scientific name Nubivagus veneris (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Veilborn</h3>
+          <p class="ix-nick">Capital city: Featherfall</p>
+            <p class="ix-home"><span>Home world</span> Venus</p>
+            <p class="ix-science"><em>Nubivagus veneris</em> (proposed)</p>
+            <p>About 50 to 60 km above Venus, where the ground is hot enough to melt lead, the air is closer to Earth’s temperature, though the clouds are sulfuric acid. The Veilborn are floating creatures with glassy, acid-proof skin who never touch the ground.</p>
+            <a class="btn btn-secondary" href="star-map.html#glass-lung">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="red-ledger">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Red Watchers" data-guide="images/field-guides/red-watchers-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/red-watchers-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/red-watchers-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Red Watchers field guide, parchment page. Home world: Mars. Scientific name Rubrivigil martis (proposed).">
+              <img class="fg-poster" src="images/field-guides/red-watchers-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Red Watchers science poster, dark field. Home world: Mars. Scientific name Rubrivigil martis (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Red Watchers</h3>
+            <p class="ix-home"><span>Home world</span> Mars</p>
+            <p class="ix-science"><em>Rubrivigil martis</em> (proposed)</p>
+            <p>Mars is red because its dust is rusty iron, and dust storms there can wrap the whole planet. The Red Watchers are low, armored burrowers who dig toward old ice and wait those storms out underground, keeping a count that does not change.</p>
+            <a class="btn btn-secondary" href="star-map.html#red-ledger">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="cinder-mote">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Slagbacks" data-guide="images/field-guides/slagbacks-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/slagbacks-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/slagbacks-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Slagbacks field guide, parchment page. Home world: Io, a moon of Jupiter. Scientific name Scoriadorsum ionis (proposed).">
+              <img class="fg-poster" src="images/field-guides/slagbacks-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Slagbacks science poster, dark field. Home world: Io, a moon of Jupiter. Scientific name Scoriadorsum ionis (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Slagbacks</h3>
+            <p class="ix-home"><span>Home world</span> Io, a moon of Jupiter</p>
+            <p class="ix-science"><em>Scoriadorsum ionis</em> (proposed)</p>
+            <p>Io is the most volcanic world in the solar system, with about 400 active volcanoes kept hot by Jupiter’s gravity. Slagbacks are small ember-colored crawlers in stone shells who hop between lava vents and sell sulfur cakes that stay hot.</p>
+            <a class="btn btn-secondary" href="star-map.html#cinder-mote">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="wellhold">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Wellkeepers" data-guide="images/field-guides/wellkeepers-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/wellkeepers-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/wellkeepers-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Wellkeepers field guide, parchment page. Home world: Ceres, the dwarf planet in the asteroid belt. Scientific name Puteocustos cereris (proposed).">
+              <img class="fg-poster" src="images/field-guides/wellkeepers-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Wellkeepers science poster, dark field. Home world: Ceres, the dwarf planet in the asteroid belt. Scientific name Puteocustos cereris (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Wellkeepers</h3>
+            <p class="ix-home"><span>Home world</span> Ceres, the dwarf planet in the asteroid belt</p>
+            <p class="ix-science"><em>Puteocustos cereris</em> (proposed)</p>
+            <p>Ceres’s bright spots are salt left behind when salty water from underground seeped up and dried. The Wellkeepers are pale, round-backed diggers who sip that brine and sell the rarest drink in the belt: clean water.</p>
+            <a class="btn btn-secondary" href="star-map.html#wellhold">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="cold-wake">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Farfallen" data-guide="images/field-guides/farfallen-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/farfallen-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/farfallen-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Farfallen field guide, parchment page. Called the Drifters. Home world: Triton, a moon of Neptune. Scientific name Cryoexul retrogradus (proposed).">
+              <img class="fg-poster" src="images/field-guides/farfallen-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Farfallen science poster, dark field. Called the Drifters. Home world: Triton, a moon of Neptune. Scientific name Cryoexul retrogradus (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Farfallen</h3>
+          <p class="ix-nick">Nickname: the Drifters</p>
+            <p class="ix-home"><span>Home world</span> Triton, a moon of Neptune</p>
+            <p class="ix-science"><em>Cryoexul retrogradus</em> (proposed)</p>
+            <p>Triton orbits Neptune backwards, and Voyager 2 saw geyser plumes there shoot dark dust about 8 km high. The Farfallen are tall, frost-white stilt-walkers who only move when those geysers go off, trading nitrogen ice before it shrinks.</p>
+            <a class="btn btn-secondary" href="star-map.html#cold-wake">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="ganymede-yard">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Lodestars" data-guide="images/field-guides/lodestars-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/lodestars-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/lodestars-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Lodestars field guide, parchment page. Home world: Ganymede, a moon of Jupiter. Scientific name Magnetophorus ganymedis (proposed).">
+              <img class="fg-poster" src="images/field-guides/lodestars-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Lodestars science poster, dark field. Home world: Ganymede, a moon of Jupiter. Scientific name Magnetophorus ganymedis (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Lodestars</h3>
+            <p class="ix-home"><span>Home world</span> Ganymede, a moon of Jupiter</p>
+            <p class="ix-science"><em>Magnetophorus ganymedis</em> (proposed)</p>
+            <p>Ganymede is the biggest moon in the solar system, larger than Mercury, and the only moon known to have its own magnetic field. The Lodestars are heavy dockworkers in iron plates. They build the water-suits the Ventkin need and escort one canister at a time.</p>
+            <a class="btn btn-secondary" href="star-map.html#ganymede-yard">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="charon-scale">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Edgewardens" data-guide="images/field-guides/edgewardens-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/edgewardens-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/edgewardens-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Edgewardens field guide, parchment page. Home world: Charon, Pluto’s moon. Scientific name Finitor charontis (proposed).">
+              <img class="fg-poster" src="images/field-guides/edgewardens-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Edgewardens science poster, dark field. Home world: Charon, Pluto’s moon. Scientific name Finitor charontis (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Edgewardens</h3>
+            <p class="ix-home"><span>Home world</span> Charon, Pluto’s moon</p>
+            <p class="ix-science"><em>Finitor charontis</em> (proposed)</p>
+            <p>Charon is about half as wide as Pluto, so the two circle a point between them like a double world. The Edgewardens are gray, broad-footed surveyors who measure that edge and collect the toll in weigh-stones.</p>
+            <a class="btn btn-secondary" href="star-map.html#charon-scale">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="tumble-fair">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Starwake Comet" data-guide="images/field-guides/starwake-comet-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/starwake-comet-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/starwake-comet-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Starwake Comet field guide, parchment page. No home world; they ride visitors from other stars, and they also appear beyond Sol. Scientific name Cometovagus interstellaris (proposed).">
+              <img class="fg-poster" src="images/field-guides/starwake-comet-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Starwake Comet science poster, dark field. No home world; they ride visitors from other stars, and they also appear beyond Sol. Scientific name Cometovagus interstellaris (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Starwake Comet</h3>
+          <p class="ix-nick">No home world. Also on the Beyond Sol chart.</p>
+            <p class="ix-home"><span>Home world</span> None. They ride visitors from other stars.</p>
+            <p class="ix-science"><em>Cometovagus interstellaris</em> (proposed)</p>
+            <p>’Oumuamua, spotted in 2017, was the first object seen passing through our solar system from another star. Starwake Comet is a loud crowd under patchwork awnings on a tumbling rock. They sell one mystery crate, then the rock moves on.</p>
+            <a class="btn btn-secondary" href="star-map.html#tumble-fair">Open on the star map</a>
+          </div>
+        </article>
         </div>
-      </details>
+      </section>
+      <section class="ix-zone" id="beyond" aria-labelledby="beyond-heading">
+        <h2 id="beyond-heading">Beyond Sol<span class="rule" aria-hidden="true"></span></h2>
+        <p class="ix-lead">Real stars past our system. The creatures are invented. Greylight’s scientific name is confirmed. The others are proposed.</p>
+        <div class="ix-grid">
+        <article class="ix-card" id="ash-court">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Greylight" data-guide="images/field-guides/greylight-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/greylight-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/greylight-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Greylight field guide, parchment page. Home world: TRAPPIST-1e. Scientific name Crepusculus trappistensis (confirmed).">
+              <img class="fg-poster" src="images/field-guides/greylight-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Greylight science poster, dark field. Home world: TRAPPIST-1e. Scientific name Crepusculus trappistensis (confirmed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Greylight</h3>
+            <p class="ix-home"><span>Home world</span> TRAPPIST-1e</p>
+            <p class="ix-science"><em>Crepusculus trappistensis</em> (confirmed)</p>
+            <p>TRAPPIST-1e is about Earth’s size, about 40 light-years away, and it likely keeps one face toward its dim red star. Greylight are short, ash-pale counters with wide dark eyes who live in the twilight band between endless day and endless night, and they send tally slips instead of cargo.</p>
+            <a class="btn btn-secondary" href="star-map.html#ash-court">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="keel-scale">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Bronzeridge" data-guide="images/field-guides/bronzeridge-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/bronzeridge-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/bronzeridge-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Bronzeridge field guide, parchment page. Home world: Kepler-452b. Scientific name Aeneocrista cygni (proposed).">
+              <img class="fg-poster" src="images/field-guides/bronzeridge-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Bronzeridge science poster, dark field. Home world: Kepler-452b. Scientific name Aeneocrista cygni (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Bronzeridge</h3>
+            <p class="ix-home"><span>Home world</span> Kepler-452b</p>
+            <p class="ix-science"><em>Aeneocrista cygni</em> (proposed)</p>
+            <p>Kepler-452b was announced as an older cousin of Earth, circling a Sun-like star about once a year, though a later recheck made the planet itself less certain. Bronzeridge are tall, bronze-green officers who inspect every hold and trade seal wax only after the paperwork is right.</p>
+            <a class="btn btn-secondary" href="star-map.html#keel-scale">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="bright-holt">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Ceti Highborn" data-guide="images/field-guides/ceti-highborn-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/ceti-highborn-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/ceti-highborn-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Ceti Highborn field guide, parchment page. Called the Silverweave. Home world: Tau Ceti. Scientific name Celsiorbis ceti (proposed).">
+              <img class="fg-poster" src="images/field-guides/ceti-highborn-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Ceti Highborn science poster, dark field. Called the Silverweave. Home world: Tau Ceti. Scientific name Celsiorbis ceti (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Ceti Highborn</h3>
+          <p class="ix-nick">Nickname: the Silverweave</p>
+            <p class="ix-home"><span>Home world</span> Tau Ceti</p>
+            <p class="ix-science"><em>Celsiorbis ceti</em> (proposed)</p>
+            <p>Tau Ceti is a nearby Sun-like star with only about a third as much iron as the Sun, wrapped in a dusty belt that likely means more falling rocks. The Ceti Highborn grew up in orbital shelters, weave what they cannot mine, and pay late with a bonus.</p>
+            <a class="btn btn-secondary" href="star-map.html#bright-holt">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="reed-tally">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Darkreed" data-guide="images/field-guides/darkreed-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/darkreed-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/darkreed-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Darkreed field guide, parchment page. Home world: Kepler-186f. Scientific name Calamonumerus ternarius (proposed).">
+              <img class="fg-poster" src="images/field-guides/darkreed-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Darkreed science poster, dark field. Home world: Kepler-186f. Scientific name Calamonumerus ternarius (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Darkreed</h3>
+            <p class="ix-home"><span>Home world</span> Kepler-186f</p>
+            <p class="ix-science"><em>Calamonumerus ternarius</em> (proposed)</p>
+            <p>Kepler-186f was the first Earth-size planet found where liquid water might be possible, and midday there would look like the hour before sunset. Darkreed are long, gray-green clerks among dark reeds who count only in threes and buy baskets in sets of 3, 6, or 9.</p>
+            <a class="btn btn-secondary" href="star-map.html#reed-tally">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="lamp-drift">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="The Kindled" data-guide="images/field-guides/the-kindled-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/the-kindled-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/the-kindled-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Kindled field guide, parchment page. Home world: 55 Cancri e. Scientific name Lucivagus cancri (proposed).">
+              <img class="fg-poster" src="images/field-guides/the-kindled-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Kindled science poster, dark field. Home world: 55 Cancri e. Scientific name Lucivagus cancri (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>The Kindled</h3>
+            <p class="ix-home"><span>Home world</span> 55 Cancri e</p>
+            <p class="ix-science"><em>Lucivagus cancri</em> (proposed)</p>
+            <p>55 Cancri e circles its star in about 18 hours, and its dayside is hot enough for a lava ocean. The Kindled have no body, only a floating glow that brightens when you ask a question, and they sell jars of living light.</p>
+            <a class="btn btn-secondary" href="star-map.html#lamp-drift">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="waxwright-hive">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Amberhive" data-guide="images/field-guides/amberhive-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/amberhive-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/amberhive-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Amberhive field guide, parchment page. Home world: Kepler-62f. Scientific name Cerafaber lyrae (proposed).">
+              <img class="fg-poster" src="images/field-guides/amberhive-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Amberhive science poster, dark field. Home world: Kepler-62f. Scientific name Cerafaber lyrae (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Amberhive</h3>
+            <p class="ix-home"><span>Home world</span> Kepler-62f</p>
+            <p class="ix-science"><em>Cerafaber lyrae</em> (proposed)</p>
+            <p>Kepler-62f is larger than Earth and sits in the habitable zone of a cooler star, where it may need extra warmth to stay above freezing. Amberhive are thumb-sized workers who pack together into one shape to think, the way bees huddle to keep warm, and they sell wax tiles.</p>
+            <a class="btn btn-secondary" href="star-map.html#waxwright-hive">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="pip-moss">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Greenlings" data-guide="images/field-guides/greenlings-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/greenlings-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/greenlings-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Greenlings field guide, parchment page. Home world: Proxima Centauri b. Scientific name Bryopygmaeus proximae (proposed).">
+              <img class="fg-poster" src="images/field-guides/greenlings-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Greenlings science poster, dark field. Home world: Proxima Centauri b. Scientific name Bryopygmaeus proximae (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Greenlings</h3>
+            <p class="ix-home"><span>Home world</span> Proxima Centauri b</p>
+            <p class="ix-science"><em>Bryopygmaeus proximae</em> (proposed)</p>
+            <p>Proxima Centauri b is the closest known planet outside our solar system, and its small red star throws huge flares. Greenlings are knee-high, moss-green gardeners whose fuzz works as sunscreen, and they dive for cover when a flare is coming.</p>
+            <a class="btn btn-secondary" href="star-map.html#pip-moss">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="plain-coat">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="The Forgotten Men" data-guide="images/field-guides/the-forgotten-men-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/the-forgotten-men-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/the-forgotten-men-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Forgotten Men field guide, parchment page. Home world: Barnard&#x27;s Star (they say; the paperwork is unclear). Scientific name Quotidianus barnardi (proposed).">
+              <img class="fg-poster" src="images/field-guides/the-forgotten-men-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Forgotten Men science poster, dark field. Home world: Barnard&#x27;s Star (they say; the paperwork is unclear). Scientific name Quotidianus barnardi (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>The Forgotten Men</h3>
+            <p class="ix-home"><span>Home world</span> Barnard's Star (they say; the paperwork is unclear)</p>
+            <p class="ix-science"><em>Quotidianus barnardi</em> (proposed)</p>
+            <p>Barnard's Star is a very old red dwarf about 6 light-years away, with a long history of planets that were announced and then withdrawn. The Forgotten Men wear ordinary coats and very neat shoes, and their faces slip out of memory as soon as they leave with a copy of your manifest.</p>
+            <a class="btn btn-secondary" href="star-map.html#plain-coat">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="scrap-wake">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Junkwrights" data-guide="images/field-guides/junkwrights-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/junkwrights-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/junkwrights-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Junkwrights field guide, parchment page. Fleet name: The Salvage. Home world: The dust ring around Fomalhaut. Scientific name Naufragus fomalhautensis (proposed).">
+              <img class="fg-poster" src="images/field-guides/junkwrights-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Junkwrights science poster, dark field. Fleet name: The Salvage. Home world: The dust ring around Fomalhaut. Scientific name Naufragus fomalhautensis (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Junkwrights</h3>
+          <p class="ix-nick">Fleet name: The Salvage</p>
+            <p class="ix-home"><span>Home world</span> The dust ring around Fomalhaut</p>
+            <p class="ix-science"><em>Naufragus fomalhautensis</em> (proposed)</p>
+            <p>Fomalhaut has a bright dust ring of crushed rock, and a planet photographed there later turned out to be a cloud from a collision. The Junkwrights are squat, four-armed crews who buy broken cargo at half price and say that dust cloud was them, taking something apart.</p>
+            <a class="btn btn-secondary" href="star-map.html#scrap-wake">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="split-kin">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Bisola" data-guide="images/field-guides/bisola-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/bisola-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/bisola-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Bisola field guide, parchment page. The name means two suns. Home world: Kepler-47, a planet system with two suns. Scientific name Dihelius geminus (proposed).">
+              <img class="fg-poster" src="images/field-guides/bisola-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Bisola science poster, dark field. The name means two suns. Home world: Kepler-47, a planet system with two suns. Scientific name Dihelius geminus (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Bisola</h3>
+          <p class="ix-nick">The name means “two suns.”</p>
+            <p class="ix-home"><span>Home world</span> Kepler-47, a planet system with two suns</p>
+            <p class="ix-science"><em>Dihelius geminus</em> (proposed)</p>
+            <p>Kepler-47 was the first system found with more than one planet circling two suns, so the sky there shows a golden sun and a small red one. Bisola look almost human, freckled pale blue on one side of the face, and every bill they pay is two different goods.</p>
+            <a class="btn btn-secondary" href="star-map.html#split-kin">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="quiet-margin">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="The Hushed" data-guide="images/field-guides/the-hushed-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/the-hushed-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/the-hushed-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Hushed field guide, parchment page. Home world: Epsilon Eridani. Scientific name Susurrator eridani (proposed).">
+              <img class="fg-poster" src="images/field-guides/the-hushed-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="The Hushed science poster, dark field. Home world: Epsilon Eridani. Scientific name Susurrator eridani (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>The Hushed</h3>
+            <p class="ix-home"><span>Home world</span> Epsilon Eridani</p>
+            <p class="ix-science"><em>Susurrator eridani</em> (proposed)</p>
+            <p>Epsilon Eridani is a young, stormy star about 10.5 light-years away, and in 1960 it was one of the first stars anyone pointed a radio dish at. The Hushed are slim and hooded, with ear-fans that fold like paper, and they stayed silent on purpose.</p>
+            <a class="btn btn-secondary" href="star-map.html#quiet-margin">Open on the star map</a>
+          </div>
+        </article>
+        <article class="ix-card" id="echo-fold">
+          <div class="ix-art">
+            <button type="button" class="fg-open" data-name="Mimics" data-guide="images/field-guides/mimics-fieldguide.webp?v=20261009-guides" data-poster="images/field-guides/mimics-poster.webp?v=20261009-guides">
+              <img class="fg-guide" src="images/field-guides/mimics-fieldguide.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Mimics field guide, parchment page. Home world: Luyten&#x27;s Star. Scientific name Echomorphus luyteni (proposed).">
+              <img class="fg-poster" src="images/field-guides/mimics-poster.webp?v=20261009-guides" width="1600" height="900" loading="lazy" decoding="async" alt="Mimics science poster, dark field. Home world: Luyten&#x27;s Star. Scientific name Echomorphus luyteni (proposed).">
+              <span class="fg-zoom">View larger</span>
+            </button>
+          </div>
+          <div class="ix-copy">
+            <h3>Mimics</h3>
+            <p class="ix-home"><span>Home world</span> Luyten's Star</p>
+            <p class="ix-science"><em>Echomorphus luyteni</em> (proposed)</p>
+            <p>In 2017 a radio dish in Norway beamed music and a short lesson toward a planet at Luyten's Star, about 12 light-years away. Mimics are soft and putty-gray, never quite the same shape twice. Copying you is how they say hello, and their true eyes stay two small dark spots.</p>
+            <a class="btn btn-secondary" href="star-map.html#echo-fold">Open on the star map</a>
+          </div>
+        </article>
+        </div>
+      </section>
+      <p class="ix-fiction">Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
     </div>
-  </main>
 
+    <dialog id="fg-view" class="fg-dlg" aria-labelledby="fg-view-title">
+      <div class="fg-dlg-bar">
+        <p id="fg-view-kicker">Field guide</p>
+        <button type="button" class="btn btn-secondary" id="fg-close">Close</button>
+      </div>
+      <h2 id="fg-view-title"></h2>
+      <img id="fg-view-img" alt="" width="1600" height="900">
+    </dialog>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -226,9 +520,9 @@
     </div>
   </footer>
   <script src="js/site.js?v=20261005-cv7"></script>
-  <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
+  <script src="js/field-guides.js?v=20261009-guides" defer></script>
+  <script src="js/cargo-feed.js?v=20261009-index" defer></script>
   <script src="js/vex.js?v=20260927-tabs" defer></script>
-  <script src="js/dossiers.js?v=20260927-tabs" defer></script>
   <script src="js/forms-config.js?v=20260927-tabs"></script>
   <script src="js/contact-form.js?v=20260927-tabs" defer></script>
   <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
