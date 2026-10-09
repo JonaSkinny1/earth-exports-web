@@ -52,7 +52,7 @@ Optionally update the `alt="..."` text to describe the real photo (it currently 
 | `images/products/scanner-prop.webp` · `specimen-jar.webp` · `coin-set.webp` · `beacon-prop.webp` | Props & Relics cards | 4:3 |
 | `images/products/stl-personal.webp` · `stl-commercial.webp` | STL Files cards | 4:3 |
 | `images/about/workshop.webp` | About page | 4:3 |
-| `images/species/<name>.webp` (16: `vel-keth`, `orrin`, `mirenth`, `tarn-vessik`, `viridane`, `husk-consortium`, `rhell`, `torvann`, `pelagra`, `ixen`, `bracken-moot`, `nul-sera`, `gorruth`, `vesper-ring`, `kethra-void-clans`, `object-9`) | Alien Index cards + fact file | 1:1 |
+| `images/dossiers/<id>-card.webp` and `<id>-card-dark.webp` | Alien Index and star-map dossier cards (eight Sol species). Other species use the pending plate. | 5:7 |
 
 **Earth goods note:** those 4 cards use the original glowing canister shelf cards (no photo slot yet). The `images/earth/*.webp` files are ready for when Jonathan wants photos there. Ask to switch those cards to photo cards, or add `<img src="images/earth/herbs.webp" width="800" height="600" loading="lazy" alt="…">` in place of the `<div class="canister …">` block in `index.html`.
 
