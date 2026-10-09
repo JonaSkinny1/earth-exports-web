@@ -731,15 +731,15 @@
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
     if (species.card) {
       var base = "images/dossiers/" + species.card;
-      paper.src = base + "-card.webp";
-      dark.src = base + "-card-dark.webp";
+      paper.src = base + "-card.webp?v=20261009-cards";
+      dark.src = base + "-card-dark.webp?v=20261009-cards";
       paper.alt = species.name + " dossier card";
       dark.alt = species.name + " dossier card, dark schematic";
       els.faces.hidden = false;
       els.pending.hidden = true;
       if (species.cardBack) {
-        backPaper.src = base + "-back.webp";
-        backDark.src = base + "-back-dark.webp";
+        backPaper.src = base + "-back.webp?v=20261009-cards";
+        backDark.src = base + "-back-dark.webp?v=20261009-cards";
         backPaper.alt = "Back of the " + species.name + " card";
         backDark.alt = "Back of the " + species.name + " card, dark schematic";
         els.flip.hidden = false;
