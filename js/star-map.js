@@ -729,33 +729,21 @@
     var dark = els.faces.querySelector(".sd-front.sd-dark");
     var backPaper = els.faces.querySelector(".sd-back.sd-paper");
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
-    if (species.card) {
-      var base = "images/dossiers/" + species.card;
-      paper.src = base + "-card.webp?v=20261009-cards";
-      dark.src = base + "-card-dark.webp?v=20261009-cards";
-      paper.alt = species.name + " dossier card";
-      dark.alt = species.name + " dossier card, dark schematic";
-      els.faces.hidden = false;
-      els.pending.hidden = true;
-      if (species.cardBack) {
-        backPaper.src = base + "-back.webp?v=20261009-cards";
-        backDark.src = base + "-back-dark.webp?v=20261009-cards";
-        backPaper.alt = "Back of the " + species.name + " card";
-        backDark.alt = "Back of the " + species.name + " card, dark schematic";
-        els.flip.hidden = false;
-        els.flip.textContent = "See card back";
-        els.flip.setAttribute("aria-pressed", "false");
-      } else {
-        backPaper.removeAttribute("src");
-        backDark.removeAttribute("src");
-        els.flip.hidden = true;
-      }
-    } else {
-      els.faces.hidden = true;
-      els.pending.hidden = false;
-      els.pendingName.textContent = species.name;
-      els.flip.hidden = true;
-    }
+    var slug = String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    var base = "images/cards/" + slug;
+    paper.src = base + "-ee.webp?v=20261009-trade";
+    dark.src = base + "-cv.webp?v=20261009-trade";
+    paper.alt = species.name + " trading card";
+    dark.alt = species.name + " trading card, crew face";
+    backPaper.src = "images/cards/back-ee.webp?v=20261009-trade";
+    backDark.src = "images/cards/back-cv.webp?v=20261009-trade";
+    backPaper.alt = "Back of an Earth Exports trading card";
+    backDark.alt = "Back of an Earth Exports trading card, crew face";
+    els.faces.hidden = false;
+    els.pending.hidden = true;
+    els.flip.hidden = false;
+    els.flip.textContent = "See card back";
+    els.flip.setAttribute("aria-pressed", "false");
     state.lastFocus = document.activeElement;
     if (fromUser !== false) {
       history.replaceState(null, "", "#" + species.id);
