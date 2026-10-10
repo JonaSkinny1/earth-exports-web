@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-face="public" data-side="ufo">
+<html lang="en" data-face="public" data-side="earth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,12 +78,12 @@
       </div>
 
       <div class="side-tabs scene-tabs" role="tablist" aria-label="Choose goods: Earth goods or Space goods">
-        <button type="button" class="side-tab side-tab-earth" role="tab" id="tab-earth" aria-controls="shelf-earth" aria-selected="false" tabindex="-1" data-side="earth">
+        <button type="button" class="side-tab side-tab-earth is-active" role="tab" id="tab-earth" aria-controls="shelf-earth" aria-selected="true" tabindex="0" data-side="earth">
           <span class="st-led" aria-hidden="true"></span>
           <span class="st-name">Earth goods</span>
           <span class="st-sub">Coming later</span>
         </button>
-        <button type="button" class="side-tab side-tab-ufo is-active" role="tab" id="tab-ufo" aria-controls="shop" aria-selected="true" tabindex="0" data-side="ufo">
+        <button type="button" class="side-tab side-tab-ufo" role="tab" id="tab-ufo" aria-controls="shop" aria-selected="false" tabindex="-1" data-side="ufo">
           <span class="st-led" aria-hidden="true"></span>
           <span class="st-name">Space goods</span>
           <span class="st-sub">What we make</span>
@@ -105,7 +105,7 @@
     </div>
 
     <div class="wrap">
-      <section class="shop-line goods-panel" id="shop" role="tabpanel" aria-labelledby="shop-h" data-side-panel="ufo">
+      <section class="shop-line goods-panel" id="shop" role="tabpanel" aria-labelledby="shop-h" data-side-panel="ufo" hidden>
         <h2 id="shop-h" class="simple-h">What we make</h2>
         <p class="shelf-note">Three kinds of things, all designed and finished in Ohio. Pick one to see the products.</p>
         <div class="cat-grid">
@@ -124,7 +124,7 @@
         </div>
       </section>
 
-      <section class="shelf shelf-earth shelf-later goods-panel" id="shelf-earth" role="tabpanel" aria-labelledby="later-h" data-side-panel="earth" hidden>
+      <section class="shelf shelf-earth shelf-later goods-panel" id="shelf-earth" role="tabpanel" aria-labelledby="later-h" data-side-panel="earth">
         <h2 id="later-h" class="simple-h">Coming later from Earth</h2>
         <p class="shelf-note">Everyday home goods we’d like to add down the road. Not for sale yet.</p>
         <div class="tile-grid tile-grid-4">
@@ -214,7 +214,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/site.js?v=20261005-cv7"></script>
+  <script src="js/site.js?v=20261010-earth"></script>
   <script src="js/cargo-feed.js?v=20260927-tabs" defer></script>
   <script src="js/vex.js?v=20260927-tabs" defer></script>
   <script type="module" src="js/earth-scene.js?v=20260927-tabs"></script>
