@@ -341,14 +341,15 @@
   }
 
 
-  /* ===== Earth goods / Space goods tabs (2026-09-27; supersedes launch fix #5 and the phone follow-up's scroll jump).
+  /* ===== Earth goods / Space goods tabs.
      Real tabs: the chosen button lights up (aria-selected + .is-active), html[data-side] drives the hero morph
      (earth-scene.js only follows that attribute, so a WebGL failure can never break the tabs), and only that
      side's products are shown: Space -> #shop "What we make", Earth -> #shelf-earth "Coming later from Earth".
      The panel that appears gets a short highlight (orange for Space, teal for Earth). No automatic scrolling.
-     Default is Space (real products first); the choice is remembered for the browser tab session. ===== */
-  var SIDE_KEY = "ee-side";
-  var DEFAULT_SIDE = "ufo";
+     First-time visitors land on Earth. A side is saved only after the visitor picks one.
+     The old ee-side key was written on every page load, so it is ignored. ===== */
+  var SIDE_KEY = "ee-side-choice";
+  var DEFAULT_SIDE = "earth";
   var sideTabs = Array.prototype.slice.call(document.querySelectorAll('.scene-tabs [role="tab"][data-side]'));
   var flashTimer = null, switches = 0;
   function flashPanel(panel) {
@@ -375,7 +376,9 @@
         if (on && opts.flash) flashPanel(panel);
       }
     });
-    try { sessionStorage.setItem(SIDE_KEY, s); } catch (e) { /* private mode */ }
+    if (opts.persist) {
+      try { sessionStorage.setItem(SIDE_KEY, s); } catch (e) { /* private mode */ }
+    }
     if (opts.flash) switches++;
     window.__eeTabs = { side: s, switches: switches, at: Date.now() };
   }
@@ -388,7 +391,7 @@
     t.addEventListener("click", function () {
       var sd = t.getAttribute("data-side");
       if (document.documentElement.getAttribute("data-side") === sd && t.getAttribute("aria-selected") === "true") return;
-      applySide(sd, { flash: true });
+      applySide(sd, { flash: true, persist: true });
     });
     t.addEventListener("keydown", function (ev) {
       var next = null;
@@ -396,12 +399,12 @@
       else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") next = sideTabs[(i - 1 + sideTabs.length) % sideTabs.length];
       else if (ev.key === "Home") next = sideTabs[0];
       else if (ev.key === "End") next = sideTabs[sideTabs.length - 1];
-      if (next) { ev.preventDefault(); applySide(next.getAttribute("data-side"), { flash: true }); next.focus(); }
+      if (next) { ev.preventDefault(); applySide(next.getAttribute("data-side"), { flash: true, persist: true }); next.focus(); }
     });
   });
   /* In-page links to a goods panel (e.g. "See what we make" -> #shop) open that tab first, then the link scrolls as usual. */
   document.querySelectorAll('a[href="#shop"], a[href="#shelf-earth"]').forEach(function (a) {
-    a.addEventListener("click", function () { if (sideTabs.length) applySide(a.getAttribute("href") === "#shelf-earth" ? "earth" : "ufo", { flash: true }); });
+    a.addEventListener("click", function () { if (sideTabs.length) applySide(a.getAttribute("href") === "#shelf-earth" ? "earth" : "ufo", { flash: true, persist: true }); });
   });
 
 
