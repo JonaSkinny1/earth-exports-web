@@ -4429,3 +4429,14 @@ html[data-face="cv"] .fg-dlg h2 {
   color: #f0f3f6;
 }
 html[data-face="cv"] .fg-dlg-bar p { color: #9fd0ff; }
+
+/* Card packs picker (sector-01) */
+.packs { margin: 2.5rem 0 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 10px; background: var(--charcoal-mid); }
+.packs h2 { margin: 0 0 .4rem; }
+.packs-lead { color: var(--muted); margin: 0 0 1rem; }
+.packs-label { display: block; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin-bottom: .35rem; }
+.packs-select { font: inherit; color: var(--offwhite); background: var(--charcoal-lift); border: 1px solid var(--metal-edge); border-radius: 6px; padding: .6rem .8rem; min-width: min(100%, 22rem); }
+.packs-select:focus { outline: 2px solid var(--teal-bright); outline-offset: 2px; }
+.packs-desc { margin: 1rem 0; max-width: 60rem; }
+.packs-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: .75rem; }
+.packs-cards img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.45); }
