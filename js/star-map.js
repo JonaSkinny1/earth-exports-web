@@ -731,12 +731,12 @@
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
     var slug = String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     var base = "images/cards/" + slug;
-    paper.src = base + "-ee.webp?v=20261012-cards";
-    dark.src = base + "-cv.webp?v=20261012-cards";
+    paper.src = base + "-ee.webp?v=20261012-cards2";
+    dark.src = base + "-cv.webp?v=20261012-cards2";
     paper.alt = species.name + " trading card";
     dark.alt = species.name + " trading card, crew face";
-    backPaper.src = "images/cards/back-ee.webp?v=20261012-cards";
-    backDark.src = "images/cards/back-cv.webp?v=20261012-cards";
+    backPaper.src = "images/cards/back-ee.webp?v=20261012-cards2";
+    backDark.src = "images/cards/back-cv.webp?v=20261012-cards2";
     backPaper.alt = "Back of an Earth Exports trading card";
     backDark.alt = "Back of an Earth Exports trading card, crew face";
     els.faces.hidden = false;
