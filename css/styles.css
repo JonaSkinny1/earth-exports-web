@@ -4440,3 +4440,5 @@ html[data-face="cv"] .fg-dlg-bar p { color: #9fd0ff; }
 .packs-desc { margin: 1rem 0; max-width: 60rem; }
 .packs-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: .75rem; }
 .packs-cards img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.45); }
+
+.ph.ph-fit img { object-fit: contain; background: #0D1117; }
