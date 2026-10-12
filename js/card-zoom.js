@@ -5,8 +5,8 @@
   var BEYOND = ["Greylight","Bronzeridge","Ceti Highborn","Darkreed","The Kindled","Amberhive","Greenlings","The Forgotten Men","Junkwrights","Bisola","The Hushed","Mimics"];
   var DARK = ["Ventkin","Hazedrift","Red Watchers","Edgewardens"];
   function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
-  function c(n, dark) { return { src: "images/cards/" + slug(n) + (dark ? "-cv" : "-ee") + ".webp" + V, alt: n + (dark ? " dark crew-file card" : " light Earth-file card") }; }
-  var BACK_EE = { src: "images/cards/back-ee.webp" + V, alt: "Card back" }, BACK_CV = { src: "images/cards/back-cv.webp" + V, alt: "Card back, crew face" };
+  function c(n, dark) { return { src: "images/cards/" + slug(n) + (dark ? "-cv" : "-ee") + ".webp" + V, alt: n + (dark ? " Smuggler file card" : " Earth file card") }; }
+  var BACK_EE = { src: "images/cards/back-ee.webp" + V, alt: "Card back" }, BACK_CV = { src: "images/cards/back-cv.webp" + V, alt: "Card back, Smuggler file" };
   var SETS = {
     starter: { cols: 6, cards: SOL.map(function (n) { return c(n); }).concat(DARK.map(function (n) { return c(n, true); }), [BACK_CV]) },
     beyond: { cols: 4, cards: BEYOND.map(function (n) { return c(n); }) },
@@ -30,9 +30,13 @@
   });
   function fit() {
     grids.forEach(function (g) {
+      g.el.style.paddingLeft = g.el.style.paddingRight = "0px";
       var W = g.el.clientWidth, H = g.el.clientHeight, gap = Math.max(3, W * 0.012);
       var w = Math.min((W - gap * (g.cols + 1)) / g.cols, ((H - gap * (g.rows + 1)) / g.rows) * 5 / 7);
-      g.el.style.setProperty("--cw", Math.floor(w) + "px"); g.el.style.gap = gap + "px";
+      w = Math.floor(w);
+      var rowW = g.cols * w + (g.cols - 1) * gap;
+      g.el.style.setProperty("--cw", w + "px"); g.el.style.gap = gap + "px";
+      g.el.style.paddingLeft = g.el.style.paddingRight = Math.max(0, (W - rowW) / 2 - 1) + "px";
     });
   }
   fit(); window.addEventListener("resize", fit);

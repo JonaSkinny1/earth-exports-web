@@ -734,11 +734,11 @@
     paper.src = base + "-ee.webp?v=20261012-cards2";
     dark.src = base + "-cv.webp?v=20261012-cards2";
     paper.alt = species.name + " trading card";
-    dark.alt = species.name + " trading card, crew face";
+    dark.alt = species.name + " trading card, Smuggler file";
     backPaper.src = "images/cards/back-ee.webp?v=20261012-cards2";
     backDark.src = "images/cards/back-cv.webp?v=20261012-cards2";
     backPaper.alt = "Back of an Earth Exports trading card";
-    backDark.alt = "Back of an Earth Exports trading card, crew face";
+    backDark.alt = "Back of an Earth Exports trading card, Smuggler file";
     els.faces.hidden = false;
     els.pending.hidden = true;
     els.flip.hidden = false;

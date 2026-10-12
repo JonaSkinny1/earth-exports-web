@@ -4448,7 +4448,7 @@ html[data-face="cv"] .fg-dlg-bar p { color: #9fd0ff; }
 .ph .card-grid img { width: var(--cw, 14%); height: auto; aspect-ratio: 5 / 7; object-fit: cover; border-radius: 3px; cursor: zoom-in; transition: transform .15s ease, box-shadow .15s ease; }
 .ph .card-grid img:hover { transform: scale(1.06); box-shadow: 0 0 0 2px var(--teal-bright); }
 .packs-cards img { cursor: zoom-in; }
-.card-zoom { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(5, 8, 12, .55); }
+.card-zoom { position: fixed !important; inset: 0 !important; z-index: 9999 !important; margin: 0 !important; width: auto !important; height: auto !important; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(5, 8, 12, .55); }
 .card-zoom[hidden] { display: none; }
 .card-zoom.is-tap { pointer-events: auto; cursor: zoom-out; background: rgba(5, 8, 12, .8); }
 .card-zoom img { height: min(88vh, 140vw); width: auto; max-width: 92vw; object-fit: contain; border-radius: 10px; box-shadow: 0 12px 48px rgba(0,0,0,.7), 0 0 0 1px var(--metal-edge); }
