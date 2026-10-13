@@ -237,6 +237,9 @@
 
   /* Crew-lock theater when entering CV. Everyone gets through. */
   var LOCK_PIN = "7142";
+  /* pop-up pacing (2026-10-13, slowed so the gag reads): Vex appears at 1.5 s, types one digit every
+     450 ms from 2.3 s, holds 1.25 s on "Code accepted", then glitches and closes ~0.5 s later (~5.4 s total). */
+  var LOCK_T0 = 2300, LOCK_STEP = 450, LOCK_HOLD = 1250;
   var lockEl = null;
   var lockTimers = [];
   function lockLater(ms, fn) {
@@ -308,35 +311,35 @@
       say.textContent = line;
       status.textContent = "Code accepted";
       root.classList.add("is-vex");
-      lockLater(800, finishLock);
-      lockLater(4000, finishLock);
+      lockLater(2500, finishLock);
+      lockLater(5000, finishLock);
       return;
     }
     pin.textContent = "";
     status.textContent = "Awaiting crew code";
-    lockLater(2000, function () {
+    lockLater(1500, function () {
       say.textContent = line;
       status.textContent = "Override in progress";
       root.classList.add("is-vex");
     });
     for (var i = 0; i < LOCK_PIN.length; i++) {
       (function (n) {
-        lockLater(2480 + n * 170, function () {
+        lockLater(LOCK_T0 + n * LOCK_STEP, function () {
           pin.textContent = LOCK_PIN.slice(0, n + 1);
           var key = root.querySelector('.cv-lock-key[data-key="' + LOCK_PIN.charAt(n) + '"]');
           if (key) {
             key.classList.add("is-lit");
-            lockLater(150, function () { key.classList.remove("is-lit"); });
+            lockLater(260, function () { key.classList.remove("is-lit"); });
           }
-          if (n === LOCK_PIN.length - 1) status.textContent = "Code accepted";
+          if (n === LOCK_PIN.length - 1) status.textContent = "Code accepted · letting you in";
         });
       })(i);
     }
-    lockLater(2480 + LOCK_PIN.length * 170 + 180, function () {
+    lockLater(LOCK_T0 + (LOCK_PIN.length - 1) * LOCK_STEP + LOCK_HOLD, function () {
       root.classList.add("is-glitch");
     });
-    lockLater(2480 + LOCK_PIN.length * 170 + 620, finishLock);
-    lockLater(8000, finishLock);
+    lockLater(LOCK_T0 + (LOCK_PIN.length - 1) * LOCK_STEP + LOCK_HOLD + 500, finishLock);
+    lockLater(9500, finishLock);
   }
 
 
