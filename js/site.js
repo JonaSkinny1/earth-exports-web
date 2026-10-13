@@ -269,13 +269,12 @@
         '<div class="cv-lock-pad" aria-hidden="true">' + pad + '</div>' +
         '<div class="cv-lock-vex">' +
           '<svg class="cv-lock-face" viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
-            '<path d="M18 8 h28 l6 8 v30 l-8 10 H20 l-8 -10 V16 Z" fill="none" stroke="#5eb6ff" stroke-width="1.4"/>' +
-            '<path d="M14 22 H50" stroke="#5eb6ff" stroke-width="1"/>' +
-            '<circle cx="26" cy="34" r="3.2" fill="none" stroke="#d7e9ff" stroke-width="1.2"/>' +
-            '<circle cx="38" cy="34" r="3.2" fill="none" stroke="#d7e9ff" stroke-width="1.2"/>' +
-            '<path d="M27 46 h10" stroke="#9fd0ff" stroke-width="1.2"/>' +
+            '<path d="M32 7 C45 7 53 16 53 28 C53 36 57 41 56 48 C55 55 47 58 40 56 C36 55 34 58 30 58 C24 58 22 54 16 55 C10 56 7 50 9 44 C11 39 11 35 11 29 C11 16 19 7 32 7 Z" fill="#a7a49c" stroke="#d9d6cf" stroke-width="1.2"/>' +
+            '<path d="M18 22 C21 16 27 13 32 13" fill="none" stroke="#c8c5bd" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>' +
+            '<ellipse cx="25" cy="31" rx="3.6" ry="4.4" fill="#26241f"/>' +
+            '<ellipse cx="39" cy="31" rx="3.6" ry="4.4" fill="#26241f"/>' +
           '</svg>' +
-          '<p class="cv-lock-who"><span>Vex</span> <span class="cv-lock-say"></span></p>' +
+          '<p class="cv-lock-who"><span>Vex</span> <span class="cv-lock-kind">· Mimic</span> <span class="cv-lock-say"></span></p>' +
         '</div>' +
       '</div>';
     document.body.appendChild(lockEl);

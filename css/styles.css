@@ -4167,6 +4167,7 @@ html body > .cv-lock.is-on {
 }
 .cv-lock.is-vex .cv-lock-vex { display: flex; }
 .cv-lock-face { width: 46px; height: 46px; flex: none; }
+.cv-lock-kind { color: #a7a49c; font-size: 0.66rem; }
 .cv-lock-who {
   margin: 0;
   font-size: 0.72rem;

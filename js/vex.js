@@ -38,7 +38,7 @@
             '<path class="vf-gem" d="M88 96 l5 6 -5 10 -5 -10 Z"/>' +
           '</svg>' +
           '<div class="vex-text">' +
-            '<p class="vex-who">VEX <span>· collector, not cleared</span></p>' +
+            '<p class="vex-who">VEX <span>· Mimic collector, not cleared</span></p>' +
             '<p class="vex-line" aria-hidden="true"></p>' +
             '<p class="vex-sub">He wants the Helion crystals. The Manifest says no.</p>' +
           '</div>' +
