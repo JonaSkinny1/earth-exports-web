@@ -2655,6 +2655,7 @@ html[data-face="outpost"] .terms dt { color: var(--amber); }
 .vf-bg { fill: #221B3D; } .vf-coat { fill: #3B2F66; } .vf-collar { fill: #8A7BC8; } .vf-head { fill: #C9A98A; }
 .vf-hat { fill: #2B2248; } .vf-brow { stroke: #3A2A20; stroke-width: 3; stroke-linecap: round; fill: none; }
 .vf-eye { fill: #2A1E18; } .vf-mouth { stroke: #3A2A20; stroke-width: 2.5; fill: none; stroke-linecap: round; } .vf-gem { fill: #A78BFF; }
+.vf-blob { fill: #A7A49C; stroke: #D9D6CF; stroke-width: 2; } .vf-shine { fill: none; stroke: #C8C5BD; stroke-width: 3; stroke-linecap: round; opacity: .7; } .vf-spot { fill: #26241F; }
 .vex-face { filter: saturate(.8) contrast(.95); }
 .vex-text { min-width: 0; }
 .vex-who { margin: 0 0 .25rem; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .12em; color: #F1ECFF; }

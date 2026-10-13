@@ -28,15 +28,10 @@
         '<div class="vex-body">' +
           '<svg class="vex-face" viewBox="0 0 120 120" aria-hidden="true" focusable="false">' +
             '<rect x="6" y="6" width="108" height="108" rx="10" class="vf-bg"/>' +
-            '<path class="vf-coat" d="M18 114 C22 88 40 80 60 80 C80 80 98 88 102 114 Z"/>' +
-            '<path class="vf-collar" d="M36 90 L60 104 L84 90 L78 82 L60 92 L42 82 Z"/>' +
-            '<ellipse class="vf-head" cx="60" cy="52" rx="24" ry="26"/>' +
-            '<path class="vf-hat" d="M34 36 C40 20 80 20 86 36 Z M28 38 h64 v5 h-64 Z"/>' +
-            '<path class="vf-brow" d="M44 48 l10 3 M76 48 l-10 3"/>' +
-            '<circle class="vf-eye" cx="50" cy="56" r="3"/><circle class="vf-eye" cx="70" cy="56" r="3"/>' +
-            '<path class="vf-mouth" d="M50 68 q10 -5 20 0"/>' +
-            '<path class="vf-gem" d="M88 96 l5 6 -5 10 -5 -10 Z"/>' +
-          '</svg>' +
+            '<path class="vf-blob" d="M60 16 C82 16 96 32 96 52 C96 66 104 74 102 86 C100 98 86 104 74 100 C67 98 64 103 57 103 C46 103 42 96 31 98 C20 100 15 90 18 79 C21 70 21 64 21 54 C21 31 36 16 60 16 Z"/>' +
+            '<path class="vf-shine" d="M35 41 C40 30 50 25 60 25"/>' +
+            '<ellipse class="vf-spot" cx="47" cy="57" rx="6.5" ry="8"/><ellipse class="vf-spot" cx="73" cy="57" rx="6.5" ry="8"/>' +
+            '</svg>' +
           '<div class="vex-text">' +
             '<p class="vex-who">VEX <span>· Mimic collector, not cleared</span></p>' +
             '<p class="vex-line" aria-hidden="true"></p>' +
