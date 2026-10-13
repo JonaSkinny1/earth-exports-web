@@ -81,3 +81,14 @@
     wire(notify, CFG.NOTIFY_FORM_ID, function () { return notifyMail(v("notify-email")); }, "You’re on the list. We’ll send one email when the shop opens.");
   }
 })();
+
+/* Topic preselect from the link: contact.html?topic=cards|props|stl|custom|pickup (2026-10-13). */
+(function () {
+  var sel = document.getElementById("intent");
+  if (!sel || !window.URLSearchParams) return;
+  var t = (new URLSearchParams(location.search).get("topic") || "").toLowerCase().replace(/[^a-z]/g, "");
+  var map = { cards: "Cards & games preorder", games: "Cards & games preorder", props: "Props waitlist",
+              stl: "STL files", stlfiles: "STL files", custom: "Custom build", custombuild: "Custom build",
+              pickup: "Local pickup", localpickup: "Local pickup" };
+  if (map[t]) sel.value = map[t];
+})();

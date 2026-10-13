@@ -35,7 +35,7 @@ Helion renamed to Holotable, military ops, sterile SaaS.
 ### 2. OUTPOST (soft reveal) — Ship trade console
 
 Amber phosphor CRT pushed further: scanlines, boot lines, yellowed ink, hazard rail,
-mono shell prompts (`ee@ohio$ …`). Merchant / flea energy — **not** military, **not** conspiracy.
+mono shell prompts (`ee@ohio$ …`). Merchant / maker energy — **not** military, **not** conspiracy.
 
 ## Home scene: Earth arc + sun ⇄ UFO (explicit tabs only)
 
@@ -77,8 +77,8 @@ mono shell prompts (`ee@ohio$ …`). Merchant / flea energy — **not** military
 Goal: a first-time visitor knows in about 5 seconds that this is a small Ohio shop selling sci-fi props, card games and STL files, without losing the cool factor. Backups: `*.clarity-bak` (all HTML, `css/styles.css`, `js/site.js`, `js/earth-scene.js`, this file).
 
 - **Plain "what this is" strip under the hero** (`.what-is`): “Earth Exports is a small Ohio shop making sci-fi 3D-printed props, alien card games and printable STL files, all set in our own sci-fi story world.” It is a *description*, not a tagline. The primary tagline stays penned/retired, and “Artifacts & Blueprints for the Deep Frontier.” stays the soft secondary under the H1.
-- **CTAs use only existing pages:** See cards & games → `sector-01.html`, Browse STL files → `sector-04.html`, Find us at the flea → `outpost.html`. “Etsy · coming soon” is a non-link placeholder (`aria-disabled`, dashed) because there is no real shop URL yet. Swap it for a real `<a>` when the listing exists.
-- **Top line (every page):** `.lounge-note` now reads “Sci-fi props, card games & 3D-print files · made in Ohio · original fiction, real goods · local flea”.
+- **CTAs use only existing pages:** See cards & games → `sector-01.html`, Browse STL files → `sector-04.html`, Find us → `outpost.html`. “Etsy · coming soon” is a non-link placeholder (`aria-disabled`, dashed) because there is no real shop URL yet. Swap it for a real `<a>` when the listing exists.
+- **Top line (every page):** `.lounge-note` now reads “Sci-fi props, card games & 3D-print files · made in Ohio · original fiction, real goods · local pickup & custom builds”.
 - **Nav (every page):** plain labels, with the sector number kept as a small chip. Order: 01 Cards & Games · 02 Props & Relics · 04 STL Files · Alien Index (archives) · Find Us (outpost) · About (manifest) · Contact. Page file names are unchanged. Inner-page eyebrows now say in plain words what the page is.
 - **Hero tabs:** “Earth goods · Mugs, herbs (soon)” / “Space goods · Props, cards, STLs”. Same tab a11y. The eyebrow “Cosmic Voyager · Deck 01 · Observatory viewport” was removed from the hero (the lore lives in The Story).
 - **Shelves:** Earth-shelf note points newcomers to Space goods, and the placeholders stay badged with no prices/SKUs. Space tiles keep the lore name (Sector 01/02/04) with a plain H3 and one-line plain copy; the “BAY ·” prefix and the “Crack bay door” CTAs were replaced with plain CTAs.
@@ -121,7 +121,7 @@ The top strip on every page (the chips reading CV-OH-01 · DECK 01 · HELION SEC
   - Species on the public site are the 23-name roster in `data/species.json`, grouped as Sol System and Beyond Sol. The retired index is archived in `docs/alien-index-v1.md` and is not linked from the site. Sectors, galaxies and trader names are invented.
   - Item types map to site categories (cards & games, props & relics, STL files, alien index, Earth-side placeholders); about 14 entries link to sector-01/02/04 or archives.
   - Vex appears once (cargo-threat, kid-safe). No EE-OH-0001. No Sector 03 toys.
-- **Plain "what this is" line kept:** the separate bar right under the ticker (`.lounge-note`: "Sci-fi props, card games & 3D-print files · made in Ohio · original fiction, real goods · local flea") on every page, plus the home `.what-is` strip under the hero.
+- **Plain "what this is" line kept:** the separate bar right under the ticker (`.lounge-note`: "Sci-fi props, card games & 3D-print files · made in Ohio · original fiction, real goods · local pickup & custom builds") on every page, plus the home `.what-is` strip under the hero.
 - **QA:** `/workspace/ee_tabtest.py` now also checks that the ticker renders and animates on all 8 pages (desktop + mobile), fixed height, no overflow, no old strip, 25–40 entries, no prices/house number/buyer counts, Vex ≤ 2, pause on hover and focus, the reduced-motion static line, and no console errors.
 
 ## Inner pages clarity pass (2026-09-25)
@@ -135,7 +135,7 @@ Same philosophy as the home clarity pass, applied to every inner page (sector-01
 | sector-02 | Props & Relics | 4 "Relic 0X" crates with plain titles; defines Relic, Weather language, EE-OH stamp; CTAs waitlist + STL files |
 | sector-04 | STL Files | Personal / Commercial license crates, "Every file comes with" list; defines STL, Schematic, License |
 | archives | Alien Index | Later replaced by the 23-species Sol / Beyond Sol index. This row describes the earlier status legend. |
-| outpost | Find Us | Flea booth ("dates coming soon"), local pickup, custom builds; "same city" line removed |
+| outpost | Find Us | Ohio Outpost // Sol-3, local pickup, custom builds; "same city" line removed |
 | manifest | About Earth Exports | "What we make" cards → 01/02/04, "Why it looks official"; fiction disclaimer kept |
 | contact | Contact Us | Plain labels/options, "Send message", `form#query`; short Ship's log (comms-desk lore). shop inbox `earthexportsshop@gmail.com`: "Write to us" is a direct mailto; the form (no backend) opens a prefilled mailto via `js/contact-form.js`, plus an "Or email us directly" line |
 
@@ -152,7 +152,7 @@ Flavor sits collapsed or off the main path, so first-time clarity is unchanged. 
 - **Vex transmission (easter egg):** `js/vex.js` on every page. Trigger: click the **Helion vault** crystal chip in the footer 4 times within ~4 s, or type **RINGHEART** anywhere outside a form field. ~6.6 s: soft glitch (1 s) → Vex: “Where’s my crystals?” → “Transmission cut by the bridge” → “Systems nominal · Helion vault still locked”. Then the ticker gets a CUSTOMS line (`__eeFeed.push`). Photosensitivity: no flashes; only a slow scanline drift and a 3-step page shift over 1.2 s (<3 changes/s). Reduced motion: calm fade card, no glitch/drift. Esc or the Close button dismisses; focus moves to Close and returns afterward. Vex portrait is an original, friendly-grumpy hatted collector (no helmets/visors).
 - **F.R.A.N.K. 404:** `404.html` (root-absolute links so it works at any path; `noindex`). Original bartender-automaton SVG (boxy head, pill visor, bow tie, cup + rag). Buttons: home, Cards & Games, Props & Relics, STL Files. `python -m http.server` can't serve a custom 404, so use `python3 dev-server.py [port]` (serves 404.html with status 404). Netlify and Cloudflare Pages use `404.html` automatically. Hosting under a sub-path (e.g. a GitHub Pages project site) would need the absolute links adjusted.
 - **Propagation canisters:** the 4 Earth-shelf placeholders show glowing life-support canister SVGs (herbs sprout, mug + steam, tea tin + leaf, candle flame); gentle bubble/glow animation, off under reduced motion. Badges now read "Coming soon · placeholder". The herbs tag nods to a plant growing in a broken fuel cell.
-- **Captain’s log / News:** `captains-log.html`, linked as **News** in the header nav (after Find Us) and footer on every page; on mobile it lives in the Menu. Real Earth dates + Trade Year 2076 labels. Honest entries only: dossiers open, shop email live, site built (preview, not public), card decks in the works, props/STLs in progress, flea dates coming soon. Closed "captain’s private shelf" holds the Deck 01 lore (collector captain, careful sales, Vex wants the Helion crystals, F.R.A.N.K.).
+- **Captain’s log / News:** `captains-log.html`, linked as **News** in the header nav (after Find Us) and footer on every page; on mobile it lives in the Menu. Real Earth dates + Trade Year 2076 labels. Honest entries only: dossiers open, shop email live, site built (preview, not public), card decks in the works, props/STLs in progress. Closed "captain’s private shelf" holds the Deck 01 lore (collector captain, careful sales, Vex wants the Helion crystals, F.R.A.N.K.).
 - **Alien Index dossiers (retired):** the old dialog script is no longer loaded. The public index is static cards that link to `star-map.html#id`. The retired copy is `docs/alien-index-v1.md`.
 - **Pinned note (sector-04):** closed `details.pin-note` "Quick Start Guide to Fixing Ships (the dock mechanic’s version)", 8 scrawled rules on a pinned paper card. No character name.
 - **IP audit:** replaced "Shields up" → "Hatches sealed" and "Halo of Tesk" → "Crown of Tesk" (ticker), "trade federation" → "trade league" (Husk dossier), and the franchise list in this doc’s mood line. Test suite scans all page text + ticker for a banned-term list.
@@ -230,7 +230,7 @@ Markup uses `.face-public-only` / `.face-outpost-only`. CRT overlay + `.status-b
 
 ## Brand locks (hard)
 
-- EE-OH-0001 on package stamps only (not site chrome) · Ohio Outpost // Sol-3 · local flea only
+- EE-OH-0001 on package stamps only (not site chrome) · Ohio Outpost // Sol-3 · local pickup & custom builds only
 - Never prior local-city / YNG strings in public chrome or copy
 - Palette anchors: Deep Space Slate `#0B0E14` / `#0D1117`, Sub-Deck Gray `#1C2331`,
   Peacock Teal `#00A896` / `#028090`, Hazard Orange `#F77F00`, Off-White `#E0E6ED`

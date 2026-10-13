@@ -23,7 +23,7 @@ Each page does one job.
 | `sector-04.html` | STL Files | Product grid + what every file includes |
 | `archives.html` | Alien Index | Species card grid (tap a card for its fact file) |
 | `manifest.html` | About | Who we are, with a photo slot |
-| `outpost.html` | Find Us | Flea booth, pickup, custom builds |
+| `outpost.html` | Find Us | Local pickup, custom builds |
 | `contact.html` | Contact | Email + prefilled form |
 | `captains-log.html` | News | Short updates |
 | `policies.html` | Policies | Shipping/pickup, returns, damaged items, custom orders, privacy, STL license. **DRAFT: terms under review** (noindex) until Jonathan approves |
@@ -33,7 +33,7 @@ Every page has at most one closed "The story" section for lore fans. Sector 03 i
 ## Swapping in real photos
 
 All pictures live in one folder, `images/`. Right now each one is **placeholder art** with
-"PLACEHOLDER ART · PHOTO COMING SOON" baked into the picture itself. To use a real photo:
+a product-name strip baked into the picture itself (the old placeholder wording was painted out 2026-10-13). To use a real photo:
 
 1. Crop your photo to the listed shape (4:3 = e.g. 1200×900; 1:1 = e.g. 800×800).
 2. Save it as **WebP** with the **exact same file name** (e.g. `starter-deck.webp`). Most photo apps,

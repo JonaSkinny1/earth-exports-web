@@ -184,7 +184,7 @@
   /* One-line ship log. CV only. Original lines, no clock. */
   var LOG_LINES = [
     "Voyager holding station · Ohio Outpost",
-    "Flea table packed · lamps on",
+    "Pickup crates packed · lamps on",
     "This batch stays under stamp",
     "Sol-3 in the window · deck quiet",
     "Helion vault shut · answer is no"

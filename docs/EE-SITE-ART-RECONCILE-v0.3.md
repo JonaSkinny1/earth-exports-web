@@ -37,7 +37,7 @@ Package stamp locked for intake: `site-art/logos/ee-package-stamp-ohio-v4.png` �
 ## PRODUCTION NOTES
 
 - v0.1 / v0.2 reconcile docs are historical; do not copy their EE-YNG “cleared” IDs into new CMS or stamps.
-- Prior city-name branding retired from public fiction/chrome (2026-09-10); booth ops = local flea without city name.
+- Prior city-name branding retired from public fiction/chrome (2026-09-10); booth ops = local pickup without city name.
 - Taglines remain penned; secondary soft if it appears on plates.
 - Live public set: cradle-v3, mirenth-v3, route plate, scanner-v3, **stamp-ohio-v4**.
 - Stamp v3 superseded by v4 (house silhouette removed; ring wording MERCHANT / OUTPOST).

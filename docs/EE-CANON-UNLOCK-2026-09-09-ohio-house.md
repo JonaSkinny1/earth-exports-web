@@ -13,9 +13,9 @@
 5. Lockup subtitle already Ohio Outpost — keep; refresh any EE-YNG on stamp/lockup chrome
 
 ## Still allowed (geography, not outpost title)
-- local flea as a real booth / pickup lane
+- local pickup as a real booth / pickup lane
 - “Printed & filed in Ohio” / Ohio maker grounding
-- City name only when naming the flea or a street-level workshop fact — never as `Ohio Outpost` or house serial
+- City name never in public copy (no booth; street-level workshop facts only in private notes) — never as `Ohio Outpost` or house serial
 
 ## Unchanged
 - Brand name Earth Exports

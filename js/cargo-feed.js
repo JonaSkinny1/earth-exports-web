@@ -5,14 +5,14 @@
 (function () {
   "use strict";
   var ENTRIES = [
-    ["ALERT", "Incoming blueprints from Sector 4592 (Bla-bla Galaxy). Routing to the STL files bay.", "sector-04.html"],
+    ["ALERT", "Incoming blueprints from Sector 4592 (Saltwhistle Galaxy). Routing to the STL files bay.", "sector-04.html"],
     ["INCOMING", "STL cache from a Ceti Highborn weaver, Sector 7710 (Drift of Ommu). Measured twice, filed once.", "sector-04.html"],
     ["OUTBOUND", "Card decks crated for a Ventkin trade barge. Tuck boxes sealed.", "sector-01.html"],
     ["OUTBOUND", "One field relic, oxide finish, departs for the Hazedrift lake markets. Serial plate checked.", "sector-02.html"],
     ["CUSTOMS", "Hold on one Slagbacks crate labeled “definitely not snacks.” Inspection in progress."],
     ["SIGHTING", "Rare Helion crystal glow reported near the ringheart lane. Bridge says: look, don’t touch."],
     ["EARTH-SIDE", "Herbs & mugs arriving soon from the gravity well. Shelf reserved."],
-    ["ORDER", "A Sol-3 traveler at the Ohio Outpost flea table asks for a dossier deck. Request filed.", "sector-01.html"],
+    ["ORDER", "A Sol-3 traveler at the Ohio Outpost pickup counter asks for a dossier deck. Request filed.", "sector-01.html"],
     ["INCOMING", "Dossier requests from the Greylight counters on TRAPPIST-1e. Pencils by the box.", "archives.html"],
     ["CUSTOMS", "Vex spotted near Cargo Bay 3 asking about crystals. Manifest says no. Crates stay sealed."],
     ["LOG", "A Darkreed envoy traded three counting rods for one card deck. Quartermaster accepts the set."],

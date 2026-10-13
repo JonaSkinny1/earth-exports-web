@@ -21,7 +21,7 @@
 | Primary founding line | **RETIRED** (2026-09-09) — do not use “The galaxy opened with an invoice.” Live home heading is **Earth Exports**. |
 | Secondary | Artifacts & Blueprints for the Deep Frontier. Allowed secondary lead. It does not replace the home heading. |
 | Logo lockup | EARTH EXPORTS + **Ohio Outpost // Sol-3** (horizontal preferred). prior local city is retired from public fiction and chrome. Stamp = packages only. |
-| Place (body) | **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not this public line. Local flea / pickup geography only — do not name prior local city in public copy. |
+| Place (body) | **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not this public line. local pickup / pickup geography only — do not name prior local city in public copy. |
 | Palette | Deep Space Slate `#0B0E14` / `#0D1117` · Sub-Deck Gray `#1C2331` · Peacock Teal `#00A896` / `#028090` · Hazard Orange `#F77F00` · Off-White `#E0E6ED` |
 | Species | AFC-SB-01 original fiction only |
 | House organs (fiction) | PTC · AFC · TCRD · Sol-3 Consular Authority · Earth Exports House Mark |
@@ -102,7 +102,7 @@ Earth Exports operates from the Ohio Outpost on Sol-3. Fifty years after formal 
 We publish dossier decks drawn from our Archive of First Contact (AFC), finish field relics as display pieces, and sell fabrication schematics for licensed builders. Filing stamps you will see — PTC, AFC, TCRD, Sol-3 Consular Authority — are house fiction. They keep the shelves honest. They are not government credentials.
 
 **Why Ohio**  
-Ohio is not a compromise. It is the outpost. The same region that pours steel and runs a flea table runs this merchant house. Crates that don’t ship go under the tent at the local flea. Commissions get a real address and a real reply.
+Ohio is not a compromise. It is the outpost. The same region that pours steel and runs a pickup counter runs this merchant house. Crates that don’t ship go under the tent at the local pickup. Commissions get a real address and a real reply.
 
 **House rule**  
 Nothing here is issued by a government. Everything here is built to look like it survived one — as design, not as deception.
@@ -198,7 +198,7 @@ Ohio Outpost // Sol-3
 **Lead**  
 Same city. Same house mark. The crate that doesn’t ship goes on the table under the tent.
 
-We run physical presence through the local flea, pickup, and custom builds — props, dossier runs, print work. Hours and booth lane post when the Manifest says they’re cleared.
+We run physical presence through the local pickup, pickup, and custom builds — props, dossier runs, print work. Hours and booth lane post when the Manifest says they’re cleared.
 
 **Commissions**  
 Tell us the sector, the weather language, and the deadline. We stamp a reply in Earth time.
@@ -282,7 +282,7 @@ Name · Email · Intent (Sector 01 / Relic waitlist / Schematic / Commission / O
 
 - Public place: **Ohio Outpost // Sol-3**. EE-OH-0001 is package-stamp only, not public house branding. Batch `EE-OH` / `OH-###` · schematic `EE-SCH-####-OH`
 - Package stamp: `site-art/logos/ee-package-stamp-ohio-v4.png` (MERCHANT EE-OH-0001 · OUTPOST · SOL-3; lockup hex, no house)
-- Retire from all public work: prior-EE-YNG-*, prior-EE-OH, prior local-city Outpost, prior city flea-by-name, any prior local city place chrome (2026-09-10)
+- Retire from all public work: prior-EE-YNG-*, prior-EE-OH, prior local-city Outpost, prior city booth-by-name, any prior local city place chrome (2026-09-10)
 - PNG plates still printing YNG remain style refs until regen — see EE-SITE-ART-RECONCILE-v0.3
 
 **Revision:** EE-WEB-COPY-v0.3 — Ohio house unlock + Outpost voice polish 2026-09-09.

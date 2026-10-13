@@ -32,7 +32,7 @@ One sentence north star:
 
 ## 2) Audience
 Who is this for first year?
-- [ ] Local flea customers
+- [ ] Local pickup customers
 - [ ] Etsy / online buyers
 - [ ] Sci-fi fans / lore people
 - [ ] Friends & family
@@ -84,7 +84,7 @@ Check what you want on v1 (filler OK):
 - [ ] About / Manifest / House story
 - [ ] Catalog / Sectors (01 dossiers, 02 relics, 04 schematics)
 - [ ] Product detail (even if fake for now)
-- [ ] Outpost / booth / how to buy (local flea + online later)
+- [ ] Outpost / booth / how to buy (local pickup + online later)
 - [ ] Archives / lore crumbs
 - [ ] Contact / custom
 - [ ] Press / disclaimer page
@@ -111,7 +111,7 @@ Notes / must-have products: _________________________________
 | Name: Earth Exports | LOCKED | KEEP / REOPEN: ___ |
 | Public place: Ohio Outpost // Sol-3 | LOCKED | KEEP / REOPEN: ___ |
 | EE-OH-0001 | Package stamp only, not the public wordmark | KEEP / REOPEN: ___ |
-| Local flea only (booth language) | LOCKED | KEEP / REOPEN: ___ |
+| Local pickup only (no booth, retired 2026-10-13) | LOCKED | KEEP / REOPEN: ___ |
 | Sol-3 E/Ǝ logo | LOCKED | KEEP / REOPEN: ___ |
 | Palette (slate / teal / orange / off-white) | LOCKED soft | KEEP / TWEAK: ___ |
 | Fiction disclaimer on public face | REQUIRED | KEEP / wording note: ___ |
@@ -169,7 +169,7 @@ Hard nos (conspiracy, fake gov, etc. already banned): any others? ___________
 
 ## 11) Shopping & links
 v1 should include:
-- [ ] No checkout — “buy at flea / Etsy soon”
+- [ ] No checkout — “local pickup / Etsy soon”
 - [ ] Link out to Etsy
 - [ ] Email for customs
 - [ ] Full cart later

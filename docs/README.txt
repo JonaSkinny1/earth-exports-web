@@ -22,7 +22,7 @@ Locked public chrome:
   Home heading: Earth Exports
   Allowed secondary lead: Artifacts & Blueprints for the Deep Frontier.
   EE-OH-0001 is package-stamp only, not the public wordmark
-  Booth in public copy: "local flea" / Ohio flea (no old city name)
+  Public copy: "local pickup" only, no booth (no old city name)
   Palette: Deep Space Slate, Sub-Deck Gray, Peacock Teal, Hazard Orange, Off-White
   Primary founding invoice tagline: RETIRED
   Year-one: Sector 01 dossiers first; toys deferred

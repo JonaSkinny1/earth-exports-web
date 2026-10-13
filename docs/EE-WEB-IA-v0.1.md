@@ -29,7 +29,7 @@
 /sector-01         Sector 01 — Dossiers & games   ← FLAGSHIP
 /sector-02         Sector 02 — Relics (≤4 SKUs)
 /sector-04         Sector 04 — Schematics
-/outpost           Ohio Outpost (local / flea / commissions)
+/outpost           Ohio Outpost (local pickup / commissions)
 /archives          Archives teaser (Species Bible index only)
 /contact           Contact / order inquiry
 ```
@@ -80,7 +80,7 @@
 | H1 | The Manifest |
 | Lead | Who: a Sol-3 merchant house operating from Ohio Outpost. What: physical + digital speculative-fiction trade goods (cards, props, licensed files). |
 | House organs | Name drop only: AFC (Archive of First Contact), PTC / TCRD as *fictional* filing stamps — never as real agencies. |
-| Why Ohio | Local maker outpost, flea presence, commissions. Ground the myth in a real city without breaking fiction. |
+| Why Ohio | Local maker outpost, pickup presence, commissions. Ground the myth in a real city without breaking fiction. |
 | Fiction disclaimer (required, visible) | Clear statement: Earth Exports products are original speculative fiction and decorative/maker goods. They are not authentic government, military, or intelligence documents. |
 | CTA | “Browse Sector 01” |
 
@@ -152,13 +152,13 @@
 
 ### 6. Outpost `/outpost`
 
-**Job:** Local trust + flea + commissions.
+**Job:** Local trust + pickup + commissions.
 
 | Block | Brief |
 |-------|--------|
 | H1 | Ohio Outpost // Sol-3 |
-| Lead | Physical presence: local flea, local pickup, custom builds. |
-| Booth | Soft mention of booth tiers later; year-one just “find us at the flea” + hours TBD. |
+| Lead | Physical presence: local pickup, local pickup, custom builds. |
+| Booth | year-one just local pickup by email (no booth). |
 | Commissions | Props / dossier custom / print runs — inquiry form. |
 | CTA | “Commission the Outpost” → `/contact` |
 
@@ -189,7 +189,7 @@
 
 ### 8. Contact `/contact`
 
-**Job:** Orders, flea questions, commissions.
+**Job:** Orders, pickup questions, commissions.
 
 | Fields | Name, email, intent (Sector 01 / Relic waitlist / Schematic / Commission / Other), message |
 | CTA | Send filing |
