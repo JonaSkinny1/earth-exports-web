@@ -721,7 +721,7 @@
       ["tradeRule", "Trade rule"],
       ["weakness", "Weakness"],
       ["rival", "Rival"],
-      ["canister", "Canister"]
+      ["buys", "Buys"]
     ].forEach(function (row) {
       if (!species[row[0]]) return;
       var dt = document.createElement("dt");

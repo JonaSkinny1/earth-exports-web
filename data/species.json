@@ -381,7 +381,8 @@
       "wontTradeWith": "Icecutters",
       "shop_url": "",
       "science": "Benthomnemon europae",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "WET"
     },
     {
       "id": "plume-kin",
@@ -410,7 +411,8 @@
       "wontTradeWith": "Ventkin",
       "shop_url": "",
       "science": "Rimafossor enceladi",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Any, geyser rounds"
     },
     {
       "id": "haze-wick",
@@ -439,7 +441,8 @@
       "wontTradeWith": "Slagbacks",
       "shop_url": "",
       "science": "Nebulambulus titanius",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "COLD"
     },
     {
       "id": "glass-lung",
@@ -468,7 +471,8 @@
       "wontTradeWith": "Red Watchers",
       "shop_url": "",
       "science": "Nubivagus veneris",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Not HEAVY"
     },
     {
       "id": "red-ledger",
@@ -497,7 +501,8 @@
       "wontTradeWith": "Wellkeepers",
       "shop_url": "",
       "science": "Rubrivigil martis",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Anything, fixed price"
     },
     {
       "id": "cinder-mote",
@@ -526,7 +531,8 @@
       "wontTradeWith": "Farfallen",
       "shop_url": "",
       "science": "Scoriadorsum ionis",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "HEAT-PROOF"
     },
     {
       "id": "wellhold",
@@ -555,7 +561,8 @@
       "wontTradeWith": "Starwake Comet",
       "shop_url": "",
       "science": "Puteocustos cereris",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Barter only"
     },
     {
       "id": "cold-wake",
@@ -584,7 +591,8 @@
       "wontTradeWith": "Slagbacks",
       "shop_url": "",
       "science": "Cryoexul retrogradus",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Not HOT"
     },
     {
       "id": "ganymede-yard",
@@ -612,7 +620,8 @@
       "wontTradeWith": "Slagbacks",
       "shop_url": "",
       "science": "Magnetophorus ganymedis",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "METAL"
     },
     {
       "id": "charon-scale",
@@ -640,7 +649,8 @@
       "wontTradeWith": "Starwake Comet",
       "shop_url": "",
       "science": "Finitor charontis",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "HEAVY"
     },
     {
       "id": "ash-court",
@@ -674,7 +684,8 @@
       "wontTradeWith": "Ceti Highborn",
       "shop_url": "",
       "science": "Crepusculus trappistensis",
-      "scienceStatus": "confirmed"
+      "scienceStatus": "confirmed",
+      "buys": "Pairs"
     },
     {
       "id": "keel-scale",
@@ -708,7 +719,8 @@
       "wontTradeWith": "Mimics",
       "shop_url": "",
       "science": "Aeneocrista cygni",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Not COLD"
     },
     {
       "id": "bright-holt",
@@ -742,7 +754,8 @@
       "wontTradeWith": "Greylight",
       "shop_url": "",
       "science": "Celsiorbis ceti",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Anything, pays late"
     },
     {
       "id": "reed-tally",
@@ -776,7 +789,8 @@
       "wontTradeWith": "Amberhive",
       "shop_url": "",
       "science": "Calamonumerus ternarius",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Sets of 3"
     },
     {
       "id": "lamp-drift",
@@ -810,7 +824,8 @@
       "wontTradeWith": "The Hushed",
       "shop_url": "",
       "science": "Lucivagus cancri",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Nothing; gives answers"
     },
     {
       "id": "waxwright-hive",
@@ -844,7 +859,8 @@
       "wontTradeWith": "Greenlings",
       "shop_url": "",
       "science": "Cerafaber lyrae",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Anything, loyalty"
     },
     {
       "id": "pip-moss",
@@ -878,7 +894,8 @@
       "wontTradeWith": "The Kindled",
       "shop_url": "",
       "science": "Bryopygmaeus proximae",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Pays in Seedlings"
     },
     {
       "id": "plain-coat",
@@ -912,7 +929,8 @@
       "wontTradeWith": "Junkwrights",
       "shop_url": "",
       "science": "Quotidianus barnardi",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Nothing (inspect only)"
     },
     {
       "id": "scrap-wake",
@@ -946,7 +964,8 @@
       "wontTradeWith": "Lodestars",
       "shop_url": "",
       "science": "Naufragus fomalhautensis",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Spoiled cargo"
     },
     {
       "id": "split-kin",
@@ -980,7 +999,8 @@
       "wontTradeWith": "Mimics",
       "shop_url": "",
       "science": "Dihelius geminus",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Two different goods"
     },
     {
       "id": "quiet-margin",
@@ -1014,7 +1034,8 @@
       "wontTradeWith": "The Forgotten Men",
       "shop_url": "",
       "science": "Susurrator eridani",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Secrets"
     },
     {
       "id": "echo-fold",
@@ -1048,7 +1069,8 @@
       "wontTradeWith": "Bronzeridge",
       "shop_url": "",
       "science": "Echomorphus luyteni",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "Copies last rule"
     },
     {
       "id": "tumble-fair",
@@ -1080,7 +1102,8 @@
       "wontTradeWith": "Edgewardens",
       "shop_url": "",
       "science": "Cometovagus interstellaris",
-      "scienceStatus": "proposed"
+      "scienceStatus": "proposed",
+      "buys": "FRESH"
     }
   ]
 }
