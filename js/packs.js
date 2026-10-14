@@ -3,7 +3,7 @@
   var BEYOND = ["Greylight","Bronzeridge","Ceti Highborn","Darkreed","The Kindled","Amberhive","Greenlings","The Forgotten Men","Junkwrights","Bisola","The Hushed","Mimics"];
   var STARTER_DARK = ["Ventkin","Hazedrift","Red Watchers","Edgewardens"];
   function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
-  function card(n, dark) { return { src: "images/cards/" + slug(n) + (dark ? "-cv" : "-ee") + ".webp?v=20261012-cards2", alt: n + (dark ? " Smuggler file card" : " Earth file card") }; }
+  function card(n, dark) { return { src: "images/cards/" + slug(n) + (dark ? "-cv" : "-ee") + ".webp?v=20261014-buys", alt: n + (dark ? " Smuggler file card" : " Earth file card") }; }
   var PACKS = {
     starter: { desc: "The full merchant trading game for 2 players (up to 4). It has all 11 Sol species as Earth file cards plus 4 Smuggler cards (Ventkin, Hazedrift, Red Watchers, Edgewardens). It also includes cargo, ship, event and route cards, a Sol port reference sheet, a rules sheet and Stamp tokens.",
       cards: SOL.map(function (n) { return card(n, false); }).concat(STARTER_DARK.map(function (n) { return card(n, true); })) },

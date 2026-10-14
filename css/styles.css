@@ -4465,3 +4465,8 @@ html[data-face="cv"] .fg-dlg-bar p { color: #9fd0ff; }
 .crew-creed .creed-note { margin: 0; font-size: .9rem; opacity: .8; }
 .what-creed { margin-top: .5rem; font-size: .95rem; opacity: .9; }
 .what-creed a { color: #00A896; }
+
+/* Alien Index uses the trading cards (portrait) · 2026-10-14 */
+.ix-card .fg-open { max-width: 300px; }
+.ix-card .fg-open img { aspect-ratio: 5 / 7; object-fit: contain; }
+.fg-dlg img.fg-card-view, .fg-dlg img[src*="images/cards/"] { width: auto; max-width: 100%; max-height: 82vh; margin: 0 auto; }

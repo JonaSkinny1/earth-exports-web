@@ -263,7 +263,7 @@
       els.flip.addEventListener("click", function () {
         state.flipBack = !state.flipBack;
         els.faces.classList.toggle("is-back", state.flipBack);
-        els.flip.textContent = state.flipBack ? "See card front" : "See card back";
+        els.flip.textContent = flipLabel();
         els.flip.setAttribute("aria-pressed", state.flipBack ? "true" : "false");
       });
     }
@@ -689,6 +689,14 @@
     return pin;
   }
 
+  function flipLabel() {
+    var cv = document.documentElement.getAttribute("data-face") === "cv";
+    // default face: light in EE, dark in CV. The button offers the other one.
+    return (cv !== state.flipBack) ? "See light version" : "See dark version";
+  }
+  new MutationObserver(function () { if (els.flip && !els.flip.hidden) els.flip.textContent = flipLabel(); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ["data-face"] });
+
   function openSpecies(species, fromUser) {
     if (!species || !els.dialog) return;
     state.openId = species.id;
@@ -731,18 +739,19 @@
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
     var slug = String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     var base = "images/cards/" + slug;
-    paper.src = base + "-ee.webp?v=20261012-cards2";
-    dark.src = base + "-cv.webp?v=20261012-cards2";
+    paper.src = base + "-ee.webp?v=20261014-buys";
+    dark.src = base + "-cv.webp?v=20261014-buys";
     paper.alt = species.name + " trading card";
     dark.alt = species.name + " trading card, Smuggler file";
-    backPaper.src = "images/cards/back-ee.webp?v=20261012-cards2";
-    backDark.src = "images/cards/back-cv.webp?v=20261012-cards2";
-    backPaper.alt = "Back of an Earth Exports trading card";
-    backDark.alt = "Back of an Earth Exports trading card, Smuggler file";
+    // "alt" faces: the other version of the same species card (light <-> dark)
+    backPaper.src = base + "-cv.webp?v=20261014-buys";
+    backDark.src = base + "-ee.webp?v=20261014-buys";
+    backPaper.alt = species.name + " trading card, Smuggler file (dark version)";
+    backDark.alt = species.name + " trading card, Earth file (light version)";
     els.faces.hidden = false;
     els.pending.hidden = true;
     els.flip.hidden = false;
-    els.flip.textContent = "See card back";
+    els.flip.textContent = flipLabel();
     els.flip.setAttribute("aria-pressed", "false");
     state.lastFocus = document.activeElement;
     if (fromUser !== false) {

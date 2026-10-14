@@ -43,7 +43,7 @@
     viewImg.src = scene ? current.scene : (poster ? current.poster : current.guide);
     viewImg.alt = scene ? current.altScene : (poster ? current.altPoster : current.altGuide);
     viewTitle.textContent = current.name;
-    viewKicker.textContent = scene ? "Triton scene" : (poster ? "Science poster" : "Field guide");
+    viewKicker.textContent = scene ? "Triton scene" : (poster ? "Smuggler file (dark)" : "Earth file (light)");
   }
 
   guideBtn.addEventListener("click", function () { choose("guide"); });

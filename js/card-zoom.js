@@ -1,6 +1,6 @@
 /* Card grids with a hover (desktop) / tap (phone) enlarged view of one card. */
 (function () {
-  var V = "?v=20261012-cards2";
+  var V = "?v=20261014-buys";
   var SOL = ["Ventkin","Icecutters","Hazedrift","Veilborn","Red Watchers","Slagbacks","Wellkeepers","Farfallen","Lodestars","Edgewardens","Starwake Comet"];
   var BEYOND = ["Greylight","Bronzeridge","Ceti Highborn","Darkreed","The Kindled","Amberhive","Greenlings","The Forgotten Men","Junkwrights","Bisola","The Hushed","Mimics"];
   var DARK = ["Ventkin","Hazedrift","Red Watchers","Edgewardens"];
