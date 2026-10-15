@@ -43,7 +43,7 @@
     viewImg.src = scene ? current.scene : (poster ? current.poster : current.guide);
     viewImg.alt = scene ? current.altScene : (poster ? current.altPoster : current.altGuide);
     viewTitle.textContent = current.name;
-    viewKicker.textContent = scene ? "Triton scene" : (poster ? "Smuggler file (dark)" : "Earth file (light)");
+    viewKicker.textContent = scene ? (current.kicker || "Triton scene") : (poster ? "Smuggler file (dark)" : "Earth file (light)");
   }
 
   guideBtn.addEventListener("click", function () { choose("guide"); });
@@ -69,6 +69,7 @@
       altGuide: btn.getAttribute("data-alt-guide") || (btn.querySelector(".fg-guide") ? btn.querySelector(".fg-guide").alt : ""),
       altPoster: btn.getAttribute("data-alt-poster") || (btn.querySelector(".fg-poster") ? btn.querySelector(".fg-poster").alt : ""),
       altScene: btn.getAttribute("data-alt-scene") || (btn.querySelector(".fg-scene") ? btn.querySelector(".fg-scene").alt : ""),
+      kicker: btn.getAttribute("data-kicker") || "",
       forced: false
     };
     paintView();
