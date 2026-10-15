@@ -739,13 +739,13 @@
     var backDark = els.faces.querySelector(".sd-back.sd-dark");
     var slug = String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     var base = "images/cards/" + slug;
-    paper.src = base + "-ee.webp?v=20261014-buys";
-    dark.src = base + "-cv.webp?v=20261014-buys";
+    paper.src = base + "-ee.webp?v=20261015-preview";
+    dark.src = base + "-cv.webp?v=20261015-preview";
     paper.alt = species.name + " trading card";
     dark.alt = species.name + " trading card, Smuggler file";
     // "alt" faces: the other version of the same species card (light <-> dark)
-    backPaper.src = base + "-cv.webp?v=20261014-buys";
-    backDark.src = base + "-ee.webp?v=20261014-buys";
+    backPaper.src = base + "-cv.webp?v=20261015-preview";
+    backDark.src = base + "-ee.webp?v=20261015-preview";
     backPaper.alt = species.name + " trading card, Smuggler file (dark version)";
     backDark.alt = species.name + " trading card, Earth file (light version)";
     els.faces.hidden = false;
