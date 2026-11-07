@@ -1,6 +1,6 @@
 /* Card grids with a hover (desktop) / tap (phone) enlarged view of one card. */
 (function () {
-  var V = "?v=20261106";
+  var V = "?v=20261106b";
   var SOL = ["Ventkin","Icecutters","Hazedrift","Veilborn","Red Watchers","Slagbacks","Wellkeepers","Farfallen","Lodestars","Edgewardens","Starwake Comet"];
   var BEYOND = ["Greylight","Bronzeridge","Ceti Highborn","Darkreed","The Kindled","Amberhive","Greenlings","The Forgotten Men","Junkwrights","Bisola","The Hushed","Mimics"];
   var DARK = ["Ventkin","Hazedrift","Red Watchers","Edgewardens"];
@@ -10,6 +10,7 @@
   var SETS = {
     starter: { cols: 6, cards: SOL.map(function (n) { return c(n); }).concat(DARK.map(function (n) { return c(n, true); }), [BACK_CV]) },
     beyond: { cols: 4, cards: BEYOND.map(function (n) { return c(n); }) },
+    earth: { cols: 5, cards: [["astronaut","Astronaut"],["mission-control","Mission Control"],["trade-envoy","Trade Envoy"],["care-package","Care Package"],["moon-base","Moon Base"]].map(function (e) { return { src: "images/cards/earth/earth-" + e[0] + ".webp" + V, alt: e[1] + " Earth card" }; }) },
     all: { cols: 6, cards: SOL.concat(BEYOND).map(function (n) { return c(n); }).concat([BACK_EE]) }
   };
   var grids = [];
