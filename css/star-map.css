@@ -1116,7 +1116,7 @@ html[data-face="cv"] .sd-scan-kicker { color: #5eb6ff; }
   .map-pin .pin-dot { width: 26px; height: 26px; opacity: .35; clip-path: circle(50%); }
   .pin-number { display: block; position: relative; color: #fff; font-size: 15px; font-weight: 700; }
   .map-label, .label-leader, .map-leader, .moon-link, .dist-ring, .body-disc:not([data-body="earth"]) { display: none; }
-  .map-label[data-body="earth"] { display: block; font-size: 38px; }
+  .map-label[data-body="earth"]:not(.map-sub) { display: block; font-size: 38px; }
   .chart-title { font-size: 28px; }
 }
 

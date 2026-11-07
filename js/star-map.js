@@ -816,7 +816,7 @@
       list.appendChild(li);
     });
     wrap.appendChild(list);
-    els.facts.insertAdjacentElement("afterend", wrap);
+    (els.facts.closest(".sd-more") || els.facts).insertAdjacentElement("afterend", wrap);
   }
 
   function paintRoutes(species) {
@@ -855,7 +855,7 @@
     }
     wrap.appendChild(list);
     var scan = document.getElementById("sd-scan");
-    (scan || els.facts).insertAdjacentElement("afterend", wrap);
+    (scan || els.facts.closest(".sd-more") || els.facts).insertAdjacentElement("afterend", wrap);
   }
 
   function partnerName(id) {
