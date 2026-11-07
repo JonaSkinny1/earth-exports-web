@@ -23,7 +23,7 @@
     grid.style.setProperty("--rows", rows);
     set.cards.forEach(function (k) {
       var i = document.createElement("img");
-      i.src = k.src; i.alt = k.alt; i.width = 750; i.height = 1050; i.loading = "lazy"; i.decoding = "async";
+      i.src = k.src.replace("images/cards/", "images/thumbs/cards/"); i.dataset.full=k.src; i.alt = k.alt; i.width = 750; i.height = 1050; i.loading = "lazy"; i.decoding = "async";
       i.setAttribute("data-zoom", ""); grid.appendChild(i);
     });
     fig.innerHTML = ""; fig.appendChild(grid);
@@ -43,32 +43,5 @@
   fit(); window.addEventListener("resize", fit);
   if (window.ResizeObserver) grids.forEach(function (g) { new ResizeObserver(fit).observe(g.el); });
 
-  var pop = document.createElement("div");
-  pop.className = "card-zoom"; pop.hidden = true; pop.setAttribute("role", "dialog"); pop.setAttribute("aria-label", "Enlarged card");
-  var big = document.createElement("img"); pop.appendChild(big);
-  document.body.appendChild(pop);
-  var current = null, touchMode = false;
-  function show(img) {
-    current = img; big.src = img.src; big.alt = img.alt; pop.hidden = false;
-    pop.classList.toggle("is-tap", touchMode);
-  }
-  function hide() { current = null; pop.hidden = true; }
-  document.addEventListener("pointerover", function (e) {
-    if (e.pointerType !== "mouse") return;
-    var img = e.target.closest && e.target.closest("img[data-zoom], .packs-cards img");
-    if (img) { touchMode = false; show(img); }
-  });
-  document.addEventListener("pointerout", function (e) {
-    if (e.pointerType !== "mouse") return;
-    var img = e.target.closest && e.target.closest("img[data-zoom], .packs-cards img");
-    if (img && img === current && !(e.relatedTarget && img.contains(e.relatedTarget))) hide();
-  });
-  document.addEventListener("click", function (e) {
-    if (!pop.hidden && touchMode) { e.preventDefault(); e.stopPropagation(); hide(); return; }
-    var img = e.target.closest && e.target.closest("img[data-zoom], .packs-cards img");
-    if (img && (e.pointerType ? e.pointerType !== "mouse" : matchMedia("(hover: none)").matches)) {
-      e.preventDefault(); e.stopPropagation(); touchMode = true; show(img);
-    }
-  }, true);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+
 })();

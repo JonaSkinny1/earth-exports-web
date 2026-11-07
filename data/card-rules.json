@@ -1,0 +1,163 @@
+{
+  "ventkin": {
+    "name": "Ventkin",
+    "buys": "WET",
+    "tradeRule": "Buys only goods that can get wet. Pays in brine jars, worth double at the dry worlds (Red Watchers, Wellkeepers).",
+    "weakness": "Can’t leave water, and warmth cooks them. Every trip needs a sealed jar or a suit.",
+    "rival": "Icecutters: both sell water from under the ice."
+  },
+  "icecutters": {
+    "name": "Icecutters",
+    "buys": "Any, geyser rounds",
+    "tradeRule": "Only trades when the geysers fire (every other turn). Vent-cut ice is cheap, but it has to be delivered fast.",
+    "weakness": "Fresh-cut ice only keeps for one trip. A slow hauler delivers an empty jar.",
+    "rival": "Ventkin: both sell water from under the ice."
+  },
+  "hazedrift": {
+    "name": "Hazedrift",
+    "buys": "COLD",
+    "tradeRule": "Only takes cold cargo. Anything warm gets turned away at the dock.",
+    "weakness": "Heat is deadly. They ride in a sealed pod to stay Titan-cold.",
+    "rival": "Slagbacks: anything they handle comes back warm."
+  },
+  "veilborn": {
+    "name": "Veilborn",
+    "buys": "Not HEAVY",
+    "tradeRule": "Pays top price for anything light enough to float. Won’t buy heavy goods, since they can’t lift them.",
+    "weakness": "Can’t drop below the clouds. Meet them up high or carry them in a sealed Lantern.",
+    "rival": "Red Watchers: Mars dust scratches their glass."
+  },
+  "red-watchers": {
+    "name": "Red Watchers",
+    "buys": "Anything, fixed price",
+    "tradeRule": "Writes every price down and never changes it. Same price all game, boom or bust.",
+    "weakness": "Planet-wide dust storms. Nobody lands until a storm passes.",
+    "rival": "Wellkeepers: both count water and never get the same number."
+  },
+  "slagbacks": {
+    "name": "Slagbacks",
+    "buys": "HEAT-PROOF",
+    "tradeRule": "Pays double for heat-proof goods. Everything else catches fire on the dock.",
+    "weakness": "Away from the vents it’s freezing. They travel in heat-holding canisters.",
+    "rival": "Farfallen: fire and frost can’t share a hold."
+  },
+  "wellkeepers": {
+    "name": "Wellkeepers",
+    "buys": "Barter only",
+    "tradeRule": "Sells water, the rarest thing in the belt, by barter only: one jar for one good, no money. Their stores never run dry, so they can always sell.",
+    "weakness": "Nearly blind in daylight. They won’t leave the tunnels, so someone has to fly the jars out.",
+    "rival": "Starwake Comet: sells water cheap, then leaves."
+  },
+  "farfallen": {
+    "name": "Farfallen",
+    "buys": "Not HOT",
+    "tradeRule": "Nitrogen ice is worth a lot, but it shrinks every turn it sits in your hold. Sell fast.",
+    "weakness": "Warmth. They ride only in insulated crates.",
+    "rival": "Slagbacks: fire and frost, again."
+  },
+  "lodestars": {
+    "name": "Lodestars",
+    "buys": "METAL",
+    "tradeRule": "Escorts: they mark a safe path and ride along for a whole trip. Paid in metal, for repairs.",
+    "weakness": "They never stop. Far from a dock they run down and need a ride home.",
+    "rival": "Slagbacks: volcanic dust grinds into their joints."
+  },
+  "edgewardens": {
+    "name": "Edgewardens",
+    "buys": "HEAVY",
+    "tradeRule": "Charges a toll to cross the edge of the map. Paying gets you a weigh-stone that sets one good’s price for everyone.",
+    "weakness": "The dim light. Without a lantern they lose the route.",
+    "rival": "Starwake Comet: skips the toll every single time."
+  },
+  "greylight": {
+    "name": "Greylight",
+    "buys": "Pairs",
+    "tradeRule": "Counts every crate. If you’re one short, the whole deal waits a turn.",
+    "weakness": "Earth daylight blinds them, so they travel shaded.",
+    "rival": "Ceti Highborn: their counts are suspiciously round."
+  },
+  "bronzeridge": {
+    "name": "Bronzeridge",
+    "buys": "Not COLD",
+    "tradeRule": "Inspects your hold before any deal and fines you for missing paperwork.",
+    "weakness": "Cold-blooded. In a cold hold they slow to a stop, so they need a warm crate.",
+    "rival": "Mimics: their faces never match their papers."
+  },
+  "ceti-highborn": {
+    "name": "Ceti Highborn",
+    "buys": "Anything, pays late",
+    "tradeRule": "Pays late but pays extra. Every deal pays out one turn later, with a bonus.",
+    "weakness": "Too tall for most holds. They ride in a big hold or their own Lantern.",
+    "rival": "Greylight: keeps recounting their deals."
+  },
+  "darkreed": {
+    "name": "Darkreed",
+    "buys": "Sets of 3",
+    "tradeRule": "Buys only in sets of 3, 6, or 9. Leftovers are refused.",
+    "weakness": "They molt once a season. Until the new shell hardens, they ride in a pod.",
+    "rival": "Amberhive: two crafter peoples, one set of market stalls."
+  },
+  "the-kindled": {
+    "name": "The Kindled",
+    "buys": "Nothing; gives answers",
+    "tradeRule": "Answers one question free each visit, like peeking at one face-down card or the next event.",
+    "weakness": "Away from the lava’s glow they fade, so they need a Lantern.",
+    "rival": "The Hushed: free answers ruin their business."
+  },
+  "amberhive": {
+    "name": "Amberhive",
+    "buys": "Anything, loyalty",
+    "tradeRule": "The price goes up every time you trade with them in a row. Loyalty pays.",
+    "weakness": "Split up too long, the swarm forgets how to trade. They travel together in one pod.",
+    "rival": "Greenlings: they eat the flower seeds first."
+  },
+  "greenlings": {
+    "name": "Greenlings",
+    "buys": "Pays in Seedlings",
+    "tradeRule": "Pays in seedlings. Hold a seedling three turns and it becomes a full crop worth much more.",
+    "weakness": "Flares. Sprouts survive only in sealed jars.",
+    "rival": "The Kindled: their glow feels like flare-light."
+  },
+  "the-forgotten-men": {
+    "name": "The Forgotten Men",
+    "buys": "Nothing (inspect only)",
+    "tradeRule": "Never buys or sells. Show them a copy of your manifest for a small reward; refuse, and they follow you for a turn.",
+    "weakness": "Without paperwork they’re stuck at port.",
+    "rival": "Junkwrights: they audit every scrap pile."
+  },
+  "junkwrights": {
+    "name": "Junkwrights",
+    "buys": "Spoiled cargo",
+    "tradeRule": "Buys broken or spoiled cargo at half price. Anyone’s failed delivery is their profit.",
+    "weakness": "Their patched suits leak. Long trips need a salvaged canister.",
+    "rival": "Lodestars: they keep “salvaging” their magnets."
+  },
+  "bisola": {
+    "name": "Bisola",
+    "buys": "Two different goods",
+    "tradeRule": "Every deal must be paid in two different goods, never two of the same.",
+    "weakness": "Half the family lives under each sun. Someone has to carry goods between the two ports.",
+    "rival": "Mimics: they copy the two-color cords and sell them cheaper."
+  },
+  "the-hushed": {
+    "name": "The Hushed",
+    "buys": "Secrets",
+    "tradeRule": "Information only. Pay them a secret (a card you’ve seen) to see another player’s hold or the next event.",
+    "weakness": "A secret told twice is worthless. If a jar opens on the way, the cargo is spoiled.",
+    "rival": "The Forgotten Men: they want everything written down."
+  },
+  "mimics": {
+    "name": "Mimics",
+    "buys": "Whatever their last partner liked",
+    "tradeRule": "Copies the trade rule of the last species you traded with.",
+    "weakness": "With nobody to copy, they slump into a puddle and ride in a pod until they meet someone.",
+    "rival": "Bronzeridge: inspectors hate a face that doesn’t match its papers."
+  },
+  "starwake-comet": {
+    "name": "Starwake Comet",
+    "buys": "FRESH",
+    "tradeRule": "Shows up at random each round. Buys anything at a fair price, and sells one face-down mystery crate.",
+    "weakness": "It can’t stop. If you miss the rock, it’s gone for the round.",
+    "rival": "Edgewardens: the fair never pays the edge toll."
+  }
+}

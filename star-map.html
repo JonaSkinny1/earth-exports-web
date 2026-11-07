@@ -1,214 +1,190 @@
 <!DOCTYPE html>
-<html lang="en" data-face="public">
+
+<html data-face="public" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Species star map · Earth Exports</title>
-  <meta name="description" content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Earth Exports">
-  <meta property="og:title" content="Species star map · Earth Exports">
-  <meta property="og:description" content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real.">
-  <meta property="og:url" content="https://earthexportsshop.com/star-map.html">
-  <meta property="og:image" content="https://earthexportsshop.com/images/categories/cards-games.webp?v=20261013-clean">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://earthexportsshop.com/star-map.html">
-  <link rel="icon" href="assets/logos/ee-logo-sol3-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=20261106">
-  <link rel="stylesheet" href="css/star-map.css?v=20261106">
-</head>
-<body class="mode-public">
-  <div class="starfield" aria-hidden="true"></div>
-  <div class="crt-overlay" aria-hidden="true" hidden></div>
-
-  <div class="cv-plate" aria-hidden="true">
-    <span class="cv-tick cv-tick-tl"></span>
-    <span class="cv-tick cv-tick-tr"></span>
-    <span class="cv-tick cv-tick-bl"></span>
-    <span class="cv-tick cv-tick-br"></span>
-    <span class="cv-reticle"></span>
-  </div>
-
-  <div class="cargo-feed" role="region" aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" tabindex="0">
-    <span class="cf-live" aria-hidden="true"><span class="cf-dot"></span>LIVE</span>
-    <span class="cf-label">Ship’s log <span class="cf-label-x">· in-world feed</span></span>
-    <div class="cf-viewport">
-      <ul class="cf-track">
-        <li class="cf-item"><span class="cf-tag hz">ALERT</span><span class="cf-text">Incoming blueprints from Sector 4592 (Saltwhistle Galaxy). Routing to the STL files bay.</span></li>
-      </ul>
-    </div>
-  </div>
-
-
-  <div class="lounge-note" id="lounge-note" role="note">
-    <span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>
-    made in Ohio · original fiction, real goods  · local pickup &amp; custom builds
-  </div>
-
-  <p class="cv-strip" aria-hidden="true"><span>Crew deck</span> Restricted · GRID 03-EA · BEARING 271.4 · SOL-3</p>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Earth Exports home">
-        <img class="brand-logo" src="assets/logos/ee-logo-sol3-mark.svg" width="72" height="72" alt="Earth Exports Sol-3 mark">
-        <span class="side-emblem" aria-hidden="true">
-          <svg class="em-earth" viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="#028090" stroke="#00A896" stroke-width="2"/><path d="M11 16c4-3 7 1 10-1s4-5 8-2M12 25c3 1 5-2 9 0s6 3 8 1" fill="none" stroke="#E0E6ED" stroke-width="1.6" stroke-linecap="round" opacity=".8"/></svg>
-          <svg class="em-ufo" viewBox="0 0 40 40"><ellipse cx="20" cy="16" rx="7" ry="6" fill="#A78BFF" opacity=".85"/><ellipse cx="20" cy="22" rx="16" ry="5" fill="#1C2331" stroke="#F77F00" stroke-width="2"/><circle cx="11" cy="22" r="1.4" fill="#FFB000"/><circle cx="20" cy="23.5" r="1.4" fill="#FFB000"/><circle cx="29" cy="22" r="1.4" fill="#FFB000"/><path d="M14 28l-3 7M26 28l3 7" stroke="#7B5CFF" stroke-width="1.5" opacity=".6"/></svg>
-        </span>
-        <span class="wordmark">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Explore the Star Map | Earth Exports</title>
+<meta content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Earth Exports" property="og:site_name"/>
+<meta content="Species star map · Earth Exports" property="og:title"/>
+<meta content="Where each Earth Exports species lives. A stylized Sol system, and the real stars beyond it. Original fiction. The aliens are not real." property="og:description"/>
+<meta content="https://earthexportsshop.com/star-map.html" property="og:url"/>
+<meta content="https://earthexportsshop.com/images/social/star-map.jpg?v=20261106-preview-full" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://earthexportsshop.com/star-map.html" rel="canonical"/>
+<link href="assets/logos/ee-logo-sol3-mark.svg" rel="icon" type="image/svg+xml"/>
+<link href="css/styles.css?v=20261106" rel="stylesheet"/>
+<link href="css/star-map.css?v=20261106" rel="stylesheet"/>
+<link href="css/preview-pass.css?v=20261106-preview-full" rel="stylesheet"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Earth Exports — Explore the Star Map; original preview art" property="og:image:alt"/></head>
+<body class="mode-public"><a class="skip-link" href="#main-content">Skip to main content</a>
+<div aria-hidden="true" class="starfield"></div>
+<div aria-hidden="true" class="crt-overlay" hidden=""></div>
+<div aria-hidden="true" class="cv-plate">
+<span class="cv-tick cv-tick-tl"></span>
+<span class="cv-tick cv-tick-tr"></span>
+<span class="cv-tick cv-tick-bl"></span>
+<span class="cv-tick cv-tick-br"></span>
+<span class="cv-reticle"></span>
+</div>
+<div aria-label="Ship’s log: in-world cargo feed. Story flavor, not real orders." aria-live="off" class="cargo-feed" role="region" tabindex="0">
+<span aria-hidden="true" class="cf-live"><span class="cf-dot"></span>LIVE</span>
+<span class="cf-label">Ship’s log <span class="cf-label-x">· in-world feed</span></span>
+<div class="cf-viewport">
+<ul class="cf-track">
+<li class="cf-item"><span class="cf-tag hz">ALERT</span><span class="cf-text">Incoming blueprints from Sector 4592 (Saltwhistle Galaxy). Routing to the STL files bay.</span></li>
+</ul>
+</div>
+</div>
+<div class="lounge-note" id="lounge-note" role="note">
+<span class="ln-lead">Sci-fi props, card games &amp; 3D-print files</span>Ohio Outpost // Sol-3 · original fiction, real designs · preview only</div>
+<p aria-hidden="true" class="cv-strip"><span>Crew deck</span> Restricted · GRID 03-EA · BEARING 271.4 · SOL-3</p>
+<header class="site-header">
+<div class="header-inner">
+<a aria-label="Earth Exports home" class="brand" href="index.html">
+<img alt="Earth Exports Sol-3 mark" class="brand-logo" height="72" src="assets/logos/ee-logo-sol3-mark.svg" width="72"/>
+<span aria-hidden="true" class="side-emblem">
+<svg class="em-earth" viewbox="0 0 40 40"><circle cx="20" cy="20" fill="#028090" r="13" stroke="#00A896" stroke-width="2"></circle><path d="M11 16c4-3 7 1 10-1s4-5 8-2M12 25c3 1 5-2 9 0s6 3 8 1" fill="none" opacity=".8" stroke="#E0E6ED" stroke-linecap="round" stroke-width="1.6"></path></svg>
+<svg class="em-ufo" viewbox="0 0 40 40"><ellipse cx="20" cy="16" fill="#A78BFF" opacity=".85" rx="7" ry="6"></ellipse><ellipse cx="20" cy="22" fill="#1C2331" rx="16" ry="5" stroke="#F77F00" stroke-width="2"></ellipse><circle cx="11" cy="22" fill="#FFB000" r="1.4"></circle><circle cx="20" cy="23.5" fill="#FFB000" r="1.4"></circle><circle cx="29" cy="22" fill="#FFB000" r="1.4"></circle><path d="M14 28l-3 7M26 28l3 7" opacity=".6" stroke="#7B5CFF" stroke-width="1.5"></path></svg>
+</span>
+<span class="wordmark">
           EARTH EXPORTS
           <span class="mark">Ohio Outpost // Sol-3 <span class="side-tag" id="side-tag">· From Earth</span></span>
-        </span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav>
-        <ul class="site-nav" id="site-nav">
-          <li><a href="sector-01.html">Cards &amp; Games</a></li>
-          <li><a href="sector-02.html">Props &amp; Relics</a></li>
-          <li><a href="sector-04.html">STL Files</a></li>
-          <li><a href="archives.html">Alien Index</a></li>
-          <li><a href="star-map.html" aria-current="page">Star Map</a></li>
-          <li><a href="outpost.html">Find Us</a></li>
-          <li><a href="captains-log.html">News</a></li>
-          <li><a href="manifest.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="page-hero">
-      <div class="page-hero-inner">
-        <p class="eyebrow face-public-only">Species star map · where they live</p>
-        <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/chart$ plot SPECIES<span class="cursor-blink" aria-hidden="true"></span></p>
-        <h1>Species star map<span class="rule" aria-hidden="true"></span></h1>
-        <p class="lead page-what">Two charts. Sol is stylized, not to scale. Beyond Sol uses real directions and distances. Hover or tap a marker for the name, then open the dossier.</p>
-      </div>
-    </div>
-    <div class="wrap star-map">
-      <div class="zone-switch" role="tablist" aria-label="Chart">
-        <button type="button" role="tab" id="tab-sol" aria-controls="panel-sol" aria-selected="true">Sol system</button>
-        <button type="button" role="tab" id="tab-beyond" aria-controls="panel-beyond" aria-selected="false" tabindex="-1">Beyond Sol</button>
-      </div>
-      <p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away. Scan mode recolors each species. Route lines are the trades. Hover a marker to fade every route but its own.</p>
-      <div class="map-tools">
-        <div class="scan-bar" role="radiogroup" aria-label="Scan mode">
-          <span class="tool-kicker">Scan mode</span>
-          <button type="button" role="radio" data-lens="disposition" aria-checked="true">Disposition</button>
-          <button type="button" role="radio" data-lens="resource" aria-checked="false" tabindex="-1">Resource value</button>
-          <button type="button" role="radio" data-lens="difficulty" aria-checked="false" tabindex="-1">Trade difficulty</button>
-          <button type="button" role="radio" data-lens="danger" aria-checked="false" tabindex="-1">Danger to cargo</button>
-        </div>
-        <div class="route-bar">
-          <span class="tool-kicker">Lines</span>
-          <button type="button" id="toggle-routes" aria-pressed="true">Routes</button>
-          <button type="button" id="toggle-rivals" aria-pressed="false">Rivalries</button>
-        </div>
-      </div>
-      <ul class="scan-legend" id="scan-legend" aria-label="Scan legend"></ul>
-      <ul class="route-legend" id="route-legend" aria-label="Route lines"></ul>
-      <div class="species-bar">
-        <div class="species-pick">
-          <span class="tool-kicker" id="species-pick-label">Species</span>
-          <button type="button" id="species-pick-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="species-menu">All species</button>
-          <div class="species-menu" id="species-menu" role="listbox" aria-labelledby="species-pick-label" hidden></div>
-        </div>
-        <div class="species-summary" id="species-summary" hidden>
-          <button type="button" class="species-summary-name" id="species-summary-open"></button>
-          <p><span>Trade standing</span> <strong id="sum-standing"></strong></p>
-          <p><span>Most trades with</span> <strong id="sum-with"></strong></p>
-          <p><span>Most valuable cargo</span> <strong id="sum-cargo"></strong></p>
-          <p><span>Won't trade with</span> <strong id="sum-rival"></strong></p>
-        </div>
-      </div>
-      <p id="map-status" role="status">Plotting the chart…</p>
-
-      <div id="panel-sol" role="tabpanel" aria-labelledby="tab-sol">
-        <p class="map-pan-note">Swipe to pan the chart.</p>
-        <div class="map-scroll">
-          <div class="map-board" id="sol-board"></div>
-        </div>
-      </div>
-      <div id="panel-beyond" role="tabpanel" aria-labelledby="tab-beyond" hidden>
-        <p class="map-pan-note">Swipe to pan the chart.</p>
-        <div class="map-scroll">
-          <div class="map-board" id="beyond-board"></div>
-        </div>
-      </div>
-
-      <p class="map-note" id="map-note"></p>
-
-      <h2 class="map-index-head" id="map-index-title">Sol system</h2>
-      <ul class="map-index" id="map-index" aria-labelledby="map-index-title"></ul>
-
-      <p class="map-fiction">Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
-    </div>
-  </main>
-
-  <dialog id="species-dialog" class="species-dialog" aria-labelledby="species-dialog-title">
-    <button type="button" class="sd-close" id="sd-close">Close</button>
-    <div class="sd-layout">
-      <div class="sd-card-col">
-        <div class="sd-faces" id="sd-faces">
-          <img class="sd-front sd-paper" alt="" width="750" height="1050">
-          <img class="sd-front sd-dark" alt="" width="750" height="1050">
-          <img class="sd-back sd-paper" alt="" width="750" height="1050">
-          <img class="sd-back sd-dark" alt="" width="750" height="1050">
-        </div>
-        <div class="sd-pending" id="sd-pending" hidden>
-          <span class="sd-pending-kicker">Earth Exports · species file</span>
-          <span class="sd-pending-rule" aria-hidden="true"></span>
-          <strong class="sd-pending-name" id="sd-pending-name"></strong>
-          <span class="sd-pending-file">DOSSIER PENDING</span>
-        </div>
-        <button type="button" class="sd-flip" id="sd-flip" hidden aria-pressed="false">See dark version</button>
-      </div>
-      <div class="sd-copy">
-        <p class="sd-kicker" id="sd-kicker"></p>
-        <h2 id="species-dialog-title"></h2>
-        <p class="sd-home" id="sd-home"></p>
-        <p class="sd-science" id="sd-science" hidden></p>
-        <dl class="sd-facts" id="sd-facts"></dl>
-      </div>
-    </div>
-  </dialog>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>Earth Exports</strong>
-        Ohio Outpost // Sol-3 · Docked: Cosmic Voyager CV-OH-01 <button type="button" class="helion-crystal" aria-label="Helion crystal (ship's cargo)" title="Helion crystal · look, don't touch"><svg viewBox="0 0 24 32" aria-hidden="true" focusable="false"><path class="hc-a" d="M12 1 L20 11 L12 31 L4 11 Z"/><path class="hc-b" d="M12 1 L20 11 L12 13 Z"/><path class="hc-c" d="M4 11 L12 13 L12 31 Z"/></svg><span class="hc-label">Helion vault</span></button> <button type="button" class="vex-chat-open" aria-label="Open Vex’s early-access chat (shop newsletter)" title="Early access with Vex"><svg class="vc-avatar" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><rect x="6" y="6" width="108" height="108" rx="54" class="vf-bg"/><path class="vf-coat" d="M22 110 C26 88 42 80 60 80 C78 80 94 88 98 110 Z"/><ellipse class="vf-head" cx="60" cy="52" rx="23" ry="25"/><path class="vf-hat" d="M35 36 C41 21 79 21 85 36 Z M29 38 h62 v5 h-62 Z"/><circle class="vf-eye" cx="51" cy="55" r="3"/><circle class="vf-eye" cx="69" cy="55" r="3"/><path class="vf-mouth" d="M50 65 q10 7 20 0"/></svg><span>Early access</span></button>
-      </div>
-      <ul class="footer-nav">
-        <li><a href="manifest.html">About</a></li>
-        <li><a href="sector-01.html">Cards &amp; Games</a></li>
-        <li><a href="sector-02.html">Props &amp; Relics</a></li>
-        <li><a href="sector-04.html">STL Files</a></li>
-        <li><a href="archives.html">Alien Index</a></li>
-        <li><a href="star-map.html">Star Map</a></li>
-        <li><a href="outpost.html">Find Us</a></li>
-        <li><a href="captains-log.html">News</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="policies.html">Policies</a></li>
-      </ul>
-      <p class="footer-disclaimer">
-        <span class="fd-label">Disclaimer</span>
+</span>
+</a>
+<button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
+<nav>
+<ul class="site-nav" id="site-nav"><li><details class="nav-group"><summary>Preview</summary><ul><li><a href="sector-01.html">Cards &amp; Games</a></li><li><a href="sector-02.html">Props</a></li><li><a href="sector-04.html">STL Files</a></li></ul></details></li><li><a href="archives.html">Alien Index</a></li><li><a href="captains-log.html">News</a></li><li><a href="manifest.html#contact">About &amp; Contact</a></li></ul>
+</nav>
+</div>
+</header>
+<main id="main-content"><nav aria-label="Alien Index views" class="index-tabs"><a href="archives.html">Species files</a><a aria-current="page" href="star-map.html">Star Map</a></nav>
+<div class="page-hero">
+<div class="page-hero-inner">
+<p class="eyebrow face-public-only">Species star map · where they live</p>
+<p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/chart$ plot SPECIES<span aria-hidden="true" class="cursor-blink"></span></p>
+<h1>Species star map<span aria-hidden="true" class="rule"></span></h1>
+<p class="lead page-what">Two charts. Sol is stylized, not to scale. Beyond Sol uses real directions and distances. Hover or tap a marker for the name, then open the dossier.</p>
+</div>
+</div>
+<div class="wrap star-map">
+<div aria-label="Chart" class="zone-switch" role="tablist">
+<button aria-controls="panel-sol" aria-selected="true" id="tab-sol" role="tab" type="button">Sol system</button>
+<button aria-controls="panel-beyond" aria-selected="false" id="tab-beyond" role="tab" tabindex="-1" type="button">Beyond Sol</button>
+</div>
+<p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away. Scan mode recolors each species. Route lines are the trades. Hover a marker to fade every route but its own.</p>
+<div class="map-tools">
+<div aria-label="Scan mode" class="scan-bar" role="radiogroup">
+<span class="tool-kicker">Scan mode</span>
+<button aria-checked="true" data-lens="disposition" role="radio" type="button">Disposition</button>
+<button aria-checked="false" data-lens="resource" role="radio" tabindex="-1" type="button">Resource value</button>
+<button aria-checked="false" data-lens="difficulty" role="radio" tabindex="-1" type="button">Trade difficulty</button>
+<button aria-checked="false" data-lens="danger" role="radio" tabindex="-1" type="button">Danger to cargo</button>
+</div>
+<div class="route-bar">
+<span class="tool-kicker">Lines</span>
+<button aria-pressed="true" id="toggle-routes" type="button">Routes</button>
+<button aria-pressed="false" id="toggle-rivals" type="button">Rivalries</button>
+</div>
+</div>
+<ul aria-label="Scan legend" class="scan-legend" id="scan-legend"></ul>
+<ul aria-label="Route lines" class="route-legend" id="route-legend"></ul>
+<div class="species-bar">
+<div class="species-pick">
+<span class="tool-kicker" id="species-pick-label">Species</span>
+<button aria-controls="species-menu" aria-expanded="false" aria-haspopup="listbox" id="species-pick-btn" type="button">All species</button>
+<div aria-labelledby="species-pick-label" class="species-menu" hidden="" id="species-menu" role="listbox"></div>
+</div>
+<div class="species-summary" hidden="" id="species-summary">
+<button class="species-summary-name" id="species-summary-open" type="button"></button>
+<p><span>Trade standing</span> <strong id="sum-standing"></strong></p>
+<p><span>Most trades with</span> <strong id="sum-with"></strong></p>
+<p><span>Most valuable cargo</span> <strong id="sum-cargo"></strong></p>
+<p><span>Won't trade with</span> <strong id="sum-rival"></strong></p>
+</div>
+</div>
+<p id="map-status" role="status">Plotting the chart…</p>
+<div aria-labelledby="tab-sol" id="panel-sol" role="tabpanel">
+<p class="map-pan-note">Swipe to pan the chart.</p>
+<div class="map-scroll">
+<div class="map-board" id="sol-board"></div>
+</div>
+</div>
+<div aria-labelledby="tab-beyond" hidden="" id="panel-beyond" role="tabpanel">
+<p class="map-pan-note">Swipe to pan the chart.</p>
+<div class="map-scroll">
+<div class="map-board" id="beyond-board"></div>
+</div>
+</div>
+<p class="map-note" id="map-note"></p>
+<h2 class="map-index-head" id="map-index-title">Sol system</h2>
+<ul aria-labelledby="map-index-title" class="map-index" id="map-index"></ul>
+<p class="map-fiction">Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
+</div>
+</main>
+<dialog aria-labelledby="species-dialog-title" class="species-dialog" id="species-dialog">
+<button class="sd-close" id="sd-close" type="button">Close</button>
+<div class="sd-layout">
+<div class="sd-card-col">
+<div class="sd-faces" id="sd-faces">
+<img alt="" class="sd-front sd-paper" height="1050" width="750"/>
+<img alt="" class="sd-front sd-dark" height="1050" width="750"/>
+<img alt="" class="sd-back sd-paper" height="1050" width="750"/>
+<img alt="" class="sd-back sd-dark" height="1050" width="750"/>
+</div>
+<div class="sd-pending" hidden="" id="sd-pending">
+<span class="sd-pending-kicker">Earth Exports · species file</span>
+<span aria-hidden="true" class="sd-pending-rule"></span>
+<strong class="sd-pending-name" id="sd-pending-name"></strong>
+<span class="sd-pending-file">DOSSIER PENDING</span>
+</div>
+<button aria-pressed="false" class="sd-flip" hidden="" id="sd-flip" type="button">See dark version</button>
+</div>
+<div class="sd-copy">
+<p class="sd-kicker" id="sd-kicker"></p>
+<h2 id="species-dialog-title"></h2>
+<p class="sd-home" id="sd-home"></p>
+<p class="sd-science" hidden="" id="sd-science"></p>
+<dl class="sd-facts" id="sd-facts"></dl>
+</div>
+</div>
+</dialog>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<strong>Earth Exports</strong>
+        Ohio Outpost // Sol-3 · Docked: Cosmic Voyager CV-OH-01 <button aria-label="Helion crystal (ship's cargo)" class="helion-crystal" title="Helion crystal · look, don't touch" type="button"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 32"><path class="hc-a" d="M12 1 L20 11 L12 31 L4 11 Z"></path><path class="hc-b" d="M12 1 L20 11 L12 13 Z"></path><path class="hc-c" d="M4 11 L12 13 L12 31 Z"></path></svg><span class="hc-label">Helion vault</span></button> <button aria-label="Open Vex’s early-access chat (shop newsletter)" class="vex-chat-open" title="Early access with Vex" type="button"><svg aria-hidden="true" class="vc-avatar" focusable="false" viewbox="0 0 120 120"><rect class="vf-bg" height="108" rx="54" width="108" x="6" y="6"></rect><path class="vf-coat" d="M22 110 C26 88 42 80 60 80 C78 80 94 88 98 110 Z"></path><ellipse class="vf-head" cx="60" cy="52" rx="23" ry="25"></ellipse><path class="vf-hat" d="M35 36 C41 21 79 21 85 36 Z M29 38 h62 v5 h-62 Z"></path><circle class="vf-eye" cx="51" cy="55" r="3"></circle><circle class="vf-eye" cx="69" cy="55" r="3"></circle><path class="vf-mouth" d="M50 65 q10 7 20 0"></path></svg><span>Early access</span></button>
+</div>
+<ul class="footer-nav">
+<li><a href="manifest.html">About</a></li>
+<li><a href="sector-01.html">Cards &amp; Games</a></li>
+<li><a href="sector-02.html">Props &amp; Relics</a></li>
+<li><a href="sector-04.html">STL Files</a></li>
+<li><a href="archives.html">Alien Index</a></li>
+<li><a href="star-map.html">Star Map</a></li>
+<li><a href="outpost.html">Find Us</a></li>
+<li><a href="captains-log.html">News</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="policies.html">Policies</a></li>
+</ul>
+<p class="footer-disclaimer">
+<span class="fd-label">Disclaimer</span>
         Earth Exports is a work of speculative fiction and independent design. We are not affiliated with any government, military, or scientific agency. Products are original decorative and maker goods — not authentic government documents.
       </p>
-      <p class="cv-log" id="cv-log" aria-hidden="true"></p>
-      <div class="face-toggle-wrap">
-        <span id="face-label">EE</span>
-        <button type="button" id="face-toggle" aria-pressed="false" title="Open the CV lounge">CV · ◌</button>
-      </div>
-    </div>
-  </footer>
-  <script src="js/site.js?v=20261013-clean"></script>
-  <script src="js/cargo-feed.js?v=20261013-clean" defer></script>
-  <script src="js/vex.js?v=20261013-vex2" defer></script>
-  <script src="js/forms-config.js?v=20260927-tabs"></script>
-  <script src="js/contact-form.js?v=20260927-tabs" defer></script>
-  <script src="js/vex-chat.js?v=20260927-tabs" defer></script>
-  <script src="js/star-map.js?v=202611062" defer></script>
-</body>
+<p aria-hidden="true" class="cv-log" id="cv-log"></p>
+<div class="face-toggle-wrap">
+<span id="face-label">EE</span>
+<button aria-pressed="false" id="face-toggle" title="Open the CV lounge" type="button">CV · ◌</button>
+</div>
+</div>
+</footer>
+<script src="js/site.js?v=20261013-clean"></script>
+<script defer="" src="js/cargo-feed.js?v=20261013-clean"></script>
+<script defer="" src="js/vex.js?v=20261106b"></script>
+<script src="js/forms-config.js?v=20260927-tabs"></script>
+<script defer="" src="js/contact-form.js?v=20260927-tabs"></script>
+<script defer="" src="js/vex-chat.js?v=20260927-tabs"></script>
+<script defer="" src="js/star-map.js?v=202611062"></script>
+<script defer="" src="js/preview-pass.js?v=20261106-preview-full"></script></body>
 </html>

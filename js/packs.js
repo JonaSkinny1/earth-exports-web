@@ -18,7 +18,7 @@
   if (!sel) return;
   function show() {
     var p = PACKS[sel.value]; desc.textContent = p.desc; box.innerHTML = "";
-    p.cards.forEach(function (c) { var i = document.createElement("img"); i.src = c.src; i.alt = c.alt; i.width = 750; i.height = 1050; i.loading = "lazy"; i.decoding = "async"; box.appendChild(i); });
+    p.cards.forEach(function (c) { var i = document.createElement("img"); i.src = c.src.replace("images/cards/", "images/thumbs/cards/"); i.dataset.full=c.src; i.alt = c.alt; i.width = 750; i.height = 1050; i.loading = "lazy"; i.decoding = "async"; box.appendChild(i); });
   }
   sel.addEventListener("change", show); show();
 })();

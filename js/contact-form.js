@@ -35,7 +35,7 @@
       if (!useFs) {
         var href = buildMail();
         form.dataset.mailto = href;
-        status(form, "form-sent", "Your email app should open now with everything filled in. Just hit send. If nothing happened, email us at " + mailLink + ".");
+        status(form, "form-sent", "Your email app should open now with everything filled in. Nothing has been sent by this website. Review and send it yourself. If nothing happened, email us at " + mailLink + ".");
         window.location.href = href;
         done("mailto");
         return;

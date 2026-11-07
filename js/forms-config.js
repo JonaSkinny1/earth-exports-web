@@ -1,3 +1,5 @@
+/* PREVIEW: provider setup needs Jonathan's own account and explicit setup approval.
+   Replace the YOUR_* IDs below only after connection; placeholders keep mail-draft mode. */
 /* Earth Exports · form settings (the ONE place to paste Formspree form IDs).
    How to get an ID: README.md → "Contact + signup forms (Formspree)".
    While an ID still starts with "YOUR_", that form falls back to opening the visitor's
