@@ -23,3 +23,5 @@ html {scroll-padding-top:7rem} body {font-size:1.0625rem;line-height:1.65} main{
 @media(max-width:1023px){.js-preview .site-nav.is-open{position:absolute;left:0;right:0;top:100%;z-index:200;flex-direction:column;margin:0;padding:.5rem 1rem 1rem;background:rgba(11,14,20,.97);border-bottom:1px solid rgba(46,56,76,.85);box-shadow:0 12px 32px rgba(0,0,0,.55);max-height:calc(100vh - 120px);overflow-y:auto}}
 .packs-select{max-width:100%;box-sizing:border-box;min-width:0}
 @media(max-width:1023px){.site-header{z-index:300!important}}
+
+.star-map-product-link{display:inline-flex;align-items:center;min-height:44px;padding:.45rem .65rem;color:#9ce5e0;text-decoration:underline;font-size:.9rem;overflow-wrap:anywhere}.star-map-product-link[hidden]{display:none}.product-card>.star-map-product-link{margin:.25rem .8rem .8rem}

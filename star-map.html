@@ -16,8 +16,8 @@
 <link href="https://earthexportsshop.com/star-map.html" rel="canonical"/>
 <link href="assets/logos/ee-logo-sol3-mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="css/styles.css?v=20261106" rel="stylesheet"/>
-<link href="css/star-map.css?v=20261106" rel="stylesheet"/>
-<link href="css/preview-pass.css?v=20261106-preview-full" rel="stylesheet"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Earth Exports — Explore the Star Map; original preview art" property="og:image:alt"/></head>
+<link href="css/star-map.css?v=20261106-starmap-v2" rel="stylesheet"/>
+<link href="css/preview-pass.css?v=20261106-starmap-preview" rel="stylesheet"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Earth Exports — Explore the Star Map; original preview art" property="og:image:alt"/></head>
 <body class="mode-public"><a class="skip-link" href="#main-content">Skip to main content</a>
 <div aria-hidden="true" class="starfield"></div>
 <div aria-hidden="true" class="crt-overlay" hidden=""></div>
@@ -65,15 +65,15 @@
 <p class="eyebrow face-public-only">Species star map · where they live</p>
 <p class="sys-line face-outpost-only"><span class="prompt">ee@ohio</span><span class="dim">:</span>~/chart$ plot SPECIES<span aria-hidden="true" class="cursor-blink"></span></p>
 <h1>Species star map<span aria-hidden="true" class="rule"></span></h1>
-<p class="lead page-what">Two charts. Sol is stylized, not to scale. Beyond Sol uses real directions and distances. Hover or tap a marker for the name, then open the dossier.</p>
+<p class="lead page-what">Start at Earth. Follow a lane to a species, compare its light Earth file and dark Smuggler card, then read its Alien Index entry. The charts are story schematics, not navigation charts.</p>
 </div>
 </div>
 <div class="wrap star-map">
 <div aria-label="Chart" class="zone-switch" role="tablist">
-<button aria-controls="panel-sol" aria-selected="true" id="tab-sol" role="tab" type="button">Sol system</button>
-<button aria-controls="panel-beyond" aria-selected="false" id="tab-beyond" role="tab" tabindex="-1" type="button">Beyond Sol</button>
+<button aria-controls="panel-sol" aria-selected="true" id="tab-sol" role="tab" type="button">Sol · 11 species</button>
+<button aria-controls="panel-beyond" aria-selected="false" id="tab-beyond" role="tab" tabindex="-1" type="button">Beyond Sol · 12 species</button>
 </div>
-<p class="map-hint">Hover or focus a marker for the name and homeworld. Click it, or press Enter, to open the dossier. On a phone, tap once for the name, then again to open. The list under the chart opens straight away. Scan mode recolors each species. Route lines are the trades. Hover a marker to fade every route but its own.</p>
+<p class="map-hint">Tap or click a marker once to open both cards. Keyboard: Tab to a marker and press Enter. The readable list below opens the same panels. Pack filters match the 11 Sol and 12 Beyond Sol species; Starwake Comet is counted only in Sol.</p>
 <div class="map-tools">
 <div aria-label="Scan mode" class="scan-bar" role="radiogroup">
 <span class="tool-kicker">Scan mode</span>
@@ -84,7 +84,7 @@
 </div>
 <div class="route-bar">
 <span class="tool-kicker">Lines</span>
-<button aria-pressed="true" id="toggle-routes" type="button">Routes</button>
+<button aria-pressed="true" id="toggle-home-lanes" type="button">Earth lanes</button><button aria-pressed="false" id="toggle-routes" type="button">Story routes</button>
 <button aria-pressed="false" id="toggle-rivals" type="button">Rivalries</button>
 </div>
 </div>
@@ -104,15 +104,15 @@
 <p><span>Won't trade with</span> <strong id="sum-rival"></strong></p>
 </div>
 </div>
-<p id="map-status" role="status">Plotting the chart…</p>
+<p id="map-status" role="status">Plotting the chart…</p><noscript><p>The interactive map needs JavaScript. <a href="archives.html">Read all 23 Alien Index entries instead.</a></p></noscript>
 <div aria-labelledby="tab-sol" id="panel-sol" role="tabpanel">
-<p class="map-pan-note">Swipe to pan the chart.</p>
+<p class="map-pan-note">The map fits your screen. Use the readable species list below for small markers.</p>
 <div class="map-scroll">
 <div class="map-board" id="sol-board"></div>
 </div>
 </div>
 <div aria-labelledby="tab-beyond" hidden="" id="panel-beyond" role="tabpanel">
-<p class="map-pan-note">Swipe to pan the chart.</p>
+<p class="map-pan-note">The map fits your screen. Use the readable species list below for small markers.</p>
 <div class="map-scroll">
 <div class="map-board" id="beyond-board"></div>
 </div>
@@ -120,33 +120,19 @@
 <p class="map-note" id="map-note"></p>
 <h2 class="map-index-head" id="map-index-title">Sol system</h2>
 <ul aria-labelledby="map-index-title" class="map-index" id="map-index"></ul>
-<p class="map-fiction">Original fiction by Earth Exports. Real facts about planets are real; the aliens are not.</p>
+<p class="map-note">Distance note: Kepler-186 is shown as approximately 580 ly. <a href="https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-186" rel="noopener" target="_blank">NASA stellar-distance reference</a>. Other rounded star distances use NASA Exoplanet Archive and Gaia/Hipparcos-based stellar tables. No fixed distance is assigned to Starwake Comet.</p><p class="map-fiction">Original fiction by Earth Exports. Alien homes and trade lanes are fictional. Distances refer to real stars, are approximate, and are not travel times. Earth lanes are visual links, not a claim that every species trades. Sol positions are schematic, not planetary orbits.</p>
 </div>
 </main>
 <dialog aria-labelledby="species-dialog-title" class="species-dialog" id="species-dialog">
 <button class="sd-close" id="sd-close" type="button">Close</button>
 <div class="sd-layout">
-<div class="sd-card-col">
-<div class="sd-faces" id="sd-faces">
-<img alt="" class="sd-front sd-paper" height="1050" width="750"/>
-<img alt="" class="sd-front sd-dark" height="1050" width="750"/>
-<img alt="" class="sd-back sd-paper" height="1050" width="750"/>
-<img alt="" class="sd-back sd-dark" height="1050" width="750"/>
-</div>
-<div class="sd-pending" hidden="" id="sd-pending">
-<span class="sd-pending-kicker">Earth Exports · species file</span>
-<span aria-hidden="true" class="sd-pending-rule"></span>
-<strong class="sd-pending-name" id="sd-pending-name"></strong>
-<span class="sd-pending-file">DOSSIER PENDING</span>
-</div>
-<button aria-pressed="false" class="sd-flip" hidden="" id="sd-flip" type="button">See dark version</button>
-</div>
+<div class="sd-card-col"><div class="sd-card-pair" id="sd-faces"><figure><a id="sd-light-full" rel="noopener" target="_blank"><img alt="" decoding="async" height="560" id="sd-light" width="400"/></a><figcaption>Light · Earth file</figcaption></figure><figure><a id="sd-dark-full" rel="noopener" target="_blank"><img alt="" decoding="async" height="560" id="sd-dark" width="400"/></a><figcaption>Dark · Smuggler file</figcaption></figure></div><p class="sd-image-note">Tap either card for the full-size image (opens a new tab).</p></div>
 <div class="sd-copy">
 <p class="sd-kicker" id="sd-kicker"></p>
 <h2 id="species-dialog-title"></h2>
 <p class="sd-home" id="sd-home"></p>
 <p class="sd-science" hidden="" id="sd-science"></p>
-<dl class="sd-facts" id="sd-facts"></dl>
+<p id="sd-lore"></p><a class="btn btn-secondary" id="sd-index">Read the Alien Index entry</a><details class="sd-more"><summary>More from the species file</summary><dl class="sd-facts" id="sd-facts"></dl></details>
 </div>
 </div>
 </dialog>
@@ -185,6 +171,6 @@
 <script src="js/forms-config.js?v=20260927-tabs"></script>
 <script defer="" src="js/contact-form.js?v=20260927-tabs"></script>
 <script defer="" src="js/vex-chat.js?v=20260927-tabs"></script>
-<script defer="" src="js/star-map.js?v=202611062"></script>
-<script defer="" src="js/preview-pass.js?v=20261106-preview-full"></script></body>
+<script defer="" src="js/star-map.js?v=20261106-starmap-v2"></script>
+<script defer="" src="js/preview-pass.js?v=20261106-starmap-preview"></script></body>
 </html>

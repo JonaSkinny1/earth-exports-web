@@ -1,6 +1,6 @@
 {
-  "_edit": "Names can change. Edit name, and any rival sentence that still uses the old name. Leave id, zones, body, and star alone so the map still finds each species. Card art is wired by id for the eight Sol species that have dossiers.",
-  "_distances": "Beyond Sol distances are rounded from Gaia-based figures (Wikipedia, checked October 2026). The chart uses right ascension for direction and a log scale for distance.",
+  "_edit": "Stable id wires map and Alien Index. cardSlug wires the existing light/dark card files. pack follows the 11 Sol / 12 Beyond Sol card sets; Starwake Comet belongs to Sol, without a fixed homeworld.",
+  "_distances": "Approximate Earth/Sol-to-real-star light-year distances, not travel times or distances to fictional civilizations. Verified 2026-11-06 EST against NASA Exoplanet Archive (9 hosts) and cited Gaia/Hipparcos stellar tables (3 hosts). Per-species source/reference provided. Kepler-186 rounded to ≈580 ly. GJ 273 catalogue conflict flagged in preview notes; ≈12.35 ly corroborated by Gaia-derived stellar table. No numeric distance assigned to variable Solar System separations or wandering Starwake Comet.",
   "_scan": "Scan ratings are drafts Jonathan can change. disposition: friendly, neutral, wary, or hostile-to-trade (none of them are villains). resource: rich, fair, or poor. difficulty: easy, tricky, or hard. danger: low, medium, or high. Edit the four fields on a species. Leave id alone.",
   "_routes": "Routes and rivalries are drafts Jonathan can change. routes use from, to, strength 1 (occasional or low value) to 3 (frequent, very valuable, or an alliance), type trade or alliance, and a short note. Use earth for the Earth Exports outpost on Sol-3. Rivalries are not trade lines. They only draw when the Rivalries toggle is on.",
   "_summary": "Picker summary lines are drafts Jonathan can change. tradeStanding is good, fair, or poor (from disposition, and whether they trade). tradesWith names every partner tied for the strongest route. valuableCargo is one short cargo phrase from that species, except Helion crystals for the one or two who deal in the rarest cargo. shop_url is optional and empty for now; when a product address is filled in, the cargo line on the summary becomes a link. wontTradeWith is the rival.",
@@ -382,7 +382,11 @@
       "shop_url": "",
       "science": "Benthomnemon europae",
       "scienceStatus": "proposed",
-      "buys": "WET"
+      "buys": "WET",
+      "pack": "sol",
+      "cardSlug": "ventkin",
+      "mapLore": "Under Europa’s ice is a salty ocean that may hold about twice as much water as all of Earth’s oceans. The Ventkin are clear, jelly-soft beings who remember where the warm vents open, and they trade sealed brine because they cannot leave the water.",
+      "indexUrl": "archives.html#brine-court"
     },
     {
       "id": "plume-kin",
@@ -412,7 +416,11 @@
       "shop_url": "",
       "science": "Rimafossor enceladi",
       "scienceStatus": "proposed",
-      "buys": "Any, geyser rounds"
+      "buys": "Any, geyser rounds",
+      "pack": "sol",
+      "cardSlug": "icecutters",
+      "mapLore": "Geysers at Enceladus’s south pole spray salt and organic molecules from an ocean under the ice, and that spray helps feed one of Saturn’s rings. The Icecutters are stocky engineers in the tiger-stripe cracks. They cut mineral-rich ice from the walls and trade only when the geysers fire.",
+      "indexUrl": "archives.html#plume-kin"
     },
     {
       "id": "haze-wick",
@@ -442,7 +450,11 @@
       "shop_url": "",
       "science": "Nebulambulus titanius",
       "scienceStatus": "proposed",
-      "buys": "COLD"
+      "buys": "COLD",
+      "pack": "sol",
+      "cardSlug": "hazedrift",
+      "mapLore": "Titan is the only world besides Earth known to have lakes and seas, and those lakes are liquid methane and ethane under a thick orange haze. Hazedrift are slow, waxy waders who bottle that haze as pigment and can take a whole day to cross a puddle.",
+      "indexUrl": "archives.html#haze-wick"
     },
     {
       "id": "glass-lung",
@@ -472,7 +484,11 @@
       "shop_url": "",
       "science": "Nubivagus veneris",
       "scienceStatus": "proposed",
-      "buys": "Not HEAVY"
+      "buys": "Not HEAVY",
+      "pack": "sol",
+      "cardSlug": "veilborn",
+      "mapLore": "About 50 to 60 km above Venus, where the ground is hot enough to melt lead, the air is closer to Earth’s temperature, though the clouds are sulfuric acid. The Veilborn are floating creatures with glassy, acid-proof skin who never touch the ground.",
+      "indexUrl": "archives.html#glass-lung"
     },
     {
       "id": "red-ledger",
@@ -502,7 +518,11 @@
       "shop_url": "",
       "science": "Rubrivigil martis",
       "scienceStatus": "proposed",
-      "buys": "Anything, fixed price"
+      "buys": "Anything, fixed price",
+      "pack": "sol",
+      "cardSlug": "red-watchers",
+      "mapLore": "Mars is red because its dust is rusty iron, and dust storms there can wrap the whole planet. The Red Watchers are low, armored burrowers who dig toward old ice and wait those storms out underground, keeping a count that does not change.",
+      "indexUrl": "archives.html#red-ledger"
     },
     {
       "id": "cinder-mote",
@@ -532,7 +552,11 @@
       "shop_url": "",
       "science": "Scoriadorsum ionis",
       "scienceStatus": "proposed",
-      "buys": "HEAT-PROOF"
+      "buys": "HEAT-PROOF",
+      "pack": "sol",
+      "cardSlug": "slagbacks",
+      "mapLore": "Io is the most volcanic world in the solar system, with about 400 active volcanoes kept hot by Jupiter’s gravity. Slagbacks are small ember-colored crawlers in stone shells who hop between lava vents and sell sulfur cakes that stay hot.",
+      "indexUrl": "archives.html#cinder-mote"
     },
     {
       "id": "wellhold",
@@ -562,7 +586,11 @@
       "shop_url": "",
       "science": "Puteocustos cereris",
       "scienceStatus": "proposed",
-      "buys": "Barter only"
+      "buys": "Barter only",
+      "pack": "sol",
+      "cardSlug": "wellkeepers",
+      "mapLore": "Ceres’s bright spots are salt left behind when salty water from underground seeped up and dried. The Wellkeepers are pale, round-backed diggers who sip that brine and sell the rarest drink in the belt: clean water.",
+      "indexUrl": "archives.html#wellhold"
     },
     {
       "id": "cold-wake",
@@ -592,7 +620,11 @@
       "shop_url": "",
       "science": "Cryoexul retrogradus",
       "scienceStatus": "proposed",
-      "buys": "Not HOT"
+      "buys": "Not HOT",
+      "pack": "sol",
+      "cardSlug": "farfallen",
+      "mapLore": "Triton orbits Neptune backwards, and Voyager 2 saw geyser plumes there shoot dark dust about 8 km high. The Farfallen are tall, frost-white stilt-walkers who only move when those geysers go off, trading nitrogen ice before it shrinks.",
+      "indexUrl": "archives.html#cold-wake"
     },
     {
       "id": "ganymede-yard",
@@ -621,7 +653,11 @@
       "shop_url": "",
       "science": "OP-S3-80",
       "scienceStatus": "proposed",
-      "buys": "METAL"
+      "buys": "METAL",
+      "pack": "sol",
+      "cardSlug": "lodestars",
+      "mapLore": "Ganymede is the biggest moon in the solar system, larger than Mercury, and the only moon known to have its own magnetic field. The Lodestars are robots built on Earth by Earth Exports and sent out ahead of people: tall lantern-headed surveyors, four-legged builders with crane arms, and round greeter drones with open hands. They came first and built the road, and they still build the water-suits the Ventkin need and escort one canister at a time. OP-S3-80 stands for Original Planet, Sol 3 (Earth), 80-year expected service life, and the oldest of them are nowhere near done.",
+      "indexUrl": "archives.html#ganymede-yard"
     },
     {
       "id": "charon-scale",
@@ -650,7 +686,11 @@
       "shop_url": "",
       "science": "Finitor charontis",
       "scienceStatus": "proposed",
-      "buys": "HEAVY"
+      "buys": "HEAVY",
+      "pack": "sol",
+      "cardSlug": "edgewardens",
+      "mapLore": "Charon is about half as wide as Pluto, so the two circle a point between them like a double world. The Edgewardens are gray, broad-footed surveyors who measure that edge and collect the toll in weigh-stones.",
+      "indexUrl": "archives.html#charon-scale"
     },
     {
       "id": "ash-court",
@@ -665,8 +705,8 @@
       "constellation": "Aquarius",
       "ra": 346.62,
       "dec": -5.04,
-      "distanceLy": 40.66,
-      "distanceLabel": "40.7 ly",
+      "distanceLy": 40.5,
+      "distanceLabel": "≈40.5 ly",
       "folklore": "The short, big-eyed \"grey\" visitors from UFO stories, minus the abductions.",
       "look": "Short, ash-pale counters with wide dark eyes and long, careful fingers.",
       "trade": "They send tally slips and sealed empty jars. They buy pencils by the box.",
@@ -685,7 +725,13 @@
       "shop_url": "",
       "science": "Crepusculus trappistensis",
       "scienceStatus": "proposed",
-      "buys": "Pairs"
+      "buys": "Pairs",
+      "pack": "beyond",
+      "cardSlug": "greylight",
+      "mapLore": "TRAPPIST-1e is about Earth’s size, about 40 light-years away, and it likely keeps one face toward its dim red star. Greylight are short, ash-pale counters with wide dark eyes who live in the twilight band between endless day and endless night, and they send tally slips instead of cargo.",
+      "indexUrl": "archives.html#ash-court",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 12.42988881 pc; × 3.261563777 = 40.5409 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27TRAPPIST-1%27&format=json"
     },
     {
       "id": "keel-scale",
@@ -700,8 +746,8 @@
       "constellation": "Cygnus",
       "ra": 296,
       "dec": 44.28,
-      "distanceLy": 1810,
-      "distanceLabel": "1,810 ly",
+      "distanceLy": 1800.0,
+      "distanceLabel": "≈1,800 ly",
       "folklore": "The reptile-people idea, turned into dock inspectors who rule nobody.",
       "look": "Tall, bronze-green scaled officers with a ridge down the back and very patient eyes.",
       "trade": "Seal wax and lid rings. Every crate we send gets inspected, twice, politely.",
@@ -720,7 +766,13 @@
       "shop_url": "",
       "science": "Aeneocrista cygni",
       "scienceStatus": "proposed",
-      "buys": "Not COLD"
+      "buys": "Not COLD",
+      "pack": "beyond",
+      "cardSlug": "bronzeridge",
+      "mapLore": "Kepler-452b was announced as an older cousin of Earth, circling a Sun-like star about once a year, though a later recheck made the planet itself less certain. Bronzeridge are tall, bronze-green officers who inspect every hold and trade seal wax only after the paperwork is right.",
+      "indexUrl": "archives.html#keel-scale",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 551.727 pc; × 3.261563777 = 1799.4928 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Kepler-452%27&format=json"
     },
     {
       "id": "bright-holt",
@@ -735,8 +787,8 @@
       "constellation": "Cetus",
       "ra": 26.02,
       "dec": -15.94,
-      "distanceLy": 11.9,
-      "distanceLabel": "11.9 ly",
+      "distanceLy": 11.8,
+      "distanceLabel": "≈11.8 ly",
       "folklore": "The tall, fair \"space brother\" visitors from 1950s contact stories.",
       "look": "Very tall, pale, silver-haired brokers in long weatherproof coats.",
       "trade": "Pale cloth and braided broker's cords. They bargain slowly and pay late, but always in full.",
@@ -755,7 +807,13 @@
       "shop_url": "",
       "science": "Celsiorbis ceti",
       "scienceStatus": "proposed",
-      "buys": "Anything, pays late"
+      "buys": "Anything, pays late",
+      "pack": "beyond",
+      "cardSlug": "ceti-highborn",
+      "mapLore": "Tau Ceti is a nearby Sun-like star with only about a third as much iron as the Sun, wrapped in a dusty belt that likely means more falling rocks. The Ceti Highborn grew up in orbital shelters, weave what they cannot mine, and pay late with a bonus.",
+      "indexUrl": "archives.html#bright-holt",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 3.60304 pc; × 3.261563777 = 11.7515 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27tau+Cet%27&format=json"
     },
     {
       "id": "reed-tally",
@@ -770,8 +828,8 @@
       "constellation": "Cygnus",
       "ra": 298.65,
       "dec": 43.96,
-      "distanceLy": 579,
-      "distanceLabel": "579 ly",
+      "distanceLy": 580,
+      "distanceLabel": "≈580 ly",
       "folklore": "The tall mantis-like beings from abduction stories, turned into clerks.",
       "look": "Long, gray-green, stick-limbed, with folded forearms and a narrow triangle head.",
       "trade": "Counting rods and woven reed baskets. They want rubber bands. Nobody knows why.",
@@ -790,7 +848,13 @@
       "shop_url": "",
       "science": "Calamonumerus ternarius",
       "scienceStatus": "proposed",
-      "buys": "Sets of 3"
+      "buys": "Sets of 3",
+      "pack": "beyond",
+      "cardSlug": "darkreed",
+      "mapLore": "Kepler-186f was the first Earth-size planet found where liquid water might be possible, and midday there would look like the hour before sunset. Darkreed are long, gray-green clerks among dark reeds who count only in threes and buy baskets in sets of 3, 6, or 9.",
+      "indexUrl": "archives.html#reed-tally",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 177.594 pc; × 3.261563777 = 579.2342 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Kepler-186%27&format=json"
     },
     {
       "id": "lamp-drift",
@@ -805,8 +869,8 @@
       "constellation": "Cancer",
       "ra": 133.15,
       "dec": 28.33,
-      "distanceLy": 41,
-      "distanceLabel": "41 ly",
+      "distanceLy": 41.0,
+      "distanceLabel": "≈41 ly",
       "folklore": "Glowing orb lights and plasma beings.",
       "look": "A small floating glow with no body that brightens when you ask it a question.",
       "trade": "A sealed jar holding a living light, sold as a display, not a pet.",
@@ -825,7 +889,13 @@
       "shop_url": "",
       "science": "Lucivagus cancri",
       "scienceStatus": "proposed",
-      "buys": "Nothing; gives answers"
+      "buys": "Nothing; gives answers",
+      "pack": "beyond",
+      "cardSlug": "the-kindled",
+      "mapLore": "55 Cancri e circles its star in about 18 hours, and its dayside is hot enough for a lava ocean. The Kindled have no body, only a floating glow that brightens when you ask a question, and they sell jars of living light.",
+      "indexUrl": "archives.html#lamp-drift",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 12.5855 pc; × 3.261563777 = 41.0484 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%2755+Cnc%27&format=json"
     },
     {
       "id": "waxwright-hive",
@@ -840,8 +910,8 @@
       "constellation": "Lyra",
       "ra": 283.21,
       "dec": 45.35,
-      "distanceLy": 982,
-      "distanceLabel": "982 ly",
+      "distanceLy": 981.0,
+      "distanceLabel": "≈981 ly",
       "folklore": "The insect hive-mind aliens of old pulp sci-fi, but friendly and into crafts.",
       "look": "Thousands of thumb-sized amber workers that cluster into one big shape when they want to talk.",
       "trade": "Six-sided wax tiles and amber resin. We send packets of flower seeds.",
@@ -860,7 +930,13 @@
       "shop_url": "",
       "science": "Cerafaber lyrae",
       "scienceStatus": "proposed",
-      "buys": "Anything, loyalty"
+      "buys": "Anything, loyalty",
+      "pack": "beyond",
+      "cardSlug": "amberhive",
+      "mapLore": "Kepler-62f is larger than Earth and sits in the habitable zone of a cooler star, where it may need extra warmth to stay above freezing. Amberhive are thumb-sized workers who pack together into one shape to think, the way bees huddle to keep warm, and they sell wax tiles.",
+      "indexUrl": "archives.html#waxwright-hive",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 300.874 pc; × 3.261563777 = 981.3197 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Kepler-62%27&format=json"
     },
     {
       "id": "pip-moss",
@@ -876,7 +952,7 @@
       "ra": 217.43,
       "dec": -62.68,
       "distanceLy": 4.24,
-      "distanceLabel": "4.24 ly",
+      "distanceLabel": "≈4.24 ly",
       "folklore": "The old \"little green men\" joke.",
       "look": "Knee-high, moss-green, round-headed, with two bobbing feelers.",
       "trade": "Tiny sprouted seedlings in jars. They want garden gnomes, which they believe are distant cousins.",
@@ -895,7 +971,13 @@
       "shop_url": "",
       "science": "Bryopygmaeus proximae",
       "scienceStatus": "proposed",
-      "buys": "Pays in Seedlings"
+      "buys": "Pays in Seedlings",
+      "pack": "beyond",
+      "cardSlug": "greenlings",
+      "mapLore": "Proxima Centauri b is the closest known planet outside our solar system, and its small red star throws huge flares. Greenlings are knee-high, moss-green gardeners whose fuzz works as sunscreen, and they dive for cover when a flare is coming.",
+      "indexUrl": "archives.html#pip-moss",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 1.30119 pc; × 3.261563777 = 4.2439 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Proxima+Cen%27&format=json"
     },
     {
       "id": "plain-coat",
@@ -911,7 +993,7 @@
       "ra": 269.45,
       "dec": 4.69,
       "distanceLy": 5.96,
-      "distanceLabel": "5.96 ly",
+      "distanceLabel": "≈5.96 ly",
       "folklore": "Anonymous visitors, retold as dull paperwork auditors.",
       "look": "Faces you forget right away, bald heads and plain matte gray-beige skin, plain gray coats, very neat shoes.",
       "trade": "They only take a copy of the manifest. They leave a receipt and a mint.",
@@ -930,7 +1012,13 @@
       "shop_url": "",
       "science": "Quotidianus barnardi",
       "scienceStatus": "proposed",
-      "buys": "Nothing (inspect only)"
+      "buys": "Nothing (inspect only)",
+      "pack": "beyond",
+      "cardSlug": "the-forgotten-men",
+      "mapLore": "Barnard's Star is a very old red dwarf about 6 light-years away, with a long history of planets that were announced and then withdrawn. The Forgotten Men have bald heads and plain matte gray-beige skin, plain gray coats and very neat shoes, and their faces slip out of memory as soon as they leave with a copy of your manifest.",
+      "indexUrl": "archives.html#plain-coat",
+      "distanceSource": "Wikipedia stellar astrometry table (Gaia/Hipparcos references), 5.9629 ly; read 2026-11-06 EST.",
+      "distanceReference": "https://en.wikipedia.org/wiki/Barnard%27s_Star"
     },
     {
       "id": "scrap-wake",
@@ -945,8 +1033,8 @@
       "constellation": "Piscis Austrinus",
       "ra": 344.41,
       "dec": -29.62,
-      "distanceLy": 25.13,
-      "distanceLabel": "25.1 ly",
+      "distanceLy": 25.1,
+      "distanceLabel": "≈25.1 ly",
       "folklore": "Crashed-saucer wreck stories, turned into an honest junkyard.",
       "look": "Squat, two-armed salvagers in patched suits covered with tool loops.",
       "trade": "Nickel-iron offcuts and salvaged pins. We send them used hardware by the pound.",
@@ -965,7 +1053,13 @@
       "shop_url": "",
       "science": "Naufragus fomalhautensis",
       "scienceStatus": "proposed",
-      "buys": "Spoiled cargo"
+      "buys": "Spoiled cargo",
+      "pack": "beyond",
+      "cardSlug": "junkwrights",
+      "mapLore": "Fomalhaut has a bright dust ring of crushed rock, and a planet photographed there later turned out to be a cloud from a collision. The Junkwrights are squat, two-armed crews who buy broken cargo at half price and say that dust cloud was them, taking something apart.",
+      "indexUrl": "archives.html#scrap-wake",
+      "distanceSource": "Wikipedia stellar astrometry table (Gaia/Hipparcos references), 25.13 ly; read 2026-11-06 EST.",
+      "distanceReference": "https://en.wikipedia.org/wiki/Fomalhaut"
     },
     {
       "id": "split-kin",
@@ -980,8 +1074,8 @@
       "constellation": "Cygnus",
       "ra": 295.3,
       "dec": 46.92,
-      "distanceLy": 3420,
-      "distanceLabel": "3,420 ly",
+      "distanceLy": 3340.0,
+      "distanceLabel": "≈3,340 ly",
       "folklore": "Human-alien \"hybrid\" stories, retold as ordinary families with two home ports.",
       "look": "Almost human, with rows of blue dots on the cheeks and gold pendants hung with stones. When both suns go down, their cheek dots glow soft blue: the nightfall glow.",
       "trade": "Two-color cords and twin tags. We send matching keychains.",
@@ -1000,7 +1094,13 @@
       "shop_url": "",
       "science": "Dihelius geminus",
       "scienceStatus": "proposed",
-      "buys": "Two different goods"
+      "buys": "Two different goods",
+      "pack": "beyond",
+      "cardSlug": "bisola",
+      "mapLore": "Kepler-47 was the first system found with more than one planet circling two suns, so the sky there shows a golden sun and a small red one. Bisola look almost human, with rows of blue dots on the cheeks and gold pendants hung with stones. When both suns go down, their cheek dots glow soft blue: the nightfall glow. Every bill they pay is two different goods.",
+      "indexUrl": "archives.html#split-kin",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 1025.02 pc; × 3.261563777 = 3343.1681 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Kepler-47%27&format=json"
     },
     {
       "id": "quiet-margin",
@@ -1015,8 +1115,8 @@
       "constellation": "Eridanus",
       "ra": 53.23,
       "dec": -9.46,
-      "distanceLy": 10.5,
-      "distanceLabel": "10.5 ly",
+      "distanceLy": 10.4,
+      "distanceLabel": "≈10.4 ly",
       "folklore": "The stranger at Starwake Comet who somehow knows everyone's business.",
       "look": "Deep purple skin, pale almond eyes, hooded, with no mouth or large ears. Communicates mind to mind.",
       "trade": "Rumors, route tips, and who-owes-who.",
@@ -1035,7 +1135,13 @@
       "shop_url": "",
       "science": "Susurrator eridani",
       "scienceStatus": "proposed",
-      "buys": "Secrets"
+      "buys": "Secrets",
+      "pack": "beyond",
+      "cardSlug": "the-hushed",
+      "mapLore": "Epsilon Eridani is a young, stormy star about 10.5 light-years away, and in 1960 it was one of the first stars anyone pointed a radio dish at. The Hushed are hooded, with deep purple skin, pale almond eyes and no mouth or large ears. They communicate mind to mind.",
+      "indexUrl": "archives.html#quiet-margin",
+      "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 3.2026 pc; × 3.261563777 = 10.4455 ly; approximate display rounded.",
+      "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27eps+Eri%27&format=json"
     },
     {
       "id": "echo-fold",
@@ -1050,8 +1156,8 @@
       "constellation": "Canis Minor",
       "ra": 111.85,
       "dec": 5.23,
-      "distanceLy": 12.36,
-      "distanceLabel": "12.4 ly",
+      "distanceLy": 12.35,
+      "distanceLabel": "≈12.35 ly",
       "folklore": "Old changeling and shapeshifter tales.",
       "look": "Smooth, putty-gray, never quite the same shape twice. Usually looks like whoever they met last.",
       "trade": "Copies of anything, close enough to pass.",
@@ -1070,14 +1176,19 @@
       "shop_url": "",
       "science": "Echomorphus luyteni",
       "scienceStatus": "proposed",
-      "buys": "Whatever their last partner liked"
+      "buys": "Whatever their last partner liked",
+      "pack": "beyond",
+      "cardSlug": "mimics",
+      "mapLore": "In 2017 a radio dish in Norway beamed music and a short lesson toward a planet at Luyten's Star, about 12 light-years away. Mimics are soft and putty-gray, never quite the same shape twice. Copying you is how they say hello, and their true eyes stay two small dark spots. The crew's lock-screen visitor Vex is a Mimic: it copied the crew's password, and only those two dark spots give it away.",
+      "indexUrl": "archives.html#echo-fold",
+      "distanceSource": "Wikipedia stellar astrometry table (Gaia/Hipparcos references), 12.348 ly; read 2026-11-06 EST.",
+      "distanceReference": "https://en.wikipedia.org/wiki/Luyten%27s_Star"
     },
     {
       "id": "tumble-fair",
       "name": "Starwake Comet",
       "zones": [
-        "sol",
-        "beyond"
+        "sol"
       ],
       "order": 90,
       "wander": true,
@@ -1103,7 +1214,11 @@
       "shop_url": "",
       "science": "Cometovagus interstellaris",
       "scienceStatus": "proposed",
-      "buys": "FRESH"
+      "buys": "FRESH",
+      "pack": "sol",
+      "cardSlug": "starwake-comet",
+      "mapLore": "’Oumuamua, spotted in 2017, was the first object seen passing through our solar system from another star. Starwake Comet is a loud crowd under patchwork awnings on a tumbling rock. They sell one mystery crate, then the rock moves on.",
+      "indexUrl": "archives.html#tumble-fair"
     }
   ]
 }
