@@ -1072,3 +1072,50 @@ html[data-face="cv"] .sd-scan-kicker { color: #5eb6ff; }
   .orbit-ring { stroke-dasharray: none; }
   .route-flow { animation: none; stroke-dasharray: none; }
 }
+
+/* 2026-11-06 star-map preview: Earth lanes, paired files, responsive chart. */
+.star-map, .map-tools, .species-bar, .sd-copy, .sd-card-col { min-width: 0; }
+.map-board { min-width: 0; width: 100%; }
+.map-scroll { overflow: hidden; }
+.map-pan-note { display: block; font-size: .82rem; letter-spacing: .02em; text-transform: none; }
+.map-index { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.route-home { stroke: #83bdc9; stroke-width: 1; opacity: .28; vector-effect: non-scaling-stroke; }
+.route-home.is-hot { stroke-width: 2; opacity: .9; }
+.earth-home-halo { fill: rgba(27,196,176,.15); stroke: rgba(27,196,176,.45); }
+.species-dialog { box-sizing: border-box; max-width: calc(100% - 1rem); overflow: auto; }
+.sd-layout { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); padding-top: 3.1rem; }
+.sd-card-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
+.sd-card-pair figure { min-width: 0; margin: 0; }
+.sd-card-pair img { display: block; width: 100%; height: auto; aspect-ratio: 5/7; object-fit: contain; }
+.sd-card-pair a { display: block; border: 1px solid #5c7b8b; }
+.sd-card-pair a:focus-visible { outline: 3px solid #f4ad57; outline-offset: 3px; }
+.sd-card-pair figcaption { font-size: .88rem; margin-top: .5rem; color: #d5e1eb; }
+.sd-image-note { color: #c2ceda; font-size: .88rem; }
+.sd-close { top: .4rem; right: .5rem; z-index: 1; background: #141a24; border: 1px solid #697c90; padding: .6rem; }
+.sd-more { margin-top: 1.2rem; }
+.sd-more summary { cursor: pointer; min-height: 44px; padding-block: .7rem; color: #dce8f3; }
+.sd-copy, .index-world, .map-note { overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  .sd-layout { display: flex; flex-direction: column; max-height: none; overflow: visible; padding: 3.3rem .8rem 1rem; }
+  .sd-card-col { order: 1; }
+  .sd-copy { order: 0; }
+  .sd-copy .sd-more { display: none; } /* Detailed full entry stays available through Alien Index. */
+  .zone-switch button { flex: 1 1 140px; font-size: .82rem; }
+  .scan-bar button, .route-bar button, #species-pick-btn { font-size: .78rem; }
+  .map-label { font-size: 21px; }
+  .star-dist { font-size: 18px; }
+  .map-pin { width: 32px; height: 32px; } /* Larger 44px alternatives are in the list below. */
+  .pin-tip { display: none; }
+  .chart-title { font-size: 24px; }
+  .chart-sub, .ra-label, .ring-label { display: none; }
+}
+
+.pin-number { display: none; }
+@media (max-width: 720px) {
+  .map-pin { width: 44px; height: 44px; }
+  .map-pin .pin-dot { width: 26px; height: 26px; opacity: .35; clip-path: circle(50%); }
+  .pin-number { display: block; position: relative; color: #fff; font-size: 15px; font-weight: 700; }
+  .map-label, .label-leader, .map-leader, .moon-link, .dist-ring, .body-disc:not([data-body="earth"]) { display: none; }
+  .map-label[data-body="earth"] { display: block; font-size: 38px; }
+  .chart-title { font-size: 28px; }
+}

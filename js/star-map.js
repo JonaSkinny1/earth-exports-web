@@ -5,7 +5,7 @@
   var LOG_MIN = Math.log10(4.24);
   var LOG_MAX = Math.log10(3420);
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var coarseQuery = window.matchMedia("(pointer: coarse)");
+  var compactChart = window.matchMedia("(max-width: 720px)");
 
   /* Stylized Sol layout. Angles are degrees from east, counterclockwise. */
   var SOL_GEOM = {
@@ -123,11 +123,11 @@
     rivalries: [],
     zone: "sol",
     lens: "disposition",
-    routesOn: true,
+    routesOn: false,
+    homeLanesOn: true,
     rivalsOn: false,
     focusId: "",
     lastFocus: null,
-    flipBack: false,
     openId: ""
   };
 
@@ -161,19 +161,18 @@
     els.sumRival = document.getElementById("sum-rival");
     els.dialog = document.getElementById("species-dialog");
     els.kicker = document.getElementById("sd-kicker");
+    els.lore = document.getElementById("sd-lore");
+    els.indexLink = document.getElementById("sd-index");
     els.title = document.getElementById("species-dialog-title");
     els.home = document.getElementById("sd-home");
     els.science = document.getElementById("sd-science");
     els.facts = document.getElementById("sd-facts");
     els.faces = document.getElementById("sd-faces");
-    els.pending = document.getElementById("sd-pending");
-    els.pendingName = document.getElementById("sd-pending-name");
-    els.flip = document.getElementById("sd-flip");
     els.close = document.getElementById("sd-close");
 
     wireChrome();
 
-    fetch("data/species.json")
+    fetch("data/species.json?v=20261106-starmap-preview")
       .then(function (res) {
         if (!res.ok) throw new Error("species file");
         return res.json();
@@ -191,6 +190,9 @@
         if (document.fonts && document.fonts.ready) {
           document.fonts.ready.then(function () { fitStarLabels(); });
         }
+        if (compactChart.addEventListener) compactChart.addEventListener("change", function () {
+          drawSol(); drawBeyond(); applyScan(); fitStarLabels();
+        });
         if (els.status) els.status.hidden = true;
         var hashId = hashSpecies();
         if (hashId) openSpecies(state.byId[hashId], false);
@@ -223,6 +225,12 @@
     els.scanButtons.forEach(function (btn) {
       btn.addEventListener("click", function () { setLens(btn.getAttribute("data-lens")); });
       btn.addEventListener("keydown", onLensKey);
+    });
+    var homeToggle = document.getElementById("toggle-home-lanes");
+    if (homeToggle) homeToggle.addEventListener("click", function () {
+      state.homeLanesOn = !state.homeLanesOn;
+      homeToggle.setAttribute("aria-pressed", String(state.homeLanesOn));
+      syncRouteGroups();
     });
     if (els.routesToggle) {
       els.routesToggle.addEventListener("click", function () {
@@ -259,14 +267,6 @@
       if (e.key === "Escape" && els.pickMenu && !els.pickMenu.hidden) toggleSpeciesMenu(false);
     });
     if (els.close) els.close.addEventListener("click", function () { els.dialog.close(); });
-    if (els.flip) {
-      els.flip.addEventListener("click", function () {
-        state.flipBack = !state.flipBack;
-        els.faces.classList.toggle("is-back", state.flipBack);
-        els.flip.textContent = flipLabel();
-        els.flip.setAttribute("aria-pressed", state.flipBack ? "true" : "false");
-      });
-    }
     if (els.dialog) {
       els.dialog.addEventListener("click", function (e) {
         if (e.target === els.dialog) els.dialog.close();
@@ -287,6 +287,7 @@
         if (species.zones.indexOf(state.zone) === -1) showZone(species.zones[0], false);
         openSpecies(species, false);
       } else if (location.hash === "#beyond" || location.hash === "#sol") {
+        if (els.dialog.open) els.dialog.close();
         showZone(location.hash.slice(1), false);
       }
     });
@@ -341,12 +342,23 @@
   }
 
   function hashSpecies() {
-    var id = decodeURIComponent((location.hash || "").replace(/^#/, ""));
+    var id;
+    try { id = decodeURIComponent((location.hash || "").replace(/^#/, "")); }
+    catch (_) { return ""; }
     return state.byId[id] ? id : "";
   }
 
   function showZone(zone, updateHash) {
     state.zone = zone === "beyond" ? "beyond" : "sol";
+    if (state.focusId && state.byId[state.focusId].pack !== state.zone) {
+      state.focusId = "";
+      els.pickBtn.textContent = "All species";
+      els.summary.hidden = true;
+      els.pickMenu.querySelectorAll("[role='option']").forEach(function (button) {
+        button.setAttribute("aria-selected", button.dataset.id === "" ? "true" : "false");
+      });
+      applyHighlight("");
+    }
     var beyond = state.zone === "beyond";
     els.solPanel.hidden = beyond;
     els.beyondPanel.hidden = !beyond;
@@ -361,8 +373,9 @@
       panel.classList.add("is-entering");
     }
     els.note.textContent = beyond
-      ? "Direction is right ascension, counterclockwise from the 0h mark at the top, with a small sideways shift so stacked stars stay tappable. Rings are logarithmic distances in light-years. The moving marker is Starwake Comet. It has no homeworld."
-      : "Stylized, not to scale, so the moons we trade with can be tapped. The moving marker is Starwake Comet, riding a visitor through the system. It has no homeworld.";
+      ? "Earth is the home port at the center. Directions use right ascension with sideways nudges for readability, not a 3D sky view. Distance rings are logarithmic light-years. This filter contains the 12 Beyond Sol card species; Starwake Comet belongs to the Sol pack."
+      : "Earth-centered trade schematic, not planetary orbits or a scale diagram. This filter contains the 11 Sol card species, including wandering Starwake Comet, which has no fixed homeworld or distance.";
+    if (compactChart.matches) els.note.textContent += " On phones, markers are evenly spaced for tapping, not positioned by distance or sky direction. Distances remain in the list and panels.";
     renderIndex();
     if (updateHash && !els.dialog.open) {
       history.replaceState(null, "", beyond ? "#beyond" : "#sol");
@@ -371,7 +384,7 @@
 
   function renderIndex() {
     var zone = state.zone;
-    var list = state.species.filter(function (s) { return s.zones.indexOf(zone) !== -1; });
+    var list = state.species.filter(function (s) { return s.pack === zone; });
     list.sort(function (a, b) { return a.order - b.order; });
     els.indexTitle.textContent = zone === "beyond" ? "Beyond Sol" : "Sol system";
     els.index.replaceChildren();
@@ -384,8 +397,8 @@
       var shape = btn.querySelector(".key-shape");
       var rank = rankOf(s);
       shape.className = "key-shape shape-" + rank.shape + " rank-" + rank.value;
-      btn.querySelector(".index-name").textContent = s.name;
-      btn.querySelector(".index-world").textContent = s.wander ? "No homeworld · wandering" : (s.bodyLabel || s.mapLabel || s.homeworld);
+      btn.querySelector(".index-name").textContent = (compactChart.matches ? String(list.indexOf(s)+1) + ". " : "") + s.name;
+      btn.querySelector(".index-world").textContent = s.wander ? "No homeworld · wandering" : (s.bodyLabel || s.mapLabel || s.homeworld) + (distanceText(s) ? " · " + distanceText(s) : "");
       btn.addEventListener("click", function () { openSpecies(s, true); });
       li.appendChild(btn);
       els.index.appendChild(li);
@@ -460,7 +473,7 @@
     els.routeLegend.replaceChildren();
     var lead = document.createElement("li");
     lead.className = "legend-lead";
-    lead.textContent = state.routesOn ? "Routes" : "Routes off";
+    lead.textContent = "Earth lanes: visual home-system links · story routes " + (state.routesOn ? "on" : "off");
     els.routeLegend.appendChild(lead);
     [
       ["route-key route-key-s3", "Frequent or valuable"],
@@ -491,27 +504,43 @@
     }
   }
 
-  function drawSol() {
-    var svg = emptySvg(els.solBoard);
-    chartCaption(svg, "SOL SYSTEM", "Stylized · not to scale");
-    ORBIT_R.forEach(function (r) {
-      svg.appendChild(svgEl("circle", {
-        class: "orbit-ring",
-        cx: VB.cx, cy: VB.cy, r: r
+  function distanceText(species) {
+    // Missing/fictional distances are intentionally not synthesized.
+    return typeof species.distanceLy === "number" && species.distanceLy > 0 ? (species.distanceLabel || species.distanceLy + " ly") : "";
+  }
+
+  function earthHome(svg) {
+    svg.appendChild(svgEl("circle", { class: "earth-home-halo", cx: VB.cx, cy: VB.cy, r: 25 }));
+    bodyDisc(svg, {x: VB.cx, y: VB.cy}, 12, "earth", false, "earth");
+    placeLabel(svg, {x: VB.cx, y: VB.cy}, 0, 38, "middle", "EARTH", "Home port · Sol-3", "earth");
+  }
+
+  function drawHomeLanes(svg, points, zone) {
+    var layer = svgEl("g", { class: "route-home-group" });
+    state.species.filter(function (s) { return s.pack === zone; }).forEach(function (s) {
+      var pt = points[s.id];
+      if (!pt) return;
+      layer.appendChild(svgEl("line", {
+        class: "route-line route-home", x1: VB.cx, y1: VB.cy,
+        x2: round(pt.x), y2: round(pt.y), "data-from": "earth", "data-to": s.id
       }));
     });
-    svg.appendChild(svgEl("circle", {
-      class: "belt-ring",
-      cx: VB.cx, cy: VB.cy, r: 178
-    }));
+    svg.appendChild(layer);
+  }
+
+  function drawSol() {
+    var svg = emptySvg(els.solBoard);
+    chartCaption(svg, "SOL · 11 SPECIES", "Earth-centered schematic · not planetary orbits");
     var points = {};
-    PLANETS.forEach(function (p) { points[p.id] = at(p.r, p.deg); });
+    PLANETS.forEach(function (p) { points[p.id] = p.id === "earth" ? { x: VB.cx, y: VB.cy } : at(p.r, p.deg); });
     Object.keys(SOL_GEOM).forEach(function (id) {
       var g = SOL_GEOM[id];
-      points[id] = at(g.r, g.deg);
+      var solList = state.species.filter(inSol);
+      points[id] = compactChart.matches ? compactPoint(solList.findIndex(function(s) { return s.id === id; }), solList.length) : at(g.r, g.deg);
     });
     var solPath = patrol(150, 980, 755, -36, 28);
-    points["tumble-fair"] = solPath[Math.floor(solPath.length * 0.28)];
+    points["tumble-fair"] = compactChart.matches ? compactPoint(10, 11) : solPath[Math.floor(solPath.length * 0.28)];
+    drawHomeLanes(svg, points, "sol");
     drawRouteLayer(svg, points, "sol");
     MOON_LINKS.forEach(function (pair) {
       var a = points[pair[0]];
@@ -524,8 +553,9 @@
         "data-b": pair[1]
       }));
     });
-    haloAndSun(svg);
+    earthHome(svg);
     PLANETS.forEach(function (p) {
+      if (p.id === "earth") return;
       var pt = points[p.id];
       bodyDisc(svg, pt, p.disc, p.fill, p.ring, p.id);
       placeLabel(svg, pt, p.ldx, p.ldy, p.anchor, p.name, p.sub || "", p.id);
@@ -539,12 +569,13 @@
       placeLabel(svg, pt, g.ldx, g.ldy, g.anchor, s.bodyLabel || s.name, "", s.id);
       addPin(els.solBoard, s, pt);
     });
-    addWander(els.solBoard, svg, solPath, wanderSpecies());
+    if (compactChart.matches) addPin(els.solBoard, wanderSpecies(), points["tumble-fair"]);
+    else addWander(els.solBoard, svg, solPath, wanderSpecies());
   }
 
   function drawBeyond() {
     var svg = emptySvg(els.beyondBoard);
-    chartCaption(svg, "BEYOND SOL", "Real direction · log distance");
+    chartCaption(svg, "BEYOND SOL · 12 SPECIES", "Sky-direction schematic · log star distances");
     svg.appendChild(svgEl("line", {
       class: "ra-tick",
       x1: VB.cx, y1: 18, x2: VB.cx, y2: 48
@@ -553,7 +584,7 @@
     raLabel.textContent = "0h";
     svg.appendChild(raLabel);
 
-    [10, 40, 500, 2000].forEach(function (ly) {
+    [10, 40, 580, 2000].forEach(function (ly) {
       var r = logR(ly);
       svg.appendChild(svgEl("circle", { class: "dist-ring", cx: VB.cx, cy: VB.cy, r: round(r) }));
       var label = svgEl("text", {
@@ -566,15 +597,11 @@
       svg.appendChild(label);
     });
 
-    haloAndSun(svg);
-    var sunLabel = svgEl("text", { class: "map-label sun-word", x: VB.cx, y: VB.cy + 28, "text-anchor": "middle" });
-    sunLabel.textContent = "Sol";
-    svg.appendChild(sunLabel);
-
     var points = { earth: { x: VB.cx, y: VB.cy } };
-    var stars = state.species.filter(function (s) { return s.star && s.ra != null; }).map(function (s) {
+    var stars = state.species.filter(function (s) { return s.pack === "beyond" && s.star && s.ra != null; }).map(function (s, index) {
+      if (compactChart.matches) { var compact = compactPoint(index, 12); return { species: s, x: compact.x, y: compact.y }; }
       var ra = s.ra * Math.PI / 180;
-      var r = logR(s.distanceLy);
+      var r = distanceText(s) ? logR(s.distanceLy) : 330;
       var radial = { x: -Math.sin(ra), y: -Math.cos(ra) };
       var tangent = { x: Math.cos(ra), y: -Math.sin(ra) };
       var slide = (s.dec / 90) * 34 + (TANGENT_NUDGE[s.star] || 0);
@@ -583,9 +610,9 @@
       return { species: s, x: x, y: y };
     });
     stars.forEach(function (star) { points[star.species.id] = { x: star.x, y: star.y }; });
-    var beyondPath = patrol(130, 340, 718, -16, 22);
-    points["tumble-fair"] = beyondPath[Math.floor(beyondPath.length * 0.28)];
+    drawHomeLanes(svg, points, "beyond");
     drawRouteLayer(svg, points, "beyond");
+    earthHome(svg);
 
     stars.forEach(function (star) {
       var place = STAR_LABEL[star.species.star] || { x: star.x + 36, y: star.y - 28, anchor: "start" };
@@ -609,13 +636,12 @@
       var name = svgEl("tspan", { x: round(place.x), dy: "0" });
       name.textContent = star.species.mapLabel || star.species.homeworld;
       var dist = svgEl("tspan", { class: "star-dist", x: round(place.x), dy: "14" });
-      dist.textContent = star.species.distanceLabel || "";
+      dist.textContent = distanceText(star.species);
       text.appendChild(name);
       text.appendChild(dist);
       svg.appendChild(text);
       addPin(els.beyondBoard, star.species, { x: star.x, y: star.y });
     });
-    addWander(els.beyondBoard, svg, beyondPath, wanderSpecies());
   }
 
   function addWander(board, svg, path, species) {
@@ -677,40 +703,33 @@
     tip.appendChild(strong);
     tip.appendChild(world);
     pin.appendChild(dot);
+    var number = document.createElement("span");
+    number.className = "pin-number"; number.setAttribute("aria-hidden", "true");
+    number.textContent = String(state.species.filter(function(s) { return s.pack === species.pack; }).indexOf(species) + 1);
+    pin.appendChild(number);
     pin.appendChild(tip);
     pin.addEventListener("click", function () {
-      if (coarseQuery.matches && !pin.classList.contains("is-armed")) {
-        pin.classList.add("is-armed");
-        return;
-      }
       openSpecies(species, true);
     });
     board.appendChild(pin);
     return pin;
   }
 
-  function flipLabel() {
-    var cv = document.documentElement.getAttribute("data-face") === "cv";
-    // default face: light in EE, dark in CV. The button offers the other one.
-    return (cv !== state.flipBack) ? "See light version" : "See dark version";
-  }
-  new MutationObserver(function () { if (els.flip && !els.flip.hidden) els.flip.textContent = flipLabel(); })
-    .observe(document.documentElement, { attributes: true, attributeFilter: ["data-face"] });
-
   function openSpecies(species, fromUser) {
     if (!species || !els.dialog) return;
     state.openId = species.id;
-    state.flipBack = false;
-    els.faces.classList.remove("is-back");
     var where = species.zones.indexOf("beyond") !== -1 && species.zones.indexOf("sol") === -1 ? "Beyond Sol" : (species.wander ? "Wandering" : "Sol system");
     els.kicker.textContent = where;
     els.title.textContent = species.name;
     var home = species.homeworld;
-    if (species.distanceLabel) {
-      home += " · " + species.distanceLabel;
+    if (distanceText(species)) {
+      home += " · " + distanceText(species);
       if (species.constellation) home += " · " + species.constellation;
     }
     els.home.textContent = home;
+    els.lore.textContent = species.mapLore || species.look || "";
+    els.indexLink.href = species.indexUrl || "archives.html#" + species.id;
+    els.indexLink.setAttribute("aria-label", "Read " + species.name + " in the Alien Index");
     paintScience(species);
     els.facts.replaceChildren();
     [
@@ -733,26 +752,18 @@
     });
     paintScan(species);
     paintRoutes(species);
-    var paper = els.faces.querySelector(".sd-front.sd-paper");
-    var dark = els.faces.querySelector(".sd-front.sd-dark");
-    var backPaper = els.faces.querySelector(".sd-back.sd-paper");
-    var backDark = els.faces.querySelector(".sd-back.sd-dark");
-    var slug = String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    var slug = species.cardSlug || String(species.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     var base = "images/cards/" + slug;
-    paper.src = base + "-ee.webp?v=20261106";
-    dark.src = base + "-cv.webp?v=20261106";
-    paper.alt = species.name + " trading card";
-    dark.alt = species.name + " trading card, Smuggler file";
-    // "alt" faces: the other version of the same species card (light <-> dark)
-    backPaper.src = base + "-cv.webp?v=20261106";
-    backDark.src = base + "-ee.webp?v=20261106";
-    backPaper.alt = species.name + " trading card, Smuggler file (dark version)";
-    backDark.alt = species.name + " trading card, Earth file (light version)";
+    [["light", "ee", "light Earth file"], ["dark", "cv", "dark Smuggler file"]].forEach(function (face) {
+      var image = document.getElementById("sd-" + face[0]);
+      image.src = "images/thumbs/cards/" + slug + "-" + face[1] + ".webp?v=20261106b";
+      image.alt = species.name + " — " + face[2] + " card";
+      var full = document.getElementById("sd-" + face[0] + "-full");
+      full.href = base + "-" + face[1] + ".webp?v=20261106b";
+      full.setAttribute("aria-label", "Open full-size " + species.name + " " + face[2] + " card (new tab)");
+    });
     els.faces.hidden = false;
-    els.pending.hidden = true;
-    els.flip.hidden = false;
-    els.flip.textContent = flipLabel();
-    els.flip.setAttribute("aria-pressed", "false");
+    if (species.pack !== state.zone) showZone(species.pack, false);
     state.lastFocus = document.activeElement;
     if (fromUser !== false) {
       history.replaceState(null, "", "#" + species.id);
@@ -935,12 +946,16 @@
     }
     var species = state.byId[id];
     if (!species) return null;
-    if (species.zones.indexOf(zone) === -1) return { pt: null, onChart: false };
+    if (species.pack !== zone) return { pt: null, onChart: false };
     if (!points[id]) return null;
     return { pt: points[id], onChart: true };
   }
 
   function syncRouteGroups() {
+    document.querySelectorAll(".route-home-group").forEach(function (g) {
+      if (state.homeLanesOn) g.removeAttribute("display");
+      else g.setAttribute("display", "none");
+    });
     document.querySelectorAll(".route-trade").forEach(function (g) {
       if (state.routesOn) g.removeAttribute("display");
       else g.setAttribute("display", "none");
@@ -1166,7 +1181,7 @@
     return map[canister] || "pin-teal";
   }
 
-  function inSol(s) { return s.zones.indexOf("sol") !== -1; }
+  function inSol(s) { return s.pack === "sol"; }
   function wanderSpecies() {
     for (var i = 0; i < state.species.length; i++) {
       if (state.species[i].wander) return state.species[i];
@@ -1175,6 +1190,7 @@
   }
 
   function emptySvg(board) {
+    board.querySelectorAll(".map-pin").forEach(function (n) { if(n._raf) cancelAnimationFrame(n._raf); n.remove(); });
     board.querySelectorAll("svg").forEach(function (n) { n.remove(); });
     var svg = svgEl("svg", {
       viewBox: "0 0 " + VB.w + " " + VB.h,
@@ -1251,6 +1267,11 @@
       small.textContent = sub;
       svg.appendChild(small);
     }
+  }
+
+  function compactPoint(index, count) {
+    var angle = -Math.PI / 2 + index * Math.PI * 2 / count;
+    return { x: VB.cx + Math.cos(angle) * 400, y: VB.cy + Math.sin(angle) * 330 };
   }
 
   function at(r, deg) {
