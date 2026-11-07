@@ -35,7 +35,7 @@
           '<div class="vex-text">' +
             '<p class="vex-who">VEX <span>· Mimic collector, not cleared</span></p>' +
             '<p class="vex-line" aria-hidden="true"></p>' +
-            '<p class="vex-sub">He wants the Helion crystals. The Manifest says no.</p>' +
+            '<p class="vex-sub">It wants the Helion crystals. The Manifest says no.</p>' +
           '</div>' +
         '</div>' +
         '<p class="vex-cut" aria-hidden="true">Transmission cut by the bridge</p>' +

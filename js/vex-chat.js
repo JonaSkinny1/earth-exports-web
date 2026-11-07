@@ -30,7 +30,7 @@
     hello: "Psst. Want to see the underground stuff before anyone else?",
     ask: "Smart. Drop your email and I’ll slip you word before the shop opens to everyone.",
     ok: "Done. You’re on the early-access list. Act natural.",
-    mailto: "Your email app should pop open. Hit send and you’re on the list. Act natural.",
+    mailto: "An email draft should open. We cannot confirm signup until you send it and the shop receives it. If it did not open, email earthexportsshop@gmail.com.",
     err: "Hm, the line crackled. Try again, or email the shop at earthexportsshop@gmail.com.",
     again: "Back so soon? The early-access list is still open."
   };
@@ -56,7 +56,7 @@
       '<form class="vc-form" hidden action="mailto:earthexportsshop@gmail.com?subject=Notify%20me" method="post" enctype="text/plain">' +
         '<label class="sr-only" for="vc-email">Email address for the early-access list</label>' +
         '<div class="vc-row"><input type="email" id="vc-email" name="email" required autocomplete="email" placeholder="you@example.com">' +
-        '<button type="submit" class="btn btn-primary vc-send">Join</button></div>' +
+        '<button type="submit" class="btn btn-primary vc-send">Email us to join</button></div>' +
         '<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         '<input type="hidden" name="source" value="Vex chat">' +
         '<p class="form-status" role="status" aria-live="polite"></p>' +
@@ -73,8 +73,8 @@
       window.EEForms.wire(form, (window.EEForms.cfg || {}).NOTIFY_FORM_ID, function () {
         return window.EEForms.notifyMail(el.querySelector("#vc-email").value.trim());
       }, "You’re on the early-access list.", { onResult: function (kind) {
-        if (kind === "ok" || kind === "mailto") { var s = load(); s.joined = Date.now(); save(s); }
-        if (kind !== "err") { form.hidden = true; log.innerHTML = ""; }
+        if (kind === "ok") { var s = load(); s.joined = Date.now(); save(s); }
+        if (kind === "ok") { form.hidden = true; log.innerHTML = ""; }
         say(LINES[kind] || LINES.err, 0);
         pad();
       } });
