@@ -1077,7 +1077,7 @@
       "distanceLy": 3340.0,
       "distanceLabel": "≈3,340 ly",
       "folklore": "Human-alien \"hybrid\" stories, retold as ordinary families with two home ports.",
-      "look": "Almost human, but each Bisola is split down the middle: one half blue-skinned with sparkly white freckles across the cheek, the other half warm and lit red, under dark curly hair. When both suns go down, the freckles glow soft blue: the nightfall glow.",
+      "look": "Almost human: blue-skinned, with sparkly white freckles across the cheeks. When both suns go down, the freckles glow soft blue: the nightfall glow.",
       "trade": "Two-color cords and twin tags. We send matching keychains.",
       "tradeRule": "Every deal must be paid in two different goods, never two of the same.",
       "weakness": "Half the family lives under each sun. Someone has to carry goods between the two ports.",
@@ -1097,7 +1097,7 @@
       "buys": "Two different goods",
       "pack": "beyond",
       "cardSlug": "bisola",
-      "mapLore": "Kepler-47 was the first system found with more than one planet circling two suns, so the sky there shows a golden sun and a small red one. Bisola look almost human, but each one is split down the middle: one half blue-skinned with sparkly white freckles across the cheek, the other half warm and lit red, under dark curly hair. When both suns go down, the freckles glow soft blue: the nightfall glow. Every bill they pay is two different goods.",
+      "mapLore": "Kepler-47 was the first system found with more than one planet circling two suns, so the sky there shows a golden sun and a small red one. Bisola look almost human: blue-skinned, with sparkly white freckles across the cheeks. When both suns go down, the freckles glow soft blue: the nightfall glow. Every bill they pay is two different goods.",
       "indexUrl": "archives.html#split-kin",
       "distanceSource": "NASA Exoplanet Archive pscomppars sy_dist = 1025.02 pc; × 3.261563777 = 3343.1681 ly; approximate display rounded.",
       "distanceReference": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname%2Csy_dist+from+pscomppars+where+hostname%3D%27Kepler-47%27&format=json"
