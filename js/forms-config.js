@@ -1,4 +1,4 @@
-/* PREVIEW: provider setup needs Jonathan's own account and explicit setup approval.
+/* PREVIEW: provider setup needs the shop owner's own account and explicit setup approval.
    Replace the YOUR_* IDs below only after connection; placeholders keep mail-draft mode. */
 /* Earth Exports · form settings (the ONE place to paste Formspree form IDs).
    How to get an ID: README.md → "Contact + signup forms (Formspree)".

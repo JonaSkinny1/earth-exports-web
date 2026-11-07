@@ -25,3 +25,6 @@ html {scroll-padding-top:7rem} body {font-size:1.0625rem;line-height:1.65} main{
 @media(max-width:1023px){.site-header{z-index:300!important}}
 
 .star-map-product-link{display:inline-flex;align-items:center;min-height:44px;padding:.45rem .65rem;color:#9ce5e0;text-decoration:underline;font-size:.9rem;overflow-wrap:anywhere}.star-map-product-link[hidden]{display:none}.product-card>.star-map-product-link{margin:.25rem .8rem .8rem}
+/* 2026-11-07: footer = top menu + Policies; phone-size tap targets */
+.footer-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .5rem}
+@media(max-width:640px){.footer-nav{display:flex;flex-wrap:wrap;gap:.25rem .5rem}.footer-nav a{min-height:44px;padding:0 .6rem;font-size:.95rem}.site-footer .helion-crystal,.site-footer .vex-chat-open{min-height:44px}}

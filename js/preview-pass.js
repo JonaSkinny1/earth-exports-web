@@ -9,7 +9,7 @@ function mapLink(src) {
   var link=dialog.querySelector('#zoom-star-map'), token=++mapRequest;
   link.hidden=true;
   var slug=src.split('/').pop().split('?')[0].replace(/-(ee|cv)\.webp$/, '');
-  if(!speciesPromise) speciesPromise=fetch('data/species.json?v=20261106-starmap-preview').then(function(r){if(!r.ok)throw Error('species');return r.json()}).catch(function(){return {species:[]}});
+  if(!speciesPromise) speciesPromise=fetch('data/species.json?v=20261107-fixes').then(function(r){if(!r.ok)throw Error('species');return r.json()}).catch(function(){return {species:[]}});
   speciesPromise.then(function(data){if(token!==mapRequest)return;var s=data.species.find(function(s){return s.cardSlug===slug});if(s){link.href='star-map.html#'+s.id;link.hidden=false;link.setAttribute('aria-label','See '+s.name+' on star map')}});
 }
 function enhance(root){root.querySelectorAll('img[data-zoom],.packs-cards img,img[data-full]').forEach(function(im){if(im.closest('.fg-open,.preview-card-dialog'))return;if(!im.closest('.accessible-card')){var b=document.createElement('button');b.type='button';b.className='accessible-card';b.setAttribute('aria-label','View '+(im.alt||'card'));im.replaceWith(b);b.appendChild(im)}var btn=im.closest('.accessible-card');btn.dataset.full=im.dataset.full||btn.dataset.full||im.src.replace('/images/thumbs/','/images/');btn.setAttribute('aria-label','View '+(im.alt||'card'))})}
