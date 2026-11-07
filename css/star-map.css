@@ -1097,8 +1097,8 @@ html[data-face="cv"] .sd-scan-kicker { color: #5eb6ff; }
 .sd-copy, .index-world, .map-note { overflow-wrap: anywhere; }
 @media (max-width: 720px) {
   .sd-layout { display: flex; flex-direction: column; max-height: none; overflow: visible; padding: 3.3rem .8rem 1rem; }
-  .sd-card-col { order: 1; }
-  .sd-copy { order: 0; }
+  .sd-card-col { order: 0; }
+  .sd-copy { order: 1; }
   .sd-copy .sd-more { display: none; } /* Detailed full entry stays available through Alien Index. */
   .zone-switch button { flex: 1 1 140px; font-size: .82rem; }
   .scan-bar button, .route-bar button, #species-pick-btn { font-size: .78rem; }
@@ -1118,4 +1118,11 @@ html[data-face="cv"] .sd-scan-kicker { color: #5eb6ff; }
   .map-label, .label-leader, .map-leader, .moon-link, .dist-ring, .body-disc:not([data-body="earth"]) { display: none; }
   .map-label[data-body="earth"] { display: block; font-size: 38px; }
   .chart-title { font-size: 28px; }
+}
+
+/* 2026-11-06 v2: phone panel is a bottom sheet below the header strip; opaque backdrop so page controls don't show through. */
+@media (max-width: 720px) {
+  .species-dialog { margin: auto 0 0 0; width: 100vw; max-width: 100vw; max-height: calc(100dvh - 64px); border-radius: 12px 12px 0 0; border-bottom: 0; }
+  .species-dialog::backdrop { background: rgba(6, 8, 12, 0.94); }
+  .sd-layout { padding-top: 3.1rem; }
 }

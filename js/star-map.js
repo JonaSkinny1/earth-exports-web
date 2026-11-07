@@ -275,12 +275,14 @@
         state.openId = "";
         if (state.lastFocus && state.lastFocus.focus) state.lastFocus.focus();
         var zoneHash = state.zone === "beyond" ? "#beyond" : "#sol";
+        if (state.pushed) { state.pushed = false; history.back(); return; }
         if (location.hash && location.hash !== zoneHash && state.byId[location.hash.slice(1)]) {
           history.replaceState(null, "", zoneHash);
         }
       });
     }
     window.addEventListener("hashchange", function () {
+      state.pushed = false;
       var id = hashSpecies();
       if (id) {
         var species = state.byId[id];
@@ -289,6 +291,8 @@
       } else if (location.hash === "#beyond" || location.hash === "#sol") {
         if (els.dialog.open) els.dialog.close();
         showZone(location.hash.slice(1), false);
+      } else if (els.dialog.open) {
+        els.dialog.close();
       }
     });
   }
@@ -766,7 +770,8 @@
     if (species.pack !== state.zone) showZone(species.pack, false);
     state.lastFocus = document.activeElement;
     if (fromUser !== false) {
-      history.replaceState(null, "", "#" + species.id);
+      if (state.pushed) history.replaceState({ smPanel: species.id }, "", "#" + species.id);
+      else if (location.hash !== "#" + species.id) { history.pushState({ smPanel: species.id }, "", "#" + species.id); state.pushed = true; }
     }
     if (!els.dialog.open) els.dialog.showModal();
   }
