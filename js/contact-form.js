@@ -72,7 +72,7 @@
       return "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     }, "Thanks! Your message reached our inbox. We usually reply within a few days.");
     if (configured(CFG.CONTACT_FORM_ID)) {
-      var how = query.querySelector(".form-how"); if (how) how.textContent = "“Send message” sends your note straight to our inbox. Real people reply, usually within a few days.";
+      var how = query.querySelector(".form-how"); if (how) how.textContent = "“Open email draft” sends your note straight to our inbox. Real people reply, usually within a few days.";
       var fc = query.querySelector(".fc-how"); if (fc) fc.textContent = "sends to our inbox";
     }
   }
