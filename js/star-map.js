@@ -172,7 +172,7 @@
 
     wireChrome();
 
-    fetch("data/species.json?v=20261106-starmap-preview")
+    fetch("data/species.json?v=20261107-fixes")
       .then(function (res) {
         if (!res.ok) throw new Error("species file");
         return res.json();
@@ -377,7 +377,7 @@
       panel.classList.add("is-entering");
     }
     els.note.textContent = beyond
-      ? "Earth is the home port at the center. Directions use right ascension with sideways nudges for readability, not a 3D sky view. Distance rings are logarithmic light-years. This filter contains the 12 Beyond Sol card species; Starwake Comet belongs to the Sol pack."
+      ? "Earth is the home port at the center. Directions use right ascension with sideways nudges for readability, not a 3D sky view. Distance rings are logarithmic light-years; Kepler-47 (Bisola, ≈3,340 ly) sits outside the 2,000 ly ring. This filter contains the 12 Beyond Sol card species; Starwake Comet belongs to the Sol pack."
       : "Earth-centered trade schematic, not planetary orbits or a scale diagram. This filter contains the 11 Sol card species, including wandering Starwake Comet, which has no fixed homeworld or distance.";
     if (compactChart.matches) els.note.textContent += " On phones, markers are evenly spaced for tapping, not positioned by distance or sky direction. Distances remain in the list and panels.";
     renderIndex();
