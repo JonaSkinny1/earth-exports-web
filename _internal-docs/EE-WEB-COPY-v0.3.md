@@ -75,7 +75,7 @@ Trade lanes don’t open with speeches. They open when someone stamps a ledger a
 **Strip (3 tiles)**  
 | Tile | One-liner | Link |
 |------|-----------|------|
-| Sector 01 — Dossiers & Games | Card-scale filings from the Archive of First Contact. | `/sector-01` |
+| Sector 01 — Dossiers & Games | Card-scale filings from the Archive of Foreign Cultures. | `/sector-01` |
 | Sector 02 — Relics | Four crates. One weather language. Display-grade props. | `/sector-02` |
 | Sector 04 — Schematics | Licensed build files. Measured. Versioned. Not a junk folder. | `/sector-04` |
 
@@ -97,9 +97,9 @@ The Manifest
 **Lead**  
 We are not a ministry. We are a house mark.
 
-Earth Exports operates from the Ohio Outpost on Sol-3. Fifty years after formal contact, the valuable thing Earth puts on a ship is not only ore — it is culture you can hold: games, tools, documents, and objects made by hand in a gravity well.
+Earth Exports operates from the Ohio Outpost on Sol-3. Fifty years after the Outpost opened, the valuable thing Earth puts on a ship is not only ore — it is culture you can hold: games, tools, documents, and objects made by hand in a gravity well.
 
-We publish dossier decks drawn from our Archive of First Contact (AFC), finish field relics as display pieces, and sell fabrication schematics for licensed builders. Filing stamps you will see — PTC, AFC, TCRD, Sol-3 Consular Authority — are house fiction. They keep the shelves honest. They are not government credentials.
+We publish dossier decks drawn from our Archive of Foreign Cultures (AFC), finish field relics as display pieces, and sell fabrication schematics for licensed builders. Filing stamps you will see — PTC, AFC, TCRD, Sol-3 Consular Authority — are house fiction. They keep the shelves honest. They are not government credentials.
 
 **Why Ohio**  
 Ohio is not a compromise. It is the outpost. The same region that pours steel and runs a pickup counter runs this merchant house. Crates that don’t ship go under the tent at the local pickup. Commissions get a real address and a real reply.
@@ -122,7 +122,7 @@ Earth Exports is a work of speculative fiction and independent design. We are no
 Sector 01 — Dossiers & Games
 
 **Lead**  
-Card-scale filings from the Archive of First Contact. Poker decks styled as declassified-style dossier files — linen stock, black core, tuck boxes like archive folders. The entry product for the house.
+Card-scale filings from the Archive of Foreign Cultures. Poker decks styled as declassified-style dossier files — linen stock, black core, tuck boxes like archive folders. The entry product for the house.
 
 **How the file works**  
 Each card carries an Archive ID, a designation, a diplomatic status (Treaty / Observer / Restricted / Embargoed), and one sensory hook short enough to live under a stamp. Source bible: AFC-SB-01. Sixteen species. No borrowed conspiracies.

@@ -131,7 +131,7 @@ Saved from `archives.html` (main) and `js/dossiers.js` on the species-rename bra
         <summary><span class="story-k">The story</span> <span class="story-hint">for lore fans · tap to open</span></summary>
         <div class="story-body">
           <div class="body-copy">
-            <p>Sixteen filings, one embargo. In the story, the Archive of First Contact (AFC) is the house library of every species Earth has met. This page is the public teaser: name, status and a short fact file. Full biology stays on the cards.</p>
+            <p>Sixteen filings, one embargo. In the story, the Archive of Foreign Cultures (AFC) is the house library of every species Earth has met. This page is the public teaser: name, status and a short fact file. Full biology stays on the cards.</p>
           </div>
         </div>
       </details>
@@ -164,7 +164,7 @@ Saved from `archives.html` (main) and `js/dossiers.js` on the species-rename bra
     ["AFC-13.00","Gorruth","Treaty","Foundry Kin","Cinderhome, the forge-moons of the Ember Veil","Heat-loving, ash-gray and warm to stand near. Everything centers on shared furnaces and long apprenticeships.","firebrick, pattern books, Ohio foundry tools","alloy bars, custom castings","C1","Standing next to a Gorruth feels like standing by an open kiln.",2029],
     ["AFC-14.00","Vesper Ring","Treaty","Evening Court","Duskhold, an orbital ring in the Crown of Tesk","Winged and built for low gravity. Rank shows in dusk-colored feather dyes.","museum replicas, silk, low-gravity dance","orbital hospitality, diplomatic hosting","C2","Their reception decks stay at permanent twilight. Clocks are considered rude.",2047],
     ["AFC-15.00","Kethra Void-Clans","Restricted","Unfiled Drift","None. Born aboard slow, cold generation ships","Long, radiation-hardened frames made for drifting between stars. Clans are marked by star-chart tattoos.","star charts, dried food, radiation medicine","deep-lane piloting, unmapped shortcuts (buyer beware)","C3","They keep their cabins near freezing. Their breath fogs in rooms we call warm.",2061],
-    ["AFC-16.00","Object 9 / “The Invoice”","Embargoed (direct)","First Bill of Lading","Unknown. Only the paperwork arrived","Unknown. First contact wasn’t a body. It was a tariff schedule and a docking request sent to Sol traffic control.","nothing (no verified counterparty)","the template that opened Sol-3 to lane trade","C4","Old printouts of the schedule smell faintly of ozone and machine oil.",2026]
+    ["AFC-16.00","Object 9 / “The Invoice”","Embargoed (direct)","First Bill of Lading","Unknown. Only the paperwork arrived","Unknown. The first meeting wasn’t a body. It was a tariff schedule and a docking request sent to Sol traffic control.","nothing (no verified counterparty)","the template that opened Sol-3 to lane trade","C4","Old printouts of the schedule smell faintly of ozone and machine oil.",2026]
   ];
   var grid = document.querySelector(".species-grid");
   if (!grid) return;
@@ -183,7 +183,7 @@ Saved from `archives.html` (main) and `js/dossiers.js` on the species-rename bra
         '<div class="dossier-top"><span class="dossier-id">' + esc(d[0]) + ' · dossier</span>' +
         '<button type="button" class="dossier-x" aria-label="Close dossier">✕</button></div>' +
         im + '<h2 id="dossier-title">' + esc(d[1]) + '</h2>' +
-        '<p class="dossier-nick">File name: “' + esc(d[3]) + '” · first contact ' + d[10] + '</p>' +
+        '<p class="dossier-nick">File name: “' + esc(d[3]) + '” · first met ' + d[10] + '</p>' +
         '<span class="status ' + stClass(d[2]) + '">' + esc(d[2]) + '</span>' +
         '<dl class="dossier-dl">' +
           '<div><dt>Homeworld</dt><dd>' + esc(d[4]) + '</dd></div>' +

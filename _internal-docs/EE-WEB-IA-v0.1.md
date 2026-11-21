@@ -79,7 +79,7 @@
 |-------|--------|
 | H1 | The Manifest |
 | Lead | Who: a Sol-3 merchant house operating from Ohio Outpost. What: physical + digital speculative-fiction trade goods (cards, props, licensed files). |
-| House organs | Name drop only: AFC (Archive of First Contact), PTC / TCRD as *fictional* filing stamps — never as real agencies. |
+| House organs | Name drop only: AFC (Archive of Foreign Cultures), PTC / TCRD as *fictional* filing stamps — never as real agencies. |
 | Why Ohio | Local maker outpost, pickup presence, commissions. Ground the myth in a real city without breaking fiction. |
 | Fiction disclaimer (required, visible) | Clear statement: Earth Exports products are original speculative fiction and decorative/maker goods. They are not authentic government, military, or intelligence documents. |
 | CTA | “Browse Sector 01” |
@@ -98,7 +98,7 @@
 | Block | Brief |
 |-------|--------|
 | H1 | Sector 01 — Dossiers & Games |
-| Lead | Card-scale filings from the Archive of First Contact. Entry product for the house. |
+| Lead | Card-scale filings from the Archive of Foreign Cultures. Entry product for the house. |
 | Product tiers (placeholders until SKUs lock) | **Door deck** ~$28–32 — index / entry set. **Limited** ~$48–65 — short-run dossier or MANIFEST game SKU. |
 | What’s in a dossier | Poker-card real estate: Archive ID, designation, status (Treaty / Observer / Restricted / Embargoed), one sensory hook. Point to AFC-SB-01 as source bible (not full dump). |
 | Featured species hooks (tease, don’t dump) | Vel-Keth · Orrin · Mirenth · Object 9 / “The Invoice” (embargoed — mystery CTA only). |
