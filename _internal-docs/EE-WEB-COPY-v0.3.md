@@ -97,7 +97,7 @@ The Manifest
 **Lead**  
 We are not a ministry. We are a house mark.
 
-Earth Exports operates from the Ohio Outpost on Sol-3. Fifty years after the Outpost opened, the valuable thing Earth puts on a ship is not only ore — it is culture you can hold: games, tools, documents, and objects made by hand in a gravity well.
+Earth Exports operates from the Ohio Outpost on Sol-3. Fifty years into the trade lanes, the valuable thing Earth puts on a ship is not only ore — it is culture you can hold: games, tools, documents, and objects made by hand in a gravity well.
 
 We publish dossier decks drawn from our Archive of Foreign Cultures (AFC), finish field relics as display pieces, and sell fabrication schematics for licensed builders. Filing stamps you will see — PTC, AFC, TCRD, Sol-3 Consular Authority — are house fiction. They keep the shelves honest. They are not government credentials.
 
